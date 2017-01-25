@@ -1,0 +1,25 @@
+// comment at top
+::True statement about Grant::Grant was buried in a tomb in New York City.{T}
+
+
+::False statement about Grant::Grant was never buried.{F}
+
+// comment in middle
+::Math question 2::What is 2+2 {~1#nope
+=4#Great!}
+
+::Math question:: What is 1+2 {
+=3#Hooray!
+~4#Try again~2#Not this time...
+}
+
+How old am I? {
+=50#AWESOME!
+~12
+~5}
+
+::blah::42 is the Absolute Answer to everything.{
+F#42is the Ultimate Answer.#You gave the right answer.}
+
+42 is the Absolute Answer to everything.{
+FALSE#42is the Ultimate Answer.#You gave the right answer.}
