@@ -7,7 +7,7 @@ The grammar.txt file goes on the left and the test input.txt goes on the right (
 
 ## GIFT format (from Moodle.org)
 
-This table is not sufficient to understand everything. Please see https://docs.moodle.org/en/GIFT_format for many more details.
+This table is not sufficient to understand everything. Please see https://docs.moodle.org/en/GIFT_format and http://buypct.com/gift_reference.pdf for many more details.
 
 | Symbols	| Use |
 | :------- | :----- |
