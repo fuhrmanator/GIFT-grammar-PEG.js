@@ -5,7 +5,35 @@ Initial hacking done using https://pegjs.org/online
 
 The grammar.txt file goes on the left and the test input.txt goes on the right (intuitive?) 
 
+## GIFT format (from Moodle.org)
+
+
+| Symbols	| Use |
+| :------- | :----- |
+| // text	| Comment until end of line (optional) | 
+|  ::title::	| Question title (optional) | 
+| text	| Question text (becomes title if no title specified)| 
+| [...format...]	| The format of the following bit of text. Options are [html], [moodle], [plain] and [markdown]. The default is [moodle] for the question text, other parts of the question default to the format used for the question text. | 
+| {	| Start answer(s) -- without any answers, text is a description of following questions | 
+| {T} or {F}	|  True or False answer; also {TRUE} and {FALSE} | 
+| { ... =right ... }	| Correct answer for multiple choice, (multiple answer? -- see page comments) or fill-in-the-blank| 
+| { ... ~wrong ... }	| Incorrect answer for multiple choice or multiple answer| 
+| { ... =item -> match ... }	| Answer for matching questions| 
+| #feedback text	| Answer feedback for preceding multiple, fill-in-the-blank, or numeric answers| 
+| ####general feedback	| General feedback| 
+| {#	| Start numeric answer(s)| 
+| answer:tolerance	| Numeric answer accepted within ± tolerance range| 
+| low..high	| Lower and upper range values of accepted numeric answer| 
+| =%n%answer:tolerance	| n percent credit for one of multiple numeric ranges within tolerance from answer| 
+| }	| End answer(s)| 
+| \character	| Backslash escapes the special meaning of ~, =, #, {, }, and :| 
+| \n	| Places a newline in question text -- blank lines delimit questions| 
+
+
 ## Background information
+
+ - http://microformats.org/wiki/gift (duplicate info from Moodle?)
+
 See these discussions in the Moodle forums: 
  - https://moodle.org/mod/forum/discuss.php?d=259533 ["Creating 100 multichoice questions is quicker using GIFT."](https://moodle.org/mod/forum/discuss.php?d=259533#p1177669) --[Derek Chirnside](https://moodle.org/user/view.php?id=191052&course=5)
  - https://moodle.org/mod/forum/discuss.php?d=346431 (suggesting using PEG.js with the GIFT spec)
