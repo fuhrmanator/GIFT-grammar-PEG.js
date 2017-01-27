@@ -1,52 +1,86 @@
-Expression
-  = Spacing Rule+ EndOfFile
+{
+  function makeInteger(o) {
+    return parseInt(o.join(""), 10);
+  }
+}
 
-Rule
-  = title:QuestionTitle? stem:QuestionStem questionType:SpecificQuestionDetails Space* EndOfLine* 
-  { return questionType + ' question:\n ' + title + "\n" + stem }
-   / Comment EndOfLine*
 
-SpecificQuestionDetails "(specific question details)"
+GIFTQuestions
+  = (Question)+
+
+Question "(question)"
+  = title:QuestionTitle? __ stem:QuestionStem answers:AnswerDetails Spacing QuestionSeparator
+  {
+    var question = {
+      type: answers.type,
+      title: title,
+      stem: stem
+    }
+    switch(answers.type) {
+      case "TF":
+        question.isTrue = answers.isTrue;
+        question.feedBack1 = answers.feedback[1];
+        question.feedBack2 = answers.feedback[2];
+        break;
+      case "MC":
+        question.choices = answers.choices;
+    }
+    return question;
+ }
+
+QuestionSeparator "(blank line)"
+  = EndOfLine EndOfLine* / EndOfLine? EndOfFile
+
+AnswerDetails "(specific question details)"
   = TrueFalseQuestion / MCQuestion
  
 TrueFalseQuestion "True/False Question"
-  = '{' __ answer:(TrueOrFalseType Feedback? Feedback?) __ '}' { return answer[0] + "\nfeedback1:" + answer[1] + "\nfeedback2:" + answer[2] + "\n"; }
+  = '{' __ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) __ '}' 
+    { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
 
 TrueOrFalseType "(true or false type)"
   = TrueType / FalseType
   
 TrueType "(true type)"
-  = 'TRUE'i / 't'i {return "TRUE"} // appending i after a literal makes it case insensitive
+  = 'TRUE'i / 't'i {return true} // appending i after a literal makes it case insensitive
 
 FalseType "(false type)"
-  = 'FALSE'i / 'F'i {return "FALSE"}
+  = 'FALSE'i / 'F'i {return false}
 
 MCQuestion "Multiple-choice Question"
-  = '{' choices:(Choices)+ '}' { return "Multiple-choice:" + choices; }
+  = '{' choices:(Choices) '}' 
+  { var answers = { type: "MC", choices: choices}; return answers }
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
  
 Choice "Choice"
-  = __ choice:([=~] Text) feedback:Feedback? __ 
-    { return '\n' + (choice[0]=='=' ? 'correct ' : 'incorrect ') + 'choice: ' 
-        + choice[1] + '\nfeedback:' + feedback }
+  = __ choice:([=~] Weight? Text) feedback:Feedback? __ 
+    { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
+//    return '\n' + (choice[0]=='=' ? 'correct ' : 'incorrect ') + 'choice: ' 
+//        + choice[1] + '\nfeedback:' + feedback }
 //  = __ choice:(CorrectChoice / IncorrectChoice) feedback:Feedback? __
 
-Feedback "feedback" 
+Weight "(weight)"
+  = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
+  
+PercentValue "(percent)"
+  = '100' / [1-9][0-9]?  { return text() }
+
+Feedback "(feedback)" 
   = '#' feedback:Text { return feedback }
 
 QuestionTitle
-  = '::' title:Title '::' { return ' title: ' + title }
+  = '::' title:Title EndOfLine? '::' { return title }
   
 QuestionStem
-  = stem:RichText { return ' stem: ' + stem; }
+  = stem:RichText { return stem; }
 
 Text "(text)"
-  = [A-Za-z0-9 .+!?]+ { return text() } 
+  = [A-Za-z0-9 .+!?']+ { return text() } 
 
 RichText
-  = Text* { return 'RichText:' + text() } 
+  = Text* { return text() } 
 
 Title
   = Text* { return text() }
@@ -59,7 +93,7 @@ __ "(whitespace)"
 
 Spacing 
   = (Space / Comment)*
-Comment 
+Comment "(comment)"
   = '//' (!EndOfLine .)* EndOfLine { return null }
 Space "(space)"
   = ' ' / '\t'
