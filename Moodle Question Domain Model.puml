@@ -1,0 +1,98 @@
+@startuml
+skinparam style strictuml
+hide methods
+hide empty members
+title Domain (Data) Model for Moodle Quiz questions (XML)
+class "Quiz" as Q {
+}
+class "Category" as C {
+ name : Text
+}
+
+class "Non-Hierarchical\nCategory" as NHC {
+  tagName : Text
+}
+
+abstract class "Question" as AQ {
+  name : Text
+  questionText : RichText
+}
+class "MultipleChoiceQuestion" as MCQ  extends AQ {
+  isShuffled : boolean
+ onlyOneAnswerAllowed : boolean
+}
+
+class "MultipleChoiceAnswer" as MCA   {
+ isCorrect : boolean
+ answer : RichText
+ feedback : Text
+}
+MCQ "1" -- "*" MCA : has >
+
+class "TrueFalseQuestion" as TFQ extends AQ {
+}
+
+class "TrueFalseAnswer" as TFA {
+ isTrue : boolean
+ percentWeight : integer
+ feedback : Text
+}
+
+note bottom
+percentWeight indicates 
+correctness e.g.(100=correct,
+0=incorrect)
+end note
+
+TFQ "1" -- "2" TFA : has >
+
+
+
+class "MatchingQuestion" as MQ extends AQ {
+isShuffled : boolean
+}
+class "MatchedPair" as SQ {
+ question : Text
+ answer : Text
+}
+MQ "1" -- "*" SQ : has >
+
+class "ShortAnswerQuestion" as SAQ extends AQ {
+}
+
+class "ShortAnswer" as SA {
+ text : Text 
+ percentWeight : integer
+ feedback : Text
+}
+
+SAQ "1" -- "*" SA : has >
+
+class "Numerical" as NQ extends AQ {
+}
+class "NumericalAnswer" as NA {
+ percentWeight : integer
+ numericalAnswer : Text
+ feedback : Text
+}
+
+NQ "1" -- "*" NA : has >
+
+class "Essay" as EQ extends AQ {
+}
+class "EssayAnswer" as EA {
+ isCorrect : boolean
+ answer : RichText
+}
+EQ "1" -- "*" EA : has >
+
+Q "1" -- "*" AQ : has >
+AQ "*" - "1" C : belongs-to >
+AQ "*" -left- "*" NHC : belongs-to >
+
+legend center
+To synchronize with [[http://docs.moodle.org/en/Moodle_XML_format]]
+TODO: Add missing-word questions to model
+endlegend
+
+@enduml
