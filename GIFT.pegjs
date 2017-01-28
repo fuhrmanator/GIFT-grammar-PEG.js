@@ -1,21 +1,18 @@
+// All these helper functions are available inside of actions 
 {
   function makeInteger(o) {
     return parseInt(o.join(""), 10);
   }
-}
-
-
-GIFTQuestions
-  = (Question)+
-
-Question "(question)"
-  = title:QuestionTitle? __ stem:QuestionStem answers:AnswerDetails Spacing QuestionSeparator
-  {
+  function createQuestion(type, title, stem, hasEmbeddedAnswers) {
     var question = {
-      type: answers.type,
+      hasEmbeddedAnswers: hasEmbeddedAnswers,
+      type: type,
       title: title,
       stem: stem
     }
+    return question;
+  }
+  function processAnswers(question, answers) {
     switch(answers.type) {
       case "TF":
         question.isTrue = answers.isTrue;
@@ -24,7 +21,32 @@ Question "(question)"
         break;
       case "MC":
         question.choices = answers.choices;
+        break;
     }
+    return question;
+  }
+}
+
+
+GIFTQuestions
+  = (Question)+
+
+Question "(question)"
+  = QuestionAnswersAtEnd / QuestionEmbeddedAnswers
+
+QuestionAnswersAtEnd "(question with answers at end)" 
+  = title:QuestionTitle? __ stem:QuestionStem answers:AnswerDetails Spacing QuestionSeparator
+  {
+    var question = createQuestion(answers.type, title, stem, false);
+    question = processAnswers(question, answers);
+    return question;
+ }
+
+QuestionEmbeddedAnswers "(question with embedded answers)" 
+  = title:QuestionTitle? __ stem1:QuestionStem answers:AnswerDetails stem2:QuestionStem Spacing QuestionSeparator
+  {
+    var question = createQuestion(answers.type, title, stem1 + "_" + stem2, true);
+    question = processAnswers(question, answers);
     return question;
  }
 
@@ -39,13 +61,13 @@ TrueFalseQuestion "True/False Question"
     { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
 
 TrueOrFalseType "(true or false type)"
-  = TrueType / FalseType
+  = isTrue:(TrueType / FalseType) { return isTrue }
   
 TrueType "(true type)"
-  = 'TRUE'i / 't'i {return true} // appending i after a literal makes it case insensitive
+  = ('TRUE'i / 'T'i) {return true} // appending i after a literal makes it case insensitive
 
 FalseType "(false type)"
-  = 'FALSE'i / 'F'i {return false}
+  = ('FALSE'i / 'F'i) {return false}
 
 MCQuestion "Multiple-choice Question"
   = '{' choices:(Choices) '}' 
