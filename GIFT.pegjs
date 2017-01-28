@@ -5,10 +5,10 @@
   }
   function createQuestion(type, title, stem, hasEmbeddedAnswers) {
     var question = {
-      hasEmbeddedAnswers: hasEmbeddedAnswers,
       type: type,
       title: title,
-      stem: stem
+      stem: stem,
+      hasEmbeddedAnswers: hasEmbeddedAnswers
     }
     return question;
   }
