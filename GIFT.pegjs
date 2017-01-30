@@ -27,15 +27,14 @@
   }
 }
 
-
 GIFTQuestions
-  = (Question)+
+  = _ questions:(Question)+ { return questions }
 
 Question "(question)"
   =  QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
 
 QuestionAnswersAtEnd "(question with answers at end)" 
-  = title:QuestionTitle? __ stem:QuestionStem answers:AnswerDetails Spacing QuestionSeparator
+  = title:QuestionTitle? _ stem:QuestionStem _ answers:AnswerDetails QuestionSeparator
   {
     var question = createQuestion(answers.type, title, stem, false);
     question = processAnswers(question, answers);
@@ -43,8 +42,8 @@ QuestionAnswersAtEnd "(question with answers at end)"
  }
 
 QuestionEmbeddedAnswers "(question with embedded answers)" 
-  = title:QuestionTitle? __ stem1:QuestionStem __ answers:AnswerDetails __ 
-      stem2:QuestionStem Spacing QuestionSeparator
+  = title:QuestionTitle? _ stem1:QuestionStem _ answers:AnswerDetails _ 
+      stem2:QuestionStem QuestionSeparator
   {
     var question = createQuestion(answers.type, title, stem1 + " _____ " + stem2, true);
     question = processAnswers(question, answers);
@@ -58,7 +57,7 @@ AnswerDetails "(answer details)"
   = TrueFalseQuestion / MCQuestion
  
 TrueFalseQuestion "True/False Question"
-  = '{' __ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) __ '}' 
+  = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
     { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
 
 TrueOrFalseType "(true or false type)"
@@ -71,18 +70,15 @@ FalseType "(false type)"
   = ('FALSE'i / 'F'i) {return false}
 
 MCQuestion "Multiple-choice Question"
-  = '{' __ choices:(Choices) __ '}' 
+  = '{' _ choices:(Choices) _ '}' 
   { var answers = { type: "MC", choices: choices}; return answers }
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
  
 Choice "Choice"
-  = __ choice:([=~] Weight? Text) feedback:Feedback? __ 
+  = _ choice:([=~] Weight? Text) feedback:Feedback? _ 
     { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
-//    return '\n' + (choice[0]=='=' ? 'correct ' : 'incorrect ') + 'choice: ' 
-//        + choice[1] + '\nfeedback:' + feedback }
-//  = __ choice:(CorrectChoice / IncorrectChoice) feedback:Feedback? __
 
 Weight "(weight)"
   = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
@@ -108,16 +104,11 @@ RichText
 Title
   = Text* { return text() }
 
-_ "whitespace"
-  = [ \t]*
+_ "(whitespace)"
+  = (EndOfLine / Space / Comment)*
 
-__ "(whitespace)"
-  = (EndOfLine / Space)*
-
-Spacing 
-  = (Space / Comment)*
 Comment "(comment)"
-  = '//' (!EndOfLine .)* EndOfLine { return null }
+  = '//' (!EndOfLine .)* EndOfLine 
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"
