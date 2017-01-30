@@ -43,9 +43,10 @@ QuestionAnswersAtEnd "(question with answers at end)"
  }
 
 QuestionEmbeddedAnswers "(question with embedded answers)" 
-  = title:QuestionTitle? __ stem1:QuestionStem answers:AnswerDetails stem2:QuestionStem Spacing QuestionSeparator
+  = title:QuestionTitle? __ stem1:QuestionStem __ answers:AnswerDetails __ 
+      stem2:QuestionStem Spacing QuestionSeparator
   {
-    var question = createQuestion(answers.type, title, stem1 + "_" + stem2, true);
+    var question = createQuestion(answers.type, title, stem1 + " _____ " + stem2, true);
     question = processAnswers(question, answers);
     return question;
  }
@@ -53,7 +54,7 @@ QuestionEmbeddedAnswers "(question with embedded answers)"
 QuestionSeparator "(blank line)"
   = EndOfLine EndOfLine* / EndOfLine? EndOfFile
 
-AnswerDetails "(specific question details)"
+AnswerDetails "(answer details)"
   = TrueFalseQuestion / MCQuestion
  
 TrueFalseQuestion "True/False Question"
@@ -70,7 +71,7 @@ FalseType "(false type)"
   = ('FALSE'i / 'F'i) {return false}
 
 MCQuestion "Multiple-choice Question"
-  = '{' choices:(Choices) '}' 
+  = '{' __ choices:(Choices) __ '}' 
   { var answers = { type: "MC", choices: choices}; return answers }
 
 Choices "Choices"
@@ -99,7 +100,7 @@ QuestionStem
   = stem:RichText { return stem; }
 
 Text "(text)"
-  = [A-Za-z0-9 .+!?']+ { return text() } 
+  = [A-Za-z0-9 .+!?'"]+ { return text() } 
 
 RichText
   = Text* { return text() } 
