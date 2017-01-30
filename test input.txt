@@ -1,3 +1,10 @@
+// Test
+Is this True?    
+{
+T
+}
+
+//test 
 Mahatma Gandhi's birthday is an Indian holiday on {
 ~15th
 ~3rd
@@ -18,8 +25,7 @@ Question 1? {T#blah#nope}
 
 Question 2? {F}
 
-::Lovely title::
-Question 4? {T}
+::Lovely title::Question 4? {T}
 
 
 
@@ -41,12 +47,12 @@ What two people are entombed in Grant's tomb? {
 
 ::False statement about Grant::Grant was never buried.{F}
 
-::Math question 2::What is 2+2 {~1#nope
+::Math question 2::What is 2+2 {~1#nope//test
 =4#Great!}
 
 ::Math question:: What is 1+2 {
 =3#Hooray!
-~4#Try again~2#Not this time...
+~4#Try again~2#Not this time...  // ignore
 }
 
 How old am I? {
