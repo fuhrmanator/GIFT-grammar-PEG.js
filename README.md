@@ -5,7 +5,9 @@ Initial hacking done using https://pegjs.org/online
 
 The grammar.txt file goes on the left and the test input.txt goes on the right (intuitive?) 
 
-## GIFT format (from Moodle.org)
+## GIFT format
+
+*General Import Format Technology* (GIFT) is described at several places, but it's hard to know what the definitive source is.
 
 This table is not sufficient to understand everything. Please see https://docs.moodle.org/en/GIFT_format and http://buypct.com/gift_reference.pdf for many more details.
 
