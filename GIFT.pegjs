@@ -20,6 +20,7 @@
         question.feedBack2 = answers.feedback[2];
         break;
       case "MC":
+      case "Numerical":
         question.choices = answers.choices;
         break;
     }
@@ -28,7 +29,7 @@
 }
 
 GIFTQuestions
-  = _ questions:(Question)+ { return questions }
+  = _ questions:(Question)+ _ { return questions }
 
 Question "(question)"
   =  QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
@@ -74,11 +75,10 @@ MCQuestion "Multiple-choice Question"
   { var answers = { type: "MC", choices: choices}; return answers }
 
 NumericalQuestion "Numerical question" // Number ':' Range / Number '..' Number / Number
-  = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { return numericalAnswers }
+  = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { var answers = { type: "Numerical", choices: numericalAnswers};return answers }
 
 NumericalAnswers "Numerical Answers"
-  = SingleNumericalAnswer
-//  = MultipleNumericalChoices / SingleNumericalAnswer
+  = MultipleNumericalChoices / SingleNumericalAnswer
 
 MultipleNumericalChoices "Multiple Numerical Choices"
   = choices:(NumericalChoice)+ { return choices; }
@@ -122,10 +122,10 @@ QuestionTitle
   = '::' title:Title EndOfLine? '::' { return title }
   
 QuestionStem
-  = stem:RichText { return stem; }
+  = stem:RichText !QuestionSeparator { return stem; }
 
 Text "(text)"
-  = [A-Za-z0-9 .+!?'"]+ { return text() } 
+  = [A-Za-z0-9 .+\-()!?'"\n]+ { return text() } 
 
 RichText
   = Text* { return text() } 
