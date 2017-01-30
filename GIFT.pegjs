@@ -32,7 +32,7 @@ GIFTQuestions
   = (Question)+
 
 Question "(question)"
-  = QuestionAnswersAtEnd / QuestionEmbeddedAnswers
+  =  QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
 
 QuestionAnswersAtEnd "(question with answers at end)" 
   = title:QuestionTitle? __ stem:QuestionStem answers:AnswerDetails Spacing QuestionSeparator
