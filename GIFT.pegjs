@@ -54,8 +54,8 @@ QuestionSeparator "(blank line)"
   = EndOfLine EndOfLine* / EndOfLine? EndOfFile
 
 AnswerDetails "(answer details)"
-  = TrueFalseQuestion / MCQuestion
- 
+  = TrueFalseQuestion / MCQuestion / NumericalQuestion
+
 TrueFalseQuestion "True/False Question"
   = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
     { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
@@ -72,6 +72,35 @@ FalseType "(false type)"
 MCQuestion "Multiple-choice Question"
   = '{' _ choices:(Choices) _ '}' 
   { var answers = { type: "MC", choices: choices}; return answers }
+
+NumericalQuestion "Numerical question" // Number ':' Range / Number '..' Number / Number
+  = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { return numericalAnswers }
+
+NumericalAnswers "Numerical Answers"
+  = SingleNumericalAnswer
+//  = MultipleNumericalChoices / SingleNumericalAnswer
+
+MultipleNumericalChoices "Multiple Numerical Choices"
+  = choices:(NumericalChoice)+ { return choices; }
+
+NumericalChoice "Numerical Choice"
+  = _ choice:([=~] Weight? SingleNumericalAnswer) feedback:Feedback? _ 
+    { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
+
+SingleNumericalAnswer "Single numeric answer"
+  = NumberWithRange / NumberHighLow / NumberAlone
+
+NumberWithRange "(number with range)"
+  = number:Number ':' range:Number 
+  { var numericAnswer = {type: 'range', number: number, range:range}; return numericAnswer}
+
+NumberHighLow "(number with high-low)"
+  = numberHigh:Number '..' numberLow:Number 
+  { var numericAnswer = {type: 'high-low', numberHigh: numberHigh, numberLow:numberLow}; return numericAnswer}
+
+NumberAlone "(number answer)"
+  = number:Number
+  { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
@@ -103,6 +132,15 @@ RichText
 
 Title
   = Text* { return text() }
+
+// folllowing inspired by http://nathansuniversity.com/turtle1.html
+Number
+    = chars:[0-9]+ frac:NumberFraction?
+        { return parseFloat(chars.join('') + frac); }
+
+NumberFraction
+    = "." chars:[0-9]*
+        { return "." + chars.join(''); }
 
 _ "(whitespace)"
   = (EndOfLine / Space / Comment)*
