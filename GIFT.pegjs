@@ -43,7 +43,7 @@ QuestionAnswersAtEnd "(question with answers at end)"
  }
 
 QuestionEmbeddedAnswers "(question with embedded answers)" 
-  = title:QuestionTitle? _ stem1:QuestionStem _ answers:AnswerDetails _ 
+  = title:QuestionTitle? _ stem1:QuestionStem _ answers:AnswerDetails !QuestionSeparator _  
       stem2:QuestionStem QuestionSeparator
   {
     var question = createQuestion(answers.type, title, stem1 + " _____ " + stem2, true);
@@ -55,7 +55,38 @@ QuestionSeparator "(blank line)"
   = EndOfLine EndOfLine* / EndOfLine? EndOfFile
 
 AnswerDetails "(answer details)"
-  = TrueFalseQuestion / MCQuestion / NumericalQuestion
+  = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestion
+
+MatchingQuestion "Matching Question"
+  = '{' _ matches:Matches _ '}'
+  { var answers = { type: "Matching", matches: matches}; return answers }
+
+Matches "matches"
+  = matches:(Match)+  { return matches }
+  
+Match "match"
+  = _ '=' _ subquestion:Text _ '->' _ subanswer:Text _ 
+    { var match = { subquestion: subquestion, subanswer: subanswer }; return match } 
+
+MCQuestion "Multiple-choice Question"
+  = '{' _ choices:Choices _ '}' 
+  { var answers = { type: "MC", choices: choices}; return answers }
+
+Choices "Choices"
+  = choices:(Choice)+ { return choices; }
+ 
+Choice "Choice"
+  = _ choice:([=~] Weight? Text) feedback:Feedback? _ 
+    { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
+
+Weight "(weight)"
+  = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
+  
+PercentValue "(percent)"
+  = '100' / [1-9][0-9]?  { return text() }
+
+Feedback "(feedback)" 
+  = '#' feedback:Text { return feedback }
 
 TrueFalseQuestion "True/False Question"
   = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
@@ -69,10 +100,6 @@ TrueType "(true type)"
 
 FalseType "(false type)"
   = ('FALSE'i / 'F'i) {return false}
-
-MCQuestion "Multiple-choice Question"
-  = '{' _ choices:(Choices) _ '}' 
-  { var answers = { type: "MC", choices: choices}; return answers }
 
 NumericalQuestion "Numerical question" // Number ':' Range / Number '..' Number / Number
   = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { var answers = { type: "Numerical", choices: numericalAnswers};return answers }
@@ -102,36 +129,23 @@ NumberAlone "(number answer)"
   = number:Number
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
 
-Choices "Choices"
-  = choices:(Choice)+ { return choices; }
- 
-Choice "Choice"
-  = _ choice:([=~] Weight? Text) feedback:Feedback? _ 
-    { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
-
-Weight "(weight)"
-  = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
-  
-PercentValue "(percent)"
-  = '100' / [1-9][0-9]?  { return text() }
-
-Feedback "(feedback)" 
-  = '#' feedback:Text { return feedback }
-
 QuestionTitle
   = '::' title:Title EndOfLine? '::' { return title }
   
 QuestionStem
-  = stem:RichText !QuestionSeparator { return stem; }
+  = stem:RichText { return stem; }
 
 Text "(text)"
-  = [A-Za-z0-9 .+\-()!?'"\n]+ { return text() } 
+  = (TextChar !"->")+ { return text() } // disallow "->" sequence
+
+TextChar "(text character)"
+  = [A-Z0-9 .+-></()!?'",]i
 
 RichText
-  = Text* { return text() } 
+  = (Text (EndOfLine !EndOfLine)?)+ { return text() } 
 
 Title
-  = Text* { return text() }
+  = (Text)+ { return text() }
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
@@ -143,7 +157,7 @@ NumberFraction
         { return "." + chars.join(''); }
 
 _ "(whitespace)"
-  = (EndOfLine / Space / Comment)*
+  = (EndOfLine !EndOfLine / Space / Comment)*
 
 Comment "(comment)"
   = '//' (!EndOfLine .)* EndOfLine 
