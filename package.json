@@ -1,0 +1,24 @@
+{
+  "name": "gift-grammar-pegjs",
+  "version": "1.0.0",
+  "description": "grammar in pegjs for GIFT question format",
+  "main": "index.js",
+  "dependencies": {
+    "unit.js": "^2.0.0",
+    "qunitjs": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node_modules/.bin/mocha tests --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuhrmanator/GIFT-grammar-PEG.js.git"
+  },
+  "author": "C. Fuhrman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js/issues"
+  },
+  "homepage": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js#readme"
+}
