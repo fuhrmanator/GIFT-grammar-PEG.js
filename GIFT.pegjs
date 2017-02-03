@@ -136,10 +136,13 @@ QuestionStem
   = stem:RichText { return stem; }
 
 Text "(text)"
-  = (TextChar !"->")+ { return text() } // disallow "->" sequence
+  = (TextChar !SpecialTokens)+ { return text() } // disallow "->" sequence
 
 TextChar "(text character)"
   = [A-Z0-9 .+-></()!?'",]i
+
+SpecialTokens "(special chars)"
+  = "->" / "=" / "~" / "#" / "%" / "#" / "::" // do not include "{" / "}"
 
 RichText
   = (Text (EndOfLine !EndOfLine)?)+ { return text() } 
