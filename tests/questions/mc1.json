@@ -1,0 +1,19 @@
+[{
+				"type": "MC",
+				"title": null,
+				"stem": "Grant is  _____ in Grant's tomb.",
+				"hasEmbeddedAnswers": true,
+				"choices": [{
+						"isCorrect": false,
+						"weight": null,
+						"text": "buried =entombed ",
+						"feedback": null
+					}, {
+						"isCorrect": false,
+						"weight": null,
+						"text": "living",
+						"feedback": null
+					}
+				]
+			}
+		]
