@@ -47,9 +47,9 @@ describe('GIFT parser harness: ', function () {
     });
 
     it.each(dataFilesList, 'Testing GIFT question: %s', ['element'], function (element, next) {
-//        console.log("copyOfFiles:\n", util.inspect(copyOfFiles, true, null));
-//        console.log("copyOfFiles:\n", JSON.stringify(copyOfFiles, null, 4));
-        //console.log("inside it: ", element);
+        //console.log("copyOfFiles:\n", util.inspect(copyOfFiles, true, null));
+        //console.log("copyOfFiles:\n", JSON.stringify(copyOfFiles, null, 4));
+        console.log("testing file: " + element);
         //console.log("inside it: ", dataFilesList);
         var jsonFile = element.substr(0, element.lastIndexOf('.')) + ".json";
         var giftText = fs.readFileSync(element, 'utf-8');
@@ -59,7 +59,7 @@ describe('GIFT parser harness: ', function () {
         var jsonParse = JSON.parse(jsonText);
         var parsing = this.parser.parse(giftText);
         //console.log("GIFT parsing: '" + parsing + "'");
-        
+
         assert.deepEqual(parsing, jsonParse, "Deep equal does not match");
         next();
     });

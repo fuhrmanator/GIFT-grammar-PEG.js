@@ -2,7 +2,7 @@
    {
       "type": "MC",
       "title": null,
-      "stem": "Grant is  _____ in Grant's tomb.\n",
+      "stem": "Grant is  _____ in Grant's tomb.\r\n",
       "hasEmbeddedAnswers": true,
       "choices": [
          {
