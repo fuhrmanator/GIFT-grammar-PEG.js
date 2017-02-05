@@ -6,21 +6,15 @@
       "hasEmbeddedAnswers": false,
       "choices": [
          {
-            "isCorrect": false,
+            "isCorrect": true,
             "weight": null,
-            "text": "Grant",
-            "feedback": null
-         },
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "Jefferson",
+            "text": "no one",
             "feedback": null
          },
          {
             "isCorrect": true,
             "weight": null,
-            "text": "no one",
+            "text": "nobody",
             "feedback": null
          }
       ]

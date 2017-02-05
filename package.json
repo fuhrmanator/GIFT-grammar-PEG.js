@@ -4,12 +4,11 @@
   "description": "grammar in pegjs for GIFT question format",
   "main": "index.js",
   "dependencies": {
-    "unit.js": "^2.0.0",
-    "qunitjs": "^2.1.1"
+    "qunitjs": "^2.1.1",
+    "unit.js": "^2.0.0"
   },
   "devDependencies": {
     "glob": "^7.1.1",
-    "it-each": "^0.3.1",
     "mocha": "^3.2.0",
     "pegjs": "^0.10.0",
     "unit.js": "^2.0.0"
