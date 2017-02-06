@@ -1,9 +1,53 @@
 # GIFT-grammar-PEG.js
 Development of PEG grammar to parse [GIFT (quiz question) file format](https://en.wikipedia.org/wiki/GIFT_(file_format)). The goal is to find an intuitive and fun way to create quiz questions.
 
-Initial hacking done using https://pegjs.org/online
+Initial hacking done using https://pegjs.org/online. The GIFT.pegjs file goes on the left and the test GIFT goes on the right. Note that nothing is saved in this environment (you must copy-paste back to your own files).
 
-The grammar.txt file goes on the left and the test input.txt goes on the right (intuitive?) 
+## Automated regression tests
+
+There are [dynamically generated tests using Mocha](https://mochajs.org/#dynamically-generating-tests) from sample GIFT/JSON files in `./test/questions/`. 
+
+To be able to run the tests, you must set up your environment:
+ - [Install node.js](https://nodejs.org/)
+ - Clone this repo.
+ - Install the node.js dependencies for this project. Inside the root directory of this repo, type: 
+
+        npm install .
+
+ - Run the regression tests with the following command: 
+ 
+        npm test
+ - Output will look something like this:
+ 
+ 		$ npm test
+
+		> gift-grammar-pegjs@1.0.0 test C:\Users\fuhrm\Documents\GitHub\GIFT-grammar-PEG.js
+		> mocha tests --recursive
+
+
+
+		  GIFT parser harness:
+			√ parsing GIFT question: ./tests/questions/description1.gift
+			√ parsing GIFT question: ./tests/questions/essay1.gift
+			√ parsing GIFT question: ./tests/questions/giftFormatPhpExamples.gift
+			√ parsing GIFT question: ./tests/questions/matching1.gift
+			√ parsing GIFT question: ./tests/questions/mc1.gift
+			√ parsing GIFT question: ./tests/questions/mc2.gift
+			√ parsing GIFT question: ./tests/questions/mc3.gift
+			√ parsing GIFT question: ./tests/questions/mc4.gift
+			√ parsing GIFT question: ./tests/questions/mc5.gift
+			√ parsing GIFT question: ./tests/questions/multiLineFeedback1.gift
+			√ parsing GIFT question: ./tests/questions/numerical1.gift
+			√ parsing GIFT question: ./tests/questions/options1.gift
+			√ parsing GIFT question: ./tests/questions/shortAnswer1.gift
+			√ parsing GIFT question: ./tests/questions/tf1.gift
+			√ parsing GIFT question: ./tests/questions/tf2.gift
+
+
+		  15 passing (225ms)
+
+ 
+ - To create a new test GIFT file, just name it `foo.gift` in `./test/questions/`. The JSON file `foo.json` should exist (expected output) and can be easily generated from the output at https://pegjs.org/online. Note: any `undefined` values from that output must be declared as `null` in the JSON file.
 
 ## GIFT format
 
