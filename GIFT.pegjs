@@ -38,7 +38,21 @@ GIFTQuestions
   = _ questions:(Question)+ _ { return questions }
 
 Question "(question)"
-  =  QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
+  =  EssayQuestion / Description / QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
+
+EssayQuestion 
+  = title:QuestionTitle? _ stem:QuestionStem _ "{" _ "}" QuestionSeparator
+ {
+    var question = createQuestion("Essay", title, stem, false);
+    return question;
+ }
+ 
+Description
+  = stem:Text QuestionSeparator
+ {
+    var question = createQuestion("Description", null, stem, false);
+    return question;
+ }
 
 QuestionAnswersAtEnd "(question with answers at end)" 
   = title:QuestionTitle? _ stem:QuestionStem _ answers:AnswerDetails QuestionSeparator
@@ -157,12 +171,11 @@ EscapeSequence "escape sequence"
    / "="
    / "#"
    / "{"
-   / "}"
-  )
+   / "}" )
   { return sequence; }
  
 UnescapedChar ""
-  = [A-Z]i / [0-9] / ' ' / [.+><()!?'"%,] / '*' / ('-' !'>') { return '-'} / (EndOfLine !EndOfLine) {return ' '}
+  = [\u0080-\u024f] / [A-Z]i / [0-9] / ' ' / [.+><()!?'"%,] / '*' / ('-' !'>') { return '-'} / (EndOfLine !EndOfLine) {return ' '}
 
 ControlChar 
   = '=' / '~' / "#" / '{' / '}' / '\\'  

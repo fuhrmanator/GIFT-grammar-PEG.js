@@ -1,0 +1,17 @@
+[
+   {
+      "type": "Description",
+      "title": null,
+      "stem": "You can use your pencil and paper for these next questions.",
+      "hasEmbeddedAnswers": false
+   },
+   {
+      "type": "TF",
+      "title": null,
+      "stem": "True or false?",
+      "hasEmbeddedAnswers": false,
+      "isTrue": true,
+      "feedBack1": null,
+      "feedBack2": null
+   }
+]
