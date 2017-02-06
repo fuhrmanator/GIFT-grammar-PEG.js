@@ -1,0 +1,345 @@
+[
+   {
+      "type": "Numerical",
+      "title": null,
+      "stem": "What's 2 plus 2?",
+      "hasEmbeddedAnswers": false,
+      "choices": {
+         "type": "simple",
+         "number": 4
+      }
+   },
+   {
+      "type": "MC",
+      "title": "Kanji Origins",
+      "stem": "Japanese characters originally came from what country?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "China",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": "Thanksgiving Date",
+      "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
+      "hasEmbeddedAnswers": true,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "second",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "third",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "fourth",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "What's the answer to this multiple-choice question?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "wrong answer",
+            "feedback": "feedback comment on the wrong answer"
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "another wrong answer",
+            "feedback": "feedback comment on this wrong answer"
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "right answer",
+            "feedback": "Very good!"
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Who's buried in Grant's tomb?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "no one",
+            "feedback": "excellent answer!"
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "nobody",
+            "feedback": "excellent answer!"
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Who's buried in **Grant's tomb**?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "no one",
+            "feedback": "excellent answer!"
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "nobody",
+            "feedback": "excellent answer!"
+         }
+      ]
+   },
+   {
+      "type": "TF",
+      "title": null,
+      "stem": "Grant is buried in Grant's tomb.",
+      "hasEmbeddedAnswers": false,
+      "isTrue": false,
+      "feedBack1": null,
+      "feedBack2": null
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Difficult question.",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "wrong answer",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": 50,
+            "text": "half credit answer",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "full credit answer",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": "Jesus' hometown",
+      "stem": "Jesus Christ was from _____ .",
+      "hasEmbeddedAnswers": true,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Jerusalem",
+            "feedback": "This was an important city, but the wrong answer."
+         },
+         {
+            "isCorrect": false,
+            "weight": 25,
+            "text": "Bethlehem",
+            "feedback": "He was born here, but not raised here."
+         },
+         {
+            "isCorrect": false,
+            "weight": 50,
+            "text": "Galilee",
+            "feedback": "You need to be more specific."
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "Nazareth",
+            "feedback": "Yes! That's right!"
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": "Jesus' hometown",
+      "stem": "Jesus Christ was from",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "Nazareth",
+            "feedback": "Yes! That's right!"
+         },
+         {
+            "isCorrect": true,
+            "weight": 75,
+            "text": "Nazereth",
+            "feedback": "Right, but misspelled."
+         },
+         {
+            "isCorrect": true,
+            "weight": 25,
+            "text": "Bethlehem",
+            "feedback": "He was born here, but not raised here."
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "What two people are entombed in Grant's tomb?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "No one",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": 50,
+            "text": "Grant",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": 50,
+            "text": "Grant's wife",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Grant's father",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "What two people are entombed in Grant's tomb?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": -50,
+            "text": "No one",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": 50,
+            "text": "Grant",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": 50,
+            "text": "Grant's wife",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": -50,
+            "text": "Grant's father",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Which answer equals 5?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "= 2 + 2",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "= 2 + 3",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "= 2 + 4",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": "GIFT Control Characters",
+      "stem": "Which of the following is NOT a control character for the GIFT import format?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "~",
+            "feedback": "~ is a control character."
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "=",
+            "feedback": "= is a control character."
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "#",
+            "feedback": "# is a control character."
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "{",
+            "feedback": "{ is a control character."
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "}",
+            "feedback": "} is a control character."
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "\\",
+            "feedback": "Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters. So, to specify a literal backslash, you must escape it with a backslash (as shown in this example)."
+         }
+      ]
+   }
+]

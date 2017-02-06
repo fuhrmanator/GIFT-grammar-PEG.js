@@ -29,8 +29,8 @@
     }
     return question;
   }
-  function replaceLineBreaksWithSpace(text) {
-    return text.replace(/(\r\n|\n|\r)/gm," ");
+  function removeDuplicateSpaces(text) {
+    return text.replace(/\s\s+/g,' ');
   }
 }
 
@@ -58,10 +58,10 @@ QuestionEmbeddedAnswers "(question with embedded answers)"
  }
 
 QuestionTitle
-  = _ '::' title:Text '::' { return title.trim() }
+  = _ '::' title:Text '::' { return title }
   
 QuestionStem
-  = stem:RichText { return stem.trim() }
+  = stem:RichText { return stem }
 
 QuestionSeparator "(question separator)"
   = EndOfLine EndOfLine* / EndOfLine? EndOfFile
@@ -98,7 +98,7 @@ PercentValue "(percent)"
   = '100' / [1-9][0-9]?  { return text() }
 
 Feedback "(feedback)" 
-  = '#' feedback:Text { return feedback.trim() }
+  = '#' feedback:Text { return feedback }
 
 TrueFalseQuestion "True/False Question"
   = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
@@ -123,7 +123,7 @@ MultipleNumericalChoices "Multiple Numerical Choices"
   = choices:(NumericalChoice)+ { return choices; }
 
 NumericalChoice "Numerical Choice"
-  = _ choice:([=~] Weight? SingleNumericalAnswer) feedback:Feedback? _ 
+  = _ choice:([=~] Weight? SingleNumericalAnswer) _ feedback:Feedback? _ 
     { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
 
 SingleNumericalAnswer "Single numeric answer"
@@ -142,20 +142,36 @@ NumberAlone "(number answer)"
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
 
 Text "(text)"
-  = TextChar+ { return replaceLineBreaksWithSpace(text()).trim() } // disallow "->" sequence
+  = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim()) } 
 
 TextChar "(text character)"
-  = char:([A-Z]i / [0-9] / ' ' / [.+></()!?'",] / '*' / ('-' !'>') / (EndOfLine !EndOfLine))  {  } // strip EOLs?
+  = (UnescapedChar / EscapeSequence)
 
-EscapeChar "(escape sequence)"
-  = '\\' char:('=' / "~" / "#" / "#" / '{' / '}' / '\\' )  // % not necessary?
-  { return "\\" + char }
+EscapeChar "(escape character)"
+  = '\\' 
 
-SpecialTokens "(special chars)"
-  = "->" / "=" / "~" / "#" / "%" / "#" / "::" // do not include "{" / "}"
+EscapeSequence "escape sequence" 
+  = EscapeChar sequence:( 
+  "\\" 
+   / "~" 
+   / "="
+   / "#"
+   / "{"
+   / "}"
+  )
+  { return sequence; }
+ 
+UnescapedChar ""
+  = [A-Z]i / [0-9] / ' ' / [.+><()!?'"%,] / '*' / ('-' !'>') { return '-'} / (EndOfLine !EndOfLine) {return ' '}
+
+ControlChar 
+  = '=' / '~' / "#" / '{' / '}' / '\\'  
+
+//SpecialTokens "(special chars)"
+//  = "->" / "=" / "~" / "#" / "%" / "#" / "::" // do not include "{" / "}"
 
 RichText
-  = Text { return replaceLineBreaksWithSpace(text()).trim() } 
+  = Text // { return replaceLineBreaksWithSpace(text().trim()) } 
 
 //Title
 //  = Text { return text() }
