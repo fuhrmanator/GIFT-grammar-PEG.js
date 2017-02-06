@@ -23,8 +23,14 @@
       case "Numerical":
         question.choices = answers.choices;
         break;
+      case "Matching":
+        question.matchPairs = answers.matchPairs;
+        break;
     }
     return question;
+  }
+  function replaceLineBreaksWithSpace(text) {
+    return text.replace(/(\r\n|\n|\r)/gm," ");
   }
 }
 
@@ -51,22 +57,28 @@ QuestionEmbeddedAnswers "(question with embedded answers)"
     return question;
  }
 
-QuestionSeparator "(blank line)"
+QuestionTitle
+  = _ '::' title:Text '::' { return title.trim() }
+  
+QuestionStem
+  = stem:RichText { return stem.trim() }
+
+QuestionSeparator "(question separator)"
   = EndOfLine EndOfLine* / EndOfLine? EndOfFile
 
 AnswerDetails "(answer details)"
   = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestion
 
 MatchingQuestion "Matching Question"
-  = '{' _ matches:Matches _ '}'
-  { var answers = { type: "Matching", matches: matches}; return answers }
+  = '{' _ matchPairs:Matches _ '}'
+  { var answers = { type: "Matching", matchPairs:matchPairs}; return answers }
 
 Matches "matches"
-  = matches:(Match)+  { return matches }
+  = matchPairs:(Match)+  { return matchPairs }
   
 Match "match"
-  = _ '=' _ subquestion:Text _ '->' _ subanswer:Text _ 
-    { var match = { subquestion: subquestion, subanswer: subanswer }; return match } 
+  = _ '=' _ left:Text _ '->' _ right:Text _ 
+    { var matchPair = { subquestion:left, subanswer:right }; return matchPair } 
 
 MCQuestion "Multiple-choice Question"
   = '{' _ choices:Choices _ '}' 
@@ -86,7 +98,7 @@ PercentValue "(percent)"
   = '100' / [1-9][0-9]?  { return text() }
 
 Feedback "(feedback)" 
-  = '#' feedback:Text { return feedback }
+  = '#' feedback:Text { return feedback.trim() }
 
 TrueFalseQuestion "True/False Question"
   = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
@@ -129,17 +141,11 @@ NumberAlone "(number answer)"
   = number:Number
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
 
-QuestionTitle
-  = '::' title:Title EndOfLine? '::' { return title }
-  
-QuestionStem
-  = stem:RichText { return stem; }
-
 Text "(text)"
-  = (TextChar EscapeChar? !SpecialTokens)+ { return text() } // disallow "->" sequence
+  = TextChar+ { return replaceLineBreaksWithSpace(text()).trim() } // disallow "->" sequence
 
 TextChar "(text character)"
-  = [A-Z0-9 .+-></()!?'",]i
+  = char:([A-Z]i / [0-9] / ' ' / [.+></()!?'",] / '*' / ('-' !'>') / (EndOfLine !EndOfLine))  {  } // strip EOLs?
 
 EscapeChar "(escape sequence)"
   = '\\' char:('=' / "~" / "#" / "#" / '{' / '}' / '\\' )  // % not necessary?
@@ -149,10 +155,10 @@ SpecialTokens "(special chars)"
   = "->" / "=" / "~" / "#" / "%" / "#" / "::" // do not include "{" / "}"
 
 RichText
-  = (Text (EndOfLine !EndOfLine)?)+ { return text() } 
+  = Text { return replaceLineBreaksWithSpace(text()).trim() } 
 
-Title
-  = (Text)+ { return text() }
+//Title
+//  = Text { return text() }
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
@@ -164,10 +170,13 @@ NumberFraction
         { return "." + chars.join(''); }
 
 _ "(whitespace)"
-  = (EndOfLine !EndOfLine / Space / Comment)*
+  = (EndOfLine !EndOfLine / Space / Comment / Ignore)*
+
+Ignore 
+  = "[markdown]"  // ignoring this for now
 
 Comment "(comment)"
-  = '//' (!EndOfLine .)* EndOfLine 
+  = '//' (!EndOfLine .)* ( EndOfLine / EndOfFile) 
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"

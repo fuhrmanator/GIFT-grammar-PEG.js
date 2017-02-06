@@ -1,0 +1,14 @@
+// ===Matching===
+
+Matching Question. {
+    =subquestion1 -> subanswer1
+    =subquestion2 -> subanswer2
+    =subquestion3 -> subanswer3
+    }
+
+Match the following countries with their corresponding capitals. {
+    =Canada -> Ottawa
+    =Italy  -> Rome
+    =Japan  -> Tokyo
+    =India  -> New Delhi
+    }

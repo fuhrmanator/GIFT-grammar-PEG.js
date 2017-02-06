@@ -1,0 +1,7 @@
+// ===Feedback===
+
+What's the answer to this multiple-choice question?{
+~wrong answer#feedback comment on the wrong answer
+~another wrong answer#feedback comment on this wrong answer
+on multiple lines
+=right answer#Very good!}

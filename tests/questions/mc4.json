@@ -2,25 +2,25 @@
    {
       "type": "MC",
       "title": null,
-      "stem": "Grant is _____ in Grant's tomb.",
-      "hasEmbeddedAnswers": true,
+      "stem": "Who's buried in Grant's tomb?",
+      "hasEmbeddedAnswers": false,
       "choices": [
          {
             "isCorrect": false,
             "weight": null,
-            "text": "buried",
+            "text": "Grant",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Jefferson",
             "feedback": null
          },
          {
             "isCorrect": true,
             "weight": null,
-            "text": "entombed",
-            "feedback": null
-         },
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "living",
+            "text": "no one",
             "feedback": null
          }
       ]

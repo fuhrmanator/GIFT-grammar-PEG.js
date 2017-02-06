@@ -1,0 +1,20 @@
+[
+   {
+      "type": "TF",
+      "title": null,
+      "stem": "Grant is buried in Grant's tomb.",
+      "hasEmbeddedAnswers": false,
+      "isTrue": false,
+      "feedBack1": null,
+      "feedBack2": null
+   },
+   {
+      "type": "TF",
+      "title": null,
+      "stem": "The sun rises in the east.",
+      "hasEmbeddedAnswers": false,
+      "isTrue": true,
+      "feedBack1": null,
+      "feedBack2": null
+   }
+]

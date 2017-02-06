@@ -1,0 +1,112 @@
+[
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Who's buried in Grant's tomb?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Grant",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Jefferson",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "no one",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Grant is _____ in Grant's tomb.",
+      "hasEmbeddedAnswers": true,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "buried",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "entombed",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "living",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
+      "hasEmbeddedAnswers": true,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "second",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "third",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "fourth",
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "MC",
+      "title": null,
+      "stem": "Japanese characters originally came from what country?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "India",
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": "China",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Korea",
+            "feedback": null
+         },
+         {
+            "isCorrect": false,
+            "weight": null,
+            "text": "Egypt",
+            "feedback": null
+         }
+      ]
+   }
+]

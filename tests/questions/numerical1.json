@@ -1,0 +1,62 @@
+[
+   {
+      "type": "Numerical",
+      "title": null,
+      "stem": "When was Ulysses S. Grant born?",
+      "hasEmbeddedAnswers": false,
+      "choices": {
+         "type": "simple",
+         "number": 1822
+      }
+   },
+   {
+      "type": "Numerical",
+      "title": null,
+      "stem": "What is the value of pi (to 3 decimal places)? _____ .",
+      "hasEmbeddedAnswers": true,
+      "choices": {
+         "type": "range",
+         "number": 3.1415,
+         "range": 0.0005
+      }
+   },
+   {
+      "type": "Numerical",
+      "title": null,
+      "stem": "What is the value of pi (to 3 decimal places)? _____ .",
+      "hasEmbeddedAnswers": true,
+      "choices": {
+         "type": "high-low",
+         "numberHigh": 3.141,
+         "numberLow": 3.142
+      }
+   },
+   {
+      "type": "Numerical",
+      "title": null,
+      "stem": "When was Ulysses S. Grant born?",
+      "hasEmbeddedAnswers": false,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": {
+               "type": "range",
+               "number": 1822,
+               "range": 0
+            },
+            "feedback": null
+         },
+         {
+            "isCorrect": true,
+            "weight": 50,
+            "text": {
+               "type": "range",
+               "number": 1822,
+               "range": 2
+            },
+            "feedback": null
+         }
+      ]
+   }
+]

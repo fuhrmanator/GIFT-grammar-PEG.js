@@ -1,0 +1,46 @@
+[
+   {
+      "type": "Matching",
+      "title": null,
+      "stem": "Matching Question.",
+      "hasEmbeddedAnswers": false,
+      "matchPairs": [
+         {
+            "subquestion": "subquestion1",
+            "subanswer": "subanswer1"
+         },
+         {
+            "subquestion": "subquestion2",
+            "subanswer": "subanswer2"
+         },
+         {
+            "subquestion": "subquestion3",
+            "subanswer": "subanswer3"
+         }
+      ]
+   },
+   {
+      "type": "Matching",
+      "title": null,
+      "stem": "Match the following countries with their corresponding capitals.",
+      "hasEmbeddedAnswers": false,
+      "matchPairs": [
+         {
+            "subquestion": "Canada",
+            "subanswer": "Ottawa"
+         },
+         {
+            "subquestion": "Italy",
+            "subanswer": "Rome"
+         },
+         {
+            "subquestion": "Japan",
+            "subanswer": "Tokyo"
+         },
+         {
+            "subquestion": "India",
+            "subanswer": "New Delhi"
+         }
+      ]
+   }
+]

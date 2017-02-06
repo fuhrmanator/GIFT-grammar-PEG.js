@@ -1,0 +1,80 @@
+// OPTIONS
+
+// ===Line Comments===
+
+// Subheading: Numerical questions below
+What's 2 plus 2? {#4}
+
+
+// ===Question Name===
+
+::Kanji Origins::Japanese characters originally
+came from what country? {=China}
+
+::Thanksgiving Date::The American holiday of Thanksgiving is
+celebrated on the {~second ~third =fourth} Thursday of November.
+
+// ===Feedback===
+
+What's the answer to this multiple-choice question?{
+~wrong answer#feedback comment on the wrong answer
+~another wrong answer#feedback comment on this wrong answer
+=right answer#Very good!}
+
+Who's buried in Grant's tomb?{
+=no one#excellent answer!
+=nobody#excellent answer!}
+
+// ===Specify text format===
+[markdown]Who's buried in **Grant's tomb**?{
+=no one#excellent answer!
+=nobody#excellent answer!}
+
+// ===Percentage Answer Weights===
+Grant is buried in Grant's tomb.{FALSE#No one is buried in Grant's tomb.}
+
+Difficult question.{~wrong answer ~%50%half credit answer =full credit answer}
+
+::Jesus' hometown::Jesus Christ was from {
+    ~Jerusalem#This was an important city, but the wrong answer.
+    ~%25%Bethlehem#He was born here, but not raised here.
+    ~%50%Galilee#You need to be more specific.
+    =Nazareth#Yes! That's right!}.
+
+::Jesus' hometown:: Jesus Christ was from {
+    =Nazareth#Yes! That's right!
+    =%75%Nazereth#Right, but misspelled.
+    =%25%Bethlehem#He was born here, but not raised here.}
+
+// ===Multiple Answers===
+
+What two people are entombed in Grant's tomb? {
+    ~No one
+    ~%50%Grant
+    ~%50%Grant's wife
+    ~Grant's father }
+
+What two people are entombed in Grant's tomb? {
+    ~%-50%No one
+    ~%50%Grant
+    ~%50%Grant's wife
+    ~%-50%Grant's father }
+
+// ===Special Characters===
+Which answer equals 5? {
+     ~ \= 2 + 2
+     = \= 2 + 3
+     ~ \= 2 + 4  }
+
+::GIFT Control Characters::
+Which of the following is NOT a control character for the GIFT import format? {
+   ~ \~     # \~ is a control character.
+   ~ \=     # \= is a control character.
+   ~ \#     # \# is a control character.
+   ~ \{     # \{ is a control character.
+   ~ \}     # \} is a control character.
+   = \\     # Correct! \\ (backslash) is not a control character. BUT,
+              it is used to escape the control characters. So, to specify
+              a literal backslash, you must escape it with a backslash
+              (as shown in this example).
+}
