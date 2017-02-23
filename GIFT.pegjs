@@ -37,53 +37,53 @@
 GIFTQuestions
   = _ questions:(Question)+ _ { return questions }
 
-Question "(question)"
+Question
   =  EssayQuestion / Description / QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
 
-EssayQuestion 
-  = title:QuestionTitle? _ stem:QuestionStem _ "{" _ "}" QuestionSeparator
+EssayQuestion "Essay question { ... }"
+  = title:QuestionTitle? _ stem:QuestionStem _ "{" _ "}" _ QuestionSeparator
  {
     var question = createQuestion("Essay", title, stem, false);
     return question;
  }
  
-Description
+Description "Description"
   = stem:Text QuestionSeparator
  {
     var question = createQuestion("Description", null, stem, false);
     return question;
  }
 
-QuestionAnswersAtEnd "(question with answers at end)" 
-  = title:QuestionTitle? _ stem:QuestionStem _ answers:AnswerDetails QuestionSeparator
+QuestionAnswersAtEnd  
+  = title:QuestionTitle? _ stem:QuestionStem _ answers:AnswerDetails _ QuestionSeparator
   {
     var question = createQuestion(answers.type, title, stem, false);
     question = processAnswers(question, answers);
     return question;
  }
 
-QuestionEmbeddedAnswers "(question with embedded answers)" 
+QuestionEmbeddedAnswers  
   = title:QuestionTitle? _ stem1:QuestionStem _ answers:AnswerDetails !QuestionSeparator _  
-      stem2:QuestionStem QuestionSeparator
+      stem2:QuestionStem _ QuestionSeparator
   {
     var question = createQuestion(answers.type, title, stem1 + " _____ " + stem2, true);
     question = processAnswers(question, answers);
     return question;
  }
 
-QuestionTitle
+QuestionTitle ":: Title ::"
   = _ '::' title:Text '::' { return title }
   
-QuestionStem
+QuestionStem "Question stem"
   = stem:RichText { return stem }
 
-QuestionSeparator "(question separator)"
-  = EndOfLine EndOfLine* / EndOfLine? EndOfFile
+QuestionSeparator "(blank line separator)"
+  = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
 
-AnswerDetails "(answer details)"
+AnswerDetails
   = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestion
 
-MatchingQuestion "Matching Question"
+MatchingQuestion "{= match1 -> Match1\n...}"
   = '{' _ matchPairs:Matches _ '}'
   { var answers = { type: "Matching", matchPairs:matchPairs}; return answers }
 
@@ -94,7 +94,7 @@ Match "match"
   = _ '=' _ left:Text _ '->' _ right:Text _ 
     { var matchPair = { subquestion:left, subanswer:right }; return matchPair } 
 
-MCQuestion "Multiple-choice Question"
+MCQuestion "{=correct choice ~incorrect choice ... }"
   = '{' _ choices:Choices _ '}' 
   { var answers = { type: "MC", choices: choices}; return answers }
 
@@ -114,20 +114,20 @@ PercentValue "(percent)"
 Feedback "(feedback)" 
   = '#' feedback:Text { return feedback }
 
-TrueFalseQuestion "True/False Question"
+TrueFalseQuestion "{T} or {F} or {True} or {False}"
   = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
     { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
 
-TrueOrFalseType "(true or false type)"
+TrueOrFalseType 
   = isTrue:(TrueType / FalseType) { return isTrue }
   
-TrueType "(true type)"
+TrueType
   = ('TRUE'i / 'T'i) {return true} // appending i after a literal makes it case insensitive
 
-FalseType "(false type)"
+FalseType
   = ('FALSE'i / 'F'i) {return false}
 
-NumericalQuestion "Numerical question" // Number ':' Range / Number '..' Number / Number
+NumericalQuestion "{#... }" // Number ':' Range / Number '..' Number / Number
   = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { var answers = { type: "Numerical", choices: numericalAnswers};return answers }
 
 NumericalAnswers "Numerical Answers"
