@@ -1,4 +1,7 @@
 # GIFT-grammar-PEG.js
+
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/fuhrmanator/GIFT-grammar-PEG.js/master?grs=github&t=moon)
+
 Development of PEG grammar to parse [GIFT (quiz question) file format](https://en.wikipedia.org/wiki/GIFT_(file_format)). The goal is to find an intuitive and fun way to create quiz questions.
 
 Initial hacking done using https://pegjs.org/online. The GIFT.pegjs file goes on the left and the test GIFT goes on the right. Note that nothing is saved in this environment (you must copy-paste back to your own files).
