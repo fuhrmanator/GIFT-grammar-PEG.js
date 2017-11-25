@@ -16,8 +16,8 @@
     switch(answers.type) {
       case "TF":
         question.isTrue = answers.isTrue;
-        question.feedBack1 = answers.feedback[1];
-        question.feedBack2 = answers.feedback[2];
+        question.incorrectFeedback = answers.feedback[1];
+        question.correctFeedback = answers.feedback[2];
         break;
       case "MC":
       case "Numerical":
@@ -115,7 +115,7 @@ Feedback "(feedback)"
   = '#' feedback:Text { return feedback }
 
 TrueFalseQuestion "{T} or {F} or {True} or {False}"
-  = '{' _ isTrue:TrueOrFalseType feedback:(Feedback? Feedback?) _ '}' 
+  = '{' _ isTrue:TrueOrFalseType _ feedback:(_ Feedback? Feedback?) _ '}' 
     { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
 
 TrueOrFalseType 
