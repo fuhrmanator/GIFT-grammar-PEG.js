@@ -134,7 +134,7 @@ NumericalAnswers "Numerical Answers"
   = MultipleNumericalChoices / SingleNumericalAnswer
 
 MultipleNumericalChoices "Multiple Numerical Choices"
-  = choices:(NumericalChoice)+ { return choices; }
+  = choices:(NumericalChoice)+ globalFeedback:GlobalFeedback? { return {choices: choices, gFeedback:globalFeedback}; }
 
 NumericalChoice "Numerical Choice"
   = _ choice:([=~] Weight? SingleNumericalAnswer) _ feedback:Feedback? _ 
@@ -197,6 +197,9 @@ Number
 NumberFraction
     = "." chars:[0-9]*
         { return "." + chars.join(''); }
+
+GlobalFeedback
+    = '####' _ rt:RichText _ {return rt;}
 
 _ "(whitespace)"
   = (EndOfLine !EndOfLine / Space / Comment / Ignore)*
