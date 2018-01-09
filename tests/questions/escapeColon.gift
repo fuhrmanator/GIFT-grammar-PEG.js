@@ -1,0 +1,8 @@
+Specify the seasons\: {
+   = spring
+   = summer
+   = winter
+   = autumn
+   ~ easter
+}
+

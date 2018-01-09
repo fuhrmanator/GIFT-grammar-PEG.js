@@ -1,0 +1,44 @@
+[{
+		"type": "MC",
+		"title": "GIFT Control Characters",
+		"stem": "Which of the following is NOT a control character for the GIFT import format?",
+		"hasEmbeddedAnswers": false,
+		"choices": [{
+				"isCorrect": false,
+				"weight": null,
+				"text": "~",
+				"feedback": "~ is a control character."
+			}, {
+				"isCorrect": false,
+				"weight": null,
+				"text": "=",
+				"feedback": "= is a control character."
+			}, {
+				"isCorrect": false,
+				"weight": null,
+				"text": "#",
+				"feedback": "# is a control character."
+			}, {
+				"isCorrect": false,
+				"weight": null,
+				"text": "{",
+				"feedback": "{ is a control character."
+			}, {
+				"isCorrect": false,
+				"weight": null,
+				"text": "}",
+				"feedback": "} is a control character."
+			}, {
+				"isCorrect": false,
+				"weight": null,
+				"text": ":",
+				"feedback": "} is a control character."
+			}, {
+				"isCorrect": true,
+				"weight": null,
+				"text": "\\",
+				"feedback": "Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters."
+			}
+		]
+	}
+]

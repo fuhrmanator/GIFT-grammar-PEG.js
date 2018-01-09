@@ -159,7 +159,7 @@ Text "(text)"
   = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim()) } 
 
 TextChar "(text character)"
-  = (UnescapedChar / EscapeSequence)
+  = (UnescapedChar / EscapeSequence / EscapeChar)
 
 EscapeChar "(escape character)"
   = '\\' 
@@ -167,6 +167,7 @@ EscapeChar "(escape character)"
 EscapeSequence "escape sequence" 
   = EscapeChar sequence:( 
   "\\" 
+   / ":" 
    / "~" 
    / "="
    / "#"

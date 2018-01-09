@@ -1,0 +1,6 @@
+// here's a comment
+Which answer equals 5? {
+   ~ \= 2 + 2
+   = \= 2 + 3
+   ~ \= 2 + 4
+}
