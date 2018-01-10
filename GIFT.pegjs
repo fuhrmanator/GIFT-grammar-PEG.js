@@ -13,6 +13,7 @@
     return question;
   }
   function processAnswers(question, answers) {
+    question.globalFeedback = answers.globalFeedback;
     switch(answers.type) {
       case "TF":
         question.isTrue = answers.isTrue;
@@ -35,15 +36,27 @@
 }
 
 GIFTQuestions
-  = _ questions:(Question)+ _ { return questions }
+  = _ questions:(QuestionNew)+ _ { return questions }
 
-Question
-  =  EssayQuestion / Description / QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
+QuestionNew
+  = title:QuestionTitle? _ stem1:QuestionStem _ '{' _ answers:AnswerDetailsNew _ '}' _ !QuestionSeparator _  
+      stem2:QuestionStem? _ QuestionSeparator
+  {
+    var stem = stem1 + ((stem2 != nil) ? " _____ " + stem2 : "");
+    var question = createQuestion(answers.type, title, stem, true);
+    question = processAnswers(question, answers);
+    return question;
+ }
+
+//Question
+//  =  EssayQuestion / Description / QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
 
 EssayQuestion "Essay question { ... }"
-  = title:QuestionTitle? _ stem:QuestionStem _ "{" _ "}" _ QuestionSeparator
+  = title:QuestionTitle? _ stem:QuestionStem _ '{' _ globalFeedback:GlobalFeedback? _ '}' _ QuestionSeparator
  {
+    
     var question = createQuestion("Essay", title, stem, false);
+    question = processAnswers(question, answers); // capture feedback
     return question;
  }
  
@@ -80,11 +93,14 @@ QuestionStem "Question stem"
 QuestionSeparator "(blank line separator)"
   = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
 
+AnswerDetailsNew
+  = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestionNew / EssayQuestion
+
 AnswerDetails
-  = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestion
+  = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestion / EssayQuestion
 
 MatchingQuestion "{= match1 -> Match1\n...}"
-  = '{' _ matchPairs:Matches _ '}'
+  = '{' _ matchPairs:Matches _ globalFeedback:GlobalFeedback? _ '}'
   { var answers = { type: "Matching", matchPairs:matchPairs}; return answers }
 
 Matches "matches"
@@ -95,7 +111,7 @@ Match "match"
     { var matchPair = { subquestion:left, subanswer:right }; return matchPair } 
 
 MCQuestion "{=correct choice ~incorrect choice ... }"
-  = '{' _ choices:Choices _ '}' 
+  = '{' _ choices:Choices _ globalFeedback:GlobalFeedback? _ '}' 
   { var answers = { type: "MC", choices: choices}; return answers }
 
 Choices "Choices"
@@ -115,7 +131,7 @@ Feedback "(feedback)"
   = '#' feedback:Text { return feedback }
 
 TrueFalseQuestion "{T} or {F} or {True} or {False}"
-  = '{' _ isTrue:TrueOrFalseType _ feedback:(_ Feedback? Feedback?) _ '}' 
+  = '{' _ isTrue:TrueOrFalseType _ feedback:(_ Feedback? Feedback?) _ globalFeedback:GlobalFeedback? _ '}' 
     { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
 
 TrueOrFalseType 
@@ -128,13 +144,19 @@ FalseType
   = ('FALSE'i / 'F'i) {return false}
 
 NumericalQuestion "{#... }" // Number ':' Range / Number '..' Number / Number
-  = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { var answers = { type: "Numerical", choices: numericalAnswers};return answers }
+  = '{' _ '#' _ numericalAnswers:NumericalAnswers _ globalFeedback:GlobalFeedback? '}' 
+       { var answers = { type: "Numerical", choices: numericalAnswers, globalFeedback: globalFeedback};return answers }
+
+NumericalQuestionNew "#... " // Number ':' Range / Number '..' Number / Number
+  = '#' _ numericalAnswers:NumericalAnswers
+       { var answers = { type: "Numerical", choices: numericalAnswers, globalFeedback: globalFeedback};return answers }
+
 
 NumericalAnswers "Numerical Answers"
   = MultipleNumericalChoices / SingleNumericalAnswer
 
 MultipleNumericalChoices "Multiple Numerical Choices"
-  = choices:(NumericalChoice)+ globalFeedback:GlobalFeedback? { return {choices: choices, gFeedback:globalFeedback}; }
+  = choices:(NumericalChoice)+ { return choices; }
 
 NumericalChoice "Numerical Choice"
   = _ choice:([=~] Weight? SingleNumericalAnswer) _ feedback:Feedback? _ 
