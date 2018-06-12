@@ -4,6 +4,7 @@
   "description": "grammar in pegjs for GIFT question format",
   "main": "index.js",
   "dependencies": {
+    "pegjs-backtrace": "^0.1.1",
     "qunitjs": "^2.1.1",
     "unit.js": "^2.0.0"
   },

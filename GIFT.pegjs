@@ -13,6 +13,7 @@
     return question;
   }
   function processAnswers(question, answers) {
+    question.globalFeedback = answers.globalFeedback;
     switch(answers.type) {
       case "TF":
         question.isTrue = answers.isTrue;
@@ -35,57 +36,31 @@
 }
 
 GIFTQuestions
-  = _ questions:(Question)+ _ { return questions }
+  = _ questions:(Description / Question)+ _ { return questions; }
 
-Question
-  =  EssayQuestion / Description / QuestionEmbeddedAnswers / QuestionAnswersAtEnd    // order is important here
-
-EssayQuestion "Essay question { ... }"
-  = title:QuestionTitle? _ stem:QuestionStem _ "{" _ "}" _ QuestionSeparator
- {
-    var question = createQuestion("Essay", title, stem, false);
-    return question;
- }
- 
 Description "Description"
   = stem:Text QuestionSeparator
- {
-    var question = createQuestion("Description", null, stem, false);
-    return question;
- }
+  { return createQuestion("Description", null, stem, false); }
 
-QuestionAnswersAtEnd  
-  = title:QuestionTitle? _ stem:QuestionStem _ answers:AnswerDetails _ QuestionSeparator
+Question
+  = title:QuestionTitle? _ 
+    stem1:QuestionStem _ 
+    '{' 
+    answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / EssayAnswer ) 
+    '}' _
+    stem2:QuestionStem?
+    QuestionSeparator
   {
-    var question = createQuestion(answers.type, title, stem, false);
+    var embedded = (stem2 != null);
+    var stem = stem1 + ( embedded ? " _____ " + stem2 : "");
+    var question = createQuestion(answers.type, title, stem, (stem2 != null));
     question = processAnswers(question, answers);
     return question;
- }
+  }
 
-QuestionEmbeddedAnswers  
-  = title:QuestionTitle? _ stem1:QuestionStem _ answers:AnswerDetails !QuestionSeparator _  
-      stem2:QuestionStem _ QuestionSeparator
-  {
-    var question = createQuestion(answers.type, title, stem1 + " _____ " + stem2, true);
-    question = processAnswers(question, answers);
-    return question;
- }
-
-QuestionTitle ":: Title ::"
-  = _ '::' title:Text '::' { return title }
-  
-QuestionStem "Question stem"
-  = stem:RichText { return stem }
-
-QuestionSeparator "(blank line separator)"
-  = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
-
-AnswerDetails
-  = MatchingQuestion / TrueFalseQuestion / MCQuestion / NumericalQuestion
-
-MatchingQuestion "{= match1 -> Match1\n...}"
-  = '{' _ matchPairs:Matches _ '}'
-  { var answers = { type: "Matching", matchPairs:matchPairs}; return answers }
+MatchingAnswers "{= match1 -> Match1\n...}"
+  = matchPairs:Matches _ globalFeedback:GlobalFeedback? _
+  { return { type: "Matching", matchPairs:matchPairs, globalFeedback:globalFeedback }; }
 
 Matches "matches"
   = matchPairs:(Match)+  { return matchPairs }
@@ -94,9 +69,27 @@ Match "match"
   = _ '=' _ left:Text _ '->' _ right:Text _ 
     { var matchPair = { subquestion:left, subanswer:right }; return matchPair } 
 
-MCQuestion "{=correct choice ~incorrect choice ... }"
-  = '{' _ choices:Choices _ '}' 
-  { var answers = { type: "MC", choices: choices}; return answers }
+///////////
+TrueFalseAnswer "{T} or {F} or {True} or {False}"
+  = isTrue:TrueOrFalseType _ 
+    feedback:(_ Feedback? Feedback?) _
+    globalFeedback:GlobalFeedback?
+  { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; }
+  
+TrueOrFalseType 
+  = isTrue:(TrueType / FalseType) { return isTrue }
+  
+TrueType
+  = ('TRUE'i / 'T'i) {return true} // appending i after a literal makes it case insensitive
+
+FalseType
+  = ('FALSE'i / 'F'i) {return false}
+
+////////////////////
+MCAnswers "{=correct choice ~incorrect choice ... }"
+  = choices:Choices _ 
+    globalFeedback:GlobalFeedback? _
+  { return { type: "MC", choices: choices, globalFeedback:globalFeedback}; }
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
@@ -114,21 +107,19 @@ PercentValue "(percent)"
 Feedback "(feedback)" 
   = '#' feedback:Text { return feedback }
 
-TrueFalseQuestion "{T} or {F} or {True} or {False}"
-  = '{' _ isTrue:TrueOrFalseType _ feedback:(_ Feedback? Feedback?) _ '}' 
-    { var answers = { type: "TF", isTrue: isTrue, feedback:feedback}; return answers }
+////////////////////
+EssayAnswer "Essay question { ... }"
+  = '' _
+    globalFeedback:GlobalFeedback? _ 
+  { return { type: "Essay", globalFeedback:globalFeedback}; }
 
-TrueOrFalseType 
-  = isTrue:(TrueType / FalseType) { return isTrue }
-  
-TrueType
-  = ('TRUE'i / 'T'i) {return true} // appending i after a literal makes it case insensitive
-
-FalseType
-  = ('FALSE'i / 'F'i) {return false}
-
-NumericalQuestion "{#... }" // Number ':' Range / Number '..' Number / Number
-  = '{' _ '#' _ numericalAnswers:NumericalAnswers _ '}' { var answers = { type: "Numerical", choices: numericalAnswers};return answers }
+///////////////////
+NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number
+  = '#' _
+    numericalAnswers:NumericalAnswers _ 
+    globalFeedback:GlobalFeedback? 
+  { return { type: "Numerical", choices: numericalAnswers, globalFeedback: 
+             globalFeedback}; }
 
 NumericalAnswers "Numerical Answers"
   = MultipleNumericalChoices / SingleNumericalAnswer
@@ -154,6 +145,16 @@ NumberHighLow "(number with high-low)"
 NumberAlone "(number answer)"
   = number:Number
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
+
+//////////////
+QuestionTitle ":: Title ::"
+  = _ '::' title:Text '::' { return title }
+  
+QuestionStem "Question stem"
+  = stem:RichText { return stem }
+
+QuestionSeparator "(blank line separator)"
+  = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
 
 Text "(text)"
   = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim()) } 
@@ -187,9 +188,6 @@ ControlChar
 RichText
   = Text // { return replaceLineBreaksWithSpace(text().trim()) } 
 
-//Title
-//  = Text { return text() }
-
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
     = chars:[0-9]+ frac:NumberFraction?
@@ -198,6 +196,9 @@ Number
 NumberFraction
     = "." chars:[0-9]*
         { return "." + chars.join(''); }
+
+GlobalFeedback
+    = '####' _ rt:RichText _ {return rt;}
 
 _ "(whitespace)"
   = (EndOfLine !EndOfLine / Space / Comment / Ignore)*
