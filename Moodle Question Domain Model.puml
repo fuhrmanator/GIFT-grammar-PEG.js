@@ -16,6 +16,7 @@ class "Non-Hierarchical\nCategory" as NHC {
 abstract class "Question" as AQ {
   name : Text
   questionText : RichText
+  generalFeedback : RichText
 }
 class "MultipleChoiceQuestion" as MCQ  extends AQ {
   isShuffled : boolean
