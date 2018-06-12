@@ -1,30 +1,30 @@
 {
-  "name": "gift-grammar-pegjs",
-  "version": "1.0.0",
-  "description": "grammar in pegjs for GIFT question format",
-  "main": "index.js",
-  "dependencies": {
-    "pegjs-backtrace": "^0.1.1",
-    "qunitjs": "^2.1.1",
-    "unit.js": "^2.0.0"
-  },
-  "devDependencies": {
-    "glob": "^7.1.1",
-    "mocha": "^3.2.0",
-    "pegjs": "^0.10.0",
-    "unit.js": "^2.0.0"
-  },
-  "scripts": {
-    "test": "node_modules/.bin/mocha tests --recursive"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fuhrmanator/GIFT-grammar-PEG.js.git"
-  },
-  "author": "C. Fuhrman",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js/issues"
-  },
-  "homepage": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js#readme"
+    "name": "gift-grammar-pegjs",
+    "version": "0.0.9",
+    "description": "grammar in pegjs for GIFT question format",
+    "main": "index.js",
+    "dependencies": {
+        "pegjs-backtrace": "^0.1.1",
+        "qunitjs": "^2.1.1",
+        "unit.js": "^2.0.0"
+    },
+    "devDependencies": {
+        "glob": "^7.1.1",
+        "mocha": ">=4.0.1",
+        "pegjs": "^0.10.0",
+        "unit.js": "^2.0.0"
+    },
+    "scripts": {
+        "test": "node_modules/.bin/mocha tests --recursive"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fuhrmanator/GIFT-grammar-PEG.js.git"
+    },
+    "author": "C. Fuhrman",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js/issues"
+    },
+    "homepage": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js#readme"
 }
