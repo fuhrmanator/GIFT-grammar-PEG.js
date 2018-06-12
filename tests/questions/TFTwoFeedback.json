@@ -1,11 +1,10 @@
-[
-   {
-      "type": "TF",
-      "title": null,
-      "stem": "Grant is buried in Grant's tomb.",
-      "hasEmbeddedAnswers": false,
-      "isTrue": false,
-      "incorrectFeedback": "wrong answer feedback",
-      "correctFeedback": "right answer feedback"
-   }
-]
+[{
+    "type": "TF",
+    "title": null,
+    "stem": "Grant is buried in Grant's tomb.",
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "isTrue": false,
+    "incorrectFeedback": "wrong answer feedback",
+    "correctFeedback": "right answer feedback"
+}]

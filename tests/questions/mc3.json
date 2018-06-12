@@ -1,22 +1,20 @@
-[
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Who's buried in Grant's tomb?",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
+[{
+    "type": "MC",
+    "title": null,
+    "stem": "Who's buried in Grant's tomb?",
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "choices": [{
             "isCorrect": true,
             "weight": null,
             "text": "no one",
             "feedback": null
-         },
-         {
+        },
+        {
             "isCorrect": true,
             "weight": null,
             "text": "nobody",
             "feedback": null
-         }
-      ]
-   }
-]
+        }
+    ]
+}]

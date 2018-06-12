@@ -1,220 +1,221 @@
-[
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Who's buried in Grant's tomb?",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "Grant",
-            "feedback": null
-         },
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "Jefferson",
-            "feedback": null
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "no one",
-            "feedback": null
-         }
-      ]
-   },
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Grant is _____ in Grant's tomb.",
-      "hasEmbeddedAnswers": true,
-      "choices": [
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "buried",
-            "feedback": null
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "entombed",
-            "feedback": null
-         },
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "living",
-            "feedback": null
-         }
-      ]
-   },
-   {
-      "type": "TF",
-      "title": null,
-      "stem": "Grant is buried in Grant's tomb.",
-      "hasEmbeddedAnswers": false,
-      "isTrue": false,
-      "incorrectFeedback": null,
-      "correctFeedback": null
-   },
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Who's buried in Grant's tomb?",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "no one",
-            "feedback": null
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "nobody",
-            "feedback": null
-         }
-      ]
-   },
-   {
-      "type": "Numerical",
-      "title": null,
-      "stem": "When was Ulysses S. Grant born?",
-      "hasEmbeddedAnswers": false,
-      "choices": {
-         "type": "range",
-         "number": 1822,
-         "range": 5
-      }
-   },
-   {
-      "type": "Matching",
-      "title": null,
-      "stem": "Match the following countries with their corresponding capitals.",
-      "hasEmbeddedAnswers": false,
-      "matchPairs": [
-         {
-            "subquestion": "Canada",
-            "subanswer": "Ottawa"
-         },
-         {
-            "subquestion": "Italy",
-            "subanswer": "Rome"
-         },
-         {
-            "subquestion": "Japan",
-            "subanswer": "Tokyo"
-         }
-      ]
-   },
-   {
-      "type": "MC",
-      "title": "Grant's Tomb",
-      "stem": "Grant is _____ in Grant's tomb.",
-      "hasEmbeddedAnswers": true,
-      "choices": [
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "buried",
-            "feedback": "No one is buried there."
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "entombed",
-            "feedback": "Right answer!"
-         },
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "living",
-            "feedback": "We hope not!"
-         }
-      ]
-   },
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Difficult multiple choice question.",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
-            "isCorrect": false,
-            "weight": null,
-            "text": "wrong answer",
-            "feedback": "comment on wrong answer"
-         },
-         {
-            "isCorrect": false,
-            "weight": 50,
-            "text": "half credit answer",
-            "feedback": "comment on answer"
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "full credit answer",
-            "feedback": "well done!"
-         }
-      ]
-   },
-   {
-      "type": "MC",
-      "title": "Jesus' hometown (Short answer ex.)",
-      "stem": "Jesus Christ was from _____ .",
-      "hasEmbeddedAnswers": true,
-      "choices": [
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "Nazareth",
-            "feedback": "Yes! That's right!"
-         },
-         {
-            "isCorrect": true,
-            "weight": 75,
-            "text": "Nazereth",
-            "feedback": "Right, but misspelled."
-         },
-         {
-            "isCorrect": true,
-            "weight": 25,
-            "text": "Bethlehem",
-            "feedback": "He was born here, but not raised here."
-         }
-      ]
-   },
-   {
-      "type": "Numerical",
-      "title": "Numerical example",
-      "stem": "When was Ulysses S. Grant born?",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": {
-               "type": "range",
-               "number": 1822,
-               "range": 0
+[{
+        "type": "MC",
+        "title": null,
+        "stem": "Who's buried in Grant's tomb?",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": false,
+                "weight": null,
+                "text": "Grant",
+                "feedback": null
             },
-            "feedback": "Correct! 100% credit"
-         },
-         {
-            "isCorrect": true,
-            "weight": 50,
-            "text": {
-               "type": "range",
-               "number": 1822,
-               "range": 2
+            {
+                "isCorrect": false,
+                "weight": null,
+                "text": "Jefferson",
+                "feedback": null
             },
-            "feedback": "He was born in 1822. You get 50% credit for being close."
-         }
-      ]
-   }
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "no one",
+                "feedback": null
+            }
+        ]
+    },
+    {
+        "type": "MC",
+        "title": null,
+        "stem": "Grant is _____ in Grant's tomb.",
+        "hasEmbeddedAnswers": true,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": false,
+                "weight": null,
+                "text": "buried",
+                "feedback": null
+            },
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "entombed",
+                "feedback": null
+            },
+            {
+                "isCorrect": false,
+                "weight": null,
+                "text": "living",
+                "feedback": null
+            }
+        ]
+    },
+    {
+        "type": "TF",
+        "title": null,
+        "stem": "Grant is buried in Grant's tomb.",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "isTrue": false,
+        "incorrectFeedback": null,
+        "correctFeedback": null
+    },
+    {
+        "type": "MC",
+        "title": null,
+        "stem": "Who's buried in Grant's tomb?",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": true,
+                "weight": null,
+                "text": "no one",
+                "feedback": null
+            },
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "nobody",
+                "feedback": null
+            }
+        ]
+    },
+    {
+        "type": "Numerical",
+        "title": null,
+        "stem": "When was Ulysses S. Grant born?",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": {
+            "type": "range",
+            "number": 1822,
+            "range": 5
+        }
+    },
+    {
+        "type": "Matching",
+        "title": null,
+        "stem": "Match the following countries with their corresponding capitals.",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "matchPairs": [{
+                "subquestion": "Canada",
+                "subanswer": "Ottawa"
+            },
+            {
+                "subquestion": "Italy",
+                "subanswer": "Rome"
+            },
+            {
+                "subquestion": "Japan",
+                "subanswer": "Tokyo"
+            }
+        ]
+    },
+    {
+        "type": "MC",
+        "title": "Grant's Tomb",
+        "stem": "Grant is _____ in Grant's tomb.",
+        "hasEmbeddedAnswers": true,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": false,
+                "weight": null,
+                "text": "buried",
+                "feedback": "No one is buried there."
+            },
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "entombed",
+                "feedback": "Right answer!"
+            },
+            {
+                "isCorrect": false,
+                "weight": null,
+                "text": "living",
+                "feedback": "We hope not!"
+            }
+        ]
+    },
+    {
+        "type": "MC",
+        "title": null,
+        "stem": "Difficult multiple choice question.",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": false,
+                "weight": null,
+                "text": "wrong answer",
+                "feedback": "comment on wrong answer"
+            },
+            {
+                "isCorrect": false,
+                "weight": 50,
+                "text": "half credit answer",
+                "feedback": "comment on answer"
+            },
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "full credit answer",
+                "feedback": "well done!"
+            }
+        ]
+    },
+    {
+        "type": "MC",
+        "title": "Jesus' hometown (Short answer ex.)",
+        "stem": "Jesus Christ was from _____ .",
+        "hasEmbeddedAnswers": true,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": true,
+                "weight": null,
+                "text": "Nazareth",
+                "feedback": "Yes! That's right!"
+            },
+            {
+                "isCorrect": true,
+                "weight": 75,
+                "text": "Nazereth",
+                "feedback": "Right, but misspelled."
+            },
+            {
+                "isCorrect": true,
+                "weight": 25,
+                "text": "Bethlehem",
+                "feedback": "He was born here, but not raised here."
+            }
+        ]
+    },
+    {
+        "type": "Numerical",
+        "title": "Numerical example",
+        "stem": "When was Ulysses S. Grant born?",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": true,
+                "weight": null,
+                "text": {
+                    "type": "range",
+                    "number": 1822,
+                    "range": 0
+                },
+                "feedback": "Correct! 100% credit"
+            },
+            {
+                "isCorrect": true,
+                "weight": 50,
+                "text": {
+                    "type": "range",
+                    "number": 1822,
+                    "range": 2
+                },
+                "feedback": "He was born in 1822. You get 50% credit for being close."
+            }
+        ]
+    }
 ]

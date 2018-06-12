@@ -1,42 +1,41 @@
-[
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Who's buried in Grant's tomb?",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "no one",
-            "feedback": null
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "nobody",
-            "feedback": null
-         }
-      ]
-   },
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Two plus two equals _____ .",
-      "hasEmbeddedAnswers": true,
-      "choices": [
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "four",
-            "feedback": null
-         },
-         {
-            "isCorrect": true,
-            "weight": null,
-            "text": "4",
-            "feedback": null
-         }
-      ]
-   }
+[{
+        "type": "MC",
+        "title": null,
+        "stem": "Who's buried in Grant's tomb?",
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": true,
+                "weight": null,
+                "text": "no one",
+                "feedback": null
+            },
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "nobody",
+                "feedback": null
+            }
+        ]
+    },
+    {
+        "type": "MC",
+        "title": null,
+        "stem": "Two plus two equals _____ .",
+        "hasEmbeddedAnswers": true,
+        "globalFeedback": null,
+        "choices": [{
+                "isCorrect": true,
+                "weight": null,
+                "text": "four",
+                "feedback": null
+            },
+            {
+                "isCorrect": true,
+                "weight": null,
+                "text": "4",
+                "feedback": null
+            }
+        ]
+    }
 ]

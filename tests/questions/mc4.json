@@ -1,28 +1,26 @@
-[
-   {
-      "type": "MC",
-      "title": null,
-      "stem": "Who's buried in Grant's tomb?",
-      "hasEmbeddedAnswers": false,
-      "choices": [
-         {
+[{
+    "type": "MC",
+    "title": null,
+    "stem": "Who's buried in Grant's tomb?",
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "choices": [{
             "isCorrect": false,
             "weight": null,
             "text": "Grant",
             "feedback": null
-         },
-         {
+        },
+        {
             "isCorrect": false,
             "weight": null,
             "text": "Jefferson",
             "feedback": null
-         },
-         {
+        },
+        {
             "isCorrect": true,
             "weight": null,
             "text": "no one",
             "feedback": null
-         }
-      ]
-   }
-]
+        }
+    ]
+}]
