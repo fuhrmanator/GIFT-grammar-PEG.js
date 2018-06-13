@@ -4,15 +4,19 @@
 
 Development of PEG grammar to parse [GIFT (quiz question) file format](https://en.wikipedia.org/wiki/GIFT_(file_format)). The goal is to find an intuitive and fun way to create quiz questions.
 
-Initial hacking done using https://pegjs.org/online. The GIFT.pegjs file goes on the left and the test GIFT goes on the right. Note that nothing is saved in this environment (you must copy-paste back to your own files).
+Initial hacking done using [pegjs.org/online](https://pegjs.org/online). The GIFT.pegjs file goes on the left and the test GIFT goes on the right. Note that nothing is saved in this environment (you must copy-paste back to your own files).
 
 ## Software using this grammar
 
 Create quizzes in Google Forms using the [GIFT Quiz Editor (add-on)](https://chrome.google.com/webstore/detail/gift-quiz-editor/phlodilncinologfhbbopmjndobnbjae). It's possible to export questions from Moodle in GIFT format and re-use them in Google Forms, or you can create your own questions in GIFT to save clicking in the Google interface.
 
+## Railroad diagram of the grammar
+
+Check out the [railroad diagram](http://dundalek.com/GrammKit/#https://cdn.rawgit.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs) for this project's PEG.
+
 ## Automated regression tests
 
-There are [dynamically generated tests using Mocha](https://mochajs.org/#dynamically-generating-tests) from sample GIFT/JSON files in `./test/questions/`. 
+There are [dynamically generated tests using Mocha](https://mochajs.org/#dynamically-generating-tests) from sample GIFT/JSON files in `./test/questions/`.
 
 To be able to run the tests, you must set up your environment:
  - [Install node.js](https://nodejs.org/)
@@ -53,7 +57,6 @@ To be able to run the tests, you must set up your environment:
 
 		  15 passing (225ms)
 
- 
  - To create a new test GIFT file, just name it `foo.gift` in `./test/questions/`. The JSON file `foo.json` should exist (expected output) and can be easily generated from the output at https://pegjs.org/online. Note: any `undefined` values from that output must be declared as `null` in the JSON file.
 
 ## GIFT format
