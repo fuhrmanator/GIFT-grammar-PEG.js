@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!-- saved from url=(0024)https://pegjs.org/online -->
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="author" content="C. Fuhrman (fuhrmanator@gmail.com)">
@@ -10,59 +12,26 @@
     <meta name="keywords" content="parser, PEG, JavaScript, GIFT, editor">
     <meta name="description" content="This editor uses GIFT-grammar-PEG.js is a grammar for GIFT (Moodle) question format.">
     <title>GIFT Question Editor</title>
-    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="layout-online.css">
-    <link rel="stylesheet" href="content.css">
-    <link rel="stylesheet" href="jquery-linedtextarea.css">
-    <link rel="stylesheet" href="">
-    <!-- <link rel="stylesheet" href="codemirror.css"> -->
+    <link rel="stylesheet" href="jquery.numberedtextarea.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- <script src="GIFT_parser.js"></script> -->
-    <!--[if IE]>
-    <script>
-      var html5elements = ["aside", "footer", "header", "nav"];
-      for (var i = 0; i < html5elements.length; i++) {
-        document.createElement(html5elements[i]);
-      }
-    </script>
-    <![endif]-->
 </head>
 
 <body>
-    <header id="header">
-        <h1>GIFT Editor</h1>
-        <h2>Parser using PEG.js and GIFT-grammar-PEG</h2>
-    </header>
-    <!-- 
-    <nav id="menu">
-      <a href="https://pegjs.org/">Home</a>
-      <a class="current" href="https://pegjs.org/online">Online Version</a>
-      <a href="https://pegjs.org/documentation">Documentation</a>
-      <a href="https://pegjs.org/development">Development</a>
-    </nav>
--->
+    <div class=""></div>
+    <h1 class="display-4">GIFT Editor</h1>
+    <p class"display-4">Parser using <a href="https://pegjs.org">PEG.js</a> and <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a></p>
+    <div class="container">
 
-    <div id="loader" style="display: none;">
-        <div id="loader-inner">Loading...</div>
-    </div>
+        <div id="parse-message" class="alert alert-success">Parsing...
+        </div>
 
-    <div id="content" style="display: block;">
-        <table id="columns">
-            <tbody>
-                <tr>
-                    <td>
-                        <table class="column online" id="left-column" style="height: 620px;">
-                            <tbody>
-                                <tr>
-                                    <td class="content-height">
-                                        <h2 class="suggestion top">
-                                            <span class="step-number">1</span>
-                                            <div class="step-title">Write your GIFT questions</div>
-                                        </h2>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <textarea class="code" id="gift" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">//-----------------------------------------//
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="gift">Write your GIFT questions here</label>
+                <textarea wrap id="gift" class="form-control" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">//-----------------------------------------//
 // Examples from gift/format.php.
 //-----------------------------------------//
 
@@ -76,107 +45,58 @@ Who's buried in Grant's tomb?{=no one =nobody}
 
 When was Ulysses S. Grant born?{#1822:5}
 
-Match the following countries with their corresponding
-capitals.{=Canada->Ottawa =Italy->Rome =Japan->Tokyo}
+Match the following countries with their corresponding capitals. {
+    =Canada -> Ottawa
+    =Italy  -> Rome
+    =Japan  -> Tokyo
+    =India  -> New Delhi
+    ####It's good to know the capitals
+}
 
 //-----------------------------------------//
 // More complicated examples.
 //-----------------------------------------//
 
 ::Grant's Tomb::Grant is {
-      ~buried#No one is buried there.
-      =entombed#Right answer!
-      ~living#We hope not!
+        ~buried#No one is buried there.
+        =entombed#Right answer!
+        ~living#We hope not!
 } in Grant's tomb.
 
 Difficult multiple choice question.{
-      ~wrong answer           #comment on wrong answer
-      ~%50%half credit answer #comment on answer
-      =full credit answer     #well done!}
+        ~wrong answer           #comment on wrong answer
+        ~%50%half credit answer #comment on answer
+        =full credit answer     #well done!}
 
 ::Jesus' hometown (Short answer ex.):: Jesus Christ was from {
-      =Nazareth#Yes! That's right!
-      =%75%Nazereth#Right, but misspelled.
-      =%25%Bethlehem#He was born here, but not raised here.
+        =Nazareth#Yes! That's right!
+        =%75%Nazereth#Right, but misspelled.
+        =%25%Bethlehem#He was born here, but not raised here.
 }.
 
 //this comment will be ignored by the filter
 ::Numerical example::
 When was Ulysses S. Grant born? {#
-      =1822:0      #Correct! 100% credit
-      =%50%1822:2  #He was born in 1822.
-                  You get 50% credit for being close.
-}
-                                          </textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="content-height">
-                                        <div id="parse-message" class="message info">Parser built successfully.
-                                            <span class="size-and-time" title="Parser build time and speed">0.81&nbsp;kB, 24&nbsp;ms, 34&nbsp;kB/s</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                    <td>
-                        <table class="column" id="right-column" style="height: 620px;">
-                            <tbody>
-                                <tr>
-                                    <td class="content-height">
-                                        <h2 class="suggestion top">
-                                            <span class="step-number">2</span>
-                                            <div class="step-title">Validate the output</div>
-                                        </h2>
-                                    </td>
-                                </tr>
-                                <!-- <tr>
-                                    <td>
-                                        <div class="textarea-wrapper">
-                                            <textarea readonly class="code" id="input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="height: 256px;">2 * (3 + 4)</textarea>
-                                        </div>
-                                    </td>
-                                </tr> -->
-                                <!-- <tr>
-                                    <td class="content-height">
-                                        <div id="old-parse-message" class="message info">Input parsed successfully.
-                                            <span class="size-and-time" title="Parsing time and speed">0.011&nbsp;kB, 2&nbsp;ms, 5.4&nbsp;kB/s</span>
-                                        </div>
-                                    </td>
-                                </tr> -->
-                                <tr>
-                                    <td class="content-height">
-                                        <h2 id="output-header">Output</h2>
-                                        <pre id="output" class=""></pre>
-                                    </td>
-                                </tr>
-                                <!-- <tr>
-                                    <td class="content-height">
-                                                                                <h2 class="suggestion">
-                                            <span class="step-number">3</span>
-                                            <div class="step-title">Download the parser code</div>
-                                        </h2>
+        =1822:0      #Correct! 100% credit
+        =%50%1822:2  #He was born in 1822.
+                    You get 50% credit for being close.
+}</textarea>
+            </div>
+            <div class="col-sm-6">
+                <label for="output">JSON parsed from the GIFT format</label>
+                <textarea id="output" class="form-control" readonly></textarea>
+            </div>
+        </div>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="content-height">
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-                                    </td>
-                                </tr> -->
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <script src="jquery.js"></script>
+        <script src="jquery.numberedtextarea.js"></script>
         <script src="peg.js"></script>
         <script src="jsDump.js"></script>
-        <!--        <script src="codemirror.js"></script> -->
-        <script src="jquery-linedtextarea.js"></script>
         <script src="online.js"></script>
 
     </div>
