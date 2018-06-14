@@ -11,7 +11,7 @@
     <meta name="copyright" content="Copyright © 2018 Christopher Fuhrman">
     <meta name="keywords" content="parser, PEG, JavaScript, GIFT, editor">
     <meta name="description" content="This editor uses GIFT-grammar-PEG.js is a grammar for GIFT (Moodle) question format.">
-    <title>GIFT Question Editor</title>
+    <title>GIFT Question Validator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="jquery.numberedtextarea.css">
     <link rel="stylesheet" href="validator.css">
@@ -19,12 +19,12 @@
 </head>
 
 <body>
-    <h1 class="display-4">GIFT Validator</h1>
-    <p class"display-4">Parser using <a href="https://pegjs.org">PEG.js</a> and <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a>. 
-        <strong>Warning: </strong> there is no mechanism yet to save your GIFT text. Don't forget to copy and save it externally when you're finished.</p>
+    <h1 class="display-4">GIFT Question Validator</h1>
+    <p class"display-4">GIFT question parser using <a href="https://pegjs.org">PEG.js</a> and <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a>. 
+        <strong>Warning:</strong> there is no mechanism yet to save your GIFT text. Don't forget to copy and save it externally when you're finished. </p>
     <div class="container">
 
-        <div id="parse-message" class="alert alert-success">Parsing...
+        <div id="parse-message" class="alert alert-info">Loading...
         </div>
 
         <div class="row">

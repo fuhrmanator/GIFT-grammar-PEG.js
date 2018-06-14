@@ -97,7 +97,7 @@ $(document).ready(function() {
 
     $("#gift").val(sampleGift);
     // JQuery numberedTextarea
-    $("#gift").numberedtextarea();  // options don't work when passed, modify the .css
+    $("#gift").numberedtextarea( {allowTabChar:true});  // not all options work when passed, modify the .css
     $(window).resize(doLayout);
 
     // $("#loader").hide();
