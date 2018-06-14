@@ -13,7 +13,7 @@ $(document).ready(function() {
     var parser = null;
 
     /* load the grammar and generate a parser */
-    fetch('/GIFT.pegjs')
+    fetch('../../GIFT.pegjs')
         .then(response => response.text())
         .then(grammar => {
             // console.log(grammar);
