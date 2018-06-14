@@ -8,7 +8,7 @@ $(document).ready(function() {
         if (isDirty) {
             return 'If you continue your changes will not be saved.';
         }
-    }
+    };
 
     var parseTimer = null;
     var parser = null;
@@ -24,6 +24,13 @@ $(document).ready(function() {
             parse(); // safe to call when promise is done
         });
 
+    var editor = CodeMirror.fromTextArea($("#gift")[0], {
+        lineNumbers: true,
+        styleActiveLine: true,
+        styleActiveSelected: true,
+        mode: "text/plain"
+        });
+
     var oldInput = null;
 
     function setParser(p) {
@@ -31,13 +38,15 @@ $(document).ready(function() {
     }
 
     function buildErrorMessage(e) {
+        // todo: add line squiggles in CodeMirror : https://stackoverflow.com/questions/41405016/how-to-underline-errors-with-codemirror
         return e.location !== undefined ?
             "Line " + e.location.start.line + ", column " + e.location.start.column + ": " + e.message :
             e.message;
     }
 
     function parse() {
-        oldInput = $("#gift").val();
+        // oldInput = $("#gift").val();
+        oldInput = editor.getValue();
 
         $("#gift").removeAttr("disabled");
         $("#parse-message").attr("class", "alert alert-info").text("Parsing the input...");
@@ -46,7 +55,7 @@ $(document).ready(function() {
         var result;
 
         try {
-            var output = parser.parse($("#gift").val());
+            var output = parser.parse(oldInput);
 
             $("#parse-message")
                 .attr("class", "alert alert-success")
@@ -66,7 +75,7 @@ $(document).ready(function() {
 
     function scheduleParse() {
         // console.log("scheduleParse");
-        if ($("#gift").val() === oldInput) { 
+        if (editor.getValue() === oldInput) { 
             // console.log("no change detected"); 
             return; 
         }
@@ -91,13 +100,15 @@ $(document).ready(function() {
     }
 
     function doLayout() {
-        $("#gift").height(($(".container").innerHeight() - 145) + "px");
-        $("#output").height(($("#gift").height()) + "px");
+        // $("#gift").height(($(".container").innerHeight() - 145) + "px");
+        $(".CodeMirror").height(($(".container").innerHeight() - 145) + "px");
+        $("#output").height(($(".CodeMirror").height()) + "px");
     }
 
-    $("#gift").val(sampleGift);
+    // $("#gift").val(sampleGift);
+    editor.setValue(sampleGift);
     // JQuery numberedTextarea
-    $("#gift").numberedtextarea( {allowTabChar:true});  // not all options work when passed, modify the .css
+    // $("#gift").numberedtextarea( {allowTabChar:true});  // not all options work when passed, modify the .css
     $(window).resize(doLayout);
 
     // $("#loader").hide();
@@ -105,7 +116,7 @@ $(document).ready(function() {
 
     $("#gift").removeAttr("disabled");
 
-    // $("#giftForm").areYouSure();
+    editor.on("change", scheduleParse);
 
     $("#gift")
     .change(scheduleParse)
@@ -116,4 +127,7 @@ $(document).ready(function() {
     .keyup(scheduleParse)
     .keypress(scheduleParse);
 
+    editor.refresh();
+    editor.focus();
+  
 });
