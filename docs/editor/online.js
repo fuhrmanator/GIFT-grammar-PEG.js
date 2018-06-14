@@ -1,11 +1,19 @@
 /*jshint esversion: 6 */
 $(document).ready(function() {
 
+    var isDirty = false;
+
+    window.onbeforeunload = function (evt) {
+        if (isDirty) {
+            return 'If you continue your changes will not be saved.';
+        }
+    }
+
     var parseTimer = null;
     var parser = null;
 
     /* load the grammar and generate a parser */
-    fetch('../GIFT.pegjs')
+    fetch('/GIFT.pegjs')
         .then(response => response.text())
         .then(grammar => {
             // console.log(grammar);
@@ -18,7 +26,6 @@ $(document).ready(function() {
     var oldInput = null;
 
     function setParser(p) {
-        console.log("Setting parser to " + p);
         parser = p;
     }
 
@@ -42,7 +49,7 @@ $(document).ready(function() {
 
             $("#parse-message")
                 .attr("class", "alert alert-success")
-                .text("Input parsed successfully.");
+                .text("GIFT input parsed successfully!");
             $("#output").removeClass("disabled").val(jsDump.parse(output));
             result = true;
         } catch (e) {
@@ -57,8 +64,13 @@ $(document).ready(function() {
     }
 
     function scheduleParse() {
-        console.log("scheduleParse");
-        if ($("#gift").val() === oldInput) { console.log("no change detected"); return; }
+        // console.log("scheduleParse");
+        if ($("#gift").val() === oldInput) { 
+            // console.log("no change detected"); 
+            return; 
+        }
+
+        isDirty = true;
 
         if (parseTimer !== null) {
             clearTimeout(parseTimer);
@@ -68,7 +80,7 @@ $(document).ready(function() {
         parseTimer = setTimeout(function() {
             // parser loads asynchronously
             if (parser !== null) {
-                console.log("calling parse from timeout");
+                // console.log("calling parse from timeout");
                 parse();
             } else console.log("parser was null...");
             parseTimer = null;
@@ -84,10 +96,12 @@ $(document).ready(function() {
     $("#gift").numberedtextarea();  // options don't work when passed, modify the .css
     $(window).resize(doLayout);
 
-    $("#loader").hide();
-    $("#content").show();
+    // $("#loader").hide();
+    // $("#content").show();
 
     $("#gift").removeAttr("disabled");
+
+    // $("#giftForm").areYouSure();
 
     $("#gift")
     .change(scheduleParse)

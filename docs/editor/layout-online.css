@@ -16,4 +16,7 @@ textarea.form-control {
 textarea.form-control#gift {
   white-space: nowrap;  
   overflow: auto;
+  /* background-image: linear-gradient(#F1F1F1 50%, #F9F9F9 50%);
+  background-size: 100% 4rem;
+  line-height: 2rem; */
 }
