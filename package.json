@@ -4,8 +4,10 @@
     "description": "grammar in pegjs for GIFT question format",
     "main": "index.js",
     "dependencies": {
+        "connect": "^3.6.6",
         "pegjs-backtrace": "^0.1.1",
         "qunitjs": "^2.1.1",
+        "serve-static": "^1.13.2",
         "unit.js": "^2.0.0"
     },
     "devDependencies": {

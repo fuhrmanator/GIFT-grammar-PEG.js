@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://pegjs.org/online -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="author" content="C. Fuhrman (fuhrmanator@gmail.com)">
+    <meta name="copyright" content="Copyright © 2018 Christopher Fuhrman">
+    <meta name="keywords" content="parser, PEG, JavaScript, GIFT, editor">
+    <meta name="description" content="This editor uses GIFT-grammar-PEG.js is a grammar for GIFT (Moodle) question format.">
+    <title>GIFT Question Editor</title>
+    <link rel="stylesheet" href="layout-online.css">
+    <link rel="stylesheet" href="jquery.numberedtextarea.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <script src="GIFT_parser.js"></script> -->
+</head>
+
+<body>
+    <h1 class="display-4">GIFT Validator</h1>
+    <p class"display-4">Parser using <a href="https://pegjs.org">PEG.js</a> and <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a>. 
+        <strong>Warning: </strong> there is no mechanism yet to save your GIFT text. Don't forget to copy and save it externally when you're finished.</p>
+    <div class="container">
+
+        <div id="parse-message" class="alert alert-success">Parsing...
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <form id="giftForm" >
+                <label for="gift">Write your GIFT questions here</label>
+                <textarea form="giftForm" wrap id="gift" class="form-control" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">//-----------------------------------------//
+// Examples from gift/format.php.
+//-----------------------------------------//
+
+Who's buried in Grant's tomb?{~Grant ~Jefferson =no one}
+
+Grant is {~buried =entombed ~living} in Grant's tomb.
+
+Grant is buried in Grant's tomb.{FALSE}
+
+Who's buried in Grant's tomb?{=no one =nobody}
+
+When was Ulysses S. Grant born?{#1822:5}
+
+Match the following countries with their corresponding capitals. {
+    =Canada -> Ottawa
+    =Italy  -> Rome
+    =Japan  -> Tokyo
+    =India  -> New Delhi
+    ####It's good to know the capitals
+}
+
+//-----------------------------------------//
+// More complicated examples.
+//-----------------------------------------//
+
+::Grant's Tomb::Grant is {
+        ~buried#No one is buried there.
+        =entombed#Right answer!
+        ~living#We hope not!
+} in Grant's tomb.
+
+Difficult multiple choice question.{
+        ~wrong answer           #comment on wrong answer
+        ~%50%half credit answer #comment on answer
+        =full credit answer     #well done!}
+
+::Jesus' hometown (Short answer ex.):: Jesus Christ was from {
+        =Nazareth#Yes! That's right!
+        =%75%Nazereth#Right, but misspelled.
+        =%25%Bethlehem#He was born here, but not raised here.
+}.
+
+//this comment will be ignored by the filter
+::Numerical example::
+When was Ulysses S. Grant born? {#
+        =1822:0      #Correct! 100% credit
+        =%50%1822:2  #He was born in 1822.
+                    You get 50% credit for being close.
+}</textarea>
+            </form>
+            </div>
+            <div class="col-sm-6">
+                <label for="output">JSON parsed from the GIFT format (for testing)</label>
+                <textarea id="output" class="form-control" readonly></textarea>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+        <script src="jquery.numberedtextarea.js"></script>
+        <script src="peg.js"></script>
+        <script src="jsDump.js"></script>
+        <!-- <script src="jquery.are-you-sure.js"></script> -->
+        <script src="online.js"></script>
+    </div>
+
+</body>
+
+</html>
