@@ -73,6 +73,8 @@ $(document).ready(function() {
 
         isDirty = true;
 
+        $("#parse-message").attr("class", "alert alert-info").text("Waiting...");
+
         if (parseTimer !== null) {
             clearTimeout(parseTimer);
             parseTimer = null;
