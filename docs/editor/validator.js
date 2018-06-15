@@ -24,12 +24,18 @@ $(document).ready(function() {
             parse(); // safe to call when promise is done
         });
 
-    var editor = CodeMirror.fromTextArea($("#gift")[0], {
+    var ta = document.getElementById('gift');
+
+    alert("found the TextArea:" + ta);
+
+    var editor = CodeMirror.fromTextArea(ta, {
         lineNumbers: true,
         styleActiveLine: true,
         styleActiveSelected: true,
         mode: "text/plain"
         });
+    
+    alert("loaded CodeMirror");
 
     var oldInput = null;
 
