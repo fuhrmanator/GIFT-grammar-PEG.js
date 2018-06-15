@@ -1,7 +1,7 @@
 /* @import url('https://getbootstrap.com/dist/css/bootstrap.css'); */
 
-html, body, .container {
-  height: 95%;
+html, body, .container, .container-fluid {
+  height: 95% !important; 
 }
 
 textarea.form-control {

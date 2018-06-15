@@ -13,20 +13,7 @@ $(document).ready(function() {
     var parseTimer = null;
     var parser = null;
 
-    /* load the grammar and generate a parser */
-    fetch('../../GIFT.pegjs')
-        .then(response => response.text())
-        .then(grammar => {
-            // console.log(grammar);
-            var parser = peg.generate(grammar);
-            setParser(parser);
-            // console.log(parser.parse("hello {}"));
-            parse(); // safe to call when promise is done
-        });
-
     var ta = document.getElementById('gift');
-
-    alert("found the TextArea:" + ta);
 
     var editor = CodeMirror.fromTextArea(ta, {
         lineNumbers: true,
@@ -35,8 +22,6 @@ $(document).ready(function() {
         mode: "text/plain"
         });
     
-    alert("loaded CodeMirror");
-
     var oldInput = null;
 
     function setParser(p) {
@@ -107,33 +92,57 @@ $(document).ready(function() {
 
     function doLayout() {
         // $("#gift").height(($(".container").innerHeight() - 145) + "px");
-        $(".CodeMirror").height(($(".container").innerHeight() - 145) + "px");
+        $(".CodeMirror").height(($(".CodeMirror").parent().parent().parent().innerHeight() - 145) + "px");
         $("#output").height(($(".CodeMirror").height()) + "px");
+        editor.refresh();
     }
+
+    /* load the grammar and generate a parser */
+    // fetch('../../GIFT.pegjs')
+    //     .then(response => response.text())
+    //     .then(grammar => {
+    //         // console.log(grammar);
+    //         var parser = peg.generate(grammar);
+    //         setParser(parser);
+    //         // console.log(parser.parse("hello {}"));
+    //         parse(); // safe to call when promise is done
+    //     });
+    function doneLoadingGrammar()
+    {
+        var grammar = this.response;
+        var parser = peg.generate(grammar);
+        setParser(parser);
+        parse();
+    }
+    
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();   // fetch doesn't work on old iPads because it's not supported in old Safari
+    xmlhttp.addEventListener("load", doneLoadingGrammar, false);
+    xmlhttp.open("GET","../../GIFT.pegjs",true);
+    xmlhttp.send();
 
     // $("#gift").val(sampleGift);
     editor.setValue(sampleGift);
     // JQuery numberedTextarea
     // $("#gift").numberedtextarea( {allowTabChar:true});  // not all options work when passed, modify the .css
-    $(window).resize(doLayout);
 
     // $("#loader").hide();
     // $("#content").show();
 
     $("#gift").removeAttr("disabled");
 
+    $(window).resize(doLayout);
     editor.on("change", scheduleParse);
-
-    $("#gift")
-    .change(scheduleParse)
-    .mousedown(scheduleParse)
-    .mouseup(scheduleParse)
-    .click(scheduleParse)
-    .keydown(scheduleParse)
-    .keyup(scheduleParse)
-    .keypress(scheduleParse);
-
-    editor.refresh();
     editor.focus();
+
+    // $("#gift")
+    // .change(scheduleParse)
+    // .mousedown(scheduleParse)
+    // .mouseup(scheduleParse)
+    // .click(scheduleParse)
+    // .keydown(scheduleParse)
+    // .keyup(scheduleParse)
+    // .keypress(scheduleParse);
+
   
 });
