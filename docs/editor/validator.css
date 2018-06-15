@@ -20,3 +20,13 @@ textarea.form-control#gift {
   background-size: 100% 4rem;
   line-height: 2rem; */
 }
+
+.syntax-error {
+  display: inline-block;
+  position:relative;
+  background: url(http://i.imgur.com/HlfA2is.gif) bottom repeat-x;
+}
+
+.parseerrors {
+  width: 1em;
+}

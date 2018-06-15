@@ -17,11 +17,15 @@ $(document).ready(function() {
 
     var editor = CodeMirror.fromTextArea(ta, {
         lineNumbers: true,
-        styleActiveLine: true,
-        styleActiveSelected: true,
-        mode: "text/plain"
-        });
-    
+        // styleActiveLine: true,
+        // styleActiveSelected: true,
+        mode: "text/plain",
+        gutters: ["CodeMirror-linenumbers", "parseerrors"]
+    });
+
+
+    var errorMark = null;
+
     var oldInput = null;
 
     function setParser(p) {
@@ -55,13 +59,34 @@ $(document).ready(function() {
             result = true;
         } catch (e) {
             $("#parse-message").attr("class", "alert alert-warning").text(buildErrorMessage(e));
-
+            var loc = e.location;
+            var from = {line: loc.start.line-1, ch: loc.start.column-1 - (loc.start.offset === loc.end.offset)};
+            var to = {line: loc.end.line-1, ch: loc.end.column-1};
+            // console.log(from);
+            // console.log(to);
+            errorMark = editor.markText(from, to, {className: 'syntax-error', title: e.message});
+            errorGutter = editor.setGutterMarker(loc.start.line-1, "parseerrors", makeMarker());
             result = false;
         } finally {
             doLayout();
         }
 
         return result;
+    }
+
+    function makeMarker() {
+        var marker = document.createElement("div");
+        marker.style.color = "#822";
+        marker.innerHTML = "❌";
+        return marker;
+      }
+
+    function clearErrors () {
+        if (errorMark !== null) {
+            errorMark.clear();
+            errorMark = null;
+        }
+        editor.clearGutter("parseerrors");
     }
 
     function scheduleParse() {
@@ -72,6 +97,7 @@ $(document).ready(function() {
         }
 
         isDirty = true;
+        clearErrors();
 
         $("#parse-message").attr("class", "alert alert-info").text("Waiting...");
 
