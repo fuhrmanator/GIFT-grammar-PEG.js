@@ -21,12 +21,31 @@ textarea.form-control#gift {
   line-height: 2rem; */
 }
 
-.syntax-error {
+/* .err {
   display: inline-block;
   position:relative;
   background: url(http://i.imgur.com/HlfA2is.gif) bottom repeat-x;
+} */
+
+.syntax-error {
+/*  border-bottom:2px dotted red; */
+  display: inline-block;
+  position: relative;
 }
 
-.parseerrors {
+.syntax-error:before {
+  content: "~~~~~~~~~~~~";
+  font-size: 0.6em;
+  font-weight: 700;
+  font-family: Times New Roman, Serif;
+  color: red;
+  width: 100%;
+  position: absolute;
+  top: 12px;
+  left: -1px;
+  overflow: hidden;
+}
+
+.guttererrormarker {
   width: 1em;
 }

@@ -20,7 +20,7 @@ $(document).ready(function() {
         // styleActiveLine: true,
         // styleActiveSelected: true,
         mode: "text/plain",
-        gutters: ["CodeMirror-linenumbers", "parseerrors"]
+        gutters: ["CodeMirror-linenumbers", "guttererrormarker"]
     });
 
 
@@ -64,8 +64,8 @@ $(document).ready(function() {
             var to = {line: loc.end.line-1, ch: loc.end.column-1};
             // console.log(from);
             // console.log(to);
-            errorMark = editor.markText(from, to, {className: 'syntax-error', title: e.message});
-            errorGutter = editor.setGutterMarker(loc.start.line-1, "parseerrors", makeMarker());
+            errorMark = editor.markText(from, to, {className:'syntax-error', title: e.message /*.replace(/"/g, '&quot;') */});
+            errorGutter = editor.setGutterMarker(loc.start.line-1, "guttererrormarker", makeMarker());
             result = false;
         } finally {
             doLayout();
@@ -86,7 +86,7 @@ $(document).ready(function() {
             errorMark.clear();
             errorMark = null;
         }
-        editor.clearGutter("parseerrors");
+        editor.clearGutter("guttererrormarker");
     }
 
     function scheduleParse() {
