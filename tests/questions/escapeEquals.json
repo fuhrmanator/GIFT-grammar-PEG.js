@@ -2,6 +2,7 @@
 		"type": "MC",
 		"title": null,
 		"stem": "Which answer equals 5?",
+		"globalFeedback": null,
 		"hasEmbeddedAnswers": false,
 		"choices": [{
 				"isCorrect": false,

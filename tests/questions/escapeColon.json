@@ -1,1 +1,33 @@
-[ { "type": "MC", "title": null, "stem": "Specify the seasons:", "hasEmbeddedAnswers": false, "choices": [ { "isCorrect": true, "weight": null, "text": "spring", "feedback": null }, { "isCorrect": true, "weight": null, "text": "summer", "feedback": null }, { "isCorrect": true, "weight": null, "text": "winter", "feedback": null }, { "isCorrect": true, "weight": null, "text": "autumn", "feedback": null }, { "isCorrect": false, "weight": null, "text": "easter", "feedback": null } ] }]
+[{
+    "type": "MC",
+    "title": null,
+    "stem": "Specify the seasons:",
+    "globalFeedback": null,
+    "hasEmbeddedAnswers": false,
+    "choices": [{
+        "isCorrect": true,
+        "weight": null,
+        "text": "spring",
+        "feedback": null
+    }, {
+        "isCorrect": true,
+        "weight": null,
+        "text": "summer",
+        "feedback": null
+    }, {
+        "isCorrect": true,
+        "weight": null,
+        "text": "winter",
+        "feedback": null
+    }, {
+        "isCorrect": true,
+        "weight": null,
+        "text": "autumn",
+        "feedback": null
+    }, {
+        "isCorrect": false,
+        "weight": null,
+        "text": "easter",
+        "feedback": null
+    }]
+}]

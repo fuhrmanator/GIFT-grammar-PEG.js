@@ -2,6 +2,7 @@
 		"type": "MC",
 		"title": "GIFT Control Characters",
 		"stem": "Which of the following is NOT a control character for the GIFT import format?",
+		"globalFeedback": null,
 		"hasEmbeddedAnswers": false,
 		"choices": [{
 				"isCorrect": false,
@@ -32,7 +33,7 @@
 				"isCorrect": false,
 				"weight": null,
 				"text": ":",
-				"feedback": "} is a control character."
+				"feedback": ": is a control character."
 			}, {
 				"isCorrect": true,
 				"weight": null,
