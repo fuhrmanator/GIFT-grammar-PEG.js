@@ -1,32 +1,34 @@
 {
-    "name": "gift-grammar-pegjs",
+    "name": "gift-pegjs",
     "version": "0.0.9",
-    "description": "grammar in pegjs for GIFT question format",
-    "main": "index.js",
+    "description": "Parser of GIFT question format based on PEG.js",
+    "main": "pegjs-gift.js",
     "dependencies": {
+        "pegjs": "^0.10.x"
+    },
+    "devDependencies": {
         "connect": "^3.6.6",
+        "minify": "^3.0.5",
         "pegjs-backtrace": "^0.1.1",
         "qunitjs": "^2.1.1",
         "serve-static": "^1.13.2",
-        "unit.js": "^2.0.0"
-    },
-    "devDependencies": {
         "glob": "^7.1.1",
         "mocha": ">=4.0.1",
-        "pegjs": "^0.10.0",
         "unit.js": "^2.0.0"
     },
+    "files" : [
+        "GIFT.pegjs",
+        "lib/"
+    ],
     "scripts": {
+        "build": "pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js",
         "test": "node_modules/.bin/mocha tests --recursive"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fuhrmanator/GIFT-grammar-PEG.js.git"
-    },
-    "author": "C. Fuhrman",
+    "repository": "github:fuhrmanator/GIFT-grammar-PEG.js",
+    "author": "Christopher Fuhrman",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js/issues"
     },
-    "homepage": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js#readme"
+    "homepage": "https://fuhrmanator.github.io/GIFT-grammar-PEG.js/"
 }
