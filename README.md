@@ -80,9 +80,9 @@ This table is not sufficient to understand everything. Please see [Moodle's docu
 | `#`*feedback text*	| Answer feedback for preceding multiple, fill-in-the-blank, or numeric answers| 
 | `####`*general feedback*	| General feedback| 
 | `{#`	| Start numeric answer(s)| 
-| *answer*`:`*tolerance*	| Numeric answer accepted within ± tolerance range| 
-| *low*`..`*high*	| Lower and upper range values of accepted numeric answer| 
-| `=%`*n*`%`*answer*`:`*tolerance*	| n percent credit for one of multiple numeric ranges within tolerance from answer| 
+| &nbsp;&nbsp;&nbsp;&nbsp;*answer*`:`*tolerance*	| Numeric answer accepted within ± tolerance range| 
+| &nbsp;&nbsp;&nbsp;&nbsp;*low*`..`*high*	| Lower and upper range values of accepted numeric answer| 
+| &nbsp;&nbsp;&nbsp;&nbsp;`=%`*n*`%`*answer*`:`*tolerance*	| n percent credit for one of multiple numeric ranges within tolerance from answer| 
 | `}`	| End answer(s)| 
 | `\`*character*	| Backslash escapes the special meaning of `~`, `=`, `#`, `{`, `}`, and `:`| 
 | `\n`	| Places a newline in question text -- blank lines delimit questions| 
