@@ -139,7 +139,7 @@ NumberWithRange "(number with range)"
   { var numericAnswer = {type: 'range', number: number, range:range}; return numericAnswer}
 
 NumberHighLow "(number with high-low)"
-  = numberHigh:Number '..' numberLow:Number 
+  = numberLow:Number '..' numberHigh:Number 
   { var numericAnswer = {type: 'high-low', numberHigh: numberHigh, numberLow:numberLow}; return numericAnswer}
 
 NumberAlone "(number answer)"
@@ -194,7 +194,7 @@ Number
         { return parseFloat(chars.join('') + frac); }
 
 NumberFraction
-    = "." chars:[0-9]*
+    = "." !"." chars:[0-9]*
         { return "." + chars.join(''); }
 
 GlobalFeedback

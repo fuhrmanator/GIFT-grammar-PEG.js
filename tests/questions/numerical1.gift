@@ -6,6 +6,8 @@ What is the value of pi (to 3 decimal places)? {#3.1415:0.0005}.
 
 What is the value of pi (to 3 decimal places)? {#3.141..3.142}.
 
+Give me a number from 1 to 5. {#1..5}.
+
 When was Ulysses S. Grant born? {#
     =1822:0
     =%50%1822:2}

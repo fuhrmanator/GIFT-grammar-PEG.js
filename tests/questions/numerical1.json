@@ -29,8 +29,20 @@
         "globalFeedback": null,
         "choices": {
             "type": "high-low",
-            "numberHigh": 3.141,
-            "numberLow": 3.142
+            "numberHigh": 3.142,
+            "numberLow": 3.141
+        }
+    },
+    {
+        "type": "Numerical",
+        "title": null,
+        "stem": "Give me a number from 1 to 5. _____ .",
+        "hasEmbeddedAnswers": true,
+        "globalFeedback": null,
+        "choices": {
+            "type": "high-low",
+            "numberHigh": 5,
+            "numberLow": 1
         }
     },
     {
