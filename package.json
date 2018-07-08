@@ -1,6 +1,6 @@
 {
     "name": "gift-pegjs",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Parser of GIFT question format based on PEG.js",
     "main": "pegjs-gift.js",
     "dependencies": {
@@ -16,7 +16,7 @@
         "mocha": ">=4.0.1",
         "unit.js": "^2.0.0"
     },
-    "files" : [
+    "files": [
         "GIFT.pegjs",
         "lib/"
     ],
