@@ -1,6 +1,7 @@
 [{
 		"type": "MC",
 		"title": null,
+        "format": null,
 		"stem": "Which answer equals 5?",
 		"globalFeedback": null,
 		"hasEmbeddedAnswers": false,

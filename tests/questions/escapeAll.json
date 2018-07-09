@@ -1,6 +1,7 @@
 [{
 		"type": "MC",
 		"title": "GIFT Control Characters",
+		"format": null,
 		"stem": "Which of the following is NOT a control character for the GIFT import format?",
 		"globalFeedback": null,
 		"hasEmbeddedAnswers": false,

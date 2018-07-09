@@ -1,6 +1,7 @@
 [{
     "type": "MC",
     "title": null,
+    "format": null,
     "stem": "What's the answer to this multiple-choice question?",
     "hasEmbeddedAnswers": false,
     "globalFeedback": "Global feedback on multiple lines",

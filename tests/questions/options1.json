@@ -1,6 +1,7 @@
 [{
         "type": "Numerical",
         "title": null,
+        "format": null,
         "stem": "What's 2 plus 2?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -12,6 +13,7 @@
     {
         "type": "MC",
         "title": "Kanji Origins",
+        "format": null,
         "stem": "Japanese characters originally came from what country?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -25,6 +27,7 @@
     {
         "type": "MC",
         "title": "Thanksgiving Date",
+        "format": null,
         "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -52,6 +55,7 @@
         "type": "MC",
         "title": null,
         "stem": "What's the answer to this multiple-choice question?",
+        "format": null,
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
@@ -78,6 +82,7 @@
         "type": "MC",
         "title": null,
         "stem": "Who's buried in Grant's tomb?",
+        "format": null,
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
@@ -97,6 +102,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": "markdown",
         "stem": "Who's buried in **Grant's tomb**?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -117,6 +123,7 @@
     {
         "type": "TF",
         "title": null,
+        "format": null,
         "stem": "Grant is buried in Grant's tomb.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -127,6 +134,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Difficult question.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -153,6 +161,7 @@
     {
         "type": "MC",
         "title": "Jesus' hometown",
+        "format": null,
         "stem": "Jesus Christ was from _____ .",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -185,6 +194,7 @@
     {
         "type": "MC",
         "title": "Jesus' hometown",
+        "format": null,
         "stem": "Jesus Christ was from",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -211,6 +221,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "What two people are entombed in Grant's tomb?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -243,6 +254,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "What two people are entombed in Grant's tomb?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -275,6 +287,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Which answer equals 5?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -301,6 +314,7 @@
     {
         "type": "MC",
         "title": "GIFT Control Characters",
+        "format": null,
         "stem": "Which of the following is NOT a control character for the GIFT import format?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,

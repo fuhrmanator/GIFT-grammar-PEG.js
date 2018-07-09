@@ -1,6 +1,7 @@
 [{
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Who's buried in Grant's tomb?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -27,6 +28,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Grant is _____ in Grant's tomb.",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -53,6 +55,7 @@
     {
         "type": "TF",
         "title": null,
+        "format": null,
         "stem": "Grant is buried in Grant's tomb.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -63,6 +66,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Who's buried in Grant's tomb?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -83,6 +87,7 @@
     {
         "type": "Numerical",
         "title": null,
+        "format": null,
         "stem": "When was Ulysses S. Grant born?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -95,6 +100,7 @@
     {
         "type": "Matching",
         "title": null,
+        "format": null,
         "stem": "Match the following countries with their corresponding capitals.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -115,6 +121,7 @@
     {
         "type": "MC",
         "title": "Grant's Tomb",
+        "format": null,
         "stem": "Grant is _____ in Grant's tomb.",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -141,6 +148,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Difficult multiple choice question.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -167,6 +175,7 @@
     {
         "type": "MC",
         "title": "Jesus' hometown (Short answer ex.)",
+        "format": null,
         "stem": "Jesus Christ was from _____ .",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -193,6 +202,7 @@
     {
         "type": "Numerical",
         "title": "Numerical example",
+        "format": null,
         "stem": "When was Ulysses S. Grant born?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,

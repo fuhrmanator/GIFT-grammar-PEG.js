@@ -27,12 +27,12 @@
 }
 
 GIFTQuestions
-  = questions:(Description / Question)+ _ { return questions; }
+  = questions:(Description / Question)+ _ __ { return questions; }
 
 Description "Description"
   = __
     format:Format? _ text:RichText QuestionSeparator
-    { return {type: "Description", title: '', format: format, stem: text, hasEmbeddedAnswers: false} }
+    { return {type: "Description", title: null, format: format, stem: text, hasEmbeddedAnswers: false} }
 
 Question
   = __
@@ -42,7 +42,7 @@ Question
     '{' 
     answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / EssayAnswer ) 
     '}' _
-    stem2:QuestionStem?
+    stem2:(Comment / QuestionStem)?
     QuestionSeparator
   {
     var embedded = (stem2 != null);
@@ -194,13 +194,13 @@ UnescapedChar ""
   = !(EscapeSequence / ControlChar / QuestionSeparator) . {return text()}
 
 ControlChar 
-  = '=' / '~' / "#" / '{' / '}' / '\\'
+  = '=' / '~' / "#" / '{' / '}' / '\\' / '->'
 
 // SpecialTokens "(special chars)"
 //   = "->" / "=" / "~" / "#" / "::" // do not include "{" / "}"
 
 RichText
-  = TextChar+ { return text() } 
+  = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim()) } 
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
@@ -221,10 +221,10 @@ __ "(multiple line whitespace)"
   = (Comment / EndOfLine / Space )*
 
 Comment "(comment)"
-  = '//' (!EndOfLine .)* ( EndOfLine / EndOfFile) 
+  = '//' (!EndOfLine .)* (EndOfLine / EndOfFile) {return null}
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"
-  = '\n\r' / '\n' / '\r'
+  = '\r\n' / '\n' / '\r'
 EndOfFile 
   = !. { return "EOF"; }

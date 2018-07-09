@@ -1,6 +1,7 @@
 [{
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Who's buried in Grant's tomb?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -27,6 +28,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Grant is _____ in Grant's tomb.",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -53,6 +55,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
@@ -79,6 +82,7 @@
     {
         "type": "MC",
         "title": null,
+        "format": null,
         "stem": "Japanese characters originally came from what country?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,

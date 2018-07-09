@@ -1,6 +1,7 @@
 [{
     "type": "MC",
     "title": null,
+    "format": null,
     "stem": "Specify the seasons:",
     "globalFeedback": null,
     "hasEmbeddedAnswers": false,

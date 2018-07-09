@@ -1,6 +1,7 @@
 [{
     "type": "MC",
     "title": null,
+    "format": null,
     "stem": "Who's buried in Grant's tomb?",
     "hasEmbeddedAnswers": false,
     "globalFeedback": null,

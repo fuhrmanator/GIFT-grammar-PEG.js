@@ -1,6 +1,7 @@
 [{
         "type": "TF",
         "title": null,
+        "format": null,
         "stem": "Grant is buried in Grant's tomb.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -11,6 +12,7 @@
     {
         "type": "TF",
         "title": null,
+        "format": null,
         "stem": "The sun rises in the east.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,

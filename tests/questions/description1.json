@@ -1,12 +1,14 @@
 [{
         "type": "Description",
         "title": null,
+        "format": null,
         "stem": "You can use your pencil and paper for these next questions.",
         "hasEmbeddedAnswers": false
     },
     {
         "type": "TF",
         "title": null,
+        "format": null,
         "stem": "True or false?",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,

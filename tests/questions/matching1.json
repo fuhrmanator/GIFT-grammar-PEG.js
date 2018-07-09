@@ -1,6 +1,7 @@
 [{
         "type": "Matching",
         "title": null,
+        "format": null,
         "stem": "Matching Question.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
@@ -21,6 +22,7 @@
     {
         "type": "Matching",
         "title": null,
+        "format": null,
         "stem": "Match the following countries with their corresponding capitals.",
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
