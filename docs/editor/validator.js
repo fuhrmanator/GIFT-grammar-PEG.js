@@ -123,16 +123,6 @@ $(document).ready(function() {
         editor.refresh();
     }
 
-    /* load the grammar and generate a parser */
-    // fetch('../../GIFT.pegjs')
-    //     .then(response => response.text())
-    //     .then(grammar => {
-    //         // console.log(grammar);
-    //         var parser = peg.generate(grammar);
-    //         setParser(parser);
-    //         // console.log(parser.parse("hello {}"));
-    //         parse(); // safe to call when promise is done
-    //     });
     function doneLoadingGrammar()
     {
         var grammar = this.response;
@@ -147,13 +137,7 @@ $(document).ready(function() {
     xmlhttp.open("GET","../../GIFT.pegjs",true);
     xmlhttp.send();
 
-    // $("#gift").val(sampleGift);
     editor.setValue(sampleGift);
-    // JQuery numberedTextarea
-    // $("#gift").numberedtextarea( {allowTabChar:true});  // not all options work when passed, modify the .css
-
-    // $("#loader").hide();
-    // $("#content").show();
 
     $("#gift").removeAttr("disabled");
 
@@ -161,14 +145,4 @@ $(document).ready(function() {
     editor.on("change", scheduleParse);
     editor.focus();
 
-    // $("#gift")
-    // .change(scheduleParse)
-    // .mousedown(scheduleParse)
-    // .mouseup(scheduleParse)
-    // .click(scheduleParse)
-    // .keydown(scheduleParse)
-    // .keyup(scheduleParse)
-    // .keypress(scheduleParse);
-
-  
 });
