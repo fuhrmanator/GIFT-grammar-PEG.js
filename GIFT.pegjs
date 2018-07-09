@@ -172,12 +172,22 @@ EscapeSequence "escape sequence"
    / "~" 
    / "="
    / "#"
+   / "["
+   / "]"
    / "{"
    / "}" )
   { return sequence; }
  
 UnescapedChar ""
-  = [\u0080-\u024f] / [A-Z]i / [0-9] / ' ' / [.+><()!?'"%,] / '*' / ('-' !'>') { return '-'} / (EndOfLine !EndOfLine) {return ' '}
+  = [\u0080-\u024f] / // unicode
+    [A-Z]i /
+    [0-9] / 
+    ' ' / 
+    [.`+><()!?'"%,;$&^@_|] / // symbols
+    ('/' !'/') { return '/'} / // special case for comment
+    '*' / 
+    ('-' !'>') { return '-'} /
+    (EndOfLine !EndOfLine) {return ' '}
 
 ControlChar 
   = '=' / '~' / "#" / '{' / '}' / '\\'  

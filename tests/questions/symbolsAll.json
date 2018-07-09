@@ -1,0 +1,12 @@
+[
+    {
+       "type": "TF",
+       "title": "GIFT range of non-escaped symbols",
+       "stem": "Here's a question that has symbols inside, such as `-=[];',./~!@#$%^&*()_+{}|:\"<>?",
+       "hasEmbeddedAnswers": false,
+       "globalFeedback": null,
+       "isTrue": true,
+       "incorrectFeedback": null,
+       "correctFeedback": null
+    }
+ ]
