@@ -1,20 +1,19 @@
 [{
         "type": "Matching",
         "title": null,
-        "format": null,
-        "stem": "Matching Question.",
+        "stem": {"format":null, "text":"Matching Question."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "matchPairs": [{
-                "subquestion": "subquestion1",
+                "subquestion": {"format":null, "text":"subquestion1"},
                 "subanswer": "subanswer1"
             },
             {
-                "subquestion": "subquestion2",
+                "subquestion": {"format":null, "text":"subquestion2"},
                 "subanswer": "subanswer2"
             },
             {
-                "subquestion": "subquestion3",
+                "subquestion": {"format":null, "text":"subquestion3"},
                 "subanswer": "subanswer3"
             }
         ]
@@ -22,24 +21,23 @@
     {
         "type": "Matching",
         "title": null,
-        "format": null,
-        "stem": "Match the following countries with their corresponding capitals.",
+        "stem": {"format":null, "text":"Match the following countries with their corresponding capitals."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "matchPairs": [{
-                "subquestion": "Canada",
+                "subquestion": {"format":null, "text":"Canada"},
                 "subanswer": "Ottawa"
             },
             {
-                "subquestion": "Italy",
+                "subquestion": {"format":null, "text":"Italy"},
                 "subanswer": "Rome"
             },
             {
-                "subquestion": "Japan",
+                "subquestion": {"format":null, "text":"Japan"},
                 "subanswer": "Tokyo"
             },
             {
-                "subquestion": "India",
+                "subquestion": {"format":null, "text":"India"},
                 "subanswer": "New Delhi"
             }
         ]

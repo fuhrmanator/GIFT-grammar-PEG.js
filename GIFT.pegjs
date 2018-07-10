@@ -82,14 +82,14 @@ FalseType
 MCAnswers "{=correct choice ~incorrect choice ... }"
   = choices:Choices _ 
     globalFeedback:GlobalFeedback? _
-  { return { type: "MC", choices: choices, globalFeedback:globalFeedback}; }
+  { return { type: "MC", choices:choices, globalFeedback:globalFeedback}; }
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
  
 Choice "Choice"
   = _ choice:([=~] _ Weight? _ RichText) feedback:Feedback? _ 
-    { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
+    { var choice = { isCorrect: (choice[0] == '='), weight:choice[2], text:choice[4], feedback:feedback }; return choice } 
 
 Weight "(weight)"
   = '%' _ percent:([-]? PercentValue) _ '%' { return makeInteger(percent) }

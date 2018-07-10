@@ -1,26 +1,25 @@
 [{
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Who's buried in Grant's tomb?",
+        "stem": {"format":null, "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "Grant",
+                "text": {"format":null, "text":"Grant"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Jefferson",
+                "text": {"format":null, "text":"Jefferson"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "no one",
+                "text": {"format":null, "text":"no one"},
                 "feedback": null
             }
         ]
@@ -28,26 +27,25 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Grant is _____ in Grant's tomb.",
+        "stem": {"format":null, "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "buried",
+                "text": {"format":null, "text":"buried"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "entombed",
+                "text": {"format":null, "text":"entombed"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "living",
+                "text": {"format":null, "text":"living"},
                 "feedback": null
             }
         ]
@@ -55,26 +53,25 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
+        "stem": {"format":null, "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "second",
+                "text": {"format":null, "text":"second"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "third",
+                "text": {"format":null, "text":"third"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "fourth",
+                "text": {"format":null, "text":"fourth"},
                 "feedback": null
             }
         ]
@@ -82,32 +79,31 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Japanese characters originally came from what country?",
+        "stem": {"format":null, "text":"Japanese characters originally came from what country?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "India",
+                "text": {"format":null, "text":"India"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "China",
+                "text": {"format":null, "text":"China"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Korea",
+                "text": {"format":null, "text":"Korea"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Egypt",
+                "text": {"format":null, "text":"Egypt"},
                 "feedback": null
             }
         ]

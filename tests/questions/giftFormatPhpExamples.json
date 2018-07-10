@@ -1,26 +1,25 @@
 [{
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Who's buried in Grant's tomb?",
+        "stem": {"format":null, "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "Grant",
+                "text": {"format":null, "text":"Grant"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Jefferson",
+                "text": {"format":null, "text":"Jefferson"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "no one",
+                "text": {"format":null, "text":"no one"},
                 "feedback": null
             }
         ]
@@ -28,26 +27,25 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Grant is _____ in Grant's tomb.",
+        "stem": {"format":null, "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "buried",
+                "text": {"format":null, "text":"buried"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "entombed",
+                "text": {"format":null, "text":"entombed"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "living",
+                "text": {"format":null, "text":"living"},
                 "feedback": null
             }
         ]
@@ -55,8 +53,7 @@
     {
         "type": "TF",
         "title": null,
-        "format": null,
-        "stem": "Grant is buried in Grant's tomb.",
+        "stem": {"format":null, "text":"Grant is buried in Grant's tomb."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": false,
@@ -66,20 +63,19 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Who's buried in Grant's tomb?",
+        "stem": {"format":null, "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": "no one",
+                "text": {"format":null, "text":"no one"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "nobody",
+                "text": {"format":null, "text":"nobody"},
                 "feedback": null
             }
         ]
@@ -87,8 +83,7 @@
     {
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "When was Ulysses S. Grant born?",
+        "stem": {"format":null, "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": {
@@ -100,20 +95,19 @@
     {
         "type": "Matching",
         "title": null,
-        "format": null,
-        "stem": "Match the following countries with their corresponding capitals.",
+        "stem": {"format":null, "text":"Match the following countries with their corresponding capitals."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "matchPairs": [{
-                "subquestion": "Canada",
+                "subquestion": {"format":null, "text":"Canada"},
                 "subanswer": "Ottawa"
             },
             {
-                "subquestion": "Italy",
+                "subquestion": {"format":null, "text":"Italy"},
                 "subanswer": "Rome"
             },
             {
-                "subquestion": "Japan",
+                "subquestion": {"format":null, "text":"Japan"},
                 "subanswer": "Tokyo"
             }
         ]
@@ -121,89 +115,85 @@
     {
         "type": "MC",
         "title": "Grant's Tomb",
-        "format": null,
-        "stem": "Grant is _____ in Grant's tomb.",
+        "stem": {"format":null, "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "buried",
-                "feedback": "No one is buried there."
+                "text": {"format":null, "text":"buried"},
+                "feedback": {"format":null, "text":"No one is buried there."}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "entombed",
-                "feedback": "Right answer!"
+                "text": {"format":null, "text":"entombed"},
+                "feedback": {"format":null, "text":"Right answer!"}
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "living",
-                "feedback": "We hope not!"
+                "text": {"format":null, "text":"living"},
+                "feedback": {"format":null, "text":"We hope not!"}
             }
         ]
     },
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Difficult multiple choice question.",
+        "stem": {"format":null, "text":"Difficult multiple choice question."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "wrong answer",
-                "feedback": "comment on wrong answer"
+                "text": {"format":null, "text":"wrong answer"},
+                "feedback": {"format":null, "text":"comment on wrong answer"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "half credit answer",
-                "feedback": "comment on answer"
+                "text": {"format":null, "text":"half credit answer"},
+                "feedback": {"format":null, "text":"comment on answer"}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "full credit answer",
-                "feedback": "well done!"
+                "text": {"format":null, "text":"full credit answer"},
+                "feedback": {"format":null, "text":"well done!"}
             }
         ]
     },
     {
         "type": "MC",
         "title": "Jesus' hometown (Short answer ex.)",
-        "format": null,
-        "stem": "Jesus Christ was from _____ .",
+        "stem": {"format":null, "text":"Jesus Christ was from _____ ."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": "Nazareth",
-                "feedback": "Yes! That's right!"
+                "text": {"format":null, "text":"Nazareth"},
+                "feedback": {"format":null, "text":"Yes! That's right!"}
             },
             {
                 "isCorrect": true,
                 "weight": 75,
-                "text": "Nazereth",
-                "feedback": "Right, but misspelled."
+                "text": {"format":null, "text":"Nazereth"},
+                "feedback": {"format":null, "text":"Right, but misspelled."}
             },
             {
                 "isCorrect": true,
                 "weight": 25,
-                "text": "Bethlehem",
-                "feedback": "He was born here, but not raised here."
+                "text": {"format":null, "text":"Bethlehem"},
+                "feedback": {"format":null, "text":"He was born here, but not raised here."}
             }
         ]
     },
     {
         "type": "Numerical",
         "title": "Numerical example",
-        "format": null,
-        "stem": "When was Ulysses S. Grant born?",
+        "stem": {"format":null, "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
@@ -214,7 +204,7 @@
                     "number": 1822,
                     "range": 0
                 },
-                "feedback": "Correct! 100% credit"
+                "feedback": {"format":null, "text":"Correct! 100% credit"}
             },
             {
                 "isCorrect": true,
@@ -224,7 +214,7 @@
                     "number": 1822,
                     "range": 2
                 },
-                "feedback": "He was born in 1822. You get 50% credit for being close."
+                "feedback": {"format":null, "text":"He was born in 1822. You get 50% credit for being close."}
             }
         ]
     }

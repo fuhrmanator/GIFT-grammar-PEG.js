@@ -1,26 +1,25 @@
 [{
     "type": "MC",
     "title": null,
-    "format": null,
-    "stem": "Grant is _____ in Grant's tomb.",
+    "stem": {"format":null, "text":"Grant is _____ in Grant's tomb."},
     "hasEmbeddedAnswers": true,
     "globalFeedback": null,
     "choices": [{
             "isCorrect": false,
             "weight": null,
-            "text": "buried",
+            "text": {"format":null, "text":"buried"},
             "feedback": null
         },
         {
             "isCorrect": true,
             "weight": null,
-            "text": "entombed",
+            "text": {"format":null, "text":"entombed"},
             "feedback": null
         },
         {
             "isCorrect": false,
             "weight": null,
-            "text": "living",
+            "text": {"format":null, "text":"living"},
             "feedback": null
         }
     ]

@@ -1,8 +1,7 @@
 [{
     "type": "Essay",
     "title": null,
-    "format": null,
-    "stem": "Write a short biography of Dag Hammarskjöld.",
+    "stem": {"format":null, "text":"Write a short biography of Dag Hammarskjöld."},
     "hasEmbeddedAnswers": false,
     "globalFeedback": null
 }]

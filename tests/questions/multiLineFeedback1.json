@@ -1,27 +1,26 @@
 [{
     "type": "MC",
     "title": null,
-    "format": null,
-    "stem": "What's the answer to this multiple-choice question?",
+    "stem": {"format":null, "text":"What's the answer to this multiple-choice question?"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": "Global feedback on multiple lines",
+    "globalFeedback": {"format":null, "text":"Global feedback on multiple lines"},
     "choices": [{
             "isCorrect": false,
             "weight": null,
-            "text": "wrong answer",
-            "feedback": "feedback comment on the wrong answer"
+            "text": {"format":null, "text":"wrong answer"},
+            "feedback": {"format":null, "text":"feedback comment on the wrong answer"}
         },
         {
             "isCorrect": false,
             "weight": null,
-            "text": "another wrong answer",
-            "feedback": "feedback comment on this wrong answer on multiple lines"
+            "text": {"format":null, "text":"another wrong answer"},
+            "feedback": {"format":null, "text":"feedback comment on this wrong answer on multiple lines"}
         },
         {
             "isCorrect": true,
             "weight": null,
-            "text": "right answer",
-            "feedback": "Very good!"
+            "text": {"format":null, "text":"right answer"},
+            "feedback": {"format":null, "text":"Very good!"}
         }
     ]
 }]

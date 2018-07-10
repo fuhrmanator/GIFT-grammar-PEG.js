@@ -1,8 +1,7 @@
 [{
     "type": "TF",
     "title": null,
-    "format": "markdown",
-    "stem": "Grant is buried in Grant's _tomb_.",
+    "stem": {"format":"markdown", "text":"Grant is buried in Grant's _tomb_."},
     "hasEmbeddedAnswers": false,
     "globalFeedback": null,
     "isTrue": false,

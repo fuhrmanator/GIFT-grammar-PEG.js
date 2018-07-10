@@ -1,8 +1,7 @@
 [{
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "When was Ulysses S. Grant born?",
+        "stem": {"format":null, "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": {
@@ -13,8 +12,7 @@
     {
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "What is the value of pi (to 3 decimal places)? _____ .",
+        "stem": {"format":null, "text":"What is the value of pi (to 3 decimal places)? _____ ."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": {
@@ -26,8 +24,7 @@
     {
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "What is the value of pi (to 3 decimal places)? _____ .",
+        "stem": {"format":null, "text":"What is the value of pi (to 3 decimal places)? _____ ."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": {
@@ -39,8 +36,7 @@
     {
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "Give me a number from 1 to 5. _____ .",
+        "stem": {"format":null, "text":"Give me a number from 1 to 5. _____ ."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": {
@@ -52,8 +48,7 @@
     {
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "When was Ulysses S. Grant born?",
+        "stem": {"format":null, "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{

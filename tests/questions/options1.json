@@ -1,8 +1,7 @@
 [{
         "type": "Numerical",
         "title": null,
-        "format": null,
-        "stem": "What's 2 plus 2?",
+        "stem": {"format":null, "text":"What's 2 plus 2?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": {
@@ -13,40 +12,38 @@
     {
         "type": "MC",
         "title": "Kanji Origins",
-        "format": null,
-        "stem": "Japanese characters originally came from what country?",
+        "stem": {"format":null, "text":"Japanese characters originally came from what country?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
             "isCorrect": true,
             "weight": null,
-            "text": "China",
+            "text": {"format":null, "text":"China"},
             "feedback": null
         }]
     },
     {
         "type": "MC",
         "title": "Thanksgiving Date",
-        "format": null,
-        "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
+        "stem": {"format":null, "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "second",
+                "text": {"format":null, "text":"second"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "third",
+                "text": {"format":null, "text":"third"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "fourth",
+                "text": {"format":null, "text":"fourth"},
                 "feedback": null
             }
         ]
@@ -54,106 +51,101 @@
     {
         "type": "MC",
         "title": null,
-        "stem": "What's the answer to this multiple-choice question?",
-        "format": null,
+        "stem": {"format":null, "text":"What's the answer to this multiple-choice question?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "wrong answer",
-                "feedback": "feedback comment on the wrong answer"
+                "text": {"format":null, "text":"wrong answer"},
+                "feedback": {"format":null, "text":"feedback comment on the wrong answer"}
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "another wrong answer",
-                "feedback": "feedback comment on this wrong answer"
+                "text": {"format":null, "text":"another wrong answer"},
+                "feedback": {"format":null, "text":"feedback comment on this wrong answer"}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "right answer",
-                "feedback": "Very good!"
+                "text": {"format":null, "text":"right answer"},
+                "feedback": {"format":null, "text":"Very good!"}
             }
         ]
     },
     {
         "type": "MC",
         "title": null,
-        "stem": "Who's buried in Grant's tomb?",
-        "format": null,
+        "stem": {"format":null, "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": "no one",
-                "feedback": "excellent answer!"
+                "text": {"format":null, "text":"no one"},
+                "feedback": {"format":null, "text":"excellent answer!"}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "nobody",
-                "feedback": "excellent answer!"
+                "text": {"format":null, "text":"nobody"},
+                "feedback": {"format":null, "text":"excellent answer!"}
             }
         ]
     },
     {
         "type": "MC",
         "title": null,
-        "format": "markdown",
-        "stem": "Who's buried in **Grant's tomb**?",
+        "stem": {"format":"markdown", "text":"Who's buried in **Grant's tomb**?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": "no one",
-                "feedback": "excellent answer!"
+                "text": {"format":null, "text":"no one"},
+                "feedback": {"format":null, "text":"excellent answer!"}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "nobody",
-                "feedback": "excellent answer!"
+                "text": {"format":null, "text":"nobody"},
+                "feedback": {"format":null, "text":"excellent answer!"}
             }
         ]
     },
     {
         "type": "TF",
         "title": null,
-        "format": null,
-        "stem": "Grant is buried in Grant's tomb.",
+        "stem": {"format":null, "text":"Grant is buried in Grant's tomb."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": false,
-        "incorrectFeedback": "No one is buried in Grant's tomb.",
+        "incorrectFeedback": {"format":null, "text":"No one is buried in Grant's tomb."},
         "correctFeedback": null
     },
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Difficult question.",
+        "stem": {"format":null, "text":"Difficult question."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "wrong answer",
+                "text": {"format":null, "text":"wrong answer"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "half credit answer",
+                "text": {"format":null, "text":"half credit answer"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "full credit answer",
+                "text": {"format":null, "text":"full credit answer"},
                 "feedback": null
             }
         ]
@@ -161,92 +153,89 @@
     {
         "type": "MC",
         "title": "Jesus' hometown",
-        "format": null,
-        "stem": "Jesus Christ was from _____ .",
+        "stem": {"format":null, "text":"Jesus Christ was from _____ ."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "Jerusalem",
-                "feedback": "This was an important city, but the wrong answer."
+                "text": {"format":null, "text":"Jerusalem"},
+                "feedback": {"format":null, "text":"This was an important city, but the wrong answer."}
             },
             {
                 "isCorrect": false,
                 "weight": 25,
-                "text": "Bethlehem",
-                "feedback": "He was born here, but not raised here."
+                "text": {"format":null, "text":"Bethlehem"},
+                "feedback": {"format":null, "text":"He was born here, but not raised here."}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "Galilee",
-                "feedback": "You need to be more specific."
+                "text": {"format":null, "text":"Galilee"},
+                "feedback": {"format":null, "text":"You need to be more specific."}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "Nazareth",
-                "feedback": "Yes! That's right!"
+                "text": {"format":null, "text":"Nazareth"},
+                "feedback": {"format":null, "text":"Yes! That's right!"}
             }
         ]
     },
     {
         "type": "MC",
         "title": "Jesus' hometown",
-        "format": null,
-        "stem": "Jesus Christ was from",
+        "stem": {"format":null, "text":"Jesus Christ was from"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": "Nazareth",
-                "feedback": "Yes! That's right!"
+                "text": {"format":null, "text":"Nazareth"},
+                "feedback": {"format":null, "text":"Yes! That's right!"}
             },
             {
                 "isCorrect": true,
                 "weight": 75,
-                "text": "Nazereth",
-                "feedback": "Right, but misspelled."
+                "text": {"format":null, "text":"Nazereth"},
+                "feedback": {"format":null, "text":"Right, but misspelled."}
             },
             {
                 "isCorrect": true,
                 "weight": 25,
-                "text": "Bethlehem",
-                "feedback": "He was born here, but not raised here."
+                "text": {"format":null, "text":"Bethlehem"},
+                "feedback": {"format":null, "text":"He was born here, but not raised here."}
             }
         ]
     },
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "What two people are entombed in Grant's tomb?",
+        "stem": {"format":null, "text":"What two people are entombed in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "No one",
+                "text": {"format":null, "text":"No one"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "Grant",
+                "text": {"format":null, "text":"Grant"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "Grant's wife",
+                "text": {"format":null, "text":"Grant's wife"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Grant's father",
+                "text": {"format":null, "text":"Grant's father"},
                 "feedback": null
             }
         ]
@@ -254,32 +243,31 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "What two people are entombed in Grant's tomb?",
+        "stem": {"format":null, "text":"What two people are entombed in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": -50,
-                "text": "No one",
+                "text": {"format":null, "text":"No one"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "Grant",
+                "text": {"format":null, "text":"Grant"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": "Grant's wife",
+                "text": {"format":null, "text":"Grant's wife"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": -50,
-                "text": "Grant's father",
+                "text": {"format":null, "text":"Grant's father"},
                 "feedback": null
             }
         ]
@@ -287,26 +275,25 @@
     {
         "type": "MC",
         "title": null,
-        "format": null,
-        "stem": "Which answer equals 5?",
+        "stem": {"format":null, "text":"Which answer equals 5?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "= 2 + 2",
+                "text": {"format":null, "text":"= 2 + 2"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "= 2 + 3",
+                "text": {"format":null, "text":"= 2 + 3"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "= 2 + 4",
+                "text": {"format":null, "text":"= 2 + 4"},
                 "feedback": null
             }
         ]
@@ -314,45 +301,44 @@
     {
         "type": "MC",
         "title": "GIFT Control Characters",
-        "format": null,
-        "stem": "Which of the following is NOT a control character for the GIFT import format?",
+        "stem": {"format":null, "text":"Which of the following is NOT a control character for the GIFT import format?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "~",
-                "feedback": "~ is a control character."
+                "text": {"format":null, "text":"~"},
+                "feedback": {"format":null, "text":"~ is a control character."}
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "=",
-                "feedback": "= is a control character."
+                "text": {"format":null, "text":"="},
+                "feedback": {"format":null, "text":"= is a control character."}
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "#",
-                "feedback": "# is a control character."
+                "text": {"format":null, "text":"#"},
+                "feedback": {"format":null, "text":"# is a control character."}
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "{",
-                "feedback": "{ is a control character."
+                "text": {"format":null, "text":"{"},
+                "feedback": {"format":null, "text":"{ is a control character."}
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "}",
-                "feedback": "} is a control character."
+                "text": {"format":null, "text":"}"},
+                "feedback": {"format":null, "text":"} is a control character."}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "\\",
-                "feedback": "Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters. So, to specify a literal backslash, you must escape it with a backslash (as shown in this example)."
+                "text": {"format":null, "text":"\\"},
+                "feedback": {"format":null, "text":"Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters. So, to specify a literal backslash, you must escape it with a backslash (as shown in this example)."}
             }
         ]
     }
