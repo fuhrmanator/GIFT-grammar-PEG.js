@@ -1,25 +1,25 @@
 [{
         "type": "MC",
         "title": null,
-        "stem": "Who's buried in Grant's tomb?",
+        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "Grant",
+                "text": {"format":"moodle", "text":"Grant"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Jefferson",
+                "text": {"format":"moodle", "text":"Jefferson"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "no one",
+                "text": {"format":"moodle", "text":"no one"},
                 "feedback": null
             }
         ]
@@ -27,25 +27,25 @@
     {
         "type": "MC",
         "title": null,
-        "stem": "Grant is _____ in Grant's tomb.",
+        "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "buried",
+                "text": {"format":"moodle", "text":"buried"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "entombed",
+                "text": {"format":"moodle", "text":"entombed"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "living",
+                "text": {"format":"moodle", "text":"living"},
                 "feedback": null
             }
         ]
@@ -53,25 +53,25 @@
     {
         "type": "MC",
         "title": null,
-        "stem": "The American holiday of Thanksgiving is celebrated on the _____ Thursday of November.",
+        "stem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "second",
+                "text": {"format":"moodle", "text":"second"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "third",
+                "text": {"format":"moodle", "text":"third"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "fourth",
+                "text": {"format":"moodle", "text":"fourth"},
                 "feedback": null
             }
         ]
@@ -79,31 +79,31 @@
     {
         "type": "MC",
         "title": null,
-        "stem": "Japanese characters originally came from what country?",
+        "stem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": "India",
+                "text": {"format":"moodle", "text":"India"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": "China",
+                "text": {"format":"moodle", "text":"China"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Korea",
+                "text": {"format":"moodle", "text":"Korea"},
                 "feedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": "Egypt",
+                "text": {"format":"moodle", "text":"Egypt"},
                 "feedback": null
             }
         ]

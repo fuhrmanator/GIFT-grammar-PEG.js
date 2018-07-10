@@ -1,7 +1,7 @@
 [{
     "type": "TF",
     "title": null,
-    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "stem": {"format":"html", "text":"<p>Grant is buried in Grant's tomb.</p>"},
     "hasEmbeddedAnswers": false,
     "globalFeedback": null,
     "isTrue": false,

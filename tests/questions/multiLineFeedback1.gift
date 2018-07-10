@@ -5,5 +5,15 @@ What's the answer to this multiple-choice question?{
 ~another wrong answer#feedback comment on this wrong answer
 on multiple lines
 =right answer#Very good!
-####Global feedback
+####Global feedback split
 on multiple lines}
+
+::06- création d'instance::[html]<p></p><p class\="QMultiChoice" style\="margin-left\:18.0pt;text-indent\:\n-18.0pt;tab-stops\:36.0pt"><span lang\="FR"><span style\="font\:7.0pt &quot;Times New Roman&quot;">&nbsp;</span></span><span lang\="FR">CU4-1 demarrerAbonnement(duree&nbsp;\:Integer)&nbsp;\:\nComment réalise t’on la post-condition&nbsp;\: une instance d’abonnement à été\ncréé&nbsp;?&nbsp; Qui crée l’abonnement&nbsp;?\nQui contient, agrège, aux données pour initialiser, enregistre ou utilise\nétroitement l’abonnement.&nbsp; Regarder les\nassociations dans les MDD. Les choix possibles sont&nbsp;\:</span></p><br><p></p>{
+	~<p><span style\="font-size\:11.0pt;line-height\:115%;\nfont-family\:Calibri" lang\="FR">Client</span><br></p>#<br><p><br></p>
+	~<p><span style\="font-size\:11.0pt;line-height\:115%;\nfont-family\:Calibri" lang\="FR">ConditionAbonnement</span><br></p>
+	~<p><span style\="font-size\:11.0pt;line-height\:115%;\nfont-family\:Calibri" lang\="FR">Paiement</span><br></p>
+	~<p><span style\="font-size\:11.0pt;line-height\:115%;\nfont-family\:Calibri" lang\="FR">Emprunt</span><br></p>
+	=<p></p><p class\="ACorrectChoice"><span style\="font-family\:Wingdings;color\:green" lang\="FR"><span style\="font\:7.0pt &quot;Times New Roman&quot;"></span></span><span lang\="FR">ContrôleurAbonnement </span></p><br><p></p>
+	~<p>CléAccess<br></p>
+	####<p><img src\="@@PLUGINFILE@@/3.png" alt\="" role\="presentation" style\="vertical-align\:text-bottom; margin\: 0 .5em;" class\="img-responsive" height\="717" width\="1303"><br></p>
+}

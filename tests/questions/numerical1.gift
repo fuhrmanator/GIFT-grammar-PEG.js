@@ -11,3 +11,10 @@ Give me a number from 1 to 5. {#1..5}.
 When was Ulysses S. Grant born? {#
     =1822:0
     =%50%1822:2}
+
+::Combien de principes GRASP y a-t-il?::
+[html]<p>Combien de principes GRASP y a-t-il?</p>{#
+    =%0%5:0#<p>Incorrect. Bien que le livre ne présente que 5 principes au début, au total, il y a neuf (9) principes GRASP.</p>
+	=%100%9:0#<p>Correct. Il y a neuf (9) principes GRASP.</p>
+	=%0%23:0#<p>Incorrect. Il y a neuf (9) principes GRASP. Il y a cependant <a title\="Gang des quatre" href\="http\://fr.wikipedia.org/wiki/Design_Patterns">23 Patterns GoF (Gang des quatre)</a></p>
+}

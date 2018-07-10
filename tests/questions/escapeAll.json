@@ -1,44 +1,44 @@
 [{
 		"type": "MC",
 		"title": "GIFT Control Characters",
-		"stem": "Which of the following is NOT a control character for the GIFT import format?",
+		"stem": {"format":"moodle", "text":"Which of the following is NOT a control character for the GIFT import format?"},
 		"globalFeedback": null,
 		"hasEmbeddedAnswers": false,
 		"choices": [{
 				"isCorrect": false,
 				"weight": null,
-				"text": "~",
-				"feedback": "~ is a control character."
+				"text": {"format":"moodle", "text":"~"},
+				"feedback": {"format":"moodle", "text":"~ is a control character."}
 			}, {
 				"isCorrect": false,
 				"weight": null,
-				"text": "=",
-				"feedback": "= is a control character."
+				"text": {"format":"moodle", "text":"="},
+				"feedback": {"format":"moodle", "text":"= is a control character."}
 			}, {
 				"isCorrect": false,
 				"weight": null,
-				"text": "#",
-				"feedback": "# is a control character."
+				"text": {"format":"moodle", "text":"#"},
+				"feedback": {"format":"moodle", "text":"# is a control character."}
 			}, {
 				"isCorrect": false,
 				"weight": null,
-				"text": "{",
-				"feedback": "{ is a control character."
+				"text": {"format":"moodle", "text":"{"},
+				"feedback": {"format":"moodle", "text":"{ is a control character."}
 			}, {
 				"isCorrect": false,
 				"weight": null,
-				"text": "}",
-				"feedback": "} is a control character."
+				"text": {"format":"moodle", "text":"}"},
+				"feedback": {"format":"moodle", "text":"} is a control character."}
 			}, {
 				"isCorrect": false,
 				"weight": null,
-				"text": ":",
-				"feedback": ": is a control character."
+				"text": {"format":"moodle", "text":":"},
+				"feedback": {"format":"moodle", "text":": is a control character."}
 			}, {
 				"isCorrect": true,
 				"weight": null,
-				"text": "\\",
-				"feedback": "Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters."
+				"text": {"format":"moodle", "text":"\\"},
+				"feedback": {"format":"moodle", "text":"Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters."}
 			}
 		]
 	}
