@@ -40,8 +40,8 @@
 GIFTQuestions
   = questions:(Category / Description / Question)+ _ __ { return questions; }
 
-Category "Category"  // ignored for now
-  = "$CATEGORY:" _ cat:PlainText {return}
+Category "Category"
+  = __ '$' 'CATEGORY:' _ cat:PlainText QuestionSeparator {return {type:"Category", title:cat}}
 
 Description "Description"
   = __
@@ -119,7 +119,7 @@ PercentValue "(percent)"
   = '100' / [0-9][0-9]?  { return text() }
 
 Feedback "(feedback)" 
-  = '#' _ feedback:RichText { return feedback }
+  = '#' !'###' _ feedback:RichText? { return feedback }
 
 ////////////////////
 EssayAnswer "Essay question { ... }"
