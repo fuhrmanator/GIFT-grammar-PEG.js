@@ -31,13 +31,12 @@ GIFTQuestions
 
 Description "Description"
   = __
-    format:Format? _ text:RichText QuestionSeparator
-    { return {type: "Description", title: null, format: format, stem: text, hasEmbeddedAnswers: false} }
+    text:RichText QuestionSeparator
+    { return {type: "Description", title: null, stem: text, hasEmbeddedAnswers: false} }
 
 Question
   = __
     title:QuestionTitle? _
-    format:Format? _
     stem1:QuestionStem _ 
     '{' 
     answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / EssayAnswer ) 
@@ -46,8 +45,8 @@ Question
     QuestionSeparator
   {
     var embedded = (stem2 != null);
-    var stem = stem1 + ( embedded ? " _____ " + stem2 : "");
-    var question = {type:answers.type, title:title, format:format, stem:stem, hasEmbeddedAnswers:(stem2 != null)};
+    var stem = {format:stem1.format, text:stem1.text + ( embedded ? " _____ " + stem2.text : "")};
+    var question = {type:answers.type, title:title, stem:stem, hasEmbeddedAnswers:(stem2 != null)};
     question = processAnswers(question, answers);
     return question;
   }
@@ -60,8 +59,8 @@ Matches "matches"
   = matchPairs:(Match)+  { return matchPairs }
   
 Match "match"
-  = _ '=' _ left:RichText _ '->' _ right:RichText _ 
-    { var matchPair = { subquestion:left, subanswer:right }; return matchPair } 
+  = _ '=' _ left:RichText? _ '->' _ right:PlainText _ 
+    { var matchPair = { subquestion:{format:(left !== null ? left.format : "moodle"), text:(left !== null ? left.text : "")}, subanswer:right }; return matchPair } 
 
 ///////////
 TrueFalseAnswer "{T} or {F} or {True} or {False}"
@@ -89,17 +88,17 @@ Choices "Choices"
   = choices:(Choice)+ { return choices; }
  
 Choice "Choice"
-  = _ choice:([=~] Weight? RichText) feedback:Feedback? _ 
+  = _ choice:([=~] _ Weight? _ RichText) feedback:Feedback? _ 
     { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
 
 Weight "(weight)"
-  = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
+  = '%' _ percent:([-]? PercentValue) _ '%' { return makeInteger(percent) }
   
 PercentValue "(percent)"
   = '100' / [1-9][0-9]?  { return text() }
 
 Feedback "(feedback)" 
-  = '#' feedback:RichText { return feedback }
+  = '#' _ feedback:RichText { return feedback }
 
 ////////////////////
 EssayAnswer "Essay question { ... }"
@@ -199,8 +198,11 @@ ControlChar
 // SpecialTokens "(special chars)"
 //   = "->" / "=" / "~" / "#" / "::" // do not include "{" / "}"
 
-RichText
-  = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim()) } 
+RichText "(formatted text)"
+  = format:Format? _ txt:TextChar+ { return {format:format, text:removeDuplicateSpaces(txt.join('').trim())}} 
+
+PlainText "(unformatted text)"
+  = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim())} 
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
