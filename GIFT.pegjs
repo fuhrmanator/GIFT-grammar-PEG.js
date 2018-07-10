@@ -38,7 +38,10 @@
 }
 
 GIFTQuestions
-  = questions:(Description / Question)+ _ __ { return questions; }
+  = questions:(Category / Description / Question)+ _ __ { return questions; }
+
+Category "Category"  // ignored for now
+  = "$CATEGORY:" _ cat:PlainText {return}
 
 Description "Description"
   = __
@@ -110,10 +113,10 @@ Choice "Choice"
     { var choice = { isCorrect: (choice[0] == '='), weight:choice[2], text:choice[4], feedback:feedback }; return choice } 
 
 Weight "(weight)"
-  = '%' _ percent:([-]? PercentValue) _ '%' { return makeInteger(percent) }
+  = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
   
 PercentValue "(percent)"
-  = '100' / [1-9][0-9]?  { return text() }
+  = '100' / [0-9][0-9]?  { return text() }
 
 Feedback "(feedback)" 
   = '#' _ feedback:RichText { return feedback }
@@ -129,8 +132,9 @@ NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number
   = '#' _
     numericalAnswers:NumericalAnswers _ 
     globalFeedback:GlobalFeedback? 
-  { return { type: "Numerical", choices: numericalAnswers, globalFeedback: 
-             globalFeedback}; }
+  { return { type:"Numerical", 
+             choices:numericalAnswers, 
+             globalFeedback:globalFeedback}; }
 
 NumericalAnswers "Numerical Answers"
   = MultipleNumericalChoices / SingleNumericalAnswer
@@ -199,23 +203,11 @@ EscapeSequence "escape sequence"
       / "}" )
   { return sequence }
  
-// UnescapedChar ""
-//   = [\u0080-\u024f] / // unicode
-//     [A-Z]i /
-//     [0-9] / 
-//     ' ' / 
-//     [.`+><()!?'"’%,;$&^@/_|] / // symbols
-//     '*' / 
-//     ('-' !'>') { return '-'} /
-//     (EndOfLine !EndOfLine) {return ' '}
 UnescapedChar ""
   = !(EscapeSequence / ControlChar / QuestionSeparator) . {return text()}
 
 ControlChar 
   = '=' / '~' / "#" / '{' / '}' / '\\' / '->'
-
-// SpecialTokens "(special chars)"
-//   = "->" / "=" / "~" / "#" / "::" // do not include "{" / "}"
 
 RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {
