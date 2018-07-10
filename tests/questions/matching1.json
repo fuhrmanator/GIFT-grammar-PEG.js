@@ -1,19 +1,19 @@
 [{
         "type": "Matching",
         "title": null,
-        "stem": {"format":null, "text":"Matching Question."},
+        "stem": {"format":"moodle", "text":"Matching Question."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "matchPairs": [{
-                "subquestion": {"format":null, "text":"subquestion1"},
+                "subquestion": {"format":"moodle", "text":"subquestion1"},
                 "subanswer": "subanswer1"
             },
             {
-                "subquestion": {"format":null, "text":"subquestion2"},
+                "subquestion": {"format":"moodle", "text":"subquestion2"},
                 "subanswer": "subanswer2"
             },
             {
-                "subquestion": {"format":null, "text":"subquestion3"},
+                "subquestion": {"format":"moodle", "text":"subquestion3"},
                 "subanswer": "subanswer3"
             }
         ]
@@ -21,23 +21,23 @@
     {
         "type": "Matching",
         "title": null,
-        "stem": {"format":null, "text":"Match the following countries with their corresponding capitals."},
+        "stem": {"format":"moodle", "text":"Match the following countries with their corresponding capitals."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "matchPairs": [{
-                "subquestion": {"format":null, "text":"Canada"},
+                "subquestion": {"format":"moodle", "text":"Canada"},
                 "subanswer": "Ottawa"
             },
             {
-                "subquestion": {"format":null, "text":"Italy"},
+                "subquestion": {"format":"moodle", "text":"Italy"},
                 "subanswer": "Rome"
             },
             {
-                "subquestion": {"format":null, "text":"Japan"},
+                "subquestion": {"format":"moodle", "text":"Japan"},
                 "subanswer": "Tokyo"
             },
             {
-                "subquestion": {"format":null, "text":"India"},
+                "subquestion": {"format":"moodle", "text":"India"},
                 "subanswer": "New Delhi"
             }
         ]

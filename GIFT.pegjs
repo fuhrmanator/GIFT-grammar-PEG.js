@@ -1,5 +1,7 @@
 // All these helper functions are available inside of actions 
 {
+  var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
+  var format = defaultFormat;
   function makeInteger(o) {
     return parseInt(o.join(""), 10);
   }
@@ -24,6 +26,15 @@
   function removeDuplicateSpaces(text) {
     return text.replace(/\s\s+/g,' ');
   }
+  function setLastQuestionTextFormat(fmt) {
+    format = fmt;
+  }
+  function getLastQuestionTextFormat() {
+    return format;
+  }
+  function resetLastQuestionTextFormat() {
+    format = defaultFormat;
+  }
 }
 
 GIFTQuestions
@@ -32,7 +43,7 @@ GIFTQuestions
 Description "Description"
   = __
     text:RichText QuestionSeparator
-    { return {type: "Description", title: null, stem: text, hasEmbeddedAnswers: false} }
+    { resetLastQuestionTextFormat(); return {type:"Description", title:null, stem:text, hasEmbeddedAnswers:false} }
 
 Question
   = __
@@ -48,6 +59,7 @@ Question
     var stem = {format:stem1.format, text:stem1.text + ( embedded ? " _____ " + stem2.text : "")};
     var question = {type:answers.type, title:title, stem:stem, hasEmbeddedAnswers:(stem2 != null)};
     question = processAnswers(question, answers);
+    resetLastQuestionTextFormat();
     return question;
   }
 
@@ -60,7 +72,13 @@ Matches "matches"
   
 Match "match"
   = _ '=' _ left:RichText? _ '->' _ right:PlainText _ 
-    { var matchPair = { subquestion:{format:(left !== null ? left.format : "moodle"), text:(left !== null ? left.text : "")}, subanswer:right }; return matchPair } 
+    { var matchPair = { 
+        subquestion:{
+          format:(left !== null ? left.format : getLastQuestionTextFormat()), 
+          text:(left !== null ? left.text : "")
+        }, 
+        subanswer:right}; 
+        return matchPair } 
 
 ///////////
 TrueFalseAnswer "{T} or {F} or {True} or {False}"
@@ -145,7 +163,8 @@ QuestionTitle ":: Title ::"
   
 QuestionStem "Question stem"
   = stem:RichText 
-    { return stem }
+    { setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
+      return stem }
 
 QuestionSeparator "(blank line separator)"
   = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
@@ -199,7 +218,9 @@ ControlChar
 //   = "->" / "=" / "~" / "#" / "::" // do not include "{" / "}"
 
 RichText "(formatted text)"
-  = format:Format? _ txt:TextChar+ { return {format:format, text:removeDuplicateSpaces(txt.join('').trim())}} 
+  = format:Format? _ txt:TextChar+ { return {
+      format:(format!==null ? format : getLastQuestionTextFormat()), 
+      text:removeDuplicateSpaces(txt.join('').trim())}} 
 
 PlainText "(unformatted text)"
   = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim())} 

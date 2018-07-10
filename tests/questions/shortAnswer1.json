@@ -1,19 +1,19 @@
 [{
         "type": "MC",
         "title": null,
-        "stem": {"format":null, "text":"Who's buried in Grant's tomb?"},
+        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":null, "text":"no one"},
+                "text": {"format":"moodle", "text":"no one"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":null, "text":"nobody"},
+                "text": {"format":"moodle", "text":"nobody"},
                 "feedback": null
             }
         ]
@@ -21,19 +21,19 @@
     {
         "type": "MC",
         "title": null,
-        "stem": {"format":null, "text":"Two plus two equals _____ ."},
+        "stem": {"format":"moodle", "text":"Two plus two equals _____ ."},
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":null, "text":"four"},
+                "text": {"format":"moodle", "text":"four"},
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":null, "text":"4"},
+                "text": {"format":"moodle", "text":"4"},
                 "feedback": null
             }
         ]

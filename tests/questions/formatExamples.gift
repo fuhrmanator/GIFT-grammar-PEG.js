@@ -6,3 +6,9 @@
     =[markdown]A collection of web pages that anyone can add to or edit. -> Wiki
     = -> Chat
 }
+
+// answers should have the same format as the question of none specified
+[html]<p>The sun rises in which direction?</p> {
+    =<p>The east.</p>#<b>Awesome!</b>
+    ~<p>The west.</p>#What planet did <em>you</em> grow up on?
+}

@@ -1,7 +1,7 @@
 [{
         "type": "TF",
         "title": null,
-        "stem": {"format":null, "text":"Grant is buried in Grant's tomb."},
+        "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": false,
@@ -11,7 +11,7 @@
     {
         "type": "TF",
         "title": null,
-        "stem": {"format":null, "text":"The sun rises in the east."},
+        "stem": {"format":"moodle", "text":"The sun rises in the east."},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": true,

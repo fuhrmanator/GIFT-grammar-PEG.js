@@ -39,11 +39,47 @@
           },
           {
              "subquestion": {
-                "format": "moodle",
+                "format": "html",
                 "text": ""
              },
              "subanswer": "Chat"
           }
        ]
-    }
+    },
+    {
+        "type": "MC",
+        "title": null,
+        "stem": {
+           "format": "html",
+           "text": "<p>The sun rises in which direction?</p>"
+        },
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "choices": [
+           {
+              "isCorrect": true,
+              "weight": null,
+              "text": {
+                 "format": "html",
+                 "text": "<p>The east.</p>"
+              },
+              "feedback": {
+                 "format": "html",
+                 "text": "<b>Awesome!</b>"
+              }
+           },
+           {
+              "isCorrect": false,
+              "weight": null,
+              "text": {
+                 "format": "html",
+                 "text": "<p>The west.</p>"
+              },
+              "feedback": {
+                 "format": "html",
+                 "text": "What planet did <em>you</em> grow up on?"
+              }
+           }
+        ]
+     }    
  ]

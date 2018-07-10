@@ -1,26 +1,26 @@
 [{
     "type": "MC",
     "title": null,
-    "stem": {"format":null, "text":"What's the answer to this multiple-choice question?"},
+    "stem": {"format":"moodle", "text":"What's the answer to this multiple-choice question?"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": {"format":null, "text":"Global feedback on multiple lines"},
+    "globalFeedback": {"format":"moodle", "text":"Global feedback on multiple lines"},
     "choices": [{
             "isCorrect": false,
             "weight": null,
-            "text": {"format":null, "text":"wrong answer"},
-            "feedback": {"format":null, "text":"feedback comment on the wrong answer"}
+            "text": {"format":"moodle", "text":"wrong answer"},
+            "feedback": {"format":"moodle", "text":"feedback comment on the wrong answer"}
         },
         {
             "isCorrect": false,
             "weight": null,
-            "text": {"format":null, "text":"another wrong answer"},
-            "feedback": {"format":null, "text":"feedback comment on this wrong answer on multiple lines"}
+            "text": {"format":"moodle", "text":"another wrong answer"},
+            "feedback": {"format":"moodle", "text":"feedback comment on this wrong answer on multiple lines"}
         },
         {
             "isCorrect": true,
             "weight": null,
-            "text": {"format":null, "text":"right answer"},
-            "feedback": {"format":null, "text":"Very good!"}
+            "text": {"format":"moodle", "text":"right answer"},
+            "feedback": {"format":"moodle", "text":"Very good!"}
         }
     ]
 }]

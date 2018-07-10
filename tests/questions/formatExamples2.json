@@ -3,7 +3,7 @@
        "type": "MC",
        "title": "Q2",
        "stem": {
-          "format": null,
+          "format":"moodle",
           "text": "What's between orange and green in the spectrum?"
        },
        "hasEmbeddedAnswers": false,
@@ -13,11 +13,11 @@
              "isCorrect": true,
              "weight": null,
              "text": {
-                "format": null,
+                "format":"moodle",
                 "text": "yellow"
              },
              "feedback": {
-                "format": null,
+                "format":"moodle",
                 "text": "right; good!"
              }
           },
@@ -25,7 +25,7 @@
              "isCorrect": false,
              "weight": null,
              "text": {
-                "format": null,
+                "format":"moodle",
                 "text": "red"
              },
              "feedback": {
@@ -41,7 +41,7 @@
                 "text": "blue"
              },
              "feedback": {
-                "format": null,
+                "format":"moodle",
                 "text": "wrong, it's yellow"
              }
           }

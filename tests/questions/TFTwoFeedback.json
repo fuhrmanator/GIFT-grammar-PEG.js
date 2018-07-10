@@ -1,10 +1,10 @@
 [{
     "type": "TF",
     "title": null,
-    "stem": {"format":null, "text":"Grant is buried in Grant's tomb."},
+    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
     "hasEmbeddedAnswers": false,
     "globalFeedback": null,
     "isTrue": false,
-    "incorrectFeedback": {"format":null, "text":"wrong answer feedback"},
-    "correctFeedback": {"format":null, "text":"right answer feedback"}
+    "incorrectFeedback": {"format":"moodle", "text":"wrong answer feedback"},
+    "correctFeedback": {"format":"moodle", "text":"right answer feedback"}
 }]
