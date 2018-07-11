@@ -23,8 +23,9 @@
     }
     return question;
   }
-  function removeDuplicateSpaces(text) {
-    return text.replace(/\s\s+/g,' ');
+  function removeNewLinesDuplicateSpaces(text) {
+    text = text.replace(/[\n\r]/g,' '); // replace newlines with spaces
+    return text.replace(/\s\s+/g,' '); 
   }
   function setLastQuestionTextFormat(fmt) {
     format = fmt;
@@ -212,10 +213,10 @@ ControlChar
 RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {
       format:(format!==null ? format : getLastQuestionTextFormat()), 
-      text:removeDuplicateSpaces(txt.join('').trim())}} 
+      text:removeNewLinesDuplicateSpaces(txt.join('').trim())}} 
 
 PlainText "(unformatted text)"
-  = txt:TextChar+ { return removeDuplicateSpaces(txt.join('').trim())} 
+  = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
