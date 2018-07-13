@@ -1,0 +1,14 @@
+// From https://github.com/totara/moodle/blob/master/question/format/gift/tests/giftformat_test.php
+
+// math range question
+//::Q5:: What is a number from 1 to 5? {#3:2~#Completely wrong}
+
+// Note: above question is from the test suite, but seems to violate the documentation, 
+//   as there's no '=' to signify the right answer, yet a '~' is used to signify the wrong one (with feedback)
+// See the question in the forum at https://moodle.org/mod/forum/discuss.php?d=318499
+// Following Tim's recommendation, Moodle exports such questions (where '*' is used in the GUI for the wrong answer) as:
+
+// math range question
+::Q5:: What is a number from 1 to 5? {#
+=3:2
+~#Completely wrong}

@@ -1,0 +1,33 @@
+[{
+    "type": "Numerical",
+    "title": "Q5",
+    "stem": {
+        "format": "moodle",
+        "text": "What is a number from 1 to 5?"
+    },
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "choices": [{
+            "isCorrect": true,
+            "weight": null,
+            "text": {
+                "type": "range",
+                "number": 3,
+                "range": 2
+            },
+            "feedback": null
+        },
+        {
+            "isCorrect": false,
+            "weight": null,
+            "text": {
+                "format": "moodle",
+                "text": "*"
+            },
+            "feedback": {
+                "format": "moodle",
+                "text": "Completely wrong"
+            }
+        }
+    ]
+}]

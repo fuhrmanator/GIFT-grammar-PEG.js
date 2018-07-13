@@ -53,8 +53,8 @@ Question
   = __
     title:QuestionTitle? _
     stem1:QuestionStem _ 
-    '{' 
-    answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / EssayAnswer ) 
+    '{' _
+    answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / EssayAnswer ) _
     '}' _
     stem2:(Comment / QuestionStem)?
     QuestionSeparator
@@ -111,7 +111,13 @@ Choices "Choices"
  
 Choice "Choice"
   = _ choice:([=~] _ Weight? _ RichText) feedback:Feedback? _ 
-    { var choice = { isCorrect: (choice[0] == '='), weight:choice[2], text:choice[4], feedback:feedback }; return choice } 
+    { var wt = choice[2];
+      var txt = choice[4];
+      var choice = { isCorrect: (choice[0] == '='), 
+                     weight:wt, 
+                     text: txt,
+                     feedback:feedback };
+      return choice } 
 
 Weight "(weight)"
   = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
@@ -144,8 +150,15 @@ MultipleNumericalChoices "Multiple Numerical Choices"
   = choices:(NumericalChoice)+ { return choices; }
 
 NumericalChoice "Numerical Choice"
-  = _ choice:([=~] Weight? SingleNumericalAnswer) _ feedback:Feedback? _ 
-    { var choice = { isCorrect: (choice[0] == '='), weight: choice[1], text: choice[2], feedback: feedback }; return choice } 
+  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
+    { var symbol = choice[0];
+      var wt = choice[1];
+      var txt = choice[2];
+      var choice = { isCorrect:(symbol == '='), 
+                     weight:wt, 
+                     text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
+                     feedback: feedback }; 
+      return choice } 
 
 SingleNumericalAnswer "Single numeric answer"
   = NumberWithRange / NumberHighLow / NumberAlone
@@ -213,7 +226,9 @@ ControlChar
 RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {
       format:(format!==null ? format : getLastQuestionTextFormat()), 
-      text:removeNewLinesDuplicateSpaces(txt.join('').trim())}} 
+      text:((format !== "html") 
+          ? removeNewLinesDuplicateSpaces(txt.join('').trim())
+          : txt.join('').replace(/\r\n/g,'\n'))}}  // avoid failing tests because of Windows line breaks 
 
 PlainText "(unformatted text)"
   = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 

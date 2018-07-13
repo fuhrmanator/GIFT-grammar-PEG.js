@@ -1,0 +1,62 @@
+[
+    {
+       "type": "MC",
+       "title": "colours",
+       "stem": {
+          "format": "moodle",
+          "text": "What's between orange and green in the spectrum?"
+       },
+       "hasEmbeddedAnswers": false,
+       "globalFeedback": null,
+       "choices": [
+          {
+             "isCorrect": false,
+             "weight": 50,
+             "text": {
+                "format": "moodle",
+                "text": "yellow"
+             },
+             "feedback": {
+                "format": "moodle",
+                "text": "right; good!"
+             }
+          },
+          {
+             "isCorrect": false,
+             "weight": -100,
+             "text": {
+                "format": "moodle",
+                "text": "red"
+             },
+             "feedback": {
+                "format": "html",
+                "text": "wrong\n    "
+             }
+          },
+          {
+             "isCorrect": false,
+             "weight": 50,
+             "text": {
+                "format": "moodle",
+                "text": "off-beige"
+             },
+             "feedback": {
+                "format": "moodle",
+                "text": "right; good!"
+             }
+          },
+          {
+             "isCorrect": false,
+             "weight": -100,
+             "text": {
+                "format": "plain",
+                "text": "blue"
+             },
+             "feedback": {
+                "format": "moodle",
+                "text": "wrong"
+             }
+          }
+       ]
+    }
+ ]

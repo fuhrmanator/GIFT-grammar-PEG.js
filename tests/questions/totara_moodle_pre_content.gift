@@ -1,0 +1,11 @@
+// From https://github.com/totara/moodle/blob/master/question/format/gift/tests/giftformat_test.php
+
+::Q001::[html]<p>What would running the test method print?</p>
+<pre>
+    public void test() \{
+        method1();
+        method2();
+        method3();
+    \}
+</pre>
+{}

@@ -1,0 +1,21 @@
+[
+    {
+       "type": "TF",
+       "title": "Q1",
+       "stem": {
+          "format": "moodle",
+          "text": "42 is the Absolute Answer to everything."
+       },
+       "hasEmbeddedAnswers": false,
+       "globalFeedback": null,
+       "isTrue": false,
+       "incorrectFeedback": {
+          "format": "moodle",
+          "text": "42 is the Ultimate Answer."
+       },
+       "correctFeedback": {
+          "format": "moodle",
+          "text": "You gave the right answer."
+       }
+    }
+ ]

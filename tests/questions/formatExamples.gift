@@ -1,12 +1,3 @@
-// question: 2  name: Moodle activities
-::Moodle activities::[html]Match the <b>activity</b> to the description.{
-    =[html]An activity supporting asynchronous discussions. -> Forum
-    =[moodle]A teacher asks a question and specifies a choice of multiple responses. -> Choice
-    =[plain]A bank of record entries which participants can add to. -> Database
-    =[markdown]A collection of web pages that anyone can add to or edit. -> Wiki
-    = -> Chat
-}
-
 // answers should have the same format as the question of none specified
 [html]<p>The sun rises in which direction?</p> {
     =<p>The east.</p>#<b>Awesome!</b>

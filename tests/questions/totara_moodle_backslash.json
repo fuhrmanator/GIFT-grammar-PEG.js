@@ -1,0 +1,12 @@
+[
+    {
+       "type": "Essay",
+       "title": "double backslash",
+       "stem": {
+          "format": "moodle",
+          "text": "A \\\\ B \\\\\\\\ C"
+       },
+       "hasEmbeddedAnswers": false,
+       "globalFeedback": null
+    }
+ ]

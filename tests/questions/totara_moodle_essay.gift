@@ -1,0 +1,4 @@
+// From https://github.com/totara/moodle/blob/master/question/format/gift/tests/giftformat_test.php
+
+// essay
+::Q8:: How are you? {}

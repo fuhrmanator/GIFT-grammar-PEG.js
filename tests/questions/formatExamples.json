@@ -1,57 +1,10 @@
 [
-    {
-       "type": "Matching",
-       "title": "Moodle activities",
-       "stem": {
-          "format": "html",
-          "text": "Match the <b>activity</b> to the description."
-       },
-       "hasEmbeddedAnswers": false,
-       "globalFeedback": null,
-       "matchPairs": [
-          {
-             "subquestion": {
-                "format": "html",
-                "text": "An activity supporting asynchronous discussions."
-             },
-             "subanswer": "Forum"
-          },
-          {
-             "subquestion": {
-                "format": "moodle",
-                "text": "A teacher asks a question and specifies a choice of multiple responses."
-             },
-             "subanswer": "Choice"
-          },
-          {
-             "subquestion": {
-                "format": "plain",
-                "text": "A bank of record entries which participants can add to."
-             },
-             "subanswer": "Database"
-          },
-          {
-             "subquestion": {
-                "format": "markdown",
-                "text": "A collection of web pages that anyone can add to or edit."
-             },
-             "subanswer": "Wiki"
-          },
-          {
-             "subquestion": {
-                "format": "html",
-                "text": ""
-             },
-             "subanswer": "Chat"
-          }
-       ]
-    },
-    {
+     {
         "type": "MC",
         "title": null,
         "stem": {
            "format": "html",
-           "text": "<p>The sun rises in which direction?</p>"
+           "text": "<p>The sun rises in which direction?</p> "
         },
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,

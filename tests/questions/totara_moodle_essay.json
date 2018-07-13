@@ -1,0 +1,10 @@
+[{
+    "type": "Essay",
+    "title": "Q8",
+    "stem": {
+        "format": "moodle",
+        "text": "How are you?"
+    },
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null
+}]
