@@ -200,3 +200,14 @@ $.extend({
     return $.getUrlVars()[name];
   }
 });
+
+// Based on PlantUML Gizmo's code
+
+/**
+ * Puts a sample GIFT in the source editor
+ */
+function updateSourceFromSample(theMenu) {
+	theMenu.disabled = true;
+	giftEditor.replaceSelection(decode64(theMenu.value));
+	theMenu.disabled = false;
+}

@@ -185,7 +185,10 @@ QuestionStem "Question stem"
       return stem }
 
 QuestionSeparator "(blank line separator)"
-  = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
+  = EndOfLine EndOfLine+ 
+    / Comment+ EndOfLine  // Comment eats the EndOfLine, so count it as one
+//    / EndOfLine Comment+  // Comment eats the EndOfLine, so count it as one
+    / EndOfLine? EndOfFile
 
 TitleText "(Title text)"
   = !'::' t:UnescapedChar {return t}
@@ -249,7 +252,7 @@ _ "(single line whitespace)"
   = (EndOfLine !EndOfLine / Space )*
 
 __ "(multiple line whitespace)"
-  = (Comment / EndOfLine / Space )*
+  = (Comment / !EndOfLine EndOfLine / Space )*
 
 Comment "(comment)"
   = '//' (!EndOfLine .)* (EndOfLine / EndOfFile) {return null}
