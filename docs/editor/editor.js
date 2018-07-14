@@ -142,7 +142,7 @@ $(document).ready(function() {
     xmlhttp.send();
 
     var textKey = $.getUrlVar('text');
-    console.log("textKey = " + textKey);
+    // console.log("textKey = " + textKey);
 
     editor.setValue(typeof textKey !== 'undefined' ? decompress(textKey) : sampleGift);
 

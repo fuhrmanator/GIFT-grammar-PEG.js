@@ -21,9 +21,9 @@ function decode64(data) {
 	 }
 //	 return decodeURIComponent(escape(RawDeflate.inflate(ss)));
     //showError("decode64 : before zip_inflate : " + ss, $('#button-bar'));
-    ss = escape(zip_inflate(ss));
+	ss = escape(zip_inflate(ss));
     //showError("decode64 : after zip_inflate : " + ss, $('#button-bar'));
-	 return decodeURIComponent(ss);
+	return decodeURIComponent(ss);
 }
 
 
