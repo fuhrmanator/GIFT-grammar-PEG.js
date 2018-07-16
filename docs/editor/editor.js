@@ -95,35 +95,15 @@ $(document).ready(function() {
     }
 
     function scheduleParse() {
-        // console.log("scheduleParse");
-        if (editor.getValue() === oldInput) { 
-            // console.log("no change detected"); 
-            return; 
-        }
-
         isDirty = true;
         clearErrors();
 
-        $("#parse-message").attr("class", "alert alert-info").text("Waiting...");
-
-        if (parseTimer !== null) {
-            clearTimeout(parseTimer);
-            parseTimer = null;
-        }
-
-        parseTimer = setTimeout(function() {
-            // parser loads asynchronously
-            if (parser !== null) {
-                // console.log("calling parse from timeout");
-                parse();
-            } else console.log("parser was null...");
-            parseTimer = null;
-        }, 500);
+        $("#parse-message").attr("class", "alert alert-info").text("Output is not updated until you click submit to validate...");
+        $("#output").val('Output not available. Click Submit to validate.');
     }
 
     function doLayout() {
-        // $("#gift").height(($(".container").innerHeight() - 145) + "px");
-        $(".CodeMirror").height(($(".CodeMirror").parent().parent().parent().innerHeight() - 145) + "px");
+        $(".CodeMirror").height(($(".CodeMirror").parent().parent().parent().innerHeight() - 175) + "px");
         $("#output").height(($(".CodeMirror").height()) + "px");
         editor.refresh();
     }
@@ -149,9 +129,8 @@ $(document).ready(function() {
     $("#gift").removeAttr("disabled");
 
     $(window).resize(doLayout);
-    //editor.on("change", scheduleParse);
+    editor.on("change", scheduleParse);
     editor.focus();
-    scheduleParse();  // do it the first time
 
 });
 
