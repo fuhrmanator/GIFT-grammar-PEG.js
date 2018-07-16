@@ -8,14 +8,10 @@ $(document).ready(function() {
     var isDirty = false;
     var sampleGift = "//-----------------------------------------//\n// Examples from gift/format.php.\n//-----------------------------------------//\n\nWho's buried in Grant's tomb?{~Grant ~Jefferson =no one}\n\nGrant is {~buried =entombed ~living} in Grant's tomb.\n\nGrant is buried in Grant's tomb.{FALSE}\n\nWho's buried in Grant's tomb?{=no one =nobody}\n\nWhen was Ulysses S. Grant born?{#1822:5}\n\nMatch the following countries with their corresponding capitals. {\n    =Canada -> Ottawa\n    =Italy  -> Rome\n    =Japan  -> Tokyo\n    =India  -> New Delhi\n    ####It's good to know the capitals\n}\n\n//-----------------------------------------//\n// More complicated examples.\n//-----------------------------------------//\n\n::Grant's Tomb::Grant is {\n        ~buried#No one is buried there.\n        =entombed#Right answer!\n        ~living#We hope not!\n} in Grant's tomb.\n\nDifficult multiple choice question.{\n        ~wrong answer           #comment on wrong answer\n        ~%50%half credit answer #comment on answer\n        =full credit answer     #well done!}\n\n::Jesus' hometown (Short answer ex.):: Jesus Christ was from {\n        =Nazareth#Yes! That's right!\n        =%75%Nazereth#Right, but misspelled.\n        =%25%Bethlehem#He was born here, but not raised here.\n}.\n\n//this comment will be ignored by the filter\n::Numerical example::\nWhen was Ulysses S. Grant born? {#\n        =1822:0      #Correct! 100% credit\n        =%50%1822:2  #He was born in 1822.\n                    You get 50% credit for being close.\n}";
 
-    // window.onbeforeunload = function (evt) {
-    //     if (isDirty) {
-    //         return 'If you continue your changes will not be saved.';
-    //     }
-    // };
-
     var parseTimer = null;
     var parser = null;
+
+    initExamplesDropdown();
 
     var ta = document.getElementById('gift');
 
@@ -32,7 +28,7 @@ $(document).ready(function() {
     var errorMark = null;
 
     var oldInput = null;
-
+    
     function setParser(p) {
         parser = p;
     }
@@ -95,35 +91,15 @@ $(document).ready(function() {
     }
 
     function scheduleParse() {
-        // console.log("scheduleParse");
-        if (editor.getValue() === oldInput) { 
-            // console.log("no change detected"); 
-            return; 
-        }
-
         isDirty = true;
         clearErrors();
 
-        $("#parse-message").attr("class", "alert alert-info").text("Waiting...");
-
-        if (parseTimer !== null) {
-            clearTimeout(parseTimer);
-            parseTimer = null;
-        }
-
-        parseTimer = setTimeout(function() {
-            // parser loads asynchronously
-            if (parser !== null) {
-                // console.log("calling parse from timeout");
-                parse();
-            } else console.log("parser was null...");
-            parseTimer = null;
-        }, 500);
+        $("#parse-message").attr("class", "alert alert-info").text("Output is not updated until you click submit to validate...");
+        $("#output").val('Output not available. Click Submit to validate.');
     }
 
     function doLayout() {
-        // $("#gift").height(($(".container").innerHeight() - 145) + "px");
-        $(".CodeMirror").height(($(".CodeMirror").parent().parent().parent().innerHeight() - 145) + "px");
+        $(".CodeMirror").height(($(".CodeMirror").parent().parent().parent().innerHeight() - 175) + "px");
         $("#output").height(($(".CodeMirror").height()) + "px");
         editor.refresh();
     }
@@ -142,16 +118,92 @@ $(document).ready(function() {
     xmlhttp.send();
 
     var textKey = $.getUrlVar('text');
-    console.log("textKey = " + textKey);
+    // console.log("textKey = " + textKey);
 
     editor.setValue(typeof textKey !== 'undefined' ? decompress(textKey) : sampleGift);
 
     $("#gift").removeAttr("disabled");
 
     $(window).resize(doLayout);
-    //editor.on("change", scheduleParse);
+    editor.on("change", scheduleParse);
     editor.focus();
-    scheduleParse();  // do it the first time
+
+    function initExamplesDropdown() {
+        // Init the examples drop-down menu
+        var options = [
+            {
+                "groupName": "MC",
+                "label": "Multiple choice",
+                "options": [
+                    {
+                        "txtKey": "NOsnIWL134Lhvojkf_x2WbXOMrldZT49P9DbadKLqMztd0SFj4fEoBsdBClZ0quKKfUbF3LAI20ROoKnLDg3uI_p4apX5d2RoDIptGEVvUhxmjS1LfKjfPBY9bHUM-e7_8tq5jvFag3kkpsVAtSh073t2ocQmtKfedS9798DdMFZcaZ_avfQypv6DpHU9RQnCXe5yf3Ayrrfs5QA64HsRl3zVwXybV83",
+                        "html": "Multiple choice (simple)"
+                    },
+                    {
+                        "txtKey": "NOmn2y8m44Rt_8fFId4gnC4b3WwTdPrRSwI1CoUNj4L4VxijE4XlVE--Pvoxj6Y5HJCQY7fIvynrwCe-ewSo4wK5ToaGkkJHyqYGX38GffXZpmIEOIZ83xeL7Uzdyp9OxbCVRHrqtLVGzUM48E9tFziShAsLF2hCAYdyuoaAKzcO9VSaPfctlRSnNm00",
+                        "html": "Multiple choice, multiple correct, weights, feedback"
+                    },
+                    {
+                        "txtKey": "XP9FZnCn3CNl_HHMU-2oixrNGcW5I5mGNFW0RkBEX6RYmNOwkqBmsN56fTtjfPKwoX_dzrvUlDhjldw4FQd191Wi1TBTRlKK0ajCfGTZ6CmctMstuM2F9ooHP9-oFLAisxwcIDfftNSJzgJRMPBviQvdZjrOiwKfKnS6Td1dBjFzglvDN7Jx0AjvG0CK0XlenWKSME2CWniIN20VuFSA_FSUC6V_6qb1IoS27RZcw52OCbPD-qomWQThXOBzLq_ZjIPoUMUW9Cv0Tr5BQ4gO8IQrvev57o-YLzmhHJKqYX0oeUGNmE9ZBY4f-Mm3dvy3gJQJyvAoJs14hrDjGo5SeaUFETaB2Df0qjoM9QT6BQs0zpyfDEqxTiPg5RDBqtF8TH7UmBSJISPfSb0pPrGCKdcBQAOoyn5oEX8Wh4rIEAx169QtD3pItJ067hcdmbMTVv7Qm1VoyhP3ldLP3rXW4ZwbI12gWt3FrPPx1nQXO815Pv8xgWUXzk4HGhvYvY650OHqug84II_G3NnAXmC9bK2BqLvm754U85FfRNXe_JYYjNPS7ZHZwIls1EUMV6FS9S-n_7rhSDtQb0_jFitIYTOBR5suqCtwzIvLARh1xoYMCCEny9mfzjS3Io0A0-L9NxyCe8ZB0XhWJNmm9tC1WqFD6Mg9NcvOMkFTINOIKYf6SMaNoDodW1bO7E4kVoW1EPl40TE0UxBpFfGwahmgDWOySN9gGlNPZ18L0ebXAcUV7kEVrUeV",
+                        "html": "Multiple choice, multiple correct answers, feedback"
+                    },
+                     ]
+            },
+            {
+                "groupName": "TF",
+                "label": "True/False",
+                "options": [{
+                        "txtKey": "umh9I5KeBirJACeiJYrMoCnJA04Af2OMb-WfL8VKSd410000",
+                        "html": "True answer"
+                    },
+                    {
+                        "txtKey": "umh9I5KeBirJACeiJYrMoCnJA04AbASMb-WfLBlLSd410000",
+                        "html": "False answer"
+                    },
+                    {
+                        "txtKey": "umh9I5KeBirJACeiJYrMoCnJA04Af2OMb-WfL8TmAIWe1-SN5LNgA6IMg1Shb1ILfkg11DsBKXDB5BBoa_GK7FDIW98AnQabSEtbgSKbNBLSN000",
+                        "html": "True answer, feedback"
+                    },
+                ]
+            },
+            {
+                "groupName": "shortanswer",
+                "label": "Short answer",
+                "options": [{
+                    "txtKey": "uxAo2ix8BofHICmhBayjKZ3IDhAouWefprSeo2ajLYW1Cb8BInDpYXMgRKqKRDtoIujgzRYu0000",
+                    "html": "Embedded short answer"
+                },
+                {
+                    "txtKey": "LP1DI-j058Rt-HLlMugR4jo8476X2qNTo4KGboUPasPiSYRC1wLSxd_t7AkbTn6OZoVlEy-fckQ5HTWTCFdK1UbupZv8q-0v38A76Z_t5mdx45t2ygaRq7e1wtVFSVJ2SOcA8YDb4aVHuP7ZH88-HEL14mX_Azp-ugiFJWky3PGrDlhja1Twkxw-MXy9G_xOyGPjoVQqDFCuigiDkrn_wkO05wJarNiCibtWJb1YIuAHjomE0oNuZAmTS8MH0mQVK18Zz7hCyEAuz-8pWsBstSYcj3avGV4SIT98cHqqxwns0pKzfblM7EQYc0zYwSS4x2cfkZOwj0SObiey1zkhKQOTrpe3XitrlrO96LsOfY1QLum_ZTey8lSSRM6Hf_zUUnBPbMvWkS6tQI5xRaSsE5CxH-hgNrKlg-eB",
+                    "html": "Embedded short answer, weights"
+                }, 
+            ]
+            },
+            {
+                "groupName": "matching",
+                "label": "Matching",
+                "options": [{
+                    "txtKey": "NP31IZGn48JFVvwYmOiUidDVK52yU124nGV89ZsPXYGzTdTs3-Axczb5nByFELHzHOLohy7Y0hOWOC6ApHHuXW2r5wEr8CI5AIAGOOKpsOKbWPcbXW8jL5G8CR8aQXcCOJ5RTJzDSRRTARI4SgHYEqnzofqIgjT-z6l8gDDPo4RCP-RaVohzjT8RglcFFbxYfjCUFjs_UtWJFXQiu1_WO5WtwT1p7XGcK2xzGc_sOp6K5enEg1lsD1W8l-A5QNf6sToN5ba4ey4j2r2RKOZbxl_0Cwb9YCRYODpDE7XNQldl8WkMLQzxHQwrDufX-zZEVJdt3G00",
+                    "html": "Matching, general feedback"
+                }, 
+            ]
+            }
+        ];
+
+        //        ["", "Matching, general feedback"]
+        var selectList = $('#examples');
+        selectList.empty();
+        selectList.append($('<option></option>').val("label").html("Insert sample question at cursor..."));
+        $.each(options, function (i, p) {
+            var $newElem;
+            $newElem = $(document.createElement('optgroup')).attr('value', p.groupName)
+                .attr('label', p.label)
+                .appendTo(selectList);
+            $.each(p.options, function (j, q) {
+                $newElem.append($('<option></option>').val(q.txtKey).html(q.html));
+            });
+        });
+    }
 
 });
 
@@ -200,3 +252,14 @@ $.extend({
     return $.getUrlVars()[name];
   }
 });
+
+// Based on PlantUML Gizmo's code
+
+/**
+ * Puts a sample GIFT in the source editor
+ */
+function updateSourceFromSample(theMenu) {
+	theMenu.disabled = true;
+	giftEditor.replaceSelection(decode64(theMenu.value));
+	theMenu.disabled = false;
+}

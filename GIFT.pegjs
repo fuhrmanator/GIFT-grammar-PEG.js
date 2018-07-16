@@ -185,7 +185,11 @@ QuestionStem "Question stem"
       return stem }
 
 QuestionSeparator "(blank line separator)"
-  = EndOfLine EndOfLine+ / EndOfLine? EndOfFile
+  = EndOfLine BlankLine+ 
+    / EndOfLine? EndOfFile
+
+BlankLine "blank line"
+  = Space* EndOfLine
 
 TitleText "(Title text)"
   = !'::' t:UnescapedChar {return t}
@@ -246,13 +250,13 @@ GlobalFeedback
     = '####' _ rt:RichText _ {return rt;}
 
 _ "(single line whitespace)"
-  = (EndOfLine !EndOfLine / Space )*
+  = (Space / EndOfLine !BlankLine)*
 
 __ "(multiple line whitespace)"
   = (Comment / EndOfLine / Space )*
 
 Comment "(comment)"
-  = '//' (!EndOfLine .)* (EndOfLine / EndOfFile) {return null}
+  = '//' (!EndOfLine .)* &(EndOfLine / EndOfFile) {return null}  // don't consume the EOL in comment, so it can count towards question separator
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"
