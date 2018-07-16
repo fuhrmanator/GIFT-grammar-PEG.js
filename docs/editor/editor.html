@@ -23,20 +23,18 @@
 
 <body>
     <h1 class="display-4">GIFT Question Editor</h1>
-    <p class"display-4">GIFT question parser using <a href="https://pegjs.org">PEG.js</a> and <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a>. 
+    <p class "display-4">GIFT question parser using
+        <a href="https://pegjs.org">PEG.js</a> and
+        <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a>.
         <strong>Note:</strong> after submitting, the URL above is a link to the text of your question (bookmark it to return). </p>
     <div class="container">
 
         <div id="parse-message" class="alert alert-info">Loading...</div>
         <div class="row">
             <select name="examples" id="examples" onchange="updateSourceFromSample(this)" class="form-spaced">
-            <option class="" value="label">Insert source sample at cursor...</option>
-            <option value="umh9I5KeBirJACeiJYrMoCnJA04Af2OMb-WfL8VKSd410000">True answer</option>
-            <option value="umh9I5KeBirJACeiJYrMoCnJA04AbASMb-WfLBlLSd410000">False answer</option>
-            <option value="umh9I5KeBirJACeiJYrMoCnJA04Af2OMb-WfL8TmAIWe1-SN5LNgA6IMg1Shb1ILfkg11DsBKXDB5BBoa_GK7FDIW98AnQabSEtbgSKbNBLSN000">True answer with feedback</option>
-            <option value="FSv12i8m40NGVKxnmOKhlO5kT5D11V42GnkReJ5Jaf5GnBkRfk8it_yCtvn9MmTr5W_nNZA77gsyWaQs2PcrXXmBncZJAA6h5HfPoQSjtWRbTWSAr14sUrnLATEYJUbCcFKcJxlOYKOArUuoJF8hbhTKyM8pZjOxhi6gNAFhX5waWmg687bUz5zWFiPy0G00">Matching with general feedback</option>
-          </select><br/>
-  </div>
+            </select>
+            <br/>
+        </div>
 
         <div class="row">
             <div class="col-sm-6">
@@ -55,9 +53,12 @@
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
 
         <script src="peg.js"></script>
         <script src="jsDump.js"></script>
