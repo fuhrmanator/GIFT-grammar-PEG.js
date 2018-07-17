@@ -1,5 +1,5 @@
 [{
-        "type": "MC",
+        "type": "Short",
         "title": null,
         "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
@@ -19,7 +19,7 @@
         ]
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": null,
         "stem": {"format":"moodle", "text":"Two plus two equals _____ ."},
         "hasEmbeddedAnswers": true,
