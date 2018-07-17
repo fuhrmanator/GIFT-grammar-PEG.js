@@ -1,5 +1,5 @@
 [{
-    "type": "MC",
+    "type": "Short",
     "title": null,
     "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
     "hasEmbeddedAnswers": false,
@@ -14,6 +14,20 @@
             "isCorrect": true,
             "weight": null,
             "text": {"format":"moodle", "text":"nobody"},
+            "feedback": null
+        }
+    ]
+},
+{
+    "type": "Short",
+    "title": null,
+    "stem": {"format":"moodle", "text":"How do you write the word for the number 1?"},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "choices": [{
+            "isCorrect": true,
+            "weight": null,
+            "text": {"format":"moodle", "text":"One"},
             "feedback": null
         }
     ]

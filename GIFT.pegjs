@@ -7,7 +7,7 @@
   }
   function processAnswers(question, answers) {
     question.globalFeedback = answers.globalFeedback;
-    switch(answers.type) {
+    switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
         question.incorrectFeedback = answers.feedback[1];
@@ -15,13 +15,25 @@
         break;
       case "MC":
       case "Numerical":
+      case "Short":
         question.choices = answers.choices;
         break;
       case "Matching":
         question.matchPairs = answers.matchPairs;
         break;
     }
+    // check for MC that's actually a short answer (all correct answers)
+    if (question.type == "MC" && areAllCorrect(question.choices)) {
+      question.type = "Short";
+    } 
     return question;
+  }
+  function areAllCorrect(choices) {
+    var allAreCorrect = true;
+    for (var i = 0; i < choices.length; i++) {
+      allAreCorrect &= choices[i].isCorrect;
+    }
+    return allAreCorrect;
   }
   function removeNewLinesDuplicateSpaces(text) {
     text = text.replace(/[\n\r]/g,' '); // replace newlines with spaces
@@ -54,7 +66,7 @@ Question
     title:QuestionTitle? _
     stem1:QuestionStem _ 
     '{' _
-    answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / EssayAnswer ) _
+    answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
     '}' _
     stem2:(Comment / QuestionStem)?
     QuestionSeparator
@@ -133,6 +145,15 @@ EssayAnswer "Essay question { ... }"
   = '' _
     globalFeedback:GlobalFeedback? _ 
   { return { type: "Essay", globalFeedback:globalFeedback}; }
+
+///////////////////
+SingleCorrectShortAnswer "Single short answer { ... }"
+  = answer:RichText _ 
+    feedback:Feedback? _ 
+    globalFeedback:GlobalFeedback? _
+  { var choices = [];
+    choices.push({isCorrect:true, text:answer, feedback:feedback, weight:null});
+    return { type: "Short", choices:choices, globalFeedback:globalFeedback}; }
 
 ///////////////////
 NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number

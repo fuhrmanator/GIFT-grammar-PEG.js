@@ -10,7 +10,7 @@
         }
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": "Kanji Origins",
         "stem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
         "hasEmbeddedAnswers": false,
@@ -75,7 +75,7 @@
         ]
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": null,
         "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
@@ -95,7 +95,7 @@
         ]
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": null,
         "stem": {"format":"markdown", "text":"Who's buried in **Grant's tomb**?"},
         "hasEmbeddedAnswers": false,
@@ -183,7 +183,7 @@
         ]
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": "Jesus' hometown",
         "stem": {"format":"moodle", "text":"Jesus Christ was from"},
         "hasEmbeddedAnswers": false,

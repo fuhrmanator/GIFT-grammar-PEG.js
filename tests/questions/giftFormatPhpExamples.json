@@ -61,7 +61,7 @@
         "correctFeedback": null
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": null,
         "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
@@ -165,7 +165,7 @@
         ]
     },
     {
-        "type": "MC",
+        "type": "Short",
         "title": "Jesus' hometown (Short answer ex.)",
         "stem": {"format":"moodle", "text":"Jesus Christ was from _____ ."},
         "hasEmbeddedAnswers": true,
