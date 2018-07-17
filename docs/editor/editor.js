@@ -56,8 +56,9 @@ $(document).ready(function() {
             $("#parse-message")
                 .attr("class", "alert alert-success")
                 .text("GIFT input parsed successfully!");
-            $("#output").removeClass("disabled").val(jsDump.parse(output));
-            result = true;
+//                $("#output").removeClass("disabled").val(jsDump.parse(output));
+            $("#output").removeClass("disabled").html(giftPreviewHTML(output));
+                result = true;
         } catch (e) {
             $("#parse-message").attr("class", "alert alert-warning").text(buildErrorMessage(e));
             var loc = e.location;
@@ -144,7 +145,7 @@ $(document).ready(function() {
                         "html": "Multiple choice, multiple correct, weights, feedback"
                     },
                     {
-                        "txtKey": "XP9FZnCn3CNl_HHMU-2oixrNGcW5I5mGNFW0RkBEX6RYmNOwkqBmsN56fTtjfPKwoX_dzrvUlDhjldw4FQd191Wi1TBTRlKK0ajCfGTZ6CmctMstuM2F9ooHP9-oFLAisxwcIDfftNSJzgJRMPBviQvdZjrOiwKfKnS6Td1dBjFzglvDN7Jx0AjvG0CK0XlenWKSME2CWniIN20VuFSA_FSUC6V_6qb1IoS27RZcw52OCbPD-qomWQThXOBzLq_ZjIPoUMUW9Cv0Tr5BQ4gO8IQrvev57o-YLzmhHJKqYX0oeUGNmE9ZBY4f-Mm3dvy3gJQJyvAoJs14hrDjGo5SeaUFETaB2Df0qjoM9QT6BQs0zpyfDEqxTiPg5RDBqtF8TH7UmBSJISPfSb0pPrGCKdcBQAOoyn5oEX8Wh4rIEAx169QtD3pItJ067hcdmbMTVv7Qm1VoyhP3ldLP3rXW4ZwbI12gWt3FrPPx1nQXO815Pv8xgWUXzk4HGhvYvY650OHqug84II_G3NnAXmC9bK2BqLvm754U85FfRNXe_JYYjNPS7ZHZwIls1EUMV6FS9S-n_7rhSDtQb0_jFitIYTOBR5suqCtwzIvLARh1xoYMCCEny9mfzjS3Io0A0-L9NxyCe8ZB0XhWJNmm9tC1WqFD6Mg9NcvOMkFTINOIKYf6SMaNoDodW1bO7E4kVoW1EPl40TE0UxBpFfGwahmgDWOySN9gGlNPZ18L0ebXAcUV7kEVrUeV",
+                        "txtKey": "XLInRjjA4Epr5GkfS6DPlM0xC9m0IM4aATAbMHrNv4N7MxxTFT56yFBjsICKoL8Z0Y9ulD7CtEo0i_NwvHasf0Q3OB0OIDVhsLC8B4tCBHZ3FK8djFtvCE_C1bslLc5hTtlC3Sac9hkZfgpQ4XlIfPRDSi2MT3LAD2TOjipDiY_9uf1e6JfsYQMvuFA_ulV8MLVpH-kYtg_myHPcOuS6A0JMqOKpsBB0WHWkEE58zm5-py2l1y2K_6Sa6Itk2RJZaXedXI5XqRX910juEY4Kx9zwx4-OXlEDWP8u1xgBaaDLmWHDLAlkMFJkAFgExgIeXaODX4GewGqm-pFd49LyjO1Fhu5KgybnIjuNqAFZLEkZ44xZG0yysXi8MaTItUOffygQAu0tloXKxIjs-c85aqlJQqXb4bx0rpr9mc6eH6xEA1l4V4vHJINc7QIu8q2OcyImczUYJ5CrtD7LC3hkkQNCHPt_ABM0p-JmkaE-TNmVCCCWl8yDGIYadW8NcyuTM8I20MOTIQweReNgZNi8wKGpTZ5q8AG3PoM8UYHTmCUutP9G3ZGPRGNx7kKM4kNMkjlQnnwjrd4QQCBS5cm93fKyC-wIXrZ-d1kSrvhojfwdMjhJV2ARPyvqyVvqbgBKkC5lA1OnmIxpcAXfJt-O0b7eA0twVZA08YuBjUONyS4OpGNC2-wEIcuSRfXhyQuaEmWfPQDcgWiaRcF012nEuIv_A075gR6OXWutP8TzoAKdUGSs1jnpTDQ8wgiHfL4898OnJpwFxLhuzSLk5Eedng5J2F3o_Ftyg-7e_sUplm00",
                         "html": "Multiple choice, multiple correct answers, feedback"
                     },
                      ]
