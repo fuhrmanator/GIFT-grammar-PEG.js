@@ -79,9 +79,9 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
 //    var html ='';
     var htmlLines = '';
     for (var i=0; i<q.matchPairs.length; i++) {
-        htmlLines += '<line id="line' + i + '" stroke="red"/>';
+        htmlLines += '<path id="line' + i + '" stroke="rgba(200,0,0,0.5)" stroke-width="2" fill="none"/>';
     }
-    html += '<svg class="theSVG" style="position: absolute; z-index: -1;" width="100%" height="100%" z-index="-1">' + htmlLines + '</svg>';
+    html += '<svg class="theSVG" style="position: absolute; z-index: -1;" width="100%" height="100%" z-index="-1"><g>' + htmlLines + '</g></svg>';
 
     html +='<div class="row"><div class="col-md-6">';  // left side
     for (var i=0; i<q.matchPairs.length; i++) {
@@ -117,11 +117,17 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
         var pos1 = leftDiv.offset();
         var pos2 = rightDiv.offset();
         var svg = qDiv.find(".theSVG").offset();
-        line
-          .attr('x1', pos1.left - svg.left + leftDiv.width())
-          .attr('y1', pos1.top + leftDiv.height()/2 - svg.top)
-          .attr('x2', pos2.left - svg.left)
-          .attr('y2', pos2.top + rightDiv.height()/2 - svg.top);
+        // line
+        //   .attr('x1', pos1.left - svg.left + leftDiv.width())
+        //   .attr('y1', pos1.top + leftDiv.height()/2 - svg.top)
+        //   .attr('x2', pos2.left - svg.left)
+        //   .attr('y2', pos2.top + rightDiv.height()/2 - svg.top);
+        var x1 = pos1.left - svg.left + leftDiv.width();
+        var y1 = pos1.top + leftDiv.height()/2 - svg.top;
+        var x2 = pos2.left - svg.left;
+        var y2 = pos2.top + rightDiv.height()/2 - svg.top;
+        var inset = 10;
+        line.attr('d', "M" + x1 + "," + y1 + " C" + (x1 + inset) + "," + y1 + " " + (x2 - inset) + ',' + y2 + " " + x2 + "," + y2);
         qDiv.find(".theSVG").attr('height', pos1.top + leftDiv.height() - svg.top);
     }
     // return html;
