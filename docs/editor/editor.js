@@ -57,7 +57,9 @@ $(document).ready(function() {
                 .attr("class", "alert alert-success")
                 .text("GIFT input parsed successfully!");
 //                $("#output").removeClass("disabled").val(jsDump.parse(output));
-            $("#output").removeClass("disabled").html(giftPreviewHTML(output));
+//            $("#output").removeClass("disabled").html(giftPreviewHTML(output));
+                $("#output").removeClass("disabled");
+                giftPreviewHTML(output, $("#output"));
                 result = true;
         } catch (e) {
             $("#parse-message").attr("class", "alert alert-warning").text(buildErrorMessage(e));
