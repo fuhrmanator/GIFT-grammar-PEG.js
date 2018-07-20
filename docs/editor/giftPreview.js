@@ -79,7 +79,7 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
 //    var html ='';
     var htmlLines = '';
     for (var i=0; i<q.matchPairs.length; i++) {
-        htmlLines += '<path id="line' + i + '" stroke="rgba(200,0,0,0.5)" stroke-width="2" fill="none"/>';
+        htmlLines += '<path id="line' + i + '" stroke="rgba(180,180,255,0.5)" stroke-width="5" fill="none"/>';
     }
     html += '<svg class="theSVG" style="position: absolute; z-index: -1;" width="100%" height="100%" z-index="-1"><g>' + htmlLines + '</g></svg>';
 
