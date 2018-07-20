@@ -58,8 +58,9 @@ Category "Category"
 
 Description "Description"
   = __
+    title:QuestionTitle? _
     text:RichText QuestionSeparator
-    { resetLastQuestionTextFormat(); return {type:"Description", title:null, stem:text, hasEmbeddedAnswers:false} }
+    { resetLastQuestionTextFormat(); return {type:"Description", title:title, stem:text, hasEmbeddedAnswers:false} }
 
 Question
   = __

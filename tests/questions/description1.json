@@ -1,6 +1,6 @@
 [{
         "type": "Description",
-        "title": null,
+        "title": "Description Title",
         "stem": {"format":"moodle", "text":"You can use your pencil and paper for these next questions."},
         "hasEmbeddedAnswers": false
     },
