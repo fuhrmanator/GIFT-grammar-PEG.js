@@ -14,11 +14,13 @@
     <title>GIFT Question Validator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="validator.css">
+    <link rel="stylesheet" href="giftPreview.css">
 
     <!-- Create a simple CodeMirror instance -->
     <link rel="stylesheet" href="lib/codemirror.css">
     <script src="lib/codemirror.js"></script>
     <script async src="synchro2.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
 </head>
 
 <body>
@@ -42,8 +44,9 @@
                 <textarea wrap id="gift" class="form-control" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
             </div>
             <div class="col-sm-6">
-                <label for="output">JSON parsed from the GIFT format (for testing)</label>
-                <textarea id="output" class="form-control" readonly></textarea>
+                <label for="output">Preview of the question(s) (for testing)</label>
+                <!-- <textarea id="output" class="form-control" readonly></textarea> -->
+                <div id="output" ></div>
             </div>
         </div>
 
@@ -63,6 +66,7 @@
         <script src="peg.js"></script>
         <script src="jsDump.js"></script>
         <script src="lib/ziptools.js"></script>
+        <script src="giftPreview.js"></script>
         <script src="editor.js"></script>
     </div>
 
