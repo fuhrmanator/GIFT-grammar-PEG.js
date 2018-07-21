@@ -10,6 +10,11 @@ function giftPreviewHTML(qArray, theDiv) {
         html += '<div id="question_' + i + '">';
         // console.log("q.type is '" + q.type );
         switch (q.type) {
+            case "Description":
+                html += makeTitle("Description", q.title);
+                html +="<p>" + applyFormat(q.stem) + "</p>";
+                theDiv.append(html); html = "";
+                break;
             case "MC":
                 html += makeTitle("Multiple choice", q.title);
                 html +="<p>" + applyFormat(q.stem) + "</p>";
