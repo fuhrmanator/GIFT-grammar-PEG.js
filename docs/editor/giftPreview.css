@@ -18,3 +18,21 @@ ul li.wrongAnswer:before {
 	left: 0;
     color: #aa0000;
 }
+
+@media print {
+	#output [id^="question_"] > b {
+		display:block;
+		padding-top:60px;
+	}
+	#output [id^="question_"] {
+		page-break-inside:avoid;
+	}
+	#output [id^="left"], #output [id^="right"] {
+		background:#ddddff !important;
+		border:1px solid #ddddff;
+	}		
+	.col-print-12 {
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+}
