@@ -45,7 +45,7 @@ $(document).ready(function() {
         oldInput = editor.getValue();
 
         $("#gift").removeAttr("disabled");
-        $("#parse-message").attr("class", "alert alert-info").text("Parsing the input...");
+        $("#parse-message").attr("class", "alert alert-info d-print-none").text("Parsing the input...");
         $("#output").val('Output not available.');
 
         var result;
@@ -54,7 +54,7 @@ $(document).ready(function() {
             var output = parser.parse(oldInput);
 
             $("#parse-message")
-                .attr("class", "alert alert-success")
+                .attr("class", "alert alert-success d-print-none")
                 .text("GIFT input parsed successfully!");
 //                $("#output").removeClass("disabled").val(jsDump.parse(output));
 //            $("#output").removeClass("disabled").html(giftPreviewHTML(output));
@@ -62,7 +62,7 @@ $(document).ready(function() {
                 giftPreviewHTML(output, $("#output"));
                 result = true;
         } catch (e) {
-            $("#parse-message").attr("class", "alert alert-warning").text(buildErrorMessage(e));
+            $("#parse-message").attr("class", "alert alert-warning d-print-none").text(buildErrorMessage(e));
             var loc = e.location;
             var from = {line: loc.start.line-1, ch: loc.start.column-1 - (loc.start.offset === loc.end.offset)};
             var to = {line: loc.end.line-1, ch: loc.end.column-1};
@@ -97,7 +97,7 @@ $(document).ready(function() {
         isDirty = true;
         clearErrors();
 
-        $("#parse-message").attr("class", "alert alert-info").text("Output is not updated until you click submit to validate...");
+        $("#parse-message").attr("class", "alert alert-info d-print-none").text("Output is not updated until you click submit to validate...");
         $("#output").val('Output not available. Click Submit to validate.');
     }
 
