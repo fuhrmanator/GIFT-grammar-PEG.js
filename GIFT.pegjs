@@ -65,7 +65,7 @@ Description "Description"
 Question
   = __
     title:QuestionTitle? _
-    stem1:QuestionStem _ 
+    stem1:QuestionStem? _ 
     '{' _
     answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
     '}' _
@@ -73,7 +73,19 @@ Question
     QuestionSeparator
   {
     var embedded = (stem2 != null);
-    var stem = {format:stem1.format, text:stem1.text + ( embedded ? " _____ " + stem2.text : "")};
+    
+    //avoids throwing errors from empty keys
+    //Source: https://css-tricks.com/%E2%80%8B%E2%80%8Bavoiding-those-dang-cannot-read-property-of-undefined-errors/
+    var stem1Format = stem1 && stem1.format;
+    var stem1Text = stem1 && stem1.text;
+    var stem2Format = stem2 && stem2.format;
+    var stem2Text = stem2 && stem2.text;
+    
+   	var format = stem1Format || stem2Format || "moodle";
+    var text = stem1Text || "";
+    var space = stem1Text ? " " : "";
+   	
+    var stem = {format:format, text:text + ( embedded ? space + "_____ " + stem2.text : "")};
     var question = {type:answers.type, title:title, stem:stem, hasEmbeddedAnswers:(stem2 != null)};
     question = processAnswers(question, answers);
     resetLastQuestionTextFormat();
