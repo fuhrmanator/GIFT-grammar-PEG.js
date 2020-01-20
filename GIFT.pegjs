@@ -214,7 +214,7 @@ BlankLine "blank line"
   = Space* EndOfLine
 
 TitleText "(Title text)"
-  = !'::' t:UnescapedChar {return t}
+  = !'::' t:(EscapeSequence / UnescapedChar) {return t}
 
 TextChar "(text character)"
   = (UnescapedChar / EscapeSequence / EscapeChar)
