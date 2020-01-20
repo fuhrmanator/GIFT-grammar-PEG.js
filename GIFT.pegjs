@@ -88,7 +88,7 @@ Matches "matches"
   = matchPairs:(Match)+  { return matchPairs }
   
 Match "match"
-  = _ '=' _ left:RichText? _ '->' _ right:PlainText _ 
+  = _ '=' _ left:MatchRichText? _ '->' _ right:PlainText _ 
     { var matchPair = { 
         subquestion:{
           format:(left !== null ? left.format : getLastQuestionTextFormat()), 
@@ -219,6 +219,9 @@ TitleText "(Title text)"
 TextChar "(text character)"
   = (UnescapedChar / EscapeSequence / EscapeChar)
 
+MatchTextChar "(text character)"
+  = (UnescapedMatchChar / EscapeSequence / EscapeChar)
+
 Format "format"
   = '[' format:('html' /
                 'markdown' /
@@ -246,8 +249,18 @@ EscapeSequence "escape sequence"
 UnescapedChar ""
   = !(EscapeSequence / ControlChar / QuestionSeparator) . {return text()}
 
+UnescapedMatchChar ""
+  = !(EscapeSequence / ControlChar / '->' / QuestionSeparator) . {return text()}
+
 ControlChar 
-  = '=' / '~' / "#" / '{' / '}' / '\\' / '->' / ':'
+  = '=' / '~' / "#" / '{' / '}' / '\\' / ':'
+
+MatchRichText "(formatted text excluding '->'"
+  = format:Format? _ txt:MatchTextChar+ { return {
+      format:(format!==null ? format : getLastQuestionTextFormat()), 
+      text:((format !== "html") 
+          ? removeNewLinesDuplicateSpaces(txt.join('').trim())
+          : txt.join('').replace(/\r\n/g,'\n'))}}  // avoid failing tests because of Windows line breaks 
 
 RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {
