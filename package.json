@@ -1,6 +1,6 @@
 {
     "name": "gift-pegjs",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Parser of GIFT question format based on PEG.js",
     "main": "pegjs-gift.js",
     "dependencies": {
@@ -13,15 +13,14 @@
         "qunitjs": "^2.1.1",
         "serve-static": "^1.13.2",
         "glob": "^7.1.1",
-        "mocha": ">=4.0.1",
-        "unit.js": "^2.0.0"
+        "mocha": ">=4.0.1"
     },
     "files": [
         "GIFT.pegjs",
         "lib/"
     ],
     "scripts": {
-        "build": "pegjs --format globals -o lib/gift-parser-globals.js GIFT.pegjs && minify lib/gift-parser-globals.js > lib/gift-parser-globals.min.js && cp lib/gift-parser-globals.min.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js",
+        "build": "pegjs --format globals --export-var giftParser -o lib/gift-parser-globals.js GIFT.pegjs && minify lib/gift-parser-globals.js > lib/gift-parser-globals.min.js && cp lib/gift-parser-globals.min.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js && bash makeHTML.sh",
         "test": "node_modules/.bin/mocha tests --recursive"
     },
     "repository": "github:fuhrmanator/GIFT-grammar-PEG.js",

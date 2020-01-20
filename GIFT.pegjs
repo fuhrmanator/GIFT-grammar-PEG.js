@@ -59,7 +59,7 @@ Category "Category"
 Description "Description"
   = __
     title:QuestionTitle? _
-    text:RichText QuestionSeparator
+    text:QuestionStem QuestionSeparator
     { resetLastQuestionTextFormat(); return {type:"Description", title:title, stem:text, hasEmbeddedAnswers:false} }
 
 Question
@@ -247,7 +247,7 @@ UnescapedChar ""
   = !(EscapeSequence / ControlChar / QuestionSeparator) . {return text()}
 
 ControlChar 
-  = '=' / '~' / "#" / '{' / '}' / '\\' / '->'
+  = '=' / '~' / "#" / '{' / '}' / '\\' / '->' / ':'
 
 RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {

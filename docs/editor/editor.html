@@ -24,33 +24,33 @@
 </head>
 
 <body>
-    <h1 class="display-4">GIFT Question Editor</h1>
-    <p class "display-4">GIFT question parser using
+    <h1 class="display-4 d-print-none">GIFT Question Editor</h1>
+    <p class="d-print-none">GIFT question parser using
         <a href="https://pegjs.org">PEG.js</a> and
         <a href="https://github.com/fuhrmanator/GIFT-grammar-PEG.js">GIFT grammar done in PEG</a>.
         <strong>Note:</strong> after submitting, the URL above is a link to the text of your question (bookmark it to return). </p>
     <div class="container">
 
-        <div id="parse-message" class="alert alert-info">Loading...</div>
-        <div class="row">
+        <div id="parse-message" class="alert alert-info d-print-none">Loading...</div>
+        <div class="row d-print-none">
             <select name="examples" id="examples" onchange="updateSourceFromSample(this)" class="form-spaced">
             </select>
             <br/>
         </div>
 
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 d-print-none">
                 <label for="gift">Write your GIFT questions here</label>
                 <textarea wrap id="gift" class="form-control" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
             </div>
-            <div class="col-sm-6">
-                <label for="output">Preview of the question(s) (for testing)</label>
+            <div class="col-sm-6 col-print-12">
+                <label class="d-print-none" for="output">Preview of the question(s) (for testing)</label>
                 <!-- <textarea id="output" class="form-control" readonly></textarea> -->
-                <div id="output" ></div>
+                <div id="output"></div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row d-print-none">
             <button onclick="submitButtonClick()">Submit</button>
         </div>
 
