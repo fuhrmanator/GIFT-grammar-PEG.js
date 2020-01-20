@@ -1,0 +1,44 @@
+[
+    {
+       "type": "MC",
+       "title": "EE_mod_05_T39_P079",
+       "stem": {
+          "format": "html",
+          "text": "<p>¿En qué supuestos podría el Fiscal autorizar a la Policía Judicial la práctica de una diligencia de entrada y registro?</p>"
+       },
+       "hasEmbeddedAnswers": false,
+       "globalFeedback": {
+          "format": "html",
+          "text": "<p><span style=\"color: #ff6600;\"><strong>Artículo 5 Estatuto Orgánico del Ministerio Fiscal:</strong></span></p>\\n<p><em><strong>Dos.</strong> Igualmente, y para el esclarecimiento de los hechos denunciados o que aparezcan en los atestados de los que conozca, <span style=\"background-color: #ffcc99;\">puede llevar a cabo u ordenar aquellas diligencias para las que esté legitimado según la <span style=\"color: #000000;\"><a href=\"http://www.formacioncnp.es/base_datos/Penal/lecr.html\"><span style=\"color: #000000; background-color: #ffcc99;\"><!--<var>LE0000017566_20130224</var>-->Ley de Enjuiciamiento Criminal</span></a></span>, las cuales no podrán suponer la adopción de medidas cautelares o limitativas de derechos. No obstante, podrá ordenar el Fiscal la detención preventiva</span>.</em></p>\\n<p> </p>"
+       },
+       "choices": [
+          {
+             "isCorrect": false,
+             "weight": null,
+             "text": {
+                "format": "moodle",
+                "text": "En ausencia del Juez de Instrucción, titular de la actuaciones, y por razones de urgencia, debidamente acreditadas."
+             },
+             "feedback": null
+          },
+          {
+             "isCorrect": false,
+             "weight": null,
+             "text": {
+                "format": "moodle",
+                "text": "Cuando se trate de delitos de terrorismo."
+             },
+             "feedback": null
+          },
+          {
+             "isCorrect": true,
+             "weight": null,
+             "text": {
+                "format": "moodle",
+                "text": "Nunca."
+             },
+             "feedback": null
+          }
+       ]
+    }
+ ]
