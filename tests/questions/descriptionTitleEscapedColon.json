@@ -1,0 +1,17 @@
+[{
+        "type": "Description",
+        "title": "Description Title:",
+        "stem": {"format":"moodle", "text":"You can use your pencil and paper for these next questions."},
+        "hasEmbeddedAnswers": false
+    },
+    {
+        "type": "TF",
+        "title": null,
+        "stem": {"format":"moodle", "text":"True or false?"},
+        "hasEmbeddedAnswers": false,
+        "globalFeedback": null,
+        "isTrue": true,
+        "incorrectFeedback": null,
+        "correctFeedback": null
+    }
+]
