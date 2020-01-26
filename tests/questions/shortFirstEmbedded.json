@@ -1,0 +1,44 @@
+[
+   {
+      "type": "Short",
+      "title": null,
+      "stem": {
+         "format": "moodle",
+         "text": "_____ is the largest continent in the world."
+      },
+      "hasEmbeddedAnswers": true,
+      "globalFeedback": null,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": {
+               "format": "moodle",
+               "text": "Asia"
+            },
+            "feedback": null
+         }
+      ]
+   },
+   {
+      "type": "Short",
+      "title": "Continents",
+      "stem": {
+         "format": "moodle",
+         "text": "_____ is the largest continent in the world."
+      },
+      "hasEmbeddedAnswers": true,
+      "globalFeedback": null,
+      "choices": [
+         {
+            "isCorrect": true,
+            "weight": null,
+            "text": {
+               "format": "moodle",
+               "text": "Asia"
+            },
+            "feedback": null
+         }
+      ]
+   }
+]

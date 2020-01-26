@@ -65,16 +65,21 @@ Description "Description"
 Question
   = __
     title:QuestionTitle? _
-    stem1:QuestionStem _ 
+    stem1:QuestionStem? _ 
     '{' _
     answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
     '}' _
     stem2:(Comment / QuestionStem)?
     QuestionSeparator
   {
-    var embedded = (stem2 != null);
-    var stem = {format:stem1.format, text:stem1.text + ( embedded ? " _____ " + stem2.text : "")};
-    var question = {type:answers.type, title:title, stem:stem, hasEmbeddedAnswers:(stem2 != null)};
+    
+    var embedded = (stem2 !== null);    
+    var stem1Text = stem1 ? (stem1.text + (embedded ? " " : "")) : "";
+
+    var format = (stem1 && stem1.format) || (stem2 && stem2.format) || "moodle";
+    var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
+    
+    var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
     question = processAnswers(question, answers);
     resetLastQuestionTextFormat();
     return question;
