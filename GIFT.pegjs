@@ -2,9 +2,6 @@
 {
   var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
   var format = defaultFormat;
-  function makeInteger(o) {
-    return parseInt(o.join(""), 10);
-  }
   function processAnswers(question, answers) {
     question.globalFeedback = answers.globalFeedback;
     switch(question.type) {
@@ -138,10 +135,10 @@ Choice "Choice"
       return choice } 
 
 Weight "(weight)"
-  = '%' percent:([-]? PercentValue) '%' { return makeInteger(percent) }
+  = '%' percent:([-]? PercentValue) '%' { return parseFloat(percent.join('')) }
   
 PercentValue "(percent)"
-  = '100' / [0-9][0-9]?  { return text() }
+  = '100' / [0-9][0-9]?[.]?[0-9]*  { return text() }
 
 Feedback "(feedback)" 
   = '#' !'###' _ feedback:RichText? { return feedback }
