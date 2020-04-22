@@ -109,4 +109,4 @@ The following UML class diagram is an interpretation of the XML format for Moodl
 
 ## Railroad diagram of the grammar
 
-Check out the [railroad diagram](http://dundalek.com/GrammKit/#https://cdn.rawgit.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs) for this project's PEG.
+Check out the [railroad diagram](https://dundalek.com/grammkit/#https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs) for this project's PEG.
