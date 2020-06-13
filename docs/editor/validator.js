@@ -134,7 +134,7 @@ $(document).ready(function() {
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();   // fetch doesn't work on old iPads because it's not supported in old Safari
     xmlhttp.addEventListener("load", doneLoadingGrammar, false);
-    xmlhttp.open("GET","../../GIFT.pegjs",true);
+    xmlhttp.open("GET","https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs",true);
     xmlhttp.send();
 
     editor.setValue(sampleGift);
