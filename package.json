@@ -8,12 +8,12 @@
     },
     "devDependencies": {
         "connect": "^3.6.6",
+        "glob": "^7.1.1",
         "minify": "^3.0.5",
+        "mocha": "^8.0.1",
         "pegjs-backtrace": "^0.1.1",
         "qunitjs": "^2.1.1",
-        "serve-static": "^1.13.2",
-        "glob": "^7.1.1",
-        "mocha": ">=4.0.1"
+        "serve-static": "^1.13.2"
     },
     "files": [
         "GIFT.pegjs",
