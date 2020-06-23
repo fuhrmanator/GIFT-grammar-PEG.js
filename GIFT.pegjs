@@ -51,7 +51,7 @@ GIFTQuestions
   = questions:(Category / Description / Question)+ _ __ { return questions; }
 
 Category "Category"
-  = __ '$' 'CATEGORY:' _ cat:PlainText QuestionSeparator {return {type:"Category", title:cat}}
+  = __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
 
 Description "Description"
   = __
@@ -273,6 +273,9 @@ RichText "(formatted text)"
 
 PlainText "(unformatted text)"
   = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 
+
+CategoryText "(category text)"
+  = txt:(!EndOfLine .)* &(EndOfLine / EndOfFile) { return txt.flat().join('') } 
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
