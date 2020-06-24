@@ -114,4 +114,4 @@ Check out the [railroad diagram](https://dundalek.com/grammkit/#https://raw.gith
 ## Testing the editor locally
 
 - In a terminal of the cloned repo: `node server.js`
-- Point a browser to http://localhost:8080/docs/editor/editor.html
+- Point a browser to http://localhost:8181/docs/editor/editor.html

@@ -5,10 +5,8 @@ var pagePrefix;
 $(document).ready(function() {
 
     pagePrefix = window.location.protocol + "//" + window.location.host + window.location.pathname + "?text=";
-    var isDirty = false;
     var sampleGift = "//-----------------------------------------//\n// Examples from gift/format.php.\n//-----------------------------------------//\n\nWho's buried in Grant's tomb?{~Grant ~Jefferson =no one}\n\nGrant is {~buried =entombed ~living} in Grant's tomb.\n\nGrant is buried in Grant's tomb.{FALSE}\n\nWho's buried in Grant's tomb?{=no one =nobody}\n\nWhen was Ulysses S. Grant born?{#1822:5}\n\nMatch the following countries with their corresponding capitals. {\n    =Canada -> Ottawa\n    =Italy  -> Rome\n    =Japan  -> Tokyo\n    =India  -> New Delhi\n    ####It's good to know the capitals\n}\n\n//-----------------------------------------//\n// More complicated examples.\n//-----------------------------------------//\n\n::Grant's Tomb::Grant is {\n        ~buried#No one is buried there.\n        =entombed#Right answer!\n        ~living#We hope not!\n} in Grant's tomb.\n\nDifficult multiple choice question.{\n        ~wrong answer           #comment on wrong answer\n        ~%50%half credit answer #comment on answer\n        =full credit answer     #well done!}\n\n::Jesus' hometown (Short answer ex.):: Jesus Christ was from {\n        =Nazareth#Yes! That's right!\n        =%75%Nazereth#Right, but misspelled.\n        =%25%Bethlehem#He was born here, but not raised here.\n}.\n\n//this comment will be ignored by the filter\n::Numerical example::\nWhen was Ulysses S. Grant born? {#\n        =1822:0      #Correct! 100% credit\n        =%50%1822:2  #He was born in 1822.\n                    You get 50% credit for being close.\n}";
 
-    var parseTimer = null;
     var parser = null;
 
     initExamplesDropdown();
@@ -17,16 +15,16 @@ $(document).ready(function() {
 
     var editor = CodeMirror.fromTextArea(ta, {
         lineNumbers: true,
-        // styleActiveLine: true,
-        // styleActiveSelected: true,
+        styleActiveLine: true,
+        styleActiveSelected: true,
         mode: "text/plain",
+        lineWrapping: true,
         gutters: ["CodeMirror-linenumbers", "guttererrormarker"]
     });
 
     giftEditor = editor;
 
     var errorMark = null;
-
     var oldInput = null;
     
     function setParser(p) {
@@ -57,8 +55,6 @@ $(document).ready(function() {
             $("#parse-message")
                 .attr("class", "alert alert-success d-print-none")
                 .text("GIFT input parsed successfully!");
-//              $("#output").removeClass("disabled").val(jsDump.parse(output));
-//              $("#output").removeClass("disabled").html(giftPreviewHTML(output));
                 $("#output").removeClass("disabled");
         } catch (e) {
             console.log("Exception at parser.parse: " + e);
@@ -151,7 +147,7 @@ $(document).ready(function() {
                         "html": "Multiple choice, multiple correct, weights, feedback"
                     },
                     {
-                        "txtKey": "XLInRjjA4Epr5GkfS6DPlM0xC9m0IM4aATAbMHrNv4N7MxxTFT56yFBjsICKoL8Z0Y9ulD7CtEo0i_NwvHasf0Q3OB0OIDVhsLC8B4tCBHZ3FK8djFtvCE_C1bslLc5hTtlC3Sac9hkZfgpQ4XlIfPRDSi2MT3LAD2TOjipDiY_9uf1e6JfsYQMvuFA_ulV8MLVpH-kYtg_myHPcOuS6A0JMqOKpsBB0WHWkEE58zm5-py2l1y2K_6Sa6Itk2RJZaXedXI5XqRX910juEY4Kx9zwx4-OXlEDWP8u1xgBaaDLmWHDLAlkMFJkAFgExgIeXaODX4GewGqm-pFd49LyjO1Fhu5KgybnIjuNqAFZLEkZ44xZG0yysXi8MaTItUOffygQAu0tloXKxIjs-c85aqlJQqXb4bx0rpr9mc6eH6xEA1l4V4vHJINc7QIu8q2OcyImczUYJ5CrtD7LC3hkkQNCHPt_ABM0p-JmkaE-TNmVCCCWl8yDGIYadW8NcyuTM8I20MOTIQweReNgZNi8wKGpTZ5q8AG3PoM8UYHTmCUutP9G3ZGPRGNx7kKM4kNMkjlQnnwjrd4QQCBS5cm93fKyC-wIXrZ-d1kSrvhojfwdMjhJV2ARPyvqyVvqbgBKkC5lA1OnmIxpcAXfJt-O0b7eA0twVZA08YuBjUONyS4OpGNC2-wEIcuSRfXhyQuaEmWfPQDcgWiaRcF012nEuIv_A075gR6OXWutP8TzoAKdUGSs1jnpTDQ8wgiHfL4898OnJpwFxLhuzSLk5Eedng5J2F3o_Ftyg-7e_sUplm00",
+                        "txtKey": "XLJ1Rjiw4BpxAnRs8PSulXj97eAy1xmUWhQ7td9Pask9DKMgkqihGT5-UvTCQiU-M805KHpF36S7cgtNJu-m8L4O6Pq6Hx9UpnwSo-n3wa0pt2BqJDldktclEihpUhLoMxtPO_B4cn3rXdnPTILuagMKpNB4ZcGrSL1ZM7Ov--LGeeOnqjBrsJIMQehB7yNk8ITPpU-r3tAxmljhc4qzAY0JQ4zdrc2R6Tw9uOmJ3dJ_mCyPs7K76AFzb3YXXZs1zBb4RwGmHYmIDf5W0Gz7X83-LG_34UDpkb8GOkD0Sr6IgqeOmGVHwYwpt1n4ZtGV54LHoOEBX1nV0PCzv-I2aAqMyD-B8v5gSchHsm86D9n8VMJ2DW-qm8E-0gFsnDLjQZbLrbG1UVETNDM-O6SeMZ2QDBsuM9hm0ZxlYIEEen5LSqf98QHJYcegvho367O427Fbu7RpsfGsLSKTNGoZpqFkAEKYnd-GMi3_PF2wGxPrUEymmSXv7po1AoIMGYxQpkqoCpa5J38HNr3TCjLR7i358ytK1zS3aumv2K6G0-a2_WtRBJ4bHyrenpWCoDSGANNQNzS-3gYrZcsW4LDNi2Dug-IfyIhvPl3tgS5vhMdUrlDKItkQDx9voedEtX_FKeIy6Vo2h04Zx5AU8ldk-8SMY41FSPIFam5ahjEkDJ-B3wQW9g1MS7DKaZUuOgh5kv3io2IKb7oh2yJS1OSHCXk5kVmc11HQOp6EFMv8t_SXbO7u2AurmdqEnXfGR3KXUm57h1XIytberyAkJtebK3yn1cqXmDFZrzElXg5_pMP_0000",
                         "html": "Multiple choice, multiple correct answers, feedback"
                     },
                      ]
