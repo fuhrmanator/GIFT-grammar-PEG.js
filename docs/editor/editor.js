@@ -62,6 +62,7 @@ $(document).ready(function() {
                 giftPreviewHTML(output, $("#output"));
                 result = true;
         } catch (e) {
+	    console.log(e);
             $("#parse-message").attr("class", "alert alert-warning d-print-none").text(buildErrorMessage(e));
             var loc = e.location;
             var from = {line: loc.start.line-1, ch: loc.start.column-1 - (loc.start.offset === loc.end.offset)};
