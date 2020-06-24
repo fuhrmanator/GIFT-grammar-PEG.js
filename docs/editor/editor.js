@@ -43,7 +43,7 @@ $(document).ready(function() {
     function parse() {
         // oldInput = $("#gift").val();
         oldInput = editor.getValue();
-        console.log("oldInput: " + oldInput);
+        //console.log("oldInput: " + oldInput);
 
         $("#gift").removeAttr("disabled");
         $("#parse-message").attr("class", "alert alert-info d-print-none").text("Parsing the input...");
@@ -61,7 +61,7 @@ $(document).ready(function() {
 //              $("#output").removeClass("disabled").html(giftPreviewHTML(output));
                 $("#output").removeClass("disabled");
         } catch (e) {
-            console.log("parser.parse: " + e);
+            console.log("Exception at parser.parse: " + e);
             $("#parse-message").attr("class", "alert alert-warning d-print-none").text(buildErrorMessage(e));
             var loc = e.location;
             var from = {line: loc.start.line-1, ch: loc.start.column-1 - (loc.start.offset === loc.end.offset)};
