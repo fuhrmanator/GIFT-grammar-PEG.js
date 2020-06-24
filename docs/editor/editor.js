@@ -190,14 +190,13 @@ $(document).ready(function() {
                 "groupName": "matching",
                 "label": "Matching",
                 "options": [{
-                    "txtKey": "NP31IZGn48JFVvwYmOiUidDVK52yU124nGV89ZsPXYGzTdTs3-Axczb5nByFELHzHOLohy7Y0hOWOC6ApHHuXW2r5wEr8CI5AIAGOOKpsOKbWPcbXW8jL5G8CR8aQXcCOJ5RTJzDSRRTARI4SgHYEqnzofqIgjT-z6l8gDDPo4RCP-RaVohzjT8RglcFFbxYfjCUFjs_UtWJFXQiu1_WO5WtwT1p7XGcK2xzGc_sOp6K5enEg1lsD1W8l-A5QNf6sToN5ba4ey4j2r2RKOZbxl_0Cwb9YCRYODpDE7XNQldl8WkMLQzxHQwrDufX-zZEVJdt3G00",
-                    "html": "Matching, general feedback"
+                    "txtKey": "NP0nImD148LhxrSCs2J5vlg0Wc9Z8GZ1AacnsPlR6zpTEMTcSuNutxrB4D4fjdZlUxpbDVlivRtZgHnVl8K1R430X1cBAN0F7d9DHcD220DJG23331FPXIM1dYNx1CLdLF0Xi7HK8XZ3tWRIusem6_MmRTlGs-RiIuToecGRx6eRAtMeJkl9ZJwYjfEGpN4NcJltK-skrSvGpNtK-IKksguFM_XiRkxWLVYKC8ExXvrXNgHTZN7ci0FbL2_yOZyaGodUw8owO8yp0_vNl3159vJ5VIw1HJ0Oh5Y0Iez2BEl_WITI4n-CfO7vRkU3DwKI_supO1hrkbpWd6kXu9UFRPglfla6",
+                    "html": "Matching (markdown), general feedback"
                 }, 
             ]
             }
         ];
-
-        //        ["", "Matching, general feedback"]
+        
         var selectList = $('#examples');
         selectList.empty();
         selectList.append($('<option></option>').val("label").html("Insert sample question at cursor..."));
@@ -267,6 +266,7 @@ $.extend({
  */
 function updateSourceFromSample(theMenu) {
 	theMenu.disabled = true;
-	giftEditor.replaceSelection(decode64(theMenu.value));
+    giftEditor.replaceSelection(decode64(theMenu.value));
+    theMenu.selectedIndex = 0;
 	theMenu.disabled = false;
 }

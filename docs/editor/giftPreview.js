@@ -66,6 +66,7 @@ function makeTitle(type, title) {
 
 function formatAnswers(choices) {
     var html = "<ul>";
+    shuffle(choices);
     for (var a=0; a<choices.length; a++) {
         var answer = choices[a];
         html += '<li class="' +
@@ -97,15 +98,15 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
         html += '</div>';
         rightSideChoices.add(pair.subanswer);
     }
-    console.log('Found rightSideChoices: ' + rightSideChoices.size);
+    //console.log('Found rightSideChoices: ' + rightSideChoices.size);
     html += '</div>'
 
     html += '<div class="col-md-6">'; // right side
-    for (var it = rightSideChoices.values(), val= null; val=it.next().value;) {
-        //console.log('answer: ' + val);
+    var rightSideArray = Array.from(rightSideChoices);
+    shuffle(rightSideArray);
+    for (var it = rightSideArray.values(), val= null; val=it.next().value;) {
         html += '<div id="right_' + val.replace(/\s/g, '_') + '" style="background:#ddddff">';
         html += '<p>' + val + '</p>';
-//        html += val;
         html += '</div>';
     }
     html += '</div></div>'
@@ -167,3 +168,23 @@ function formatFeedback(feedback) {
             '<p style="margin-left: 40px"><em>General feedback:</em> ' + 
             applyFormat(feedback) + '</p>' : '';
 }
+
+// https://stackoverflow.com/a/2450976/1168342
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
