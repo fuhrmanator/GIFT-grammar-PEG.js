@@ -43,12 +43,13 @@ $(document).ready(function() {
     function parse() {
         // oldInput = $("#gift").val();
         oldInput = editor.getValue();
+        console.log("oldInput: " + oldInput);
 
         $("#gift").removeAttr("disabled");
         $("#parse-message").attr("class", "alert alert-info d-print-none").text("Parsing the input...");
         $("#output").val('Output not available.');
 
-        var result;
+        var result = false;
 
         try {
             var output = parser.parse(oldInput);
@@ -56,13 +57,11 @@ $(document).ready(function() {
             $("#parse-message")
                 .attr("class", "alert alert-success d-print-none")
                 .text("GIFT input parsed successfully!");
-//                $("#output").removeClass("disabled").val(jsDump.parse(output));
-//            $("#output").removeClass("disabled").html(giftPreviewHTML(output));
+//              $("#output").removeClass("disabled").val(jsDump.parse(output));
+//              $("#output").removeClass("disabled").html(giftPreviewHTML(output));
                 $("#output").removeClass("disabled");
-                giftPreviewHTML(output, $("#output"));
-                result = true;
         } catch (e) {
-	    console.log(e);
+            console.log("parser.parse: " + e);
             $("#parse-message").attr("class", "alert alert-warning d-print-none").text(buildErrorMessage(e));
             var loc = e.location;
             var from = {line: loc.start.line-1, ch: loc.start.column-1 - (loc.start.offset === loc.end.offset)};
@@ -73,9 +72,13 @@ $(document).ready(function() {
             errorGutter = editor.setGutterMarker(loc.start.line-1, "guttererrormarker", makeMarker());
             result = false;
         } finally {
-            doLayout();
         }
 
+	if (output) {
+            giftPreviewHTML(output, $("#output"));
+            result = true;
+            doLayout();
+	}
         return result;
     }
 
