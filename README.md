@@ -110,3 +110,8 @@ The following UML class diagram is an interpretation of the XML format for Moodl
 ## Railroad diagram of the grammar
 
 Check out the [railroad diagram](https://dundalek.com/grammkit/#https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs) for this project's PEG.
+
+## Testing the editor locally
+
+- In a terminal of the cloned repo: `node server.js`
+- Point a browser to http://localhost:8080/docs/editor/editor.html
