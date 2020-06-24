@@ -116,9 +116,12 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
     for (var i=0; i<q.matchPairs.length; i++) {
         var qDiv = $("#question_" + qNum);
         var pair = q.matchPairs[i];
-        var line = qDiv.find("#line" + i); console.log("line: " + line);
-        var leftDiv = qDiv.find("#left" + i);  console.log("leftDiv: " + leftDiv);
-        var rightDiv = qDiv.find("#right_" + pair.subanswer.replace(/\s/g, '_')); console.log("rightDiv: " + rightDiv);
+        var line = qDiv.find("#line" + i); //console.log("line" + i + ": " + line);
+        var leftDiv = qDiv.find("#left" + i);  //console.log("leftDiv: " + leftDiv);
+        var subAnswerID = $.escapeSelector("right_" + pair.subanswer.replace(/\s/g, '_'));
+        //console.log("Sub answer key: " + subAnswerKey);
+        var rightDiv = qDiv.find('#' + subAnswerID); 
+        //if (rightDiv)console.log("rightDiv: " + rightDiv);
         var pos1 = leftDiv.offset();
         var pos2 = rightDiv.offset();
         var svg = qDiv.find(".theSVG").offset();
