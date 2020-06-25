@@ -19,6 +19,7 @@ $(document).ready(function() {
         styleActiveSelected: true,
         mode: "text/plain",
         lineWrapping: true,
+        theme: "3024-day",
         gutters: ["CodeMirror-linenumbers", "guttererrormarker"]
     });
 
