@@ -1,33 +1,68 @@
-declare namespace GIFT {
-  export function parse(input: string): GIFTQuestion[];
+/* PEG API Types */
+export declare function parse(input: string, options?: Options): GIFTQuestion[];
 
-  export interface Location {
-    line: number;
-    column: number;
-    offset: number;
-  }
-
-  export interface LocationRange {
-    start: Location;
-    end: Location;
-  }
-
-  export class SyntaxError {
-    line: number;
-    column: number;
-    offset: number;
-    location: LocationRange;
-    expected: any[];
-    found: any;
-    name: string;
-    message: string;
-  }
+export declare class SyntaxError extends Error {
+  location: LocationRange;
+  expected: Expectation[];
+  found: string | null;
+  name: string;
+  message: string;
 }
 
-export type GIFTLocation = GIFT.Location;
-export type GIFTLocationRange = GIFT.LocationRange;
-export type GIFTSyntaxError = GIFT.SyntaxError;
+interface Options {
+  filename?: string;
+  startRule?: string;
+  tracer?: any;
+  [key: string]: any;
+}
 
+export interface Location {
+  line: number;
+  column: number;
+  offset: number;
+}
+
+export interface LocationRange {
+  start: Location;
+  end: Location;
+}
+
+export interface LiteralExpectation {
+  type: "literal";
+  text: string;
+  ignoreCase: boolean;
+}
+
+export interface ClassParts extends Array<string | ClassParts> {}
+
+export interface ClassExpectation {
+  type: "class";
+  parts: ClassParts;
+  inverted: boolean;
+  ignoreCase: boolean;
+}
+
+export interface AnyExpectation {
+  type: "any";
+}
+
+export interface EndExpectation {
+  type: "end";
+}
+
+export interface OtherExpectation {
+  type: "other";
+  description: string;
+}
+
+export type Expectation =
+  | LiteralExpectation
+  | ClassExpectation
+  | AnyExpectation
+  | EndExpectation
+  | OtherExpectation;
+
+/* GIFT Question Types */
 export type QuestionType =
   | "Description"
   | "Category"
