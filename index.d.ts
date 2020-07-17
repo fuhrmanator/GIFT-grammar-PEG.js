@@ -73,11 +73,11 @@ export type QuestionType =
   | "TF"
   | "Matching";
 
-export type Format = "moodle" | "html" | "markdown" | "plain";
+export type FormatType = "moodle" | "html" | "markdown" | "plain";
 export type NumericalType = "simple" | "range" | "high-low";
 
 export interface TextFormat {
-  format: Format;
+  format: FormatType;
   text: string;
 }
 
@@ -93,7 +93,7 @@ export interface Choice {
   isCorrect: boolean;
   weight: number | null;
   text: TextFormat | NumericalFormat;
-  feedback: Text | null;
+  feedback: TextFormat | null;
 }
 
 interface Question {
@@ -105,45 +105,45 @@ interface Question {
 }
 
 export interface Description {
-  type: Extract<"Description", QuestionType>;
+  type: Extract<QuestionType, "Description">;
   title: string | null;
   stem: TextFormat;
   hasEmbeddedAnswers: boolean;
 }
 
 export interface Category {
-  type: Extract<"Category", QuestionType>;
+  type: Extract<QuestionType, "Category">;
   title: string;
 }
 
 export interface MultipleChoice extends Question {
-  type: Extract<"MC", QuestionType>;
+  type: Extract<QuestionType, "MC">;
   choices: Choice[];
 }
 
 export interface ShortAnswer extends Question {
-  type: Extract<"Short", QuestionType>;
+  type: Extract<QuestionType, "Short">;
   choices: Choice[];
 }
 
 export interface Numerical extends Question {
-  type: Extract<"Numerical", QuestionType>;
-  choices: Choice[];
+  type: Extract<QuestionType, "Numerical">;
+  choices: Choice[] | NumericalFormat;
 }
 
 export interface Essay extends Question {
-  type: Extract<"Essay", QuestionType>;
+  type: Extract<QuestionType, "Essay">;
 }
 
 export interface TrueFalse extends Question {
-  type: Extract<"TF", QuestionType>;
+  type: Extract<QuestionType, "TF">;
   isTrue: boolean;
-  incorrectFeedback: Text | null;
-  correctFeedback: Text | null;
+  incorrectFeedback: TextFormat | null;
+  correctFeedback: TextFormat | null;
 }
 
 export interface Matching extends Question {
-  type: Extract<"Matching", QuestionType>;
+  type: Extract<QuestionType, "Matching">;
   matchPairs: Match[];
 }
 
