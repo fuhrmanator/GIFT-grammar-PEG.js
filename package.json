@@ -3,6 +3,7 @@
     "version": "0.1.9",
     "description": "Parser of GIFT question format based on PEG.js",
     "main": "pegjs-gift.js",
+    "types": "index.d.ts",
     "dependencies": {
         "pegjs": "^0.10.x"
     },
