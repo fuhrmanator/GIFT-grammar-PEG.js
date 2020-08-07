@@ -65,12 +65,12 @@ function makeTitle(type, title) {
 }
 
 function formatAnswers(choices) {
-    var html = "<ul>";
+    var html = '<ul class="mc">';
     shuffle(choices);
     for (var a=0; a<choices.length; a++) {
         var answer = choices[a];
         html += '<li class="' +
-          (answer.isCorrect ? 'rightAnswer' : 'wrongAnswer') +
+          ((answer.isCorrect || answer.weight > 0) ? 'rightAnswer' : 'wrongAnswer') +
           '">' + (answer.weight !== null ? "<em>(" + answer.weight + "%)</em> " : '') +
           applyFormat(answer.text) + 
           (answer.feedback !== null ? " [" + applyFormat(answer.feedback) + "]" : '') +
@@ -153,7 +153,9 @@ function applyFormat(giftText) {
             break;
 
         case "markdown":
-            html = converter.makeHtml(giftText.text);
+            // convert Moodle's embedded line feeds (GIFT) in markdown
+            var unescapedString = giftText.text.replace(/\\n/g, '\n');
+            html = converter.makeHtml(unescapedString);
             break;
 
         default:

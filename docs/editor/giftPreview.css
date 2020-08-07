@@ -1,18 +1,18 @@
-ul {
+ul.mc {
 	position: relative;
 	list-style: none;
 	margin-left: 0;
 	padding-left: 1.2em;
 }
 
-ul li.rightAnswer:before {
+ul.mc li.rightAnswer:before {
     content: "✓";
 	position: absolute;
 	left: 0;
     color: #00aa00;
 }
 
-ul li.wrongAnswer:before {
+ul.mc li.wrongAnswer:before {
     content: "✘";
 	position: absolute;
 	left: 0;
