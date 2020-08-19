@@ -19,6 +19,40 @@ The PEG.js grammar in this repo is used to generate a parser for GIFT. You can s
 
 ## For developers
 
+### Usage
+```
+const {parse} = require("gift-pegjs")
+
+let sampleQuestion = `
+// Test
+Is this True?    
+{
+T
+}
+
+//test 
+Mahatma Gandhi's birthday is an Indian holiday on {
+~15th
+~3rd
+=2nd
+} 
+of October.
+
+Since 
+{
+  ~495 AD
+  =1066 AD
+  ~1215 AD
+  ~ 43 AD
+} 
+the town of Hastings England has been "famous with visitors".
+`;
+
+const quizQuestions = parse(sampleQuestion);
+console.log(quizQuestions);
+```
+
+### Tests
 There are [easily extendible tests using Mocha](https://mochajs.org/#dynamically-generating-tests) from sample GIFT/JSON files in `./test/questions/`.
 
 To be able to run the tests, you must set up your environment:
