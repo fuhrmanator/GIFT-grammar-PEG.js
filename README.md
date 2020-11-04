@@ -14,6 +14,7 @@ The PEG.js grammar in this repo is used to generate a parser for GIFT. You can s
 
 ## Software using the parser
 
+- [GIFT Format Extension For Visual Studio Code](https://github.com/ethan-ou/vscode-gift/) by Ethan Ou.
 - Validate GIFT questions with this [online GIFT editor](https://fuhrmanator.github.io/GIFT-grammar-PEG.js/editor/editor.html).
 - Create quizzes in Google Forms using the [GIFT Quiz Editor (Google Forms add-on)](https://gsuite.google.com/marketplace/app/gift_quiz_editor/1038395345285). It's possible to export questions from Moodle in GIFT format and re-use them in Google Forms, or you can create your own questions in GIFT to save clicking in the Google interface. Google Quizzes are not able to support all GIFT question types, however.
 
