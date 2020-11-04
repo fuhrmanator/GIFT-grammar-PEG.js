@@ -34,19 +34,16 @@ function giftPreviewHTML(qArray, theDiv) {
                 html +="<p>" + applyFormat(q.stem) + "</p>";
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
-                // html += formatAnswers(q.choices);
                 break;
            case "TF":
                 html += makeTitle("True/False", q.title);
                 html +="<p>" + "<em>(" + (q.isTrue ? "True" : "False") + ")</em> " + applyFormat(q.stem) + "</p>";
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
-                // html += formatAnswers(q.choices);
                 break;
             case "Matching":
                 html += makeTitle("Matching", q.title);
                 html +="<p>" + applyFormat(q.stem) + "</p>";
-//                theDiv.append(html); html = "";
                 formatMatchingAnswers(q, theDiv, i, html);
                 html = formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
@@ -57,7 +54,6 @@ function giftPreviewHTML(qArray, theDiv) {
         }
     
     }
-    // return html;
 }
 
 function makeTitle(type, title) {
@@ -82,7 +78,6 @@ function formatAnswers(choices) {
 
 function formatMatchingAnswers(q, theDiv, qNum, html) {
     var rightSideChoices = new Set();
-//    var html ='';
     var htmlLines = '';
     for (var i=0; i<q.matchPairs.length; i++) {
         htmlLines += '<path id="line' + i + '" stroke="rgba(180,180,255,0.5)" stroke-width="5" fill="none"/>';
@@ -94,7 +89,6 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
         var pair = q.matchPairs[i];
         html += '<div id="left' + i + '" style="background:#ddddff">';
         html += '<p>' + applyFormat(pair.subquestion) + '</p>';
-//        html += applyFormat(pair.subquestion);
         html += '</div>';
         rightSideChoices.add(pair.subanswer);
     }
@@ -120,17 +114,10 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
         var line = qDiv.find("#line" + i); //console.log("line" + i + ": " + line);
         var leftDiv = qDiv.find("#left" + i);  //console.log("leftDiv: " + leftDiv);
         var subAnswerID = $.escapeSelector("right_" + pair.subanswer.replace(/\s/g, '_'));
-        //console.log("Sub answer key: " + subAnswerKey);
         var rightDiv = qDiv.find('#' + subAnswerID); 
-        //if (rightDiv)console.log("rightDiv: " + rightDiv);
         var pos1 = leftDiv.offset();
         var pos2 = rightDiv.offset();
         var svg = qDiv.find(".theSVG").offset();
-        // line
-        //   .attr('x1', pos1.left - svg.left + leftDiv.width())
-        //   .attr('y1', pos1.top + leftDiv.height()/2 - svg.top)
-        //   .attr('x2', pos2.left - svg.left)
-        //   .attr('y2', pos2.top + rightDiv.height()/2 - svg.top);
         var x1 = pos1.left - svg.left + leftDiv.width();
         var y1 = pos1.top + leftDiv.height()/2 - svg.top;
         var x2 = pos2.left - svg.left;
@@ -139,22 +126,25 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
         line.attr('d', "M" + x1 + "," + y1 + " C" + (x1 + inset) + "," + y1 + " " + (x2 - inset) + ',' + y2 + " " + x2 + "," + y2);
         qDiv.find(".theSVG").attr('height', pos1.top + leftDiv.height() - svg.top);
     }
-    // return html;
 }
 
 function applyFormat(giftText) {
-    // console.log("applyFormat: " + giftText.format + " to " + giftText.text);
     var html = "";
+    var unescapedString;
     switch (giftText.format) {
-        case "moodle":
-        case "plain":
         case "html":
+        case "moodle":
+            // convert Moodle's embedded line feeds (GIFT) to HTML
+            unescapedString = giftText.text.replace(/\\n/g, '<br\>');
+            html = unescapedString;
+            break;
+        case "plain":
             html = giftText.text;
             break;
 
         case "markdown":
             // convert Moodle's embedded line feeds (GIFT) in markdown
-            var unescapedString = giftText.text.replace(/\\n/g, '\n');
+            unescapedString = giftText.text.replace(/\\n/g, '\n');
             html = converter.makeHtml(unescapedString);
             break;
 
