@@ -110,10 +110,10 @@ TrueOrFalseType
   = isTrue:(TrueType / FalseType) { return isTrue }
   
 TrueType
-  = ('TRUE'i / 'T'i) {return true} // appending i after a literal makes it case insensitive
+  = ('TRUE' / 'T') {return true}
 
 FalseType
-  = ('FALSE'i / 'F'i) {return false}
+  = ('FALSE' / 'F') {return false}
 
 ////////////////////
 MCAnswers "{=correct choice ~incorrect choice ... }"
