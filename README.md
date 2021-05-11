@@ -1,7 +1,9 @@
 # GIFT-grammar-PEG.js
 
-[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/fuhrmanator/GIFT-grammar-PEG.js/master?grs=github&t=moon)
+<img src="https://www.etsmtl.ca/getmedia/36ccff85-3834-443c-b78f-992c2b998915/Logo_ETS_SansTypo_EN" width="100">
+
 ### Status
+
 [![Build Status](https://travis-ci.org/fuhrmanator/GIFT-grammar-PEG.js.svg?branch=master)](https://travis-ci.org/fuhrmanator/GIFT-grammar-PEG.js)
 
 Development of PEG grammar to parse [GIFT (quiz question) file format](https://en.wikipedia.org/wiki/GIFT_(file_format)). The goal is to find an intuitive and fun way to create quiz questions.
