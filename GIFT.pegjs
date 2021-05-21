@@ -328,12 +328,14 @@ TagComment "(comment)"
     }
     
     // use a regex like the Moodle parser
-    const tagMatches = comment.matchAll(/\[tag:([^\x00-\x1F\x7F]+?)]/g);
-    for (const match of tagMatches) {
-      if(!questionTags) questionTags = [];
-      const tag = match[1].trim().replace('\\]', ']');
-      questionTags.push(tag);
-    }
+    var tagMatches = comment.matchAll(/\[tag:([^\x00-\x1F\x7F]+?)]/g);
+    Array.from(
+      comment.matchAll(/\[tag:([^\x00-\x1F\x7F]+?)]/g), 
+                       function(m) { return m[1] })
+              .forEach(function(element) {
+                if(!questionTags) questionTags = [];
+                questionTags.push(element);
+              });
     return null // hacking, must "reset" values each time a partial match happens
   }
 
