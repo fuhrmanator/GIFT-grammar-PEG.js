@@ -27,7 +27,6 @@
     }
     question.id = questionId;
     question.tags = questionTags;
-
     return question;
   }
   function areAllCorrect(choices) {
@@ -88,7 +87,7 @@ Question
     var format = (stem1 && stem1.format) || (stem2 && stem2.format) || "moodle";
     var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
     
-    var question = {id: null, tags: null, type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
+    var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
     question = processAnswers(question, answers);
     resetLastQuestionTextFormat();
     return question;
@@ -112,7 +111,7 @@ Match "match"
         return matchPair } 
 
 ///////////
-TrueFalseAnswer "{T} or {F} or {True} or {False}"
+TrueFalseAnswer "{T} or {F} or {TRUE} or {FALSE}"
   = isTrue:TrueOrFalseType _ 
     feedback:(_ Feedback? Feedback?) _
     globalFeedback:GlobalFeedback?
@@ -315,16 +314,13 @@ ResetIdsTags
     {questionId = null; questionTags = null}
 
 Comment "(comment)"
-//  = '//' (!EndOfLine .)* (EndOfLine / EndOfFile)) // don't consume the EOL in comment, so it can count towards question separator
   = '//' p:([^\n\r]*)
  {return null}
 
 TagComment "(comment)"
-//  = '//' (!EndOfLine .)* EndOfLine
   = '//' p:([^\n\r]*)
   {
     var comment = p.join("");
-    // console.log(comment);
     // use a regex like the Moodle parser
     var idIsFound = comment.match(/\[id:([^\x00-\x1F\x7F]+?)]/); 
     if(idIsFound) {
@@ -338,7 +334,7 @@ TagComment "(comment)"
       const tag = match[1].trim().replace('\\]', ']');
       questionTags.push(tag);
     }
-    return null
+    return null // hacking, must "reset" values each time a partial match happens
   }
 
 Space "(space)"
