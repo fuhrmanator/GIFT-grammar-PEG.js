@@ -1,5 +1,7 @@
 [{
-    "type": "MC",
+        "id" : null,
+        "tags" : null,
+        "type": "MC",
     "title": null,
     "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
     "hasEmbeddedAnswers": false,

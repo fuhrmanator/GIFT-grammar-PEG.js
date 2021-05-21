@@ -1,4 +1,6 @@
 [{
+        "id" : null,
+        "tags" : null,
         "type": "TF",
         "title": null,
         "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
@@ -9,6 +11,8 @@
         "correctFeedback": null
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "TF",
         "title": null,
         "stem": {"format":"moodle", "text":"The sun rises in the east."},

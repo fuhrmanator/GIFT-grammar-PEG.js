@@ -1,5 +1,7 @@
 // All these helper functions are available inside of actions 
 {
+  var questionId = null;
+  var questionTags = null;
   var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
   var format = defaultFormat;
   function processAnswers(question, answers) {
@@ -22,7 +24,10 @@
     // check for MC that's actually a short answer (all correct answers)
     if (question.type == "MC" && areAllCorrect(question.choices)) {
       question.type = "Short";
-    } 
+    }
+    question.id = questionId;
+    question.tags = questionTags;
+
     return question;
   }
   function areAllCorrect(choices) {
@@ -56,8 +61,12 @@ Category "Category"
 Description "Description"
   = __
     title:QuestionTitle? _
-    text:QuestionStem QuestionSeparator
-    { resetLastQuestionTextFormat(); return {type:"Description", title:title, stem:text, hasEmbeddedAnswers:false} }
+    text:QuestionStem
+    QuestionSeparator
+    { var question = {id: questionId, tags: questionTags, type:"Description", title:title, stem:text, hasEmbeddedAnswers:false};
+      resetLastQuestionTextFormat(); 
+      questionId = null; questionTags = null;
+      return question }
 
 Question
   = __
@@ -66,7 +75,9 @@ Question
     '{' _
     answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
     '}' _
-    stem2:(Comment / QuestionStem)?
+    stem2:(
+      Comment / 
+      QuestionStem)?
     QuestionSeparator
   {
     
@@ -76,9 +87,10 @@ Question
     var format = (stem1 && stem1.format) || (stem2 && stem2.format) || "moodle";
     var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
     
-    var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
+    var question = {id: null, tags: null, type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
     question = processAnswers(question, answers);
     resetLastQuestionTextFormat();
+    questionId = null; questionTags = null;
     return question;
   }
 
@@ -208,9 +220,12 @@ QuestionStem "Question stem"
     { setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
       return stem }
 
-QuestionSeparator "(blank line separator)"
-  = EndOfLine BlankLine+ 
+QuestionSeparator "(blank lines separator)"
+  = BlankLines  
     / EndOfLine? EndOfFile
+
+BlankLines "(blank lines)"
+  = EndOfLine BlankLine+
 
 BlankLine "blank line"
   = Space* EndOfLine
@@ -293,10 +308,29 @@ _ "(single line whitespace)"
   = (Space / EndOfLine !BlankLine)*
 
 __ "(multiple line whitespace)"
-  = (Comment / EndOfLine / Space )*
+  = (
+    Comment / 
+    EndOfLine / Space )*
 
 Comment "(comment)"
-  = '//' (!EndOfLine .)* &(EndOfLine / EndOfFile) {return null}  // don't consume the EOL in comment, so it can count towards question separator
+  = '//' (!EndOfLine.)* &(EndOfLine / EndOfFile) { // don't consume the EOL in comment, so it can count towards question separator
+  	var comment = text();
+    // use a regex like the Moodle parser
+    var idIsFound = comment.match(/\[id:([^\x00-\x1F\x7F]+?)]/); 
+    if(idIsFound) {
+        questionId = idIsFound[1].trim().replace('\\]', ']');
+    }
+    
+    // use a regex like the Moodle parser
+    const tagMatches = comment.matchAll(/\[tag:([^\x00-\x1F\x7F]+?)]/g);
+    for (const match of tagMatches) {
+      if(!questionTags) questionTags = [];
+      const tag = match[1].trim().replace('\\]', ']');
+      console.log("pushing tag: "+tag);
+      questionTags.push(tag);
+    }
+    return null
+  }
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"

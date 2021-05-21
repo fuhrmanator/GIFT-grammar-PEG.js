@@ -1,6 +1,8 @@
 [
     {
-       "type": "Essay",
+      "id" : null,
+      "tags" : null,
+     "type": "Essay",
        "title": "double backslash",
        "stem": {
           "format": "moodle",

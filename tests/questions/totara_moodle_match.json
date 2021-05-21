@@ -1,5 +1,7 @@
 [{
-    "type": "Matching",
+        "id" : null,
+        "tags" : null,
+        "type": "Matching",
     "title": "Moodle activities",
     "stem": {
         "format": "html",

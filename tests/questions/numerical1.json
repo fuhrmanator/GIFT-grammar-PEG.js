@@ -1,4 +1,6 @@
 [{
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": null,
         "stem": {
@@ -13,6 +15,8 @@
         }
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": null,
         "stem": {
@@ -28,6 +32,8 @@
         }
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": null,
         "stem": {
@@ -43,6 +49,8 @@
         }
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": null,
         "stem": {
@@ -58,6 +66,8 @@
         }
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": null,
         "stem": {
@@ -89,6 +99,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": "Combien de principes GRASP y a-t-il?",
         "stem": {

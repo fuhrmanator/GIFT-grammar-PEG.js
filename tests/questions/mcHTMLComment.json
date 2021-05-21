@@ -1,6 +1,8 @@
 [
     {
-       "type": "MC",
+      "id" : null,
+      "tags" : null,
+     "type": "MC",
        "title": "EE_mod_05_T39_P079",
        "stem": {
           "format": "html",

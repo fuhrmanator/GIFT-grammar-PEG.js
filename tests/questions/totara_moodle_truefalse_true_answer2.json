@@ -1,15 +1,17 @@
 [
-    {
-       "type": "TF",
-       "title": "2-08 TSL",
-       "stem": {
-          "format": "moodle",
-          "text": "TSL is blablabla."
-       },
-       "hasEmbeddedAnswers": false,
-       "globalFeedback": null,
-       "isTrue": true,
-       "incorrectFeedback": null,
-       "correctFeedback": null
-    }
- ]
+   {
+      "id": null,
+      "tags": null,
+      "type": "TF",
+      "title": "2-08 TSL",
+      "stem": {
+         "format": "moodle",
+         "text": "TSL is blablabla."
+      },
+      "hasEmbeddedAnswers": false,
+      "globalFeedback": null,
+      "isTrue": true,
+      "incorrectFeedback": null,
+      "correctFeedback": null
+   }
+]

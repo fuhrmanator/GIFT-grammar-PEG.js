@@ -1,5 +1,7 @@
 [{
-    "type": "MC",
+   "id" : null,
+   "tags" : null,
+   "type": "MC",
     "title": null,
     "stem": {
        "format": "moodle",
@@ -29,7 +31,9 @@
     ]
  },
  {
-    "type": "MC",
+   "id" : null,
+   "tags" : null,
+   "type": "MC",
     "title": "iebT26nuevo_P012",
     "stem": {
        "format": "moodle",

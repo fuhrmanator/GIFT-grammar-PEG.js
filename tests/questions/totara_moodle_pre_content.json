@@ -1,6 +1,8 @@
 [
     {
-       "type": "Essay",
+      "id" : null,
+      "tags" : null,
+     "type": "Essay",
        "title": "Q001",
        "stem": {
           "format": "html",
