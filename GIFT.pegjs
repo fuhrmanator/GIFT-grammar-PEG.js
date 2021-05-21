@@ -56,10 +56,11 @@ GIFTQuestions
   = questions:(Category / Description / Question)+ _ __ { return questions; }
 
 Category "Category"
-  = __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
+  = ResetIdsTags __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
 
 Description "Description"
-  = __
+  = ResetIdsTags __
+    TagComment*
     title:QuestionTitle? _
     text:QuestionStem
     QuestionSeparator
@@ -69,7 +70,8 @@ Description "Description"
       return question }
 
 Question
-  = __
+  = ResetIdsTags __
+    TagComment*
     title:QuestionTitle? _
     stem1:QuestionStem? _ 
     '{' _
@@ -79,8 +81,7 @@ Question
       Comment / 
       QuestionStem)?
     QuestionSeparator
-  {
-    
+  {    
     var embedded = (stem2 !== null);    
     var stem1Text = stem1 ? (stem1.text + (embedded ? " " : "")) : "";
 
@@ -90,7 +91,6 @@ Question
     var question = {id: null, tags: null, type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
     question = processAnswers(question, answers);
     resetLastQuestionTextFormat();
-    questionId = null; questionTags = null;
     return question;
   }
 
@@ -308,13 +308,23 @@ _ "(single line whitespace)"
   = (Space / EndOfLine !BlankLine)*
 
 __ "(multiple line whitespace)"
-  = (
-    Comment / 
-    EndOfLine / Space )*
+  = (TagComment / EndOfLine / Space )*
+
+ResetIdsTags 
+  = &' '*     // useless match to reset any previously parsed tags/ids
+    {questionId = null; questionTags = null}
 
 Comment "(comment)"
-  = '//' (!EndOfLine.)* &(EndOfLine / EndOfFile) { // don't consume the EOL in comment, so it can count towards question separator
-  	var comment = text();
+//  = '//' (!EndOfLine .)* (EndOfLine / EndOfFile)) // don't consume the EOL in comment, so it can count towards question separator
+  = '//' p:([^\n\r]*)
+ {return null}
+
+TagComment "(comment)"
+//  = '//' (!EndOfLine .)* EndOfLine
+  = '//' p:([^\n\r]*)
+  {
+    var comment = p.join("");
+    // console.log(comment);
     // use a regex like the Moodle parser
     var idIsFound = comment.match(/\[id:([^\x00-\x1F\x7F]+?)]/); 
     if(idIsFound) {
@@ -326,11 +336,11 @@ Comment "(comment)"
     for (const match of tagMatches) {
       if(!questionTags) questionTags = [];
       const tag = match[1].trim().replace('\\]', ']');
-      console.log("pushing tag: "+tag);
       questionTags.push(tag);
     }
     return null
   }
+
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"
