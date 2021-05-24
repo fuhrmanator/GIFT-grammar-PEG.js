@@ -22,37 +22,81 @@ The PEG.js grammar in this repo is used to generate a parser for GIFT. You can s
 
 ## For developers
 
-### Usage
+### Install
+
+For simple web applications, copy the [`pegjs-gift.js`](https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/pegjs-gift.js) file into your project.
+
+For modern Javascript development, install the library using npm:
+
 ```
-const {parse} = require("gift-pegjs")
+npm install gift-pegjs
+```
+
+### Usage
+
+Importing the NPM library in ES6+ Javascript (recommended):
+```javascript
+import { parse } from "gift-pegjs";
+
+const question = "What is the value of pi (to 3 decimal places)? {#3.141..3.142}."
+
+const quiz = parse(question)
+```
+
+Importing the library for simple web applications:
+```javascript
+import { parse } from "./pegjs-gift"; // Change path depending on where the file is copied.
+
+const question = "What is the value of pi (to 3 decimal places)? {#3.141..3.142}."
+
+const quiz = parse(question)
+```
+
+Importing the NPM library in CommonJS (for use in Node.js applications):
+```javascript
+const parse = require("gift-pegjs");
+
+const question = "What is the value of pi (to 3 decimal places)? {#3.141..3.142}."
+
+const quiz = parse(question)
+```
+
+Using the optional Typescript types:
+```typescript
+import { parse, GIFTQuestion } from "gift-pegjs";
+
+const question: string = "What is the value of pi (to 3 decimal places)? {#3.141..3.142}."
+
+const quiz: GIFTQuestion[] = parse(question)
+```
+
+### Example
+
+```javascript
+import { parse } from "gift-pegjs";
 
 let sampleQuestion = `
-// Test
-Is this True?    
-{
-T
-}
+Is this True? {T}
 
-//test 
 Mahatma Gandhi's birthday is an Indian holiday on {
 ~15th
 ~3rd
 =2nd
-} 
-of October.
+} of October.
 
-Since 
-{
+Since {
   ~495 AD
   =1066 AD
   ~1215 AD
   ~ 43 AD
-} 
-the town of Hastings England has been "famous with visitors".
+} the town of Hastings England has been "famous with visitors".
+
+What is the value of pi (to 3 decimal places)? {#3.141..3.142}.
 `;
 
 const quizQuestions = parse(sampleQuestion);
 console.log(quizQuestions);
+
 ```
 
 ### Tests
