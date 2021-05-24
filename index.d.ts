@@ -89,10 +89,17 @@ export interface NumericalFormat {
   numberLow?: number;
 }
 
-export interface Choice {
+export interface TextChoice {
   isCorrect: boolean;
   weight: number | null;
-  text: TextFormat | NumericalFormat;
+  text: TextFormat;
+  feedback: TextFormat | null;
+}
+
+export interface NumericalChoice {
+  isCorrect: boolean;
+  weight: number | null;
+  text: NumericalFormat;
   feedback: TextFormat | null;
 }
 
@@ -118,17 +125,17 @@ export interface Category {
 
 export interface MultipleChoice extends Question {
   type: Extract<QuestionType, "MC">;
-  choices: Choice[];
+  choices: TextChoice[];
 }
 
 export interface ShortAnswer extends Question {
   type: Extract<QuestionType, "Short">;
-  choices: Choice[];
+  choices: TextChoice[];
 }
 
 export interface Numerical extends Question {
   type: Extract<QuestionType, "Numerical">;
-  choices: Choice[] | NumericalFormat;
+  choices: NumericalChoice[] | NumericalFormat;
 }
 
 export interface Essay extends Question {
