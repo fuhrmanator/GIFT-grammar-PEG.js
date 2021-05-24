@@ -1,5 +1,7 @@
 [{
-    "type": "MC",
+        "id" : null,
+        "tags" : null,
+        "type": "MC",
     "title": "Q2",
     "stem": {
         "format": "moodle",

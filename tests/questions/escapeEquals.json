@@ -1,4 +1,6 @@
 [{
+		"id" : null,
+		"tags" : null,
 		"type": "MC",
 		"title": null,
 		"stem": {"format":"moodle", "text":"Which answer equals 5?"},

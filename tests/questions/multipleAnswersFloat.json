@@ -1,6 +1,8 @@
 [
     {
-       "type": "MC",
+      "id" : null,
+      "tags" : null,
+     "type": "MC",
        "title": null,
        "stem": {
           "format": "moodle",

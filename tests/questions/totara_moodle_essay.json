@@ -1,5 +1,7 @@
 [{
-    "type": "Essay",
+        "id" : null,
+        "tags" : null,
+        "type": "Essay",
     "title": "Q8",
     "stem": {
         "format": "moodle",

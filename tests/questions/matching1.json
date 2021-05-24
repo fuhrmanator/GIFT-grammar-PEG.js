@@ -1,4 +1,6 @@
 [{
+        "id" : null,
+        "tags" : null,
         "type": "Matching",
         "title": null,
         "stem": {"format":"moodle", "text":"Matching Question."},
@@ -19,6 +21,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Matching",
         "title": null,
         "stem": {"format":"moodle", "text":"Match the following countries with their corresponding capitals."},

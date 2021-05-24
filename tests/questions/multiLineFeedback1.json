@@ -1,4 +1,6 @@
 [{
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {
@@ -49,7 +51,9 @@
         ]
     },
     {
-        "type": "MC",
+      "id" : null,
+      "tags" : null,
+      "type": "MC",
         "title": "06- création d'instance",
         "stem": {
            "format": "html",

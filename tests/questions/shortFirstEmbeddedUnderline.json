@@ -1,6 +1,8 @@
 [
     {
-       "type": "Short",
+      "id" : null,
+      "tags" : null,
+     "type": "Short",
        "title": null,
        "stem": {
           "format": "moodle",
@@ -21,7 +23,9 @@
        ]
     },
     {
-       "type": "Short",
+      "id" : null,
+      "tags" : null,
+     "type": "Short",
        "title": "Continents",
        "stem": {
           "format": "moodle",

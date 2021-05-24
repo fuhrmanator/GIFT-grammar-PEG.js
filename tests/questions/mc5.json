@@ -1,4 +1,6 @@
 [{
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
@@ -25,6 +27,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
@@ -51,6 +55,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
@@ -77,6 +83,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},

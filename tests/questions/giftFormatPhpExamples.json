@@ -1,4 +1,6 @@
 [{
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
@@ -25,6 +27,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
@@ -51,6 +55,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "TF",
         "title": null,
         "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
@@ -61,6 +67,8 @@
         "correctFeedback": null
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Short",
         "title": null,
         "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
@@ -81,6 +89,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": null,
         "stem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},
@@ -93,6 +103,8 @@
         }
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Matching",
         "title": null,
         "stem": {"format":"moodle", "text":"Match the following countries with their corresponding capitals."},
@@ -113,6 +125,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": "Grant's Tomb",
         "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
@@ -139,6 +153,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "MC",
         "title": null,
         "stem": {"format":"moodle", "text":"Difficult multiple choice question."},
@@ -165,6 +181,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Short",
         "title": "Jesus' hometown (Short answer ex.)",
         "stem": {"format":"moodle", "text":"Jesus Christ was from _____ ."},
@@ -191,6 +209,8 @@
         ]
     },
     {
+        "id" : null,
+        "tags" : null,
         "type": "Numerical",
         "title": "Numerical example",
         "stem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},

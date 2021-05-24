@@ -1,5 +1,7 @@
 // All these helper functions are available inside of actions 
 {
+  var questionId = null;
+  var questionTags = null;
   var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
   var format = defaultFormat;
   function processAnswers(question, answers) {
@@ -22,7 +24,9 @@
     // check for MC that's actually a short answer (all correct answers)
     if (question.type == "MC" && areAllCorrect(question.choices)) {
       question.type = "Short";
-    } 
+    }
+    question.id = questionId;
+    question.tags = questionTags;
     return question;
   }
   function areAllCorrect(choices) {
@@ -51,25 +55,32 @@ GIFTQuestions
   = questions:(Category / Description / Question)+ _ __ { return questions; }
 
 Category "Category"
-  = __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
+  = ResetIdsTags __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
 
 Description "Description"
-  = __
+  = ResetIdsTags __
+    TagComment*
     title:QuestionTitle? _
-    text:QuestionStem QuestionSeparator
-    { resetLastQuestionTextFormat(); return {type:"Description", title:title, stem:text, hasEmbeddedAnswers:false} }
+    text:QuestionStem
+    QuestionSeparator
+    { var question = {id: questionId, tags: questionTags, type:"Description", title:title, stem:text, hasEmbeddedAnswers:false};
+      resetLastQuestionTextFormat(); 
+      questionId = null; questionTags = null;
+      return question }
 
 Question
-  = __
+  = ResetIdsTags __
+    TagComment*
     title:QuestionTitle? _
     stem1:QuestionStem? _ 
     '{' _
     answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
     '}' _
-    stem2:(Comment / QuestionStem)?
+    stem2:(
+      Comment / 
+      QuestionStem)?
     QuestionSeparator
-  {
-    
+  {    
     var embedded = (stem2 !== null);    
     var stem1Text = stem1 ? (stem1.text + (embedded ? " " : "")) : "";
 
@@ -100,7 +111,7 @@ Match "match"
         return matchPair } 
 
 ///////////
-TrueFalseAnswer "{T} or {F} or {True} or {False}"
+TrueFalseAnswer "{T} or {F} or {TRUE} or {FALSE}"
   = isTrue:TrueOrFalseType _ 
     feedback:(_ Feedback? Feedback?) _
     globalFeedback:GlobalFeedback?
@@ -208,9 +219,12 @@ QuestionStem "Question stem"
     { setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
       return stem }
 
-QuestionSeparator "(blank line separator)"
-  = EndOfLine BlankLine+ 
+QuestionSeparator "(blank lines separator)"
+  = BlankLines  
     / EndOfLine? EndOfFile
+
+BlankLines "(blank lines)"
+  = EndOfLine BlankLine+
 
 BlankLine "blank line"
   = Space* EndOfLine
@@ -293,10 +307,38 @@ _ "(single line whitespace)"
   = (Space / EndOfLine !BlankLine)*
 
 __ "(multiple line whitespace)"
-  = (Comment / EndOfLine / Space )*
+  = (TagComment / EndOfLine / Space )*
+
+ResetIdsTags 
+  = &' '*     // useless match to reset any previously parsed tags/ids
+    {questionId = null; questionTags = null}
 
 Comment "(comment)"
-  = '//' (!EndOfLine .)* &(EndOfLine / EndOfFile) {return null}  // don't consume the EOL in comment, so it can count towards question separator
+  = '//' p:([^\n\r]*)
+ {return null}
+
+TagComment "(comment)"
+  = '//' p:([^\n\r]*)
+  {
+    var comment = p.join("");
+    // use a regex like the Moodle parser
+    var idIsFound = comment.match(/\[id:([^\x00-\x1F\x7F]+?)]/); 
+    if(idIsFound) {
+        questionId = idIsFound[1].trim().replace('\\]', ']');
+    }
+    
+    // use a regex like the Moodle parser
+    var tagMatches = comment.matchAll(/\[tag:([^\x00-\x1F\x7F]+?)]/g);
+    Array.from(
+      comment.matchAll(/\[tag:([^\x00-\x1F\x7F]+?)]/g), 
+                       function(m) { return m[1] })
+              .forEach(function(element) {
+                if(!questionTags) questionTags = [];
+                questionTags.push(element);
+              });
+    return null // hacking, must "reset" values each time a partial match happens
+  }
+
 Space "(space)"
   = ' ' / '\t'
 EndOfLine "(end of line)"

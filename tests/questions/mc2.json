@@ -1,5 +1,7 @@
 [{
-    "type": "MC",
+        "id" : null,
+        "tags" : null,
+        "type": "MC",
     "title": null,
     "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
     "hasEmbeddedAnswers": true,

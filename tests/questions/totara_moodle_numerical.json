@@ -1,5 +1,7 @@
 [{
-    "type": "Numerical",
+        "id" : null,
+        "tags" : null,
+        "type": "Numerical",
     "title": "Q5",
     "stem": {
         "format": "moodle",

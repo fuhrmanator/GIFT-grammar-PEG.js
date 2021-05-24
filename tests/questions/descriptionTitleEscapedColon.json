@@ -1,10 +1,14 @@
-[{
+[   {
+        "id": null,
+        "tags": null,
         "type": "Description",
         "title": "Description Title:",
         "stem": {"format":"moodle", "text":"You can use your pencil and paper for these next questions."},
         "hasEmbeddedAnswers": false
     },
     {
+        "id": null,
+        "tags": null,
         "type": "TF",
         "title": null,
         "stem": {"format":"moodle", "text":"True or false?"},

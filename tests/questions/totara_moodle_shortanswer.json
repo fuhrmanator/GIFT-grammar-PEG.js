@@ -1,6 +1,8 @@
 [
     {
-       "type": "Short",
+      "id" : null,
+      "tags" : null,
+     "type": "Short",
        "title": "Shortanswer",
        "stem": {
           "format": "moodle",

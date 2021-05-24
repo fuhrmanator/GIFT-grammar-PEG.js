@@ -1,4 +1,7 @@
-[{
+[
+	{
+		"id" : null,
+		"tags" : null,
 		"type": "MC",
 		"title": "GIFT Control Characters",
 		"stem": {"format":"moodle", "text":"Which of the following is NOT a control character for the GIFT import format?"},
