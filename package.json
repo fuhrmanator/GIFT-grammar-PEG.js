@@ -18,7 +18,8 @@
     },
     "files": [
         "GIFT.pegjs",
-        "lib/"
+        "lib/",
+        "index.d.ts"
     ],
     "scripts": {
         "build": "pegjs --format globals --export-var giftParser -o lib/gift-parser-globals.js GIFT.pegjs && minify lib/gift-parser-globals.js > lib/gift-parser-globals.min.js && cp lib/gift-parser-globals.min.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js && bash makeHTML.sh",
