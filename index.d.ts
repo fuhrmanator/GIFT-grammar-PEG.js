@@ -104,6 +104,8 @@ export interface NumericalChoice {
 }
 
 interface Question {
+  id?: string | null;
+  tags?: string[] | null;
   type: QuestionType;
   title: string | null;
   stem: TextFormat;
@@ -112,6 +114,8 @@ interface Question {
 }
 
 export interface Description {
+  id?: string | null;
+  tags?: string[] | null;
   type: Extract<QuestionType, "Description">;
   title: string | null;
   stem: TextFormat;
@@ -119,6 +123,8 @@ export interface Description {
 }
 
 export interface Category {
+  id?: string | null;
+  tags?: string[] | null;
   type: Extract<QuestionType, "Category">;
   title: string;
 }
