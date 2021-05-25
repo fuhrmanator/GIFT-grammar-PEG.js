@@ -11,9 +11,8 @@
         "connect": "^3.6.6",
         "glob": "^7.1.1",
         "minify": "^3.0.5",
-        "mocha": "^8.1.1",
+        "mocha": "^8.4.0",
         "pegjs-backtrace": "^0.1.1",
-        "qunitjs": "^2.1.1",
         "serve-static": "^1.13.2"
     },
     "files": [
@@ -23,7 +22,7 @@
     ],
     "scripts": {
         "build": "pegjs --format globals --export-var giftParser -o lib/gift-parser-globals.js GIFT.pegjs && minify lib/gift-parser-globals.js > lib/gift-parser-globals.min.js && cp lib/gift-parser-globals.min.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js && bash makeHTML.sh",
-        "test": "node_modules/.bin/mocha tests --recursive"
+        "test": "mocha tests --recursive"
     },
     "repository": "github:fuhrmanator/GIFT-grammar-PEG.js",
     "author": "Christopher Fuhrman",
