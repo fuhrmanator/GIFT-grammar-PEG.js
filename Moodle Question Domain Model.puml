@@ -81,11 +81,6 @@ NQ "1" -- "*" NA : has >
 
 class "Essay" as EQ extends AQ {
 }
-class "EssayAnswer" as EA {
- isCorrect : boolean
- answer : RichText
-}
-EQ "1" -- "*" EA : has >
 
 Q "1" -- "*" AQ : has >
 AQ "*" - "1" C : belongs-to >
