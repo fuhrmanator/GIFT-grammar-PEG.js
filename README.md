@@ -186,7 +186,7 @@ See this [test file from Moodle's code base](https://git.moodle.org/gw?p=moodle.
 
 The following UML class diagram is an interpretation of the XML format for Moodle quiz import/export. Note that the XML format is naive, e.g., the `QUESTION` tag is overloaded using `TYPE=` and as such can't easily be schema-tized. The interpretation below aims to facilitate the understanding of the content and relations. It's a domain model reverse-engineered from a data model.
 
-![UML class diagram (domain model) loosely based on XML structure](https://www.plantuml.com/plantuml/proxy?cache=no&https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/Moodle%20Question%20Domain%20Model.puml)
+![UML class diagram (domain model) loosely based on XML structure](https://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/MoodleQuestionDomainModel.txt&fmt=svg)
 
 ## Railroad diagram of the grammar
 
