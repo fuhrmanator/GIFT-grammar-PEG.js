@@ -12,6 +12,7 @@ class "Category" as C {
 class "Non-Hierarchical\nCategory" as NHC {
   tagName : Text
 }
+note left: a.k.a. "Tag"
 
 abstract class "Question" as AQ {
   name : Text
@@ -28,7 +29,7 @@ class "MultipleChoiceAnswer" as MCA   {
  answer : RichText
  feedback : Text
 }
-MCQ "1" -- "*" MCA : has >
+MCQ "1" -- "*" MCA : Has >
 
 class "TrueFalseQuestion" as TFQ extends AQ {
 }
@@ -45,7 +46,7 @@ correctness e.g.(100=correct,
 0=incorrect)
 end note
 
-TFQ "1" -- "2" TFA : has >
+TFQ "1" -- "2" TFA : Has >
 
 
 
@@ -56,7 +57,7 @@ class "MatchedPair" as SQ {
  question : Text
  answer : Text
 }
-MQ "1" -- "*" SQ : has >
+MQ "1" -- "*" SQ : Has >
 
 class "ShortAnswerQuestion" as SAQ extends AQ {
 }
@@ -67,7 +68,7 @@ class "ShortAnswer" as SA {
  feedback : Text
 }
 
-SAQ "1" -- "*" SA : has >
+SAQ "1" -- "*" SA : Has >
 
 class "Numerical" as NQ extends AQ {
 }
@@ -77,14 +78,14 @@ class "NumericalAnswer" as NA {
  feedback : Text
 }
 
-NQ "1" -- "*" NA : has >
+NQ "1" -- "*" NA : Has >
 
 class "Essay" as EQ extends AQ {
 }
 
-Q "1" -- "*" AQ : has >
-AQ "*" - "1" C : belongs-to >
-AQ "*" -left- "*" NHC : belongs-to >
+Q "1" -- "*" AQ : Asks >
+AQ "*" - "1" C : Belongs-to >
+AQ "*" -left- "*" NHC : Belongs-to >
 
 legend center
 To synchronize with [[http://docs.moodle.org/en/Moodle_XML_format]]
