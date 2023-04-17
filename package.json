@@ -1,36 +1,36 @@
 {
-    "name": "gift-pegjs",
-    "version": "0.2.1",
-    "description": "Parser of GIFT question format based on PEG.js",
-    "main": "pegjs-gift.js",
-    "types": "index.d.ts",
-    "dependencies": {
-        "pegjs": "^0.10.x"
-    },
-    "devDependencies": {
-        "connect": "^3.6.6",
-        "glob": "^7.1.1",
-        "minify": "^7.0.2",
-        "mocha": "^9.1.1",
-        "pegjs-backtrace": "^0.2.1",
-        "serve-static": "^1.13.2",
-        "tsd": "^0.17.0"
-    },
-    "files": [
-        "GIFT.pegjs",
-        "lib/",
-        "index.d.ts"
-    ],
-    "scripts": {
-        "build": "pegjs --format globals --export-var giftParser -o lib/gift-parser-globals.js GIFT.pegjs && minify lib/gift-parser-globals.js > lib/gift-parser-globals.min.js && cp lib/gift-parser-globals.min.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js && bash makeHTML.sh",
-        "test": "mocha tests --recursive && npm run test:types",
-        "test:types": "tsd"
-    },
-    "repository": "github:fuhrmanator/GIFT-grammar-PEG.js",
-    "author": "Christopher Fuhrman",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js/issues"
-    },
-    "homepage": "https://fuhrmanator.github.io/GIFT-grammar-PEG.js/"
+  "name": "@escolalms/gift-pegjs",
+  "version": "0.2.2",
+  "description": "Parser of GIFT question format based on PEG.js",
+  "main": "pegjs-gift.js",
+  "types": "index.d.ts",
+  "dependencies": {
+    "pegjs": "^0.10.x"
+  },
+  "devDependencies": {
+    "connect": "^3.6.6",
+    "glob": "^7.1.1",
+    "minify": "^7.0.2",
+    "mocha": "^9.1.1",
+    "pegjs-backtrace": "^0.2.1",
+    "serve-static": "^1.13.2",
+    "tsd": "^0.17.0"
+  },
+  "files": [
+    "GIFT.pegjs",
+    "lib/",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "pegjs --format globals --export-var giftParser -o lib/gift-parser-globals.js GIFT.pegjs && minify lib/gift-parser-globals.js > lib/gift-parser-globals.min.js && cp lib/gift-parser-globals.min.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && minify lib/gift-parser.js > lib/gift-parser.min.js && cp lib/gift-parser.min.js pegjs-gift.js && bash makeHTML.sh",
+    "test": "mocha tests --recursive && npm run test:types",
+    "test:types": "tsd"
+  },
+  "repository": "github:EscolaLMS/GIFT-grammar-PEG.js",
+  "author": "Christopher Fuhrman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EscolaLMS/GIFT-grammar-PEG.js/issues"
+  },
+  "homepage": "https://fuhrmanator.github.io/GIFT-grammar-PEG.js/"
 }

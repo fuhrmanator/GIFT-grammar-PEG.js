@@ -37,6 +37,7 @@
     return allAreCorrect;
   }
   function removeNewLinesDuplicateSpaces(text) {
+    if (!(typeof options !== 'undefined' && 'noTrim' in options)) { text.trim(); }
     text = text.replace(/[\n\r]/g,' '); // replace newlines with spaces
     return text.replace(/\s\s+/g,' '); 
   }
@@ -275,18 +276,18 @@ MatchRichText "(formatted text excluding '->'"
   = format:Format? _ txt:MatchTextChar+ { return {
       format:(format!==null ? format : getLastQuestionTextFormat()), 
       text:((format !== "html") 
-          ? removeNewLinesDuplicateSpaces(txt.join('').trim())
+          ? removeNewLinesDuplicateSpaces(txt.join(''))
           : txt.join('').replace(/\r\n/g,'\n'))}}  // avoid failing tests because of Windows line breaks 
 
 RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {
       format:(format!==null ? format : getLastQuestionTextFormat()), 
       text:((format !== "html") 
-          ? removeNewLinesDuplicateSpaces(txt.join('').trim())
+          ? removeNewLinesDuplicateSpaces(txt.join(''))
           : txt.join('').replace(/\r\n/g,'\n'))}}  // avoid failing tests because of Windows line breaks 
 
 PlainText "(unformatted text)"
-  = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 
+  = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join(''))} 
 
 CategoryText "(category text)"
   = txt:(!EndOfLine .)* &(EndOfLine / EndOfFile) { return txt.flat().join('') } 
