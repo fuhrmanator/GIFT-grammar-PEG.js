@@ -4,6 +4,8 @@ function giftPreviewHTML(qArray, theDiv) {
     converter = new showdown.Converter();
     var html = "";
     var q;
+    var pStemOpen = "<div class='question'>";
+    var pStemClose = "</div>";
     for (var i=0; i<qArray.length; i++) {
         // console.log("i = " + i + " and qArray[i] is '" + qArray[i] );
         q = qArray[i];
@@ -12,38 +14,38 @@ function giftPreviewHTML(qArray, theDiv) {
         switch (q.type) {
             case "Description":
                 html += makeTitle("Description", q.title);
-                html +="<p>" + applyFormat(q.stem) + "</p>";
+                html += pStemOpen + applyFormat(q.stem) + pStemClose;
                 theDiv.append(html); html = "";
                 break;
             case "MC":
                 html += makeTitle("Multiple choice", q.title);
-                html +="<p>" + applyFormat(q.stem) + "</p>";
+                html += pStemOpen + applyFormat(q.stem) + pStemClose;
                 html += formatAnswers(q.choices);
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
                 break;
             case "Short":
                 html += makeTitle("Short answer", q.title);
-                html +="<p>" + applyFormat(q.stem) + "</p>";
-                html += formatAnswers(q.choices);
+                html += pStemOpen + applyFormat(q.stem) + "<br/>_______________________________" + pStemClose + "<div class='d-print-none'>";
+                html += formatAnswers(q.choices) + "</div>";
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
                 break;
             case "Essay":
                 html += makeTitle("Essay", q.title);
-                html +="<p>" + applyFormat(q.stem) + "</p>";
+                html += pStemOpen + applyFormat(q.stem) + "<br/>_______________________________<br/>_______________________________<br/>_______________________________<br/>_______________________________<br/>_______________________________<br/>_______________________________" + pStemClose + "<div class='d-print-none'>";
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
                 break;
            case "TF":
                 html += makeTitle("True/False", q.title);
-                html +="<p>" + "<em>(" + (q.isTrue ? "True" : "False") + ")</em> " + applyFormat(q.stem) + "</p>";
+                html += pStemOpen + "<em class='d-print-none'>(" + (q.isTrue ? "True" : "False") + ") </em>" + applyFormat(q.stem) + " (✓ ✘)" + pStemClose;
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
                 break;
             case "Matching":
                 html += makeTitle("Matching", q.title);
-                html +="<p>" + applyFormat(q.stem) + "</p>";
+                html += pStemOpen + applyFormat(q.stem) + pStemClose;
                 formatMatchingAnswers(q, theDiv, i, html);
                 html = formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
@@ -54,22 +56,26 @@ function giftPreviewHTML(qArray, theDiv) {
         }
     
     }
+    // trigger the page change event
+    var pageChangeEvent = new CustomEvent('pageChanged');
+    console.log("dispatching pageChanged event");
+    document.dispatchEvent(pageChangeEvent);
 }
 
 function makeTitle(type, title) {
-    return "<b>" + type + (title !== null ? ' "' + title + '"' : "" ) + "</b>";
+    return "<b class='d-print-none'>" + type + (title !== null ? ' "' + title + '"' : "" ) + "</b>";
 }
 
 function formatAnswers(choices) {
     var html = '<ul class="mc">';
-    shuffle(choices);
+    //shuffle(choices);
     for (var a=0; a<choices.length; a++) {
         var answer = choices[a];
         html += '<li class="' +
           ((answer.isCorrect || answer.weight > 0) ? 'rightAnswer' : 'wrongAnswer') +
-          '">' + (answer.weight !== null ? "<em>(" + answer.weight + "%)</em> " : '') +
+          '">' + (answer.weight !== null ? "<em class='d-print-none'>(" + answer.weight + "%) </em>" : '') +
           applyFormat(answer.text) + 
-          (answer.feedback !== null ? " [" + applyFormat(answer.feedback) + "]" : '') +
+          (answer.feedback !== null ? "<span class='d-print-none'> [" + applyFormat(answer.feedback) + "]</span>" : '') +
           "</li>";
     }
     html += "</ul>";
@@ -157,7 +163,7 @@ function applyFormat(giftText) {
 
 function formatFeedback(feedback) {
     return feedback !== null ? 
-            '<p style="margin-left: 40px"><em>General feedback:</em> ' + 
+            '<p style="margin-left: 40px" class="d-print-none"><em>General feedback:</em> ' + 
             applyFormat(feedback) + '</p>' : '';
 }
 

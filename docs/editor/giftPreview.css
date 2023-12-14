@@ -1,8 +1,18 @@
+div.preview {
+	counter-reset: question-counter;
+}
+
+/* First paragraph after a question div */
+div.question p:first-of-type::before {
+	counter-increment: question-counter;
+	content: counter(question-counter) ". ";
+}
+
 ul.mc {
 	position: relative;
 	list-style: none;
 	margin-left: 0;
-	padding-left: 1.2em;
+	padding-left: 1.3em;
 }
 
 ul.mc li.rightAnswer:before {
@@ -19,7 +29,16 @@ ul.mc li.wrongAnswer:before {
     color: #aa0000;
 }
 
+/* Don't display the "✘" or "✓" if printing */
+
 @media print {
+    ul.mc li.rightAnswer:before, ul.mc li.wrongAnswer:before {
+        content: "☐";
+		position: absolute;
+		left: 0;
+		color: #000000;
+	}
+
 	#output [id^="question_"] > b {
 		display:block;
 		padding-top:60px;
