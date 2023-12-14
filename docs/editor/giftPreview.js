@@ -14,7 +14,7 @@ function giftPreviewHTML(qArray, theDiv) {
         switch (q.type) {
             case "Description":
                 html += makeTitle("Description", q.title);
-                html += pStemOpen + applyFormat(q.stem) + pStemClose;
+                html += "<p>" + applyFormat(q.stem) + "</p>";
                 theDiv.append(html); html = "";
                 break;
             case "MC":
