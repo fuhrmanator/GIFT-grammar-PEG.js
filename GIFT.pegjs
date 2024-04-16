@@ -293,12 +293,16 @@ CategoryText "(category text)"
 
 // folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
-    = chars:[0-9]+ frac:NumberFraction?
-        { return parseFloat(chars.join('') + frac); }
+  = Sign? DecimalValue { return parseFloat(text()); }
 
-NumberFraction
-    = "." !"." chars:[0-9]*
-        { return "." + chars.join(''); }
+DecimalValue
+  = Digits ('.' Digits)?
+
+Digits
+  = [0-9]+
+
+Sign
+  = [+-]
 
 GlobalFeedback
     = '####' _ rt:RichText _ {return rt;}
