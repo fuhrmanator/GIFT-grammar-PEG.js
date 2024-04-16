@@ -4,7 +4,7 @@
 
 ### Status
 
-[![pages-build-deployment](https://github.com/fuhrmanator/GIFT-grammar-PEG.js/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/fuhrmanator/GIFT-grammar-PEG.js/actions/workflows/pages/pages-build-deployment)
+[![Node.js CI](https://github.com/fuhrmanator/GIFT-grammar-PEG.js/actions/workflows/nodejs.yml/badge.svg)](https://github.com/fuhrmanator/GIFT-grammar-PEG.js/actions/workflows/nodejs.yml)
 
 Development of PEG grammar to parse [GIFT (quiz question) file format](https://en.wikipedia.org/wiki/GIFT_(file_format)). The goal is to find an intuitive and fun way to create quiz questions.
 
