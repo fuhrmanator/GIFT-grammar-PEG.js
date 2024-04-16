@@ -291,7 +291,6 @@ PlainText "(unformatted text)"
 CategoryText "(category text)"
   = txt:(!EndOfLine .)* &(EndOfLine / EndOfFile) { return txt.flat().join('') } 
 
-// folllowing inspired by http://nathansuniversity.com/turtle1.html
 Number
   = Sign? DecimalValue { return parseFloat(text()); }
 
