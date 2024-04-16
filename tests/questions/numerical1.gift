@@ -2,11 +2,19 @@
 
 When was Ulysses S. Grant born? {#1822}
 
+What is the value of -1? {#-1}
+
 What is the value of pi (to 3 decimal places)? {#3.1415:0.0005}.
+
+What is the value of pi times -1 (to 3 decimal places)? {#-3.142:0.001}.
 
 What is the value of pi (to 3 decimal places)? {#3.141..3.142}.
 
+What is the value of pi times -1 (to 3 decimal places)? {#-3.142..-3.141}.
+
 Give me a number from 1 to 5. {#1..5}.
+
+Pick a number from -5 to 5. {#-5..5}.
 
 When was Ulysses S. Grant born? {#
     =1822:0

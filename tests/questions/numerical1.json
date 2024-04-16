@@ -15,6 +15,22 @@
         }
     },
     {
+		"id": null,
+		"tags": null,
+		"type": "Numerical",
+		"title": null,
+		"stem": {
+			"format": "moodle",
+			"text": "What is the value of -1?"
+		},
+		"hasEmbeddedAnswers": false,
+		"globalFeedback": null,
+		"choices": {
+			"type": "simple",
+			"number": -1
+		}
+	},
+    {
         "id" : null,
         "tags" : null,
         "type": "Numerical",
@@ -31,6 +47,23 @@
             "range": 0.0005
         }
     },
+    {
+		"id": null,
+		"tags": null,
+		"type": "Numerical",
+		"title": null,
+		"stem": {
+			"format": "moodle",
+			"text": "What is the value of pi times -1 (to 3 decimal places)? _____ ."
+		},
+		"hasEmbeddedAnswers": true,
+		"globalFeedback": null,
+		"choices": {
+			"type": "range",
+			"number": -3.142,
+			"range": 0.001
+		}
+	},
     {
         "id" : null,
         "tags" : null,
@@ -49,6 +82,23 @@
         }
     },
     {
+		"id": null,
+		"tags": null,
+		"type": "Numerical",
+		"title": null,
+		"stem": {
+			"format": "moodle",
+			"text": "What is the value of pi times -1 (to 3 decimal places)? _____ ."
+		},
+		"hasEmbeddedAnswers": true,
+		"globalFeedback": null,
+		"choices": {
+			"type": "high-low",
+			"numberHigh": -3.141,
+			"numberLow": -3.142
+		}
+	},
+    {
         "id" : null,
         "tags" : null,
         "type": "Numerical",
@@ -65,6 +115,23 @@
             "numberLow": 1
         }
     },
+    {
+		"id": null,
+		"tags": null,
+		"type": "Numerical",
+		"title": null,
+		"stem": {
+			"format": "moodle",
+			"text": "Pick a number from -5 to 5. _____ ."
+		},
+		"hasEmbeddedAnswers": true,
+		"globalFeedback": null,
+		"choices": {
+			"type": "high-low",
+			"numberHigh": 5,
+			"numberLow": -5
+		}
+	},
     {
         "id" : null,
         "tags" : null,
