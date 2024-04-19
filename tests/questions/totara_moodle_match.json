@@ -12,7 +12,7 @@
     "matchPairs": [{
             "subquestion": {
                 "format": "html",
-                "text": "An activity supporting asynchronous discussions. "
+                "text": "An activity supporting asynchronous discussions."
             },
             "subanswer": "Forum"
         },

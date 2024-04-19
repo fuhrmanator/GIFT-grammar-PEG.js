@@ -6,7 +6,7 @@
         "title": null,
         "stem": {
            "format": "html",
-           "text": "<p>The sun rises in which direction?</p> "
+           "text": "<p>The sun rises in which direction?</p>"
         },
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
