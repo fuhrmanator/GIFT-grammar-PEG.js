@@ -137,11 +137,12 @@ function formatMatchingAnswers(q, theDiv, qNum, html) {
 function applyFormat(giftText) {
     var html = "";
     var unescapedString;
+    console.log(`giftText.text is '${giftText.text}'`)
     switch (giftText.format) {
         case "html":
         case "moodle":
             // convert Moodle's embedded line feeds (GIFT) to HTML
-            unescapedString = giftText.text.replace(/\\n/g, '<br\>');
+            unescapedString = giftText.text.replace(/\n/g, '<br\>');
             html = unescapedString;
             break;
         case "plain":
@@ -150,8 +151,8 @@ function applyFormat(giftText) {
 
         case "markdown":
             // convert Moodle's embedded line feeds (GIFT) in markdown
-            unescapedString = giftText.text.replace(/\\n/g, '\n');
-            html = converter.makeHtml(unescapedString);
+            // unescapedString = giftText.text.replace(/\n/g, '\n');
+            html = converter.makeHtml(giftText.text);
             break;
 
         default:
