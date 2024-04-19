@@ -172,6 +172,8 @@ This table is not sufficient to understand everything. Please see [Moodle's docu
 
 [Source for above table](http://microformats.org/wiki/gift)
 
+Parser in PHP: https://github.com/moodle/moodle/blob/master/question/format/gift/format.php
+
 ## Background information
 
 See these discussions in the Moodle forums: 
@@ -194,5 +196,6 @@ Check out the [railroad diagram](https://dundalek.com/grammkit/#https://raw.gith
 
 ## Testing the editor locally
 
-- In a terminal of the cloned repo: `node server.js`
+- In a terminal of the cloned repo: `npm run build && node server.js`
 - Point a browser to http://localhost:8181/docs/editor/editor.html
+
