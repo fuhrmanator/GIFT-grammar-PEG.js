@@ -1,0 +1,12 @@
+[{
+    "type": "Essay",
+    "title": null,
+    "stem": {
+      "format": "html",
+      "text": "Blah\nblah $ 1 \\neq 0 $"
+    },
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "id": null,
+    "tags": null
+}]
