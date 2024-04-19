@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     initExamplesDropdown();
 
-    var ta = document.getElementById('gift');
+    var ta = document.getElementById('giftText');
 
     var editor = CodeMirror.fromTextArea(ta, {
         lineNumbers: true,
@@ -20,6 +20,7 @@ $(document).ready(function() {
         mode: "text/plain",
         lineWrapping: true,
         theme: "3024-day",
+        id: "giftText",
         gutters: ["CodeMirror-linenumbers", "guttererrormarker"]
     });
 
@@ -114,11 +115,11 @@ $(document).ready(function() {
         setParser(parser);
         parse();
     }
-
+    
     var xmlhttp;
     xmlhttp = new XMLHttpRequest();   // fetch doesn't work on old iPads because it's not supported in old Safari
     xmlhttp.addEventListener("load", doneLoadingGrammar, false);
-    xmlhttp.open("GET","https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs",true);
+    xmlhttp.open("GET","lib/GIFT.pegjs",true);
     xmlhttp.send();
 
     var textKey = $.getUrlVar('text');
