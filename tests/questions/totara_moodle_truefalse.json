@@ -11,11 +11,11 @@
       "hasEmbeddedAnswers": false,
       "globalFeedback": null,
       "isTrue": false,
-      "incorrectFeedback": {
+      "trueFeedback": {
          "format": "moodle",
          "text": "42 is the Ultimate Answer."
       },
-      "correctFeedback": {
+      "falseFeedback": {
          "format": "moodle",
          "text": "You gave the right answer."
       }

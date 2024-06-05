@@ -7,8 +7,8 @@
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": false,
-        "incorrectFeedback": null,
-        "correctFeedback": null
+        "trueFeedback": null,
+        "falseFeedback": null
     },
     {
         "id" : null,
@@ -19,7 +19,7 @@
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": true,
-        "incorrectFeedback": null,
-        "correctFeedback": null
+        "trueFeedback": null,
+        "falseFeedback": null
     }
 ]

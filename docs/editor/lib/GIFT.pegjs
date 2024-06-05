@@ -30,8 +30,8 @@
     switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
-        question.incorrectFeedback = answers.feedback[1];
-        question.correctFeedback = answers.feedback[2];
+        question.trueFeedback = answers.feedback[1];
+        question.falseFeedback = answers.feedback[2];
         break;
       case "MC":
       case "Numerical":
