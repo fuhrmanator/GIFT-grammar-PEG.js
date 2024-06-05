@@ -5,9 +5,9 @@ markdown
 
 [markdown] nested lists  
 - item 1
-  - nested item 1
+    - nested item 1
 - item 2
 
-[markdown] nested lists  \n- item 1\n  - nested item 1\n- item 2
+[markdown] nested lists  \n- item 1\n    - nested item 1\n- item 2
 
 

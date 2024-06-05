@@ -19,7 +19,7 @@
     "tags": null,
     "type": "Description",
     "title": null,
-    "stem": {"format":"markdown", "text":"nested lists  \n- item 1\n  - nested item 1\n- item 2"},
+    "stem": {"format":"markdown", "text":"nested lists  \n- item 1\n    - nested item 1\n- item 2"},
     "hasEmbeddedAnswers": false
 },
 {
@@ -27,7 +27,7 @@
     "tags": null,
     "type": "Description",
     "title": null,
-    "stem": {"format":"markdown", "text":"nested lists  \n- item 1\n  - nested item 1\n- item 2"},
+    "stem": {"format":"markdown", "text":"nested lists  \n- item 1\n    - nested item 1\n- item 2"},
     "hasEmbeddedAnswers": false
 }
 ]
