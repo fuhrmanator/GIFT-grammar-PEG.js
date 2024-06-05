@@ -11,7 +11,7 @@
       "hasEmbeddedAnswers": false,
       "globalFeedback": null,
       "isTrue": true,
-      "incorrectFeedback": null,
-      "correctFeedback": null
+      "trueFeedback": null,
+      "falseFeedback": null
    }
 ]

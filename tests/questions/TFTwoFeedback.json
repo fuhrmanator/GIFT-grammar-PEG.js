@@ -7,6 +7,30 @@
     "hasEmbeddedAnswers": false,
     "globalFeedback": null,
     "isTrue": false,
-    "incorrectFeedback": {"format":"moodle", "text":"wrong answer feedback"},
-    "correctFeedback": {"format":"moodle", "text":"right answer feedback"}
+    "trueFeedback": {"format":"moodle", "text":"feedback for true"},
+    "falseFeedback": {"format":"moodle", "text":"feedback for false"}
+},
+{
+        "id" : null,
+        "tags" : null,
+        "type": "TF",
+    "title": null,
+    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "isTrue": true,
+    "trueFeedback": {"format":"moodle", "text":"feedback for true"},
+    "falseFeedback": null
+},
+{
+        "id" : null,
+        "tags" : null,
+        "type": "TF",
+    "title": null,
+    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "isTrue": true,
+    "trueFeedback": null,
+    "falseFeedback": {"format":"moodle", "text":"feedback for false"}
 }]

@@ -7,6 +7,6 @@
     "hasEmbeddedAnswers": false,
     "globalFeedback": null,
     "isTrue": false,
-    "incorrectFeedback": null,
-    "correctFeedback": null
+    "trueFeedback": null,
+    "falseFeedback": null
 }]

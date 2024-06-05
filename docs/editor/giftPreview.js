@@ -39,7 +39,11 @@ function giftPreviewHTML(qArray, theDiv) {
                 break;
             case "TF":
                 html += makeTitle("True/False", q.title);
-                html += pStemOpen + "<em class='d-print-none'>(" + (q.isTrue ? "True" : "False") + ") </em>" + applyFormat(q.stem) + " (✓ ✘)" + pStemClose;
+                html += pStemOpen + "<em class='d-print-none'>(" + 
+                    (q.isTrue ? "True" : "False") + ") " + 
+                    (q.trueFeedback ? " True feedback: " + applyFormat(q.trueFeedback, false) + "</div>" : "") +
+                    (q.falseFeedback ? " False feedback: " + applyFormat(q.falseFeedback, false) + "</div>" : "") +
+                    "</em>" + pStemOpen + applyFormat(q.stem) + " (✓ ✘)" + pStemClose;
                 html += formatFeedback(q.globalFeedback) + "</div>";
                 theDiv.append(html); html = "";
                 break;
