@@ -73,7 +73,6 @@
   function formattedText(format, txt) {
     let inferredFormat = (format !== null ? format : getLastQuestionTextFormat());
     let joinedText = txt.join('').trim();
-    console.log("format: " + inferredFormat + " text: " + joinedText);
     return {
       format:(inferredFormat), 
       text:(
