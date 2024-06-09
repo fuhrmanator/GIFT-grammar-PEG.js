@@ -79,7 +79,7 @@
       format:(inferredFormat), 
       text:(
           ((inferredFormat == "html") || (inferredFormat == "markdown")) ? 
-            // don't remove newlines for html and markdown
+            // keep whitespace and newlines for html and markdown
             escapedCharacterDecode(joinedText) :
             escapedCharacterDecode(removeNewLinesDuplicateSpaces(joinedText))
           )}
