@@ -72,7 +72,9 @@
   }
   function formattedText(format, txt) {
     let inferredFormat = (format !== null ? format : getLastQuestionTextFormat());
-    let joinedText = txt.join('').trim();
+    let joinedText = txt.join('')
+      .replace(/\r\n/g, '\n')  // replace Windows newlines with Unix newlines
+      .trim();
     return {
       format:(inferredFormat), 
       text:(
