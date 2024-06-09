@@ -289,7 +289,7 @@ MatchRichText "(formatted text excluding '->')"
   = format:Format? _ txt:MatchTextChar+ { return {
       format:(format!==null ? format : getLastQuestionTextFormat()), 
       text:(
-          (format !== "html") ? 
+          (format !== "html" && format !== "markdown") ? 
             escapedCharacterDecode(removeNewLinesDuplicateSpaces(txt.join('').trim())) :
             escapedCharacterDecode(txt.join('')).replace(/\r\n/g,'\n').trim()
           )}}  // avoid failing tests because of Windows line breaks 
@@ -298,7 +298,7 @@ RichText "(formatted text)"
   = format:Format? _ txt:TextChar+ { return {
       format:(format!==null ? format : getLastQuestionTextFormat()), 
       text:(
-          (format !== "html") ? 
+          (format !== "html" && format !== "markdown") ? 
             escapedCharacterDecode(removeNewLinesDuplicateSpaces(txt.join('').trim())) :
             escapedCharacterDecode(txt.join('')).replace(/\r\n/g,'\n').trim() // avoid failing tests because of Windows line breaks
           )}} 
