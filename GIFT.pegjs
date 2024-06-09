@@ -78,10 +78,10 @@
     return {
       format:(inferredFormat), 
       text:(
-          ((inferredFormat !== "html") && (inferredFormat !== "markdown")) ? 
-            escapedCharacterDecode(removeNewLinesDuplicateSpaces(joinedText)) :
-            // trim and remove newlines for html and markdown
-            escapedCharacterDecode(joinedText)
+          ((inferredFormat == "html") || (inferredFormat == "markdown")) ? 
+            // don't remove newlines for html and markdown
+            escapedCharacterDecode(joinedText) :
+            escapedCharacterDecode(removeNewLinesDuplicateSpaces(joinedText))
           )}
   }
 }
