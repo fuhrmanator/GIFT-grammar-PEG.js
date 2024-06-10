@@ -100,7 +100,7 @@ console.log(quizQuestions);
 ```
 
 ### Tests
-There are [easily extendible tests using Mocha](https://mochajs.org/#dynamically-generating-tests) from sample GIFT/JSON files in `./test/questions/`.
+There are easily extendible tests from sample GIFT/JSON files in `./test/questions/`.
 
 To be able to run the tests, you must set up your environment:
 - [Install node.js](https://nodejs.org/)
@@ -112,36 +112,29 @@ To be able to run the tests, you must set up your environment:
 - Run the regression tests with the following command: 
  
         npm test
+
 - Output will look something like this:
- 
- 		$ npm test
 
-		> gift-grammar-pegjs@1.0.0 test C:\Users\fuhrm\Documents\GitHub\GIFT-grammar-PEG.js
-		> mocha tests --recursive
+		> gift-pegjs@0.2.4 test
+		> jest --colors
+		
+		 PASS  tests/all-questions-harness.js
+		  GIFT question types
+		    √ parses GIFT (./tests/questions/): category1.gift (4 ms)
+		    √ parses GIFT (./tests/questions/): categorySpecialCharacter.gift (1 ms)
+		    √ parses GIFT (./tests/questions/): description1.gift (2 ms)
+		    √ parses GIFT (./tests/questions/): descriptionTitleEscapedColon.gift (1 ms)
+		    √ parses GIFT (./tests/questions/): descriptionWithID.gift (1 ms)
+		    ...
+		    √ parses GIFT (./tests/questions/): type_inferred_multiline_markdown.gift
+		
+		Test Suites: 1 passed, 1 total
+		Tests:       51 passed, 51 total
+		Snapshots:   0 total
+		Time:        2.415 s, estimated 3 s
+		Ran all test suites.
 
-
-
-		  GIFT parser harness:
-			√ parsing GIFT question: ./tests/questions/description1.gift
-			√ parsing GIFT question: ./tests/questions/essay1.gift
-			√ parsing GIFT question: ./tests/questions/giftFormatPhpExamples.gift
-			√ parsing GIFT question: ./tests/questions/matching1.gift
-			√ parsing GIFT question: ./tests/questions/mc1.gift
-			√ parsing GIFT question: ./tests/questions/mc2.gift
-			√ parsing GIFT question: ./tests/questions/mc3.gift
-			√ parsing GIFT question: ./tests/questions/mc4.gift
-			√ parsing GIFT question: ./tests/questions/mc5.gift
-			√ parsing GIFT question: ./tests/questions/multiLineFeedback1.gift
-			√ parsing GIFT question: ./tests/questions/numerical1.gift
-			√ parsing GIFT question: ./tests/questions/options1.gift
-			√ parsing GIFT question: ./tests/questions/shortAnswer1.gift
-			√ parsing GIFT question: ./tests/questions/tf1.gift
-			√ parsing GIFT question: ./tests/questions/tf2.gift
-
-
-		  15 passing (225ms)
-
-- To create a new test GIFT file, just name it `foo.gift` in `./test/questions/`. The JSON file `foo.json` should exist (expected output) and can be easily generated from the output at https://pegjs.org/online. Note: any `undefined` values from that output must be declared as `null` in the JSON file.
+- To create a new test GIFT file, just name it `foo.gift` in `./test/questions/`. The corresponding JSON file `foo.json` should exist (expected output) and can be easily generated from the output at https://peggyjs.org/online (you have to paste the `GIFT.pegjs` file into the grammar on the left first). Note: any `undefined` values from that output must be declared as `null` in the JSON file.
 
 ## GIFT format
 
@@ -192,7 +185,7 @@ The following UML class diagram is an interpretation of the XML format for Moodl
 
 ## Railroad diagram of the grammar
 
-Check out the [railroad diagram](https://dundalek.com/grammkit/#https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs) for this project's PEG.
+Check out the [railroad diagram](https://dundalek.com/GrammKit/#https://raw.githubusercontent.com/fuhrmanator/GIFT-grammar-PEG.js/master/GIFT.pegjs) for this project's PEG.
 
 ## Testing the editor locally
 
