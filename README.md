@@ -10,7 +10,7 @@ Development of PEG grammar to parse [GIFT (quiz question) file format](https://e
 
 Initial hacking done using [peggyjs.org/online](https://peggyjs.org/online). The GIFT.pegjs file goes on the left and the test GIFT goes on the right. Note that nothing is saved in this environment (you must copy-paste back to your own files).
 
-## GIFT parser (npm package gift-pegjs)
+## GIFT parser (npm package gift-pegjs) 
 
 The PEG.js grammar in this repo is used to generate a parser for GIFT. You can see how it works in this [online editor](https://fuhrmanator.github.io/GIFT-grammar-PEG.js/editor/editor.html).
 
