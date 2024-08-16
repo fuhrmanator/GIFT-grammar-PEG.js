@@ -1,0 +1,7 @@
+[markdown]stem line1  
+stem line2{
+    =answer1 line1  
+answer1 line2
+    =[markdown]answer2 line1  
+answer2 line2
+}

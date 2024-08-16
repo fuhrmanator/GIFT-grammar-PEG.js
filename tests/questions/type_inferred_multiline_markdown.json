@@ -1,0 +1,35 @@
+[
+    {
+      "type": "Short",
+      "title": null,
+      "stem": {
+        "format": "markdown",
+        "text": "stem line1  \nstem line2"
+      },
+      "hasEmbeddedAnswers": false,
+      "globalFeedback": null,
+      "choices": [
+        {
+          "isCorrect": true,
+          "weight": null,
+          "text": {
+            "format": "markdown",
+            "text": "answer1 line1  \nanswer1 line2"
+          },
+          "feedback": null
+        },
+        {
+          "isCorrect": true,
+          "weight": null,
+          "text": {
+            "format": "markdown",
+            "text": "answer2 line1  \nanswer2 line2"
+          },
+          "feedback": null
+        }
+      ],
+      "id": null,
+      "tags": null
+    }
+  ]
+  

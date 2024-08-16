@@ -1,22 +1,20 @@
 const peg = require('pegjs');
 const fs = require('fs');
 const glob = require('glob');
+// const { describe } = require('node:test');
 
-describe('GIFT parser harness:', () => {
-    let parser;
+// read the set of questions/parsings data files
+const questionsFolder = './tests/questions/';
+const files = glob.sync(questionsFolder + '*.gift', { nonull: true });
 
-    beforeAll(() => {
-        // read grammar and create parser
+let parser;
+
+describe(`GIFT question types`, () => {
+    files.forEach((file) => {
         const grammar = fs.readFileSync('GIFT.pegjs', 'utf-8');
         parser = peg.generate(grammar);
-    });
 
-    // read the set of questions/parsings data files
-    const questionsFolder = './tests/questions/';
-    const files = glob.sync(questionsFolder + '*.gift', { nonull: true });
-
-    files.forEach((file) => {
-        it(`parsing GIFT question: ${file}`, () => {
+        it(`parses GIFT (${questionsFolder}): ${file.substr(questionsFolder.length)}`, () => {
             const jsonFile = file.substr(0, file.lastIndexOf('.')) + '.json';
             const giftText = fs.readFileSync(file, 'utf-8');
             const jsonText = fs.readFileSync(jsonFile, 'utf-8');
