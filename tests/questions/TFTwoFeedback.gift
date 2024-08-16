@@ -1,1 +1,5 @@
-Grant is buried in Grant's tomb.{FALSE#wrong answer feedback#right answer feedback}
+Grant is buried in Grant's tomb.{FALSE#feedback for true #feedback for false}
+
+Grant is buried in Grant's tomb.{TRUE#feedback for true}
+
+Grant is buried in Grant's tomb.{TRUE# #feedback for false}

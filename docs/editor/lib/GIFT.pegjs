@@ -30,8 +30,8 @@
     switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
-        question.incorrectFeedback = answers.feedback[1];
-        question.correctFeedback = answers.feedback[2];
+        question.trueFeedback = answers.feedback[0];
+        question.falseFeedback = answers.feedback[1];
         break;
       case "MC":
       case "Numerical":
@@ -69,6 +69,20 @@
   }
   function resetLastQuestionTextFormat() {
     format = defaultFormat;
+  }
+  function formattedText(format, txt) {
+    let inferredFormat = (format !== null ? format : getLastQuestionTextFormat());
+    let joinedText = txt.join('')
+      .replace(/\r\n/g, '\n')  // replace Windows newlines with Unix newlines
+      .trim();
+    return {
+      format:(inferredFormat), 
+      text:(
+          ((inferredFormat == "html") || (inferredFormat == "markdown")) ? 
+            // keep whitespace and newlines for html and markdown
+            escapedCharacterDecode(joinedText) :
+            escapedCharacterDecode(removeNewLinesDuplicateSpaces(joinedText))
+          )}
   }
 }
 
@@ -134,7 +148,7 @@ Match "match"
 ///////////
 TrueFalseAnswer "{T} or {F} or {TRUE} or {FALSE}"
   = isTrue:TrueOrFalseType _ 
-    feedback:(_ Feedback? Feedback?) _
+    feedback:(Feedback? Feedback?) _
     globalFeedback:GlobalFeedback?
   { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; }
   
@@ -286,22 +300,10 @@ ControlChar
   = '=' / '~' / "#" / '{' / '}' / '\\' / ':'
 
 MatchRichText "(formatted text excluding '->')"
-  = format:Format? _ txt:MatchTextChar+ { return {
-      format:(format!==null ? format : getLastQuestionTextFormat()), 
-      text:(
-          (format !== "html" && format !== "markdown") ? 
-            escapedCharacterDecode(removeNewLinesDuplicateSpaces(txt.join('').trim())) :
-            escapedCharacterDecode(txt.join('')).replace(/\r\n/g,'\n').trim()
-          )}}  // avoid failing tests because of Windows line breaks 
+  = format:Format? _ txt:MatchTextChar+ { return formattedText(format, txt) } 
 
 RichText "(formatted text)"
-  = format:Format? _ txt:TextChar+ { return {
-      format:(format!==null ? format : getLastQuestionTextFormat()), 
-      text:(
-          (format !== "html" && format !== "markdown") ? 
-            escapedCharacterDecode(removeNewLinesDuplicateSpaces(txt.join('').trim())) :
-            escapedCharacterDecode(txt.join('')).replace(/\r\n/g,'\n').trim() // avoid failing tests because of Windows line breaks
-          )}} 
+  = format:Format? _ txt:TextChar+ { return formattedText(format, txt) } 
 
 PlainText "(unformatted text)"
   = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 

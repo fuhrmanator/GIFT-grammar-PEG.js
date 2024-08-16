@@ -151,8 +151,8 @@ export interface Essay extends Question {
 export interface TrueFalse extends Question {
   type: Extract<QuestionType, "TF">;
   isTrue: boolean;
-  incorrectFeedback: TextFormat | null;
-  correctFeedback: TextFormat | null;
+  trueFeedback: TextFormat | null;
+  falseFeedback: TextFormat | null;
 }
 
 export interface Matching extends Question {

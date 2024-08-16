@@ -30,8 +30,8 @@
     switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
-        question.incorrectFeedback = answers.feedback[1];
-        question.correctFeedback = answers.feedback[2];
+        question.trueFeedback = answers.feedback[0];
+        question.falseFeedback = answers.feedback[1];
         break;
       case "MC":
       case "Numerical":
@@ -148,7 +148,7 @@ Match "match"
 ///////////
 TrueFalseAnswer "{T} or {F} or {TRUE} or {FALSE}"
   = isTrue:TrueOrFalseType _ 
-    feedback:(_ Feedback? Feedback?) _
+    feedback:(Feedback? Feedback?) _
     globalFeedback:GlobalFeedback?
   { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; }
   

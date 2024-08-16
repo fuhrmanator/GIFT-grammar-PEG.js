@@ -135,8 +135,8 @@
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
         "isTrue": false,
-        "incorrectFeedback": {"format":"moodle", "text":"No one is buried in Grant's tomb."},
-        "correctFeedback": null
+        "trueFeedback": {"format":"moodle", "text":"No one is buried in Grant's tomb."},
+        "falseFeedback": null
     },
     {
         "id" : null,
