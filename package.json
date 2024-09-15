@@ -8,13 +8,13 @@
         "pegjs": "^0.10.x"
     },
     "devDependencies": {
-        "@types/node": "^22.3.0",
+        "@types/node": "^22.5.5",
         "connect": "^3.6.6",
         "glob": "^11.0.0",
         "jest": "^29.7.0",
-        "minify": "^11.4.0",
+        "minify": "^10.3.0",
         "pegjs-backtrace": "^0.2.1",
-        "serve-static": "^1.13.2"
+        "serve-static": "^1.16.2"
     },
     "files": [
         "GIFT.pegjs",

@@ -181,10 +181,24 @@ Choice "Choice"
       return choice } 
 
 Weight "(weight)"
-  = '%' percent:([-]? PercentValue) '%' { return parseFloat(percent.join('')) }
-  
+  = '%' percent:(PercentValue) '%' {
+	return percent;
+  }
+
 PercentValue "(percent)"
-  = '100' / [0-9][0-9]?[.]?[0-9]*  { return text() }
+    = percent:(!'%' .)* {
+      let error = 'a value between -100 and 100'
+      console.log(percent.length)
+      if (percent.length == 0) expected(error + ' (did you forget to put a value?)');
+      // the !'%' shows up as a 0th element in the percent array (of arrays), so we have to join the 1th elements
+	  const pct = parseFloat(percent.map(innerArray => innerArray[1]).join(""));
+      console.log(pct)
+      if (pct >= -100 && pct <= 100) {
+        return pct;
+      } else {
+        expected(error)
+      }
+    }
 
 Feedback "(feedback)" 
   = '#' !'###' _ feedback:RichText? { return feedback }
