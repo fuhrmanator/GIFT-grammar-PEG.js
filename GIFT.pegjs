@@ -188,11 +188,9 @@ Weight "(weight)"
 PercentValue "(percent)"
     = percent:(!'%' .)* {
       let error = 'a value between -100 and 100'
-      console.log(percent.length)
       if (percent.length == 0) expected(error + ' (did you forget to put a value?)');
       // the !'%' shows up as a 0th element in the percent array (of arrays), so we have to join the 1th elements
 	  const pct = parseFloat(percent.map(innerArray => innerArray[1]).join(""));
-      console.log(pct)
       if (pct >= -100 && pct <= 100) {
         return pct;
       } else {
