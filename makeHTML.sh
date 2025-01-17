@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-{ echo "<script>"; cat lib/gift-parser-globals.js; echo "</script>"; } > lib/gift-parser-globalsJS.html
+{ echo "<script>"; cat lib/GIFT-globals.js; echo "</script>"; } > lib/gift-parser-globalsJS.html

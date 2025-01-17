@@ -32,7 +32,7 @@
       // Convert the text of each choice to remove the format, and make it the same as PlainText (FIXME)
       for (let i = 0; i < answers.choices.length; i++) {
         let choice = answers.choices[i];
-        console.log(`Short answer format conversion of ${choice.format} with text of '${choice.text.text}'`);
+        // console.log(`Short answer format conversion of ${choice.format} with text of '${choice.text.text}'`);
         choice.text = (choice.text.format === defaultFormat ? "" : `[${choice.text.format}]`) + removeNewLinesDuplicateSpaces(choice.text.text.trim());
         answers.choices[i] = choice;
       }
@@ -270,21 +270,11 @@ NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number
              globalFeedback:globalFeedback}; }
 
 NumericalAnswers "Numerical Answers"
-  = MultipleNumericalChoices / SingleNumericalAnswer
+  = choices:(MultipleNumericalChoices / SingleNumericalAnswer)
+  { return Array.isArray(choices) ? choices : [choices]; }
 
 MultipleNumericalChoices "Multiple Numerical Choices"
   = choices:(NumericalChoice)+ { return choices; }
-
-NumericalChoice "Numerical Choice"
-  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
-    { var symbol = choice[0];
-      var wt = choice[1];
-      var txt = choice[2];
-      var choice = { isCorrect:(symbol == '='), 
-                     weight:wt, 
-                     text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
-                     feedback: feedback }; 
-      return choice } 
 
 SingleNumericalAnswer "Single numeric answer"
   = NumberWithRange / NumberHighLow / NumberAlone
@@ -300,6 +290,17 @@ NumberHighLow "(number with high-low)"
 NumberAlone "(number answer)"
   = number:Number
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
+
+NumericalChoice "Numerical Choice"
+  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
+    { var symbol = choice[0];
+      var wt = choice[1];
+      var txt = choice[2];
+      var choice = { isCorrect:(symbol == '='), 
+                     weight:wt, 
+                     text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
+                     feedback: feedback }; 
+      return choice } 
 
 //////////////
 QuestionTitle ":: Title ::"

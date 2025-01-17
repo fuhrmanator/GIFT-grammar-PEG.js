@@ -8,12 +8,15 @@
         "pegjs": "^0.10.x"
     },
     "devDependencies": {
+        "@types/jest": "^29.5.14",
         "@types/node": "^22.10.7",
         "connect": "^3.6.6",
         "glob": "^11.0.1",
         "jest": "^29.7.0",
         "pegjs-backtrace": "^0.2.1",
-        "serve-static": "^1.16.2"
+        "serve-static": "^1.16.2",
+        "ts-jest": "^29.2.5",
+        "typescript": "^5.7.3"
     },
     "files": [
         "GIFT.pegjs",
@@ -21,7 +24,7 @@
         "index.d.ts"
     ],
     "scripts": {
-        "build": "pegjs --format globals --export-var giftParser -o lib/gift-parser-globals.js GIFT.pegjs && cp lib/gift-parser-globals.js pegjs-gift-globals.js && pegjs -o lib/gift-parser.js GIFT.pegjs && cp lib/gift-parser.js pegjs-gift.js && bash makeHTML.sh && cp GIFT.pegjs docs/editor/lib/",
+        "build": "pegjs --format globals --export-var giftParser -o lib/GIFT-globals.js GIFT.pegjs && cp lib/GIFT-globals.js pegjs-gift-globals.js && pegjs -o lib/GIFT.js GIFT.pegjs && cp lib/GIFT.js pegjs-gift.js && bash makeHTML.sh && cp GIFT.pegjs docs/editor/lib/",
         "test": "jest --colors"
     },
     "repository": "github:fuhrmanator/GIFT-grammar-PEG.js",

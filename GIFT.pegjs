@@ -270,21 +270,11 @@ NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number
              globalFeedback:globalFeedback}; }
 
 NumericalAnswers "Numerical Answers"
-  = MultipleNumericalChoices / SingleNumericalAnswer
+  = choices:(MultipleNumericalChoices / SingleNumericalAnswer)
+  { return Array.isArray(choices) ? choices : [choices]; }
 
 MultipleNumericalChoices "Multiple Numerical Choices"
   = choices:(NumericalChoice)+ { return choices; }
-
-NumericalChoice "Numerical Choice"
-  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
-    { var symbol = choice[0];
-      var wt = choice[1];
-      var txt = choice[2];
-      var choice = { isCorrect:(symbol == '='), 
-                     weight:wt, 
-                     text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
-                     feedback: feedback }; 
-      return choice } 
 
 SingleNumericalAnswer "Single numeric answer"
   = NumberWithRange / NumberHighLow / NumberAlone
@@ -300,6 +290,17 @@ NumberHighLow "(number with high-low)"
 NumberAlone "(number answer)"
   = number:Number
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
+
+NumericalChoice "Numerical Choice"
+  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
+    { var symbol = choice[0];
+      var wt = choice[1];
+      var txt = choice[2];
+      var choice = { isCorrect:(symbol == '='), 
+                     weight:wt, 
+                     text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
+                     feedback: feedback }; 
+      return choice } 
 
 //////////////
 QuestionTitle ":: Title ::"

@@ -6,10 +6,10 @@
         "stem": {"format":"moodle", "text":"What's 2 plus 2?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
-        "choices": {
+        "choices": [{
             "type": "simple",
             "number": 4
-        }
+        }]
     },
     {
         "id" : null,

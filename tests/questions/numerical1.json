@@ -9,10 +9,10 @@
         },
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
-        "choices": {
+        "choices": [{
             "type": "simple",
             "number": 1822
-        }
+        }]
     },
     {
 		"id": null,
@@ -25,10 +25,10 @@
 		},
 		"hasEmbeddedAnswers": false,
 		"globalFeedback": null,
-		"choices": {
+		"choices": [{
 			"type": "simple",
 			"number": -1
-		}
+		}]
 	},
     {
         "id" : null,
@@ -41,11 +41,11 @@
         },
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
-        "choices": {
+        "choices": [{
             "type": "range",
             "number": 3.1415,
             "range": 0.0005
-        }
+        }]
     },
     {
 		"id": null,
@@ -58,11 +58,11 @@
 		},
 		"hasEmbeddedAnswers": true,
 		"globalFeedback": null,
-		"choices": {
+		"choices": [{
 			"type": "range",
 			"number": -3.142,
 			"range": 0.001
-		}
+		}]
 	},
     {
         "id" : null,
@@ -75,11 +75,11 @@
         },
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
-        "choices": {
+        "choices": [{
             "type": "high-low",
             "numberHigh": 3.142,
             "numberLow": 3.141
-        }
+        }]
     },
     {
 		"id": null,
@@ -92,11 +92,11 @@
 		},
 		"hasEmbeddedAnswers": true,
 		"globalFeedback": null,
-		"choices": {
+		"choices": [{
 			"type": "high-low",
 			"numberHigh": -3.141,
 			"numberLow": -3.142
-		}
+		}]
 	},
     {
         "id" : null,
@@ -109,11 +109,11 @@
         },
         "hasEmbeddedAnswers": true,
         "globalFeedback": null,
-        "choices": {
+        "choices": [{
             "type": "high-low",
             "numberHigh": 5,
             "numberLow": 1
-        }
+        }]
     },
     {
 		"id": null,
@@ -126,11 +126,11 @@
 		},
 		"hasEmbeddedAnswers": true,
 		"globalFeedback": null,
-		"choices": {
+		"choices": [{
 			"type": "high-low",
 			"numberHigh": 5,
 			"numberLow": -5
-		}
+		}]
 	},
     {
         "id" : null,

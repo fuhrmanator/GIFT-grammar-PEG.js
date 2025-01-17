@@ -1,7 +1,7 @@
 const peg = require('pegjs');
 const fs = require('fs');
 const glob = require('glob');
-const parse = require('../lib/gift-parser').parse;
+const parse = require('../lib/GIFT').parse;
 
 const questionsFolder = './tests/questions/';
 const files = glob.sync(questionsFolder + '*.gift', { nonull: true });

@@ -96,11 +96,11 @@
         "stem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
         "globalFeedback": null,
-        "choices": {
+        "choices": [{
             "type": "range",
             "number": 1822,
             "range": 5
-        }
+        }]
     },
     {
         "id" : null,
