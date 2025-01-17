@@ -12,13 +12,13 @@
         {
           "isCorrect": true,
           "weight": null,
-          "text": "answer1 line1  \nanswer1 line2",
+          "text": "answer1 line1 answer1 line2",
           "feedback": null
         },
         {
           "isCorrect": true,
           "weight": null,
-          "text": "[markdown]answer2 line1  \nanswer2 line2",
+          "text": "[html]answer2 line1 answer2 line2",
           "feedback": null
         }
       ],

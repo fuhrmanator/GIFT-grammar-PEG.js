@@ -2,7 +2,7 @@
 {
   var questionId = null;
   var questionTags = null;
-  var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
+  var defaultFormat = "defaultFormat"; // default format - the GIFT specs say [moodle] is default, we'll set it later
   var format = defaultFormat;
   const escapedCharacters = {
     "\\\\"  : "&&092;",
@@ -25,36 +25,76 @@
                .replace(/&&126;/g, '~')
                .replace(/&&010/g, '\n');
   }
-  function processAnswers(question, answers) {
-    question.globalFeedback = answers.globalFeedback;
+  function postProcessQuestion(question, answers) {
+    // check for MC that's actually a short answer (all correct answers)
+    if (question.type == "MC" && areAllCorrect(answers.choices)) {
+      question.type = "Short";
+      // Convert the text of each choice to remove the format, and make it the same as PlainText (FIXME)
+      for (let i = 0; i < answers.choices.length; i++) {
+        let choice = answers.choices[i];
+        console.log(`Short answer format conversion of ${choice.format} with text of '${choice.text.text}'`);
+        choice.text = (choice.text.format === defaultFormat ? "" : `[${choice.text.format}]`) + removeNewLinesDuplicateSpaces(choice.text.text.trim());
+        answers.choices[i] = choice;
+      }
+    }
+
+    // if (question.stem) {
+      // console.log("post processing stem");
+      question.stem = convertFormat(question.stem, 'moodle');
+    // }
+    let questionFormat = question.stem.format; // will be either the question's defined format, or 'moodle' by default 
+
+    // if (answers.globalFeedback) {
+    //   console.log("post processing globalFeedback");
+      question.globalFeedback = convertFormat(answers.globalFeedback, questionFormat);
+    // }
     switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
-        question.trueFeedback = answers.feedback[0];
-        question.falseFeedback = answers.feedback[1];
+        // if (answers.feedback[0]) {
+        //   console.log("post processing trueFeedback");
+          question.trueFeedback = convertFormat(answers.feedback[0], questionFormat);
+        // }
+        // if (answers.feedback[1]) {
+        //   console.log("post processing falseFeedback");
+          question.falseFeedback = convertFormat(answers.feedback[1], questionFormat);
+        // }
         break;
       case "MC":
       case "Numerical":
       case "Short":
+        // console.log(`converting formats for question type ${question.type}:`);
+        if (!answers.choices) throw new Error (`question of type ${question.type} has answers with no choices.`);
+        for (let i = 0; i < answers.choices.length; i++) {
+          // console.log(`choice text: ${JSON.stringify(answers.choices[i].text)}:`);
+          answers.choices[i].text = convertFormat(answers.choices[i].text, questionFormat);
+          answers.choices[i].feedback = convertFormat(answers.choices[i].feedback, questionFormat);
+        }
         question.choices = answers.choices;
         break;
       case "Matching":
+        if (!answers.matchPairs) throw new Error (`question of type ${question.type} has answers with no matchPairs.`);
+        for (let i = 0; i < answers.matchPairs.length; i++) {
+          answers.matchPairs[i].subquestion = convertFormat(answers.matchPairs[i].subquestion, questionFormat);
+        }
         question.matchPairs = answers.matchPairs;
         break;
-    }
-    // check for MC that's actually a short answer (all correct answers)
-    if (question.type == "MC" && areAllCorrect(question.choices)) {
-      question.type = "Short";
-      // Convert the text of each choice to remove the format
-      for (var i = 0; i < question.choices.length; i++) {
-        question.choices[i].text = question.choices[i].text.text;
-      }
     }
     question.id = questionId;
     question.tags = questionTags;
     return question;
   }
+  // the text formats should inherit the format of the question if they're not defined
+  function convertFormat(richText, questionFormat) {
+    if (!questionFormat) throw new Error (`questionFormat not defined in convertFormat.`);
+    // console.log(`convertFormat: ${JSON.stringify(richText)}`);
+    if (richText && richText.format === defaultFormat) {
+      richText.format = questionFormat;
+    }
+    return richText;
+  }
   function areAllCorrect(choices) {
+    if (!choices) throw new Error (`areAllCorrect has invalid choices.`);
     var allAreCorrect = true;
     for (var i = 0; i < choices.length; i++) {
       allAreCorrect &= choices[i].isCorrect;
@@ -102,7 +142,7 @@ Description "Description"
     title:QuestionTitle? _
     text:QuestionStem
     QuestionSeparator
-    { var question = {id: questionId, tags: questionTags, type:"Description", title:title, stem:text, hasEmbeddedAnswers:false};
+    { var question = {id: questionId, tags: questionTags, type:"Description", title:title, stem:convertFormat(text, 'moodle'), hasEmbeddedAnswers:false};
       resetLastQuestionTextFormat(); 
       questionId = null; questionTags = null;
       return question }
@@ -127,7 +167,7 @@ Question
     var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
     
     var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
-    question = processAnswers(question, answers);
+    question = postProcessQuestion(question, answers);
     resetLastQuestionTextFormat();
     return question;
   }
@@ -267,7 +307,7 @@ QuestionTitle ":: Title ::"
   
 QuestionStem "Question stem"
   = stem:RichText 
-    { setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
+    { //setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
       return stem }
 
 QuestionSeparator "(blank lines separator)"
@@ -319,7 +359,7 @@ MatchRichText "(formatted text excluding '->')"
   = format:Format? _ txt:MatchTextChar+ { return formattedText(format, txt) } 
 
 RichText "(formatted text)"
-  = format:Format? _ txt:TextChar+ { return formattedText(format, txt) } 
+  = format:Format? _ txt:TextChar+ { return formattedText(format, txt) }
 
 PlainText "(unformatted text)"
   = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 
