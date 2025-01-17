@@ -22,7 +22,7 @@
         "choices": [{
             "isCorrect": true,
             "weight": null,
-            "text": {"format":"moodle", "text":"China"},
+            "text": "China",
             "feedback": null
         }]
     },
@@ -93,13 +93,13 @@
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"no one"},
+                "text": "no one",
                 "feedback": {"format":"moodle", "text":"excellent answer!"}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"nobody"},
+                "text": "nobody",
                 "feedback": {"format":"moodle", "text":"excellent answer!"}
             }
         ]
@@ -115,13 +115,13 @@
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"markdown", "text":"no one"},
+                "text": "no one",
                 "feedback": {"format":"markdown", "text":"excellent answer!"}
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"markdown", "text":"nobody"},
+                "text": "nobody",
                 "feedback": {"format":"markdown", "text":"excellent answer!"}
             }
         ]
@@ -211,19 +211,19 @@
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"Nazareth"},
+                "text": "Nazareth",
                 "feedback": {"format":"moodle", "text":"Yes! That's right!"}
             },
             {
                 "isCorrect": true,
                 "weight": 75,
-                "text": {"format":"moodle", "text":"Nazereth"},
+                "text": "Nazereth",
                 "feedback": {"format":"moodle", "text":"Right, but misspelled."}
             },
             {
                 "isCorrect": true,
                 "weight": 25,
-                "text": {"format":"moodle", "text":"Bethlehem"},
+                "text": "Bethlehem",
                 "feedback": {"format":"moodle", "text":"He was born here, but not raised here."}
             }
         ]

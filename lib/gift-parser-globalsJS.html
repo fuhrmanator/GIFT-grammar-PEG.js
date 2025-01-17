@@ -1557,7 +1557,7 @@
 
       peg$silentFails++;
       s0 = peg$currPos;
-      s1 = peg$parseRichText();
+      s1 = peg$parsePlainText();
       if (s1 !== peg$FAILED) {
         s2 = peg$parse_();
         if (s2 !== peg$FAILED) {
@@ -3335,6 +3335,10 @@
         // check for MC that's actually a short answer (all correct answers)
         if (question.type == "MC" && areAllCorrect(question.choices)) {
           question.type = "Short";
+          // Convert the text of each choice to remove the format
+          for (var i = 0; i < question.choices.length; i++) {
+            question.choices[i].text = question.choices[i].text.text;
+          }
         }
         question.id = questionId;
         question.tags = questionTags;

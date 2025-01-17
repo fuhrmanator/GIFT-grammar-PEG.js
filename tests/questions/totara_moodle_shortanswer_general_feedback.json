@@ -17,10 +17,7 @@
           {
              "isCorrect": true,
              "weight": null,
-             "text": {
-                "format": "moodle",
-                "text": "Frog"
-             },
+             "text": "Frog",
              "feedback": {
                 "format": "moodle",
                 "text": "Good!"
@@ -29,10 +26,7 @@
           {
              "isCorrect": true,
              "weight": 50,
-             "text": {
-                "format": "moodle",
-                "text": "Cat"
-             },
+             "text": "Cat",
              "feedback": {
                 "format": "moodle",
                 "text": "What is it with Moodlers and cats?"
@@ -41,10 +35,7 @@
           {
              "isCorrect": true,
              "weight": 0,
-             "text": {
-                "format": "moodle",
-                "text": "*"
-             },
+             "text": "*",
              "feedback": {
                 "format": "moodle",
                 "text": "Completely wrong"

@@ -16,10 +16,10 @@ describe(`GIFT question types`, () => {
             const giftText = fs.readFileSync(file, 'utf-8');
             const jsonText = fs.readFileSync(jsonFile, 'utf-8');
             const jsonParse = JSON.parse(jsonText);
-            const parsing1 = parserGeneratedFromGrammar.parse(giftText);
-            expect(parsing1).toEqual(jsonParse);
-            const parsing2 = parse(giftText);
-            expect(parsing2).toEqual(jsonParse);
+            const parsingDirectFromGrammar = parserGeneratedFromGrammar.parse(giftText);
+            expect(parsingDirectFromGrammar).toEqual(jsonParse);
+            const parsingFromGeneratedParser = parse(giftText);
+            expect(parsingFromGeneratedParser).toEqual(jsonParse);
         });
     });
 });

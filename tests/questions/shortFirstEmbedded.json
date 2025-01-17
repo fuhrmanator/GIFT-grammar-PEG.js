@@ -14,10 +14,7 @@
          {
             "isCorrect": true,
             "weight": null,
-            "text": {
-               "format": "moodle",
-               "text": "Asia"
-            },
+            "text": "Asia",
             "feedback": null
          }
       ]
@@ -37,10 +34,7 @@
          {
             "isCorrect": true,
             "weight": null,
-            "text": {
-               "format": "moodle",
-               "text": "Asia"
-            },
+            "text": "Asia",
             "feedback": null
          }
       ]

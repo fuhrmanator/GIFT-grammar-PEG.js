@@ -45,6 +45,10 @@
     // check for MC that's actually a short answer (all correct answers)
     if (question.type == "MC" && areAllCorrect(question.choices)) {
       question.type = "Short";
+      // Convert the text of each choice to remove the format
+      for (var i = 0; i < question.choices.length; i++) {
+        question.choices[i].text = question.choices[i].text.text;
+      }
     }
     question.id = questionId;
     question.tags = questionTags;
@@ -209,7 +213,7 @@ EssayAnswer "Essay question { ... }"
 
 ///////////////////
 SingleCorrectShortAnswer "Single short answer { ... }"
-  = answer:RichText _ 
+  = answer:PlainText _ 
     feedback:Feedback? _ 
     globalFeedback:GlobalFeedback? _
   { var choices = [];

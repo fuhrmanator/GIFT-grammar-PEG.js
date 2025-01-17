@@ -9,13 +9,13 @@
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"no one"},
+                "text": "no one",
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"nobody"},
+                "text": "nobody",
                 "feedback": null
             }
         ]
@@ -31,13 +31,13 @@
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"four"},
+                "text": "four",
                 "feedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"4"},
+                "text": "4",
                 "feedback": null
             }
         ]
