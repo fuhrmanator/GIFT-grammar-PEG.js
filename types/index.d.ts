@@ -67,11 +67,7 @@ export interface HighLowNumericalAnswer {
 export interface MultipleNumericalAnswer {
   isCorrect: boolean;
   weight: number | null;
-  text: {
-    type: "range";
-    number: number;
-    range: number;
-  };
+  text: SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer;
   feedback: TextFormat | null;
 }
 

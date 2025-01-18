@@ -57,7 +57,7 @@ describe('Numerical Question Tests', () => {
     it('should produce a valid Question object for a Numerical question with negative value', () => {
         const input = `
         ::Q4:: What is the value of pi times -1 (to 3 decimal places)? {#-3.142..-3.141}
-    `;
+        `;
         const result = parse(input);
 
         // Type assertion to ensure result matches the Question interface
@@ -78,32 +78,47 @@ describe('Numerical Question Tests', () => {
         expect(choice.numberHigh).toBe(-3.141);
     });
     
-    // it('should produce a valid Question object for a Numerical question with multiple answers', () => {
-    //     const input = `
-    //       ::Q7:: When was Ulysses S. Grant born? {
-    //         =1822:0
-    //         =1822:2%50%
-    //       }
-    //     `;
-    //     const result = parse(input);
-    
-    //     // Type assertion to ensure result matches the Question interface
-    //     const question = result[0];
-    
-    //     // Example assertions to check specific properties
-    //     expect(question).toHaveProperty('type', 'Numerical');
-    //     const numericalQuestion = question as NumericalQuestion;
-    //     expect(numericalQuestion.stem.text).toBe('When was Ulysses S. Grant born?');
-    //     expect(numericalQuestion.choices).toBeDefined();
-    //     expect(numericalQuestion.choices).toHaveLength(2);
-    
-    //     const arrayChoices = numericalQuestion.choices as MultipleNumericalAnswer[];
-    //     expect(arrayChoices[0].text.number).toBe(1822);
-    //     expect(arrayChoices[0].text.range).toBe(0);
-    //     expect(arrayChoices[1].text.number).toBe(1822);
-    //     expect(arrayChoices[1].text.range).toBe(2);
-    //     expect(arrayChoices[1].weight).toBe(50);
-    // });
+    // When was Ulysses S. Grant born? {# =1822:0 =%50%1822:2}
+    it('should produce a valid Question object for a Numerical question with multiple correct answers with different weights', () => {
+        const input = `
+        ::Q5:: When was Ulysses S. Grant born? {# =1822:0 =%50%1822:2}
+        `;
+        const result = parse(input);
+
+        // Type assertion to ensure result matches the Question interface
+        const question = result[0];
+
+        // Example assertions to check specific properties
+        expect(question).toHaveProperty('type', 'Numerical');
+        const numericalQuestion = question as NumericalQuestion;
+        expect(numericalQuestion.title).toBe('Q5');
+        expect(numericalQuestion.stem.text).toBe('When was Ulysses S. Grant born?');
+        expect(numericalQuestion.choices).toBeDefined();
+        expect(numericalQuestion.choices).toHaveLength(2);
+        expect(isMultipleNumericalAnswer(numericalQuestion.choices[0])).toBe(true);
+
+        const choices = numericalQuestion.choices as MultipleNumericalAnswer[];
+        expect(choices).toHaveLength(2);
+
+        const answer1 = choices[0];
+        expect(answer1.isCorrect).toBe(true);
+        expect(answer1.weight).toBe(null);
+        expect(answer1.feedback).toBe(null);
+        expect(answer1.text.type).toBe('range');
+        const answer1Text = answer1.text as RangeNumericalAnswer;
+        expect(answer1Text.number).toBe(1822);
+        expect(answer1Text.range).toBe(0);
+
+        const answer2 = choices[1];
+        expect(answer2.isCorrect).toBe(true);
+        expect(answer2.weight).toBe(50);
+        expect(answer2.feedback).toBe(null);
+        expect(answer2.text.type).toBe('range');
+        const answer2Text = answer2.text as RangeNumericalAnswer;
+        expect(answer2Text.number).toBe(1822);
+        expect(answer2Text.range).toBe(2);
+        
+    });
     
 });
 
