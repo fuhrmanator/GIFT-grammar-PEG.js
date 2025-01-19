@@ -1,7 +1,6 @@
-import { parse } from "GIFT"; // Adjust the import based on your actual parser export
-import { NumericalQuestion, MultipleNumericalAnswer, RangeNumericalAnswer, HighLowNumericalAnswer } from "../../types";
+import { parse } from "GIFT";
+import { NumericalQuestion, MultipleNumericalAnswer, RangeNumericalAnswer, HighLowNumericalAnswer, SimpleNumericalAnswer } from "../../types";
 import { isSimpleNumericalAnswer, isRangeNumericalAnswer, isHighLowNumericalAnswer, isMultipleNumericalAnswer } from "../../types/typeGuards";
-import exp from "constants";
 
 describe('Numerical Question Tests', () => {
     // ::Ulysses birthdate::When was Ulysses S. Grant born? {#1822}
@@ -81,7 +80,7 @@ describe('Numerical Question Tests', () => {
     // When was Ulysses S. Grant born? {# =1822:0 =%50%1822:2}
     it('should produce a valid Question object for a Numerical question with multiple correct answers with different weights', () => {
         const input = `
-        ::Q5:: When was Ulysses S. Grant born? {# =1822:0 =%50%1822:2}
+        ::Q5:: When was Ulysses S. Grant born? {# =1822 =%50%1822:2 =%50%1820..1824}
         `;
         const result = parse(input);
 
@@ -94,20 +93,18 @@ describe('Numerical Question Tests', () => {
         expect(numericalQuestion.title).toBe('Q5');
         expect(numericalQuestion.stem.text).toBe('When was Ulysses S. Grant born?');
         expect(numericalQuestion.choices).toBeDefined();
-        expect(numericalQuestion.choices).toHaveLength(2);
+        expect(numericalQuestion.choices).toHaveLength(3);
         expect(isMultipleNumericalAnswer(numericalQuestion.choices[0])).toBe(true);
 
         const choices = numericalQuestion.choices as MultipleNumericalAnswer[];
-        expect(choices).toHaveLength(2);
 
         const answer1 = choices[0];
         expect(answer1.isCorrect).toBe(true);
         expect(answer1.weight).toBe(null);
         expect(answer1.feedback).toBe(null);
-        expect(answer1.text.type).toBe('range');
-        const answer1Text = answer1.text as RangeNumericalAnswer;
+        expect(answer1.text.type).toBe('simple');
+        const answer1Text = answer1.text as SimpleNumericalAnswer;
         expect(answer1Text.number).toBe(1822);
-        expect(answer1Text.range).toBe(0);
 
         const answer2 = choices[1];
         expect(answer2.isCorrect).toBe(true);
@@ -117,6 +114,15 @@ describe('Numerical Question Tests', () => {
         const answer2Text = answer2.text as RangeNumericalAnswer;
         expect(answer2Text.number).toBe(1822);
         expect(answer2Text.range).toBe(2);
+
+        const answer3 = choices[2];
+        expect(answer3.isCorrect).toBe(true);
+        expect(answer3.weight).toBe(50);
+        expect(answer3.feedback).toBe(null);
+        expect(answer3.text.type).toBe('high-low');
+        const answer3Text = answer3.text as HighLowNumericalAnswer;
+        expect(answer3Text.numberLow).toBe(1820);
+        expect(answer3Text.numberHigh).toBe(1824);
         
     });
     

@@ -1,3 +1,4 @@
+import { PegjsParseError } from "GIFT";
 import { NumericalAnswer, SimpleNumericalAnswer, RangeNumericalAnswer, HighLowNumericalAnswer, MultipleNumericalAnswer } from "./index";
 
 export function isSimpleNumericalAnswer(answer: NumericalAnswer): answer is SimpleNumericalAnswer {
@@ -14,4 +15,8 @@ export function isHighLowNumericalAnswer(answer: NumericalAnswer): answer is Hig
 
 export function isMultipleNumericalAnswer(answer: NumericalAnswer): answer is MultipleNumericalAnswer {
   return 'isCorrect' in answer && 'text' in answer && 'feedback' in answer;
+}
+
+export function isPegjsParseError(error: any): error is PegjsParseError {
+  return error && error.message && error.location && typeof error.location.start === 'object' && typeof error.location.end === 'object';
 }
