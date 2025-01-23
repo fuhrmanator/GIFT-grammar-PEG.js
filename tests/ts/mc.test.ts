@@ -4,7 +4,8 @@ import { MultipleChoiceQuestion } from "../../types";
 describe('Multiple Choice Question Tests', () => {
   it('should produce a valid Question object for a Multiple Choice question', () => {
     const input = `
-      ::Q2:: What is 2+2? {
+      // [tag:math]
+      ::Q2::[markdown] What is $2+2$? {
         ~%-50% 3
         ~%50%[markdown] 4
         ~%-50%[html] 5
@@ -12,22 +13,23 @@ describe('Multiple Choice Question Tests', () => {
     `;
     const result = parse(input);
 
-    // Type assertion to ensure result matches the Question interface
-    const question = result[0];
+    expect(result[0].type).toBe('MC');
 
-    // Example assertions to check specific properties
-    expect(question).toHaveProperty('type', 'MC');
-    const mcQuestion = question as MultipleChoiceQuestion;
+    const mcQuestion = result[0] as MultipleChoiceQuestion;
+
     expect(mcQuestion.title).toBeDefined();
     expect(mcQuestion.title).toEqual('Q2');
+    expect(mcQuestion.tags).toBeDefined();
+    expect(mcQuestion.tags?.length).toBe(1);
+    expect(mcQuestion.tags && mcQuestion.tags[0]).toEqual('math');
     expect(mcQuestion.formattedStem).toBeDefined();
-    expect(mcQuestion.formattedStem.format).toEqual('moodle');
-    expect(mcQuestion.formattedStem.text).toEqual('What is 2+2?');
+    expect(mcQuestion.formattedStem.format).toEqual('markdown');
+    expect(mcQuestion.formattedStem.text).toEqual('What is $2+2$?');
     expect(mcQuestion.choices).toBeDefined();
     expect(mcQuestion.choices.length).toBe(3);
     expect(mcQuestion.choices[0].isCorrect).toBe(false);
     expect(mcQuestion.choices[0].weight).toBe(-50); 
-    expect(mcQuestion.choices[0].formattedText.format).toEqual('moodle');
+    expect(mcQuestion.choices[0].formattedText.format).toEqual('markdown');
     expect(mcQuestion.choices[0].formattedText.text).toEqual('3');
     expect(mcQuestion.choices[1].isCorrect).toBe(false);
     expect(mcQuestion.choices[1].weight).toBe(50);
