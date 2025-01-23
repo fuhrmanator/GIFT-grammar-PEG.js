@@ -1,3 +1,12 @@
+type BaseQuestion = {
+  id?: string;
+  title?: string;
+  tags?: string[];
+  formattedStem: TextFormat;
+  hasEmbeddedAnswers: boolean;
+  formattedGlobalFeedback?: TextFormat;
+}
+
 export type QuestionType = "TF" | "MC" | "Numerical" | "Short" | "Description" | "Essay" | "Category" | "Matching";
 
 export interface TextFormat {
@@ -10,21 +19,11 @@ export interface NumericalFormat {
   format: string; // e.g., "decimal", "fraction"
 }
 
-export interface BaseQuestion {
-  id?: string | null;
-  tags?: string[] | null;
-  type: QuestionType;
-  title: string | null;
-  formattedStem: TextFormat;
-  hasEmbeddedAnswers: boolean;
-  formattedGlobalFeedback?: TextFormat | null;
-}
-
 export interface TrueFalseQuestion extends BaseQuestion {
   type: "TF";
   isTrue: boolean;
-  trueFormattedFeedback?: TextFormat | null;
-  falseFormattedFeedback?: TextFormat | null;
+  trueFormattedFeedback?: TextFormat;
+  falseFormattedFeedback?: TextFormat;
 }
 
 export interface MultipleChoiceQuestion extends BaseQuestion {
@@ -42,7 +41,7 @@ export interface ShortAnswerQuestion extends BaseQuestion {
   choices: UnformattedTextChoice[];
 }
 
-export interface DescriptionQuestion extends BaseQuestion {
+export interface Description extends BaseQuestion {
   type: "Description";
 }
 
@@ -84,27 +83,29 @@ export interface HighLowNumericalAnswer {
 
 export interface MultipleNumericalAnswer {
   isCorrect: boolean;
-  weight: number | null;
+  weight?: number;
   answer: SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer;
-  formattedFeedback: TextFormat | null;
+  formattedFeedback?: TextFormat;
 }
 
 // Union type for numerical answers
 export type NumericalAnswer = SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer | MultipleNumericalAnswer;
 
+export type ParsedGIFTQuestion = Question | Description | Category;
+
 // Union type for all question types
-export type Question = TrueFalseQuestion | MultipleChoiceQuestion | NumericalQuestion | ShortAnswerQuestion | DescriptionQuestion | EssayQuestion | MatchingQuestion | Category;
+export type Question = TrueFalseQuestion | MultipleChoiceQuestion | NumericalQuestion | ShortAnswerQuestion | Description | EssayQuestion | MatchingQuestion | Category;
 
 export interface TextChoice {
   isCorrect: boolean;
-  weight: number | null;
+  weight?: number;
   formattedText: TextFormat;
-  formattedFeedback: TextFormat | null;
+  formattedFeedback?: TextFormat;
 }
 
 export interface UnformattedTextChoice {
   isCorrect: boolean;
-  weight: number | null;
+  weight?: number;
   text: string;
-  formattedFeedback: TextFormat | null;
+  formattedFeedback?: TextFormat;
 }

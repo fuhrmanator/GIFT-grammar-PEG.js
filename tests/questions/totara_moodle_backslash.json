@@ -1,14 +1,13 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "Essay",
        "title": "double backslash",
        "formattedStem": {
           "format": "moodle",
           "text": "A \\\\ B \\\\\\\\ C"
        },
-       "hasEmbeddedAnswers": false,
-       "formattedGlobalFeedback": null
+       "hasEmbeddedAnswers": false
     }
  ]

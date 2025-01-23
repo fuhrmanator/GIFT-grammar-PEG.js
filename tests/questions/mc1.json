@@ -1,28 +1,25 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-    "title": null,
+
     "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [{
             "isCorrect": false,
-            "weight": null,
-            "formattedText": {"format":"moodle", "text":"Grant"},
-            "formattedFeedback": null
+
+            "formattedText": {"format":"moodle", "text":"Grant"}
         },
         {
             "isCorrect": false,
-            "weight": null,
-            "formattedText": {"format":"moodle", "text":"Jefferson"},
-            "formattedFeedback": null
+
+            "formattedText": {"format":"moodle", "text":"Jefferson"}
         },
         {
             "isCorrect": true,
-            "weight": null,
-            "formattedText": {"format":"moodle", "text":"no one"},
-            "formattedFeedback": null
+
+            "formattedText": {"format":"moodle", "text":"no one"}
         }
     ]
 }]

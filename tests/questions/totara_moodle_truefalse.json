@@ -1,7 +1,7 @@
 [
    {
-      "id": null,
-      "tags": null,
+
+
       "type": "TF",
       "title": "Q1",
       "formattedStem": {
@@ -9,7 +9,7 @@
          "text": "42 is the Absolute Answer to everything."
       },
       "hasEmbeddedAnswers": false,
-      "formattedGlobalFeedback": null,
+
       "isTrue": false,
       "trueFormattedFeedback": {
          "format": "moodle",

@@ -1,38 +1,36 @@
 [{
-   "id" : null,
-   "tags" : null,
+
+
    "type": "MC",
-    "title": null,
+
     "formattedStem": {
        "format": "moodle",
        "text": "How to make coffee?"
     },
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [
        {
           "isCorrect": false,
-          "weight": null,
+
           "formattedText": {
              "format": "moodle",
              "text": "go to starbucks -> order a coffee"
-          },
-          "formattedFeedback": null
+          }
        },
        {
           "isCorrect": true,
-          "weight": null,
+
           "formattedText": {
              "format": "moodle",
              "text": "get coffee powder -> add water"
-          },
-          "formattedFeedback": null
+          }
        }
     ]
  },
  {
-   "id" : null,
-   "tags" : null,
+
+
    "type": "MC",
     "title": "iebT26nuevo_P012",
     "formattedStem": {
@@ -40,34 +38,31 @@
        "text": "¿Cómo se cambia la orientación de la página en Word 2003 y 2007?:"
     },
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [
        {
           "isCorrect": false,
-          "weight": null,
+
           "formattedText": {
              "format": "moodle",
              "text": "todas las versiones de Word cambian la orientación de página igual (archivo->diseño de página)"
-          },
-          "formattedFeedback": null
+          }
        },
        {
           "isCorrect": false,
-          "weight": null,
+
           "formattedText": {
              "format": "moodle",
              "text": "-archivo->configurar->orientación ó -archivo->configurar->diseño de página"
-          },
-          "formattedFeedback": null
+          }
        },
        {
           "isCorrect": true,
-          "weight": null,
+
           "formattedText": {
              "format": "moodle",
              "text": "-archivo-configurar página ó -diseño de página-orientación"
-          },
-          "formattedFeedback": null
+          }
        }
     ]
  }

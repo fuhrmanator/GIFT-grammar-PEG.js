@@ -1,6 +1,6 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Matching",
     "title": "Moodle activities",
     "formattedStem": {
@@ -8,7 +8,7 @@
         "text": "Match the <b>activity</b> to the description."
     },
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "matchPairs": [{
             "formattedSubquestion": {
                 "format": "html",

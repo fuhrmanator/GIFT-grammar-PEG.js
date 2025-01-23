@@ -1,7 +1,7 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "MC",
        "title": "EE_mod_05_T39_P079",
        "formattedStem": {
@@ -16,30 +16,27 @@
        "choices": [
           {
              "isCorrect": false,
-             "weight": null,
+
              "formattedText": {
                 "format": "moodle",
                 "text": "En ausencia del Juez de Instrucción, titular de la actuaciones, y por razones de urgencia, debidamente acreditadas."
-             },
-             "formattedFeedback": null
+             }
           },
           {
              "isCorrect": false,
-             "weight": null,
+
              "formattedText": {
                 "format": "moodle",
                 "text": "Cuando se trate de delitos de terrorismo."
-             },
-             "formattedFeedback": null
+             }
           },
           {
              "isCorrect": true,
-             "weight": null,
+
              "formattedText": {
                 "format": "moodle",
                 "text": "Nunca."
-             },
-             "formattedFeedback": null
+             }
           }
        ]
     }

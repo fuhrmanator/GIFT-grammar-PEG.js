@@ -1,8 +1,8 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
+
         "formattedStem": {
             "format": "moodle",
             "text": "What's the answer to this multiple-choice question?"
@@ -14,7 +14,7 @@
         },
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
+
                 "formattedText": {
                     "format": "moodle",
                     "text": "wrong answer"
@@ -26,7 +26,7 @@
             },
             {
                 "isCorrect": false,
-                "weight": null,
+
                 "formattedText": {
                     "format": "moodle",
                     "text": "another wrong answer"
@@ -38,7 +38,7 @@
             },
             {
                 "isCorrect": true,
-                "weight": null,
+
                 "formattedText": {
                     "format": "moodle",
                     "text": "right answer"
@@ -51,8 +51,8 @@
         ]
     },
     {
-      "id" : null,
-      "tags" : null,
+
+
       "type": "MC",
         "title": "06- création d'instance",
         "formattedStem": {
@@ -67,7 +67,7 @@
         "choices": [
            {
               "isCorrect": false,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p><span style=\"font-size:11.0pt;line-height:115%;\nfont-family:Calibri\" lang=\"FR\">Client</span><br></p>"
@@ -79,48 +79,43 @@
            },
            {
               "isCorrect": false,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p><span style=\"font-size:11.0pt;line-height:115%;\nfont-family:Calibri\" lang=\"FR\">ConditionAbonnement</span><br></p>"
-              },
-              "formattedFeedback": null
+              }
            },
            {
               "isCorrect": false,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p><span style=\"font-size:11.0pt;line-height:115%;\nfont-family:Calibri\" lang=\"FR\">Paiement</span><br></p>"
-              },
-              "formattedFeedback": null
+              }
            },
            {
               "isCorrect": false,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p><span style=\"font-size:11.0pt;line-height:115%;\nfont-family:Calibri\" lang=\"FR\">Emprunt</span><br></p>"
-              },
-              "formattedFeedback": null
+              }
            },
            {
               "isCorrect": true,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p></p><p class=\"ACorrectChoice\"><span style=\"font-family:Wingdings;color:green\" lang=\"FR\"><span style=\"font:7.0pt &quot;Times New Roman&quot;\"></span></span><span lang=\"FR\">ContrôleurAbonnement </span></p><br><p></p>"
-              },
-              "formattedFeedback": null
+              }
            },
            {
               "isCorrect": false,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p>CléAccess<br></p>"
-              },
-              "formattedFeedback": null
+              }
            }
         ]
      }

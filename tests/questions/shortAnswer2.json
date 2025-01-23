@@ -1,38 +1,35 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Short",
-    "title": null,
+
     "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [{
             "isCorrect": true,
-            "weight": null,
-            "text": "no one",
-            "formattedFeedback": null
+
+            "text": "no one"
         },
         {
             "isCorrect": true,
-            "weight": null,
-            "text": "nobody",
-            "formattedFeedback": null
+
+            "text": "nobody"
         }
     ]
 },
 {
-    "id" : null,
-    "tags" : null,
+
+
     "type": "Short",
-    "title": null,
+
     "formattedStem": {"format":"moodle", "text":"How do you write the word for the number 1?"},
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [{
             "isCorrect": true,
-            "weight": null,
-            "text": "One",
-            "formattedFeedback": null
+
+            "text": "One"
         }
     ]
 }]

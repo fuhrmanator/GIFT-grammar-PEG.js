@@ -152,7 +152,7 @@ function peg$parse(input, options) {
       peg$c8 = function(title, text) { var question = {id: questionId, tags: questionTags, type:"Description", title:title, formattedStem:convertFormat(text, 'moodle'), hasEmbeddedAnswers:false};
             resetLastQuestionTextFormat(); 
             questionId = null; questionTags = null;
-            return question },
+            return removeNulls(question) },
       peg$c9 = "{",
       peg$c10 = peg$literalExpectation("{", false),
       peg$c11 = "}",
@@ -3325,6 +3325,29 @@ function peg$parse(input, options) {
       "\\~"  : "&&126;",
       "\\n"  : "&&010"
     };
+    function removeNulls(obj) {
+      if (Array.isArray(obj)) {
+        return obj.map(item => removeNulls(item));
+      }
+      if (obj !== null && typeof obj === 'object') {
+        // console.log('Checking object:', obj);
+        return Object.fromEntries(
+          Object.entries(obj)
+            .filter(([key, value]) => {
+              if (value === null) {
+                // console.log('Removing null property:', key);
+                return false;
+              }
+              return true;
+            })
+            .map(([key, value]) => [
+              key, 
+              removeNulls(value)
+            ])
+        );
+      }
+      return obj;
+    }
     function escapedCharacterDecode(text) {
       // Replace escaped characters with their original values, except for the newline character which should return a real (not escaped newline)
       return text.replace(/&&092;/g, '\\')
@@ -3349,15 +3372,15 @@ function peg$parse(input, options) {
         }
       }
 
-        question.formattedStem = convertFormat(question.formattedStem, 'moodle');
+      question.formattedStem = convertFormat(question.formattedStem, 'moodle');
       let questionFormat = question.formattedStem.format; // will be either the question's defined format, or 'moodle' by default 
 
-      question.formattedGlobalFeedback = convertFormat(answers.formattedGlobalFeedback, questionFormat);
+      if (answers.formattedGlobalFeedback) question.formattedGlobalFeedback = convertFormat(answers.formattedGlobalFeedback, questionFormat);
       switch(question.type) {
         case "TF":
           question.isTrue = answers.isTrue;
-            question.trueFormattedFeedback = convertFormat(answers.formattedFeedback[0], questionFormat);
-            question.falseFormattedFeedback = convertFormat(answers.formattedFeedback[1], questionFormat);
+            if (answers.formattedFeedback[0]) question.trueFormattedFeedback = convertFormat(answers.formattedFeedback[0], questionFormat);
+            if (answers.formattedFeedback[1]) question.falseFormattedFeedback = convertFormat(answers.formattedFeedback[1], questionFormat);
           break;
         case "Numerical":        
         case "MC":
@@ -3368,9 +3391,9 @@ function peg$parse(input, options) {
             if (question.type !== "Numerical") {
               answers.choices[i].formattedText = convertFormat(answers.choices[i].formattedText, questionFormat);
             }
-            answers.choices[i].formattedFeedback = convertFormat(answers.choices[i].formattedFeedback, questionFormat);
+            if (answers.choices[i].formattedFeedback) answers.choices[i].formattedFeedback = convertFormat(answers.choices[i].formattedFeedback, questionFormat);
           }
-          question.choices = answers.choices;
+          if (answers.choices) question.choices = answers.choices;
           break;
         case "Matching":
           if (!answers.matchPairs) throw new Error (`question of type ${question.type} has answers with no matchPairs.`);
@@ -3380,10 +3403,11 @@ function peg$parse(input, options) {
           question.matchPairs = answers.matchPairs;
           break;
       }
-      question.id = questionId;
-      question.tags = questionTags;
-      return question;
+      if (questionId) question.id = questionId;
+      if (questionTags) question.tags = questionTags;
+      return removeNulls(question);
     }
+
     // the text formats should inherit the format of the question if they're not defined
     function convertFormat(richText, questionFormat) {
       if (!questionFormat) throw new Error (`questionFormat not defined in convertFormat.`);

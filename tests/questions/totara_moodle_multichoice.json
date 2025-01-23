@@ -1,6 +1,6 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
     "title": "Q2",
     "formattedStem": {
@@ -8,10 +8,10 @@
         "text": "What's between orange and green in the spectrum?"
     },
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [{
             "isCorrect": true,
-            "weight": null,
+
             "formattedText": {
                 "format": "moodle",
                 "text": "yellow"
@@ -23,7 +23,7 @@
         },
         {
             "isCorrect": false,
-            "weight": null,
+
             "formattedText": {
                 "format": "moodle",
                 "text": "red"
@@ -35,7 +35,7 @@
         },
         {
             "isCorrect": false,
-            "weight": null,
+
             "formattedText": {
                 "format": "plain",
                 "text": "blue"

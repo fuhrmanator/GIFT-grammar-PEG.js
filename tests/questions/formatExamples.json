@@ -1,19 +1,19 @@
 [
      {
-         "id" : null,
-         "tags" : null,
+
+
         "type": "MC",
-        "title": null,
+
         "formattedStem": {
            "format": "html",
            "text": "<p>The sun rises in which direction?</p>"
         },
         "hasEmbeddedAnswers": false,
-        "formattedGlobalFeedback": null,
+
         "choices": [
            {
               "isCorrect": true,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p>The east.</p>"
@@ -25,7 +25,7 @@
            },
            {
               "isCorrect": false,
-              "weight": null,
+
               "formattedText": {
                  "format": "html",
                  "text": "<p>The west.</p>"

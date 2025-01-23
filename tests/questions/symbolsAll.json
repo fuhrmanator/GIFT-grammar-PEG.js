@@ -1,14 +1,14 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "TF",
        "title": "GIFT range of non-escaped symbols",
        "formattedStem": {"format":"moodle", "text":"Here's a question that has symbols inside, such as `-=[];',./~!@#$%^&*()_+{}|:\"<>?"},
        "hasEmbeddedAnswers": false,
-       "formattedGlobalFeedback": null,
-       "isTrue": true,
-       "trueFormattedFeedback": null,
-       "falseFormattedFeedback": null
+
+       "isTrue": true
+
+
     }
  ]

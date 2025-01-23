@@ -1,6 +1,6 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
     "title": "Q5",
     "formattedStem": {
@@ -8,20 +8,19 @@
         "text": "What is a number from 1 to 5?"
     },
     "hasEmbeddedAnswers": false,
-    "formattedGlobalFeedback": null,
+
     "choices": [{
             "isCorrect": true,
-            "weight": null,
+
             "answer": {
                 "type": "range",
                 "number": 3,
                 "range": 2
-            },
-            "formattedFeedback": null
+            }
         },
         {
             "isCorrect": false,
-            "weight": null,
+
             "answer": "*",
             "formattedFeedback": {
                 "format": "moodle",

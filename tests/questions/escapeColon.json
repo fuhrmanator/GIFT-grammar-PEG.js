@@ -1,35 +1,30 @@
 [{
-    "id" : null,
-    "tags" : null,
+
+
     "type": "MC",
-    "title": null,
+
     "formattedStem": {"format":"moodle", "text":"Specify the seasons:"},
-    "formattedGlobalFeedback": null,
+
     "hasEmbeddedAnswers": false,
     "choices": [{
         "isCorrect": true,
-        "weight": null,
-        "formattedText": {"format":"moodle", "text":"spring"},
-        "formattedFeedback": null
+
+        "formattedText": {"format":"moodle", "text":"spring"}
     }, {
         "isCorrect": true,
-        "weight": null,
-        "formattedText": {"format":"moodle", "text":"summer"},
-        "formattedFeedback": null
+
+        "formattedText": {"format":"moodle", "text":"summer"}
     }, {
         "isCorrect": true,
-        "weight": null,
-        "formattedText": {"format":"moodle", "text":"winter"},
-        "formattedFeedback": null
+
+        "formattedText": {"format":"moodle", "text":"winter"}
     }, {
         "isCorrect": true,
-        "weight": null,
-        "formattedText": {"format":"moodle", "text":"autumn"},
-        "formattedFeedback": null
+
+        "formattedText": {"format":"moodle", "text":"autumn"}
     }, {
         "isCorrect": false,
-        "weight": null,
-        "formattedText": {"format":"moodle", "text":"easter"},
-        "formattedFeedback": null
+
+        "formattedText": {"format":"moodle", "text":"easter"}
     }]
 }]

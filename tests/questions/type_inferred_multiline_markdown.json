@@ -1,29 +1,25 @@
 [
     {
       "type": "Short",
-      "title": null,
+
       "formattedStem": {
         "format": "markdown",
         "text": "formattedStem line1  \nformattedStem line2"
       },
       "hasEmbeddedAnswers": false,
-      "formattedGlobalFeedback": null,
+
       "choices": [
         {
           "isCorrect": true,
-          "weight": null,
-          "text": "answer1 line1 answer1 line2",
-          "formattedFeedback": null
+
+          "text": "answer1 line1 answer1 line2"
         },
         {
           "isCorrect": true,
-          "weight": null,
-          "text": "[html]answer2 line1 answer2 line2",
-          "formattedFeedback": null
+
+          "text": "[html]answer2 line1 answer2 line2"
         }
-      ],
-      "id": null,
-      "tags": null
+      ]
     }
   ]
   

@@ -1,118 +1,105 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
+
         "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "formattedGlobalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"Grant"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"Grant"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"Jefferson"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"Jefferson"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"no one"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"no one"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
+
         "formattedStem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
-        "formattedGlobalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"buried"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"buried"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"entombed"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"entombed"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"living"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"living"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
+
         "formattedStem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
         "hasEmbeddedAnswers": true,
-        "formattedGlobalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"second"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"second"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"third"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"third"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"fourth"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"fourth"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
+
         "formattedStem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
         "hasEmbeddedAnswers": false,
-        "formattedGlobalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"India"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"India"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"China"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"China"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"Korea"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"Korea"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "formattedText": {"format":"moodle", "text":"Egypt"},
-                "formattedFeedback": null
+
+                "formattedText": {"format":"moodle", "text":"Egypt"}
             }
         ]
     }

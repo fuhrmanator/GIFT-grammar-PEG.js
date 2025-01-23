@@ -1,7 +1,7 @@
 [
    {
-      "id": null,
-      "tags": null,
+
+
       "type": "TF",
       "title": "2-08 TSL",
       "formattedStem": {
@@ -9,9 +9,9 @@
          "text": "TSL is blablabla."
       },
       "hasEmbeddedAnswers": false,
-      "formattedGlobalFeedback": null,
-      "isTrue": true,
-      "trueFormattedFeedback": null,
-      "falseFormattedFeedback": null
+
+      "isTrue": true
+
+
    }
 ]

@@ -1,27 +1,26 @@
 [
    {
-      "id" : null,
-      "tags" : null,
+
+
       "type": "Short",
-      "title": null,
+
       "formattedStem": {
          "format": "moodle",
          "text": "_____ is the largest continent in the world."
       },
       "hasEmbeddedAnswers": true,
-      "formattedGlobalFeedback": null,
+
       "choices": [
          {
             "isCorrect": true,
-            "weight": null,
-            "text": "Asia",
-            "formattedFeedback": null
+
+            "text": "Asia"
          }
       ]
    },
    {
-      "id" : null,
-      "tags" : null,
+
+
       "type": "Short",
       "title": "Continents",
       "formattedStem": {
@@ -29,13 +28,12 @@
          "text": "_____ is the largest continent in the world."
       },
       "hasEmbeddedAnswers": true,
-      "formattedGlobalFeedback": null,
+
       "choices": [
          {
             "isCorrect": true,
-            "weight": null,
-            "text": "Asia",
-            "formattedFeedback": null
+
+            "text": "Asia"
          }
       ]
    }

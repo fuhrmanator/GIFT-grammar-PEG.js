@@ -1,7 +1,7 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "Short",
        "title": "Shortanswer",
        "formattedStem": {
@@ -9,11 +9,11 @@
           "text": "Which is the best animal?"
        },
        "hasEmbeddedAnswers": false,
-       "formattedGlobalFeedback": null,
+
        "choices": [
           {
              "isCorrect": true,
-             "weight": null,
+
              "text": "Frog",
              "formattedFeedback": {
                 "format": "moodle",

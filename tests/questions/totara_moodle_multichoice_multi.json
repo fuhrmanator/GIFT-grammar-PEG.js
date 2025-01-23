@@ -1,7 +1,7 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "MC",
        "title": "colours",
        "formattedStem": {
@@ -9,7 +9,7 @@
           "text": "What's between orange and green in the spectrum?"
        },
        "hasEmbeddedAnswers": false,
-       "formattedGlobalFeedback": null,
+
        "choices": [
           {
              "isCorrect": false,

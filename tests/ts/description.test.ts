@@ -1,5 +1,5 @@
 import { parse } from "GIFT";
-import { DescriptionQuestion } from "../../types";
+import { Description } from "../../types";
 
 describe('Description Tests', () => {
   it('should parse a basic description', () => {
@@ -9,7 +9,7 @@ describe('Description Tests', () => {
       The next set of questions will test your knowledge of World War 2.
     `;
     const result = parse(input);
-    const question = result[0] as DescriptionQuestion;
+    const question = result[0] as Description;
 
     expect(question.type).toBe('Description');
     expect(question.title).toBe('WW2 Description');

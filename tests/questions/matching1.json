@@ -1,11 +1,11 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Matching",
-        "title": null,
+
         "formattedStem": {"format":"moodle", "text":"Matching Question."},
         "hasEmbeddedAnswers": false,
-        "formattedGlobalFeedback": null,
+
         "matchPairs": [{
                 "formattedSubquestion": {"format":"moodle", "text":"formattedSubquestion1"},
                 "subanswer": "subanswer1"
@@ -21,13 +21,13 @@
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Matching",
-        "title": null,
+
         "formattedStem": {"format":"moodle", "text":"Match the following countries with their corresponding capitals."},
         "hasEmbeddedAnswers": false,
-        "formattedGlobalFeedback": null,
+
         "matchPairs": [{
                 "formattedSubquestion": {"format":"moodle", "text":"Canada"},
                 "subanswer": "Ottawa"

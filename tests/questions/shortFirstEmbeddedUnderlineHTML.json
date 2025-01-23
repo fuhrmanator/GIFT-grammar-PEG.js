@@ -1,27 +1,26 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "Short",
-       "title": null,
+
        "formattedStem": {
           "format": "html",
           "text": "_____ is the largest continent."
        },
        "hasEmbeddedAnswers": false,
-       "formattedGlobalFeedback": null,
+
        "choices": [
           {
              "isCorrect": true,
              "weight": 100,
-             "text": "Asia",
-             "formattedFeedback": null
+             "text": "Asia"
           }
        ]
     },
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "Short",
        "title": "Continents",
        "formattedStem": {
@@ -29,13 +28,12 @@
           "text": "_____ is the largest continent."
        },
        "hasEmbeddedAnswers": false,
-       "formattedGlobalFeedback": null,
+
        "choices": [
           {
              "isCorrect": true,
              "weight": 100,
-             "text": "Asia",
-             "formattedFeedback": null
+             "text": "Asia"
           }
        ]
     }

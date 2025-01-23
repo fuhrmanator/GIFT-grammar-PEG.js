@@ -1,7 +1,7 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "Short",
        "title": "Shortanswer",
        "formattedStem": {
@@ -16,7 +16,7 @@
        "choices": [
           {
              "isCorrect": true,
-             "weight": null,
+
              "text": "Frog",
              "formattedFeedback": {
                 "format": "moodle",

@@ -4,18 +4,12 @@
        "title": "$course$/top/Default for LING-373-2194-B"
     },
     {
-     "falseFormattedFeedback": null,
-     "formattedGlobalFeedback": null,
      "hasEmbeddedAnswers": false,
-     "id": null,
      "isTrue": true,
      "formattedStem": {
        "format": "moodle",
        "text": "a"
      },
-     "tags": null,
-     "title": null,
-     "trueFormattedFeedback": null,
      "type": "TF"
    }    
  ]
