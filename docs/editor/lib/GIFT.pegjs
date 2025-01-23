@@ -373,10 +373,10 @@ GlobalFeedback
     = '####' _ rt:RichText _ {return rt;}
 
 _ "(single line whitespace)"
-  = (Space / EndOfLine !BlankLine)*
+  = (Space / Comment / EndOfLine !BlankLine)*
 
 __ "(multiple line whitespace)"
-  = (TagComment / EndOfLine / Space )*
+  = (TagComment / Comment / EndOfLine / Space )*
 
 ResetIdsTags 
   = &' '*     // useless match to reset any previously parsed tags/ids

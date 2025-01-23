@@ -1,0 +1,20 @@
+[
+    {
+        "falseFormattedFeedback": null,
+        "formattedGlobalFeedback": null,
+        "formattedStem": {
+            "format": "moodle",
+            "text": "This statement is false. // This is an inline comment after the stem"
+        },
+        "hasEmbeddedAnswers": false,
+        "id": null,
+        "isTrue": false,
+        "tags": [
+            "tag1",
+            "tag2"
+        ],
+        "title": "Question Title",
+        "trueFormattedFeedback": null,
+        "type": "TF"
+    }
+]
