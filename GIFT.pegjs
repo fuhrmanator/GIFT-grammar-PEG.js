@@ -32,7 +32,8 @@
       // Convert the text of each choice to remove the format, and make it the same as PlainText (FIXME)
       for (let i = 0; i < answers.choices.length; i++) {
         let choice = answers.choices[i];
-        choice.text = (choice.text.format === defaultFormat ? "" : `[${choice.text.format}]`) + removeNewLinesDuplicateSpaces(choice.text.text.trim());
+        choice.text = (choice.formattedText.format === defaultFormat ? "" : `[${choice.formattedText.format}]`) + removeNewLinesDuplicateSpaces(choice.formattedText.text.trim());
+        delete choice.formattedText; // remove the property
         answers.choices[i] = choice;
       }
     }
@@ -40,19 +41,22 @@
       question.formattedStem = convertFormat(question.formattedStem, 'moodle');
     let questionFormat = question.formattedStem.format; // will be either the question's defined format, or 'moodle' by default 
 
-    question.globalFeedback = convertFormat(answers.globalFeedback, questionFormat);
+    question.formattedGlobalFeedback = convertFormat(answers.formattedGlobalFeedback, questionFormat);
     switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
           question.trueFormattedFeedback = convertFormat(answers.formattedFeedback[0], questionFormat);
           question.falseFormattedFeedback = convertFormat(answers.formattedFeedback[1], questionFormat);
         break;
+      case "Numerical":        
       case "MC":
-      case "Numerical":
       case "Short":
         if (!answers.choices) throw new Error (`question of type ${question.type} has answers with no choices.`);
         for (let i = 0; i < answers.choices.length; i++) {
-          answers.choices[i].formattedText = convertFormat(answers.choices[i].formattedText, questionFormat);
+          // numerical choices aren't formatted
+          if (question.type !== "Numerical") {
+            answers.choices[i].formattedText = convertFormat(answers.choices[i].formattedText, questionFormat);
+          }
           answers.choices[i].formattedFeedback = convertFormat(answers.choices[i].formattedFeedback, questionFormat);
         }
         question.choices = answers.choices;
@@ -283,7 +287,8 @@ NumericalChoice "Numerical Choice"
       var txt = choice[2];
       var choice = { isCorrect:(symbol == '='), 
                      weight:wt, 
-                     formattedText: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
+                     text: // [FIXME] - rename to value (it's not really text)
+                         (txt !== null ? txt : '*'), // Moodle unit tests show this, not in documentation
                      formattedFeedback: feedback };
       return choice }
 

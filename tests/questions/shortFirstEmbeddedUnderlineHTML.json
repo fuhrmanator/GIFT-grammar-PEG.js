@@ -4,18 +4,18 @@
       "tags" : null,
      "type": "Short",
        "title": null,
-       "stem": {
+       "formattedStem": {
           "format": "html",
           "text": "_____ is the largest continent."
        },
        "hasEmbeddedAnswers": false,
-       "globalFeedback": null,
+       "formattedGlobalFeedback": null,
        "choices": [
           {
              "isCorrect": true,
              "weight": 100,
              "text": "Asia",
-             "feedback": null
+             "formattedFeedback": null
           }
        ]
     },
@@ -24,18 +24,18 @@
       "tags" : null,
      "type": "Short",
        "title": "Continents",
-       "stem": {
+       "formattedStem": {
           "format": "html",
           "text": "_____ is the largest continent."
        },
        "hasEmbeddedAnswers": false,
-       "globalFeedback": null,
+       "formattedGlobalFeedback": null,
        "choices": [
           {
              "isCorrect": true,
              "weight": 100,
              "text": "Asia",
-             "feedback": null
+             "formattedFeedback": null
           }
        ]
     }

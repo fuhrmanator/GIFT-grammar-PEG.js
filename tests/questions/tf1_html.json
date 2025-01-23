@@ -3,10 +3,10 @@
         "tags" : null,
         "type": "TF",
     "title": null,
-    "stem": {"format":"html", "text":"<p>Grant is buried in Grant's tomb.</p>"},
+    "formattedStem": {"format":"html", "text":"<p>Grant is buried in Grant's tomb.</p>"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "isTrue": false,
-    "trueFeedback": null,
-    "falseFeedback": null
+    "trueFormattedFeedback": null,
+    "falseFormattedFeedback": null
 }]

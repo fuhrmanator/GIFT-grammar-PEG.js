@@ -3,26 +3,26 @@
         "tags" : null,
         "type": "MC",
     "title": null,
-    "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+    "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "choices": [{
             "isCorrect": false,
             "weight": null,
-            "text": {"format":"moodle", "text":"Grant"},
-            "feedback": null
+            "formattedText": {"format":"moodle", "text":"Grant"},
+            "formattedFeedback": null
         },
         {
             "isCorrect": false,
             "weight": null,
-            "text": {"format":"moodle", "text":"Jefferson"},
-            "feedback": null
+            "formattedText": {"format":"moodle", "text":"Jefferson"},
+            "formattedFeedback": null
         },
         {
             "isCorrect": true,
             "weight": null,
-            "text": {"format":"moodle", "text":"no one"},
-            "feedback": null
+            "formattedText": {"format":"moodle", "text":"no one"},
+            "formattedFeedback": null
         }
     ]
 }]

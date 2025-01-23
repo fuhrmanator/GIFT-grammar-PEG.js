@@ -3,7 +3,7 @@
     "tags" : null,
     "type": "Essay",
     "title": null,
-    "stem": {"format":"moodle", "text":"Write a short biography of Dag Hammarskjöld."},
+    "formattedStem": {"format":"moodle", "text":"Write a short biography of Dag Hammarskjöld."},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null
+    "formattedGlobalFeedback": null
 }]

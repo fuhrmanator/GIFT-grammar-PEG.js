@@ -3,24 +3,24 @@
 		"tags" : null,
 		"type": "MC",
 		"title": null,
-		"stem": {"format":"moodle", "text":"Which answer equals 5?"},
-		"globalFeedback": null,
+		"formattedStem": {"format":"moodle", "text":"Which answer equals 5?"},
+		"formattedGlobalFeedback": null,
 		"hasEmbeddedAnswers": false,
 		"choices": [{
 				"isCorrect": false,
 				"weight": null,
-				"text": {"format":"moodle", "text":"= 2 + 2"},
-				"feedback": null
+				"formattedText": {"format":"moodle", "text":"= 2 + 2"},
+				"formattedFeedback": null
 			}, {
 				"isCorrect": true,
 				"weight": null,
-				"text": {"format":"moodle", "text":"= 2 + 3"},
-				"feedback": null
+				"formattedText": {"format":"moodle", "text":"= 2 + 3"},
+				"formattedFeedback": null
 			}, {
 				"isCorrect": false,
 				"weight": null,
-				"text": {"format":"moodle", "text":"= 2 + 4"},
-				"feedback": null
+				"formattedText": {"format":"moodle", "text":"= 2 + 4"},
+				"formattedFeedback": null
 			}
 		]
 	}

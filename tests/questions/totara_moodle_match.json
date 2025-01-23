@@ -3,42 +3,42 @@
         "tags" : null,
         "type": "Matching",
     "title": "Moodle activities",
-    "stem": {
+    "formattedStem": {
         "format": "html",
         "text": "Match the <b>activity</b> to the description."
     },
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "matchPairs": [{
-            "subquestion": {
+            "formattedSubquestion": {
                 "format": "html",
                 "text": "An activity supporting asynchronous discussions."
             },
             "subanswer": "Forum"
         },
         {
-            "subquestion": {
+            "formattedSubquestion": {
                 "format": "moodle",
                 "text": "A teacher asks a question and specifies a choice of multiple responses."
             },
             "subanswer": "Choice"
         },
         {
-            "subquestion": {
+            "formattedSubquestion": {
                 "format": "plain",
                 "text": "A bank of record entries which participants can add to."
             },
             "subanswer": "Database"
         },
         {
-            "subquestion": {
+            "formattedSubquestion": {
                 "format": "markdown",
                 "text": "A collection of web pages that anyone can add to or edit."
             },
             "subanswer": "Wiki"
         },
         {
-            "subquestion": {
+            "formattedSubquestion": {
                 "format": "html",
                 "text": ""
             },

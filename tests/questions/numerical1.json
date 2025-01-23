@@ -3,12 +3,12 @@
         "tags" : null,
         "type": "Numerical",
         "title": null,
-        "stem": {
+        "formattedStem": {
             "format": "moodle",
             "text": "When was Ulysses S. Grant born?"
         },
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
             "type": "simple",
             "number": 1822
@@ -19,12 +19,12 @@
 		"tags": null,
 		"type": "Numerical",
 		"title": null,
-		"stem": {
+		"formattedStem": {
 			"format": "moodle",
 			"text": "What is the value of -1?"
 		},
 		"hasEmbeddedAnswers": false,
-		"globalFeedback": null,
+		"formattedGlobalFeedback": null,
 		"choices": [{
 			"type": "simple",
 			"number": -1
@@ -35,12 +35,12 @@
         "tags" : null,
         "type": "Numerical",
         "title": null,
-        "stem": {
+        "formattedStem": {
             "format": "moodle",
             "text": "What is the value of pi (to 3 decimal places)? _____ ."
         },
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
             "type": "range",
             "number": 3.1415,
@@ -52,12 +52,12 @@
 		"tags": null,
 		"type": "Numerical",
 		"title": null,
-		"stem": {
+		"formattedStem": {
 			"format": "moodle",
 			"text": "What is the value of pi times -1 (to 3 decimal places)? _____ ."
 		},
 		"hasEmbeddedAnswers": true,
-		"globalFeedback": null,
+		"formattedGlobalFeedback": null,
 		"choices": [{
 			"type": "range",
 			"number": -3.142,
@@ -69,12 +69,12 @@
         "tags" : null,
         "type": "Numerical",
         "title": null,
-        "stem": {
+        "formattedStem": {
             "format": "moodle",
             "text": "What is the value of pi (to 3 decimal places)? _____ ."
         },
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
             "type": "high-low",
             "numberHigh": 3.142,
@@ -86,12 +86,12 @@
 		"tags": null,
 		"type": "Numerical",
 		"title": null,
-		"stem": {
+		"formattedStem": {
 			"format": "moodle",
 			"text": "What is the value of pi times -1 (to 3 decimal places)? _____ ."
 		},
 		"hasEmbeddedAnswers": true,
-		"globalFeedback": null,
+		"formattedGlobalFeedback": null,
 		"choices": [{
 			"type": "high-low",
 			"numberHigh": -3.141,
@@ -103,12 +103,12 @@
         "tags" : null,
         "type": "Numerical",
         "title": null,
-        "stem": {
+        "formattedStem": {
             "format": "moodle",
             "text": "Give me a number from 1 to 5. _____ ."
         },
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
             "type": "high-low",
             "numberHigh": 5,
@@ -120,12 +120,12 @@
 		"tags": null,
 		"type": "Numerical",
 		"title": null,
-		"stem": {
+		"formattedStem": {
 			"format": "moodle",
 			"text": "Pick a number from -5 to 5. _____ ."
 		},
 		"hasEmbeddedAnswers": true,
-		"globalFeedback": null,
+		"formattedGlobalFeedback": null,
 		"choices": [{
 			"type": "high-low",
 			"numberHigh": 5,
@@ -137,12 +137,12 @@
         "tags" : null,
         "type": "Numerical",
         "title": null,
-        "stem": {
+        "formattedStem": {
             "format": "moodle",
             "text": "When was Ulysses S. Grant born?"
         },
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
@@ -151,7 +151,7 @@
                     "number": 1822,
                     "range": 0
                 },
-                "feedback": null
+                "formattedFeedback": null
             },
             {
                 "isCorrect": true,
@@ -161,7 +161,7 @@
                     "number": 1822,
                     "range": 2
                 },
-                "feedback": null
+                "formattedFeedback": null
             }
         ]
     },
@@ -170,12 +170,12 @@
         "tags" : null,
         "type": "Numerical",
         "title": "Combien de principes GRASP y a-t-il?",
-        "stem": {
+        "formattedStem": {
             "format": "html",
             "text": "<p>Combien de principes GRASP y a-t-il?</p>"
         },
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
                 "isCorrect": true,
                 "weight": 0,
@@ -184,7 +184,7 @@
                     "number": 5,
                     "range": 0
                 },
-                "feedback": {
+                "formattedFeedback": {
                     "format": "html",
                     "text": "<p>Incorrect. Bien que le livre ne présente que 5 principes au début, au total, il y a neuf (9) principes GRASP.</p>"
                 }
@@ -197,7 +197,7 @@
                     "number": 9,
                     "range": 0
                 },
-                "feedback": {
+                "formattedFeedback": {
                     "format": "html",
                     "text": "<p>Correct. Il y a neuf (9) principes GRASP.</p>"
                 }
@@ -210,7 +210,7 @@
                     "number": 23,
                     "range": 0
                 },
-                "feedback": {
+                "formattedFeedback": {
                     "format": "html",
                     "text": "<p>Incorrect. Il y a neuf (9) principes GRASP. Il y a cependant <a title=\"Gang des quatre\" href=\"http://fr.wikipedia.org/wiki/Design_Patterns\">23 Patterns GoF (Gang des quatre)</a></p>"
                 }

@@ -1,5 +1,5 @@
-[markdown]stem line1  
-stem line2{
+[markdown]formattedStem line1  
+formattedStem line2{
     =answer1 line1  
 answer1 line2
     =[html]answer2 line1  

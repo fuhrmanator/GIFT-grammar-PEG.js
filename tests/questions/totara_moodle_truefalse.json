@@ -4,18 +4,18 @@
       "tags": null,
       "type": "TF",
       "title": "Q1",
-      "stem": {
+      "formattedStem": {
          "format": "moodle",
          "text": "42 is the Absolute Answer to everything."
       },
       "hasEmbeddedAnswers": false,
-      "globalFeedback": null,
+      "formattedGlobalFeedback": null,
       "isTrue": false,
-      "trueFeedback": {
+      "trueFormattedFeedback": {
          "format": "moodle",
          "text": "42 is the Ultimate Answer."
       },
-      "falseFeedback": {
+      "falseFormattedFeedback": {
          "format": "moodle",
          "text": "You gave the right answer."
       }

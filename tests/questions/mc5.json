@@ -3,26 +3,26 @@
         "tags" : null,
         "type": "MC",
         "title": null,
-        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+        "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"Grant"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Grant"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"Jefferson"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Jefferson"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"no one"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"no one"},
+                "formattedFeedback": null
             }
         ]
     },
@@ -31,26 +31,26 @@
         "tags" : null,
         "type": "MC",
         "title": null,
-        "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
+        "formattedStem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"buried"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"buried"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"entombed"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"entombed"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"living"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"living"},
+                "formattedFeedback": null
             }
         ]
     },
@@ -59,26 +59,26 @@
         "tags" : null,
         "type": "MC",
         "title": null,
-        "stem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
+        "formattedStem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"second"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"second"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"third"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"third"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"fourth"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"fourth"},
+                "formattedFeedback": null
             }
         ]
     },
@@ -87,32 +87,32 @@
         "tags" : null,
         "type": "MC",
         "title": null,
-        "stem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
+        "formattedStem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+        "formattedGlobalFeedback": null,
         "choices": [{
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"India"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"India"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": true,
                 "weight": null,
-                "text": {"format":"moodle", "text":"China"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"China"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"Korea"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Korea"},
+                "formattedFeedback": null
             },
             {
                 "isCorrect": false,
                 "weight": null,
-                "text": {"format":"moodle", "text":"Egypt"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Egypt"},
+                "formattedFeedback": null
             }
         ]
     }

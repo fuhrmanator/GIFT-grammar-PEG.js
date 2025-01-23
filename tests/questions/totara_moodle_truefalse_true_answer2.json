@@ -4,14 +4,14 @@
       "tags": null,
       "type": "TF",
       "title": "2-08 TSL",
-      "stem": {
+      "formattedStem": {
          "format": "moodle",
          "text": "TSL is blablabla."
       },
       "hasEmbeddedAnswers": false,
-      "globalFeedback": null,
+      "formattedGlobalFeedback": null,
       "isTrue": true,
-      "trueFeedback": null,
-      "falseFeedback": null
+      "trueFormattedFeedback": null,
+      "falseFormattedFeedback": null
    }
 ]

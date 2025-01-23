@@ -2,24 +2,24 @@
     {
       "type": "Short",
       "title": null,
-      "stem": {
+      "formattedStem": {
         "format": "markdown",
-        "text": "stem line1  \nstem line2"
+        "text": "formattedStem line1  \nformattedStem line2"
       },
       "hasEmbeddedAnswers": false,
-      "globalFeedback": null,
+      "formattedGlobalFeedback": null,
       "choices": [
         {
           "isCorrect": true,
           "weight": null,
           "text": "answer1 line1 answer1 line2",
-          "feedback": null
+          "formattedFeedback": null
         },
         {
           "isCorrect": true,
           "weight": null,
           "text": "[html]answer2 line1 answer2 line2",
-          "feedback": null
+          "formattedFeedback": null
         }
       ],
       "id": null,

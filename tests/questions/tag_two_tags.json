@@ -3,7 +3,7 @@
     "tags" : ["fred", "barney-wilma"],
     "type": "Essay",
     "title": null,
-    "stem": {"format":"moodle", "text":"Essay?"},
+    "formattedStem": {"format":"moodle", "text":"Essay?"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null
+    "formattedGlobalFeedback": null
 }]

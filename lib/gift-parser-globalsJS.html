@@ -150,7 +150,7 @@
         peg$c5 = peg$literalExpectation("CATEGORY:", false),
         peg$c6 = function(cat) {return {type:"Category", title:cat}},
         peg$c7 = peg$otherExpectation("Description"),
-        peg$c8 = function(title, text) { var question = {id: questionId, tags: questionTags, type:"Description", title:title, stem:convertFormat(text, 'moodle'), hasEmbeddedAnswers:false};
+        peg$c8 = function(title, text) { var question = {id: questionId, tags: questionTags, type:"Description", title:title, formattedStem:convertFormat(text, 'moodle'), hasEmbeddedAnswers:false};
               resetLastQuestionTextFormat(); 
               questionId = null; questionTags = null;
               return question },
@@ -165,13 +165,13 @@
             var format = (stem1 && stem1.format) || (stem2 && stem2.format) || "moodle";
             var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
             
-            var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
+            var question = {type:answers.type, title:title, formattedStem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
             question = postProcessQuestion(question, answers);
             resetLastQuestionTextFormat();
             return question;
           },
         peg$c14 = peg$otherExpectation("{= match1 -> Match1\n...}"),
-        peg$c15 = function(matchPairs, globalFeedback) { return { type: "Matching", matchPairs:matchPairs, globalFeedback:globalFeedback }; },
+        peg$c15 = function(matchPairs, globalFeedback) { return { type: "Matching", matchPairs:matchPairs, formattedGlobalFeedback:globalFeedback }; },
         peg$c16 = peg$otherExpectation("matches"),
         peg$c17 = function(matchPairs) { return matchPairs },
         peg$c18 = peg$otherExpectation("match"),
@@ -180,14 +180,14 @@
         peg$c21 = "->",
         peg$c22 = peg$literalExpectation("->", false),
         peg$c23 = function(left, right) { var matchPair = { 
-                subquestion:{
+                formattedSubquestion:{
                   format:(left !== null ? left.format : getLastQuestionTextFormat()), 
                   text:(left !== null ? left.text : "")
                 }, 
                 subanswer:right}; 
                 return matchPair },
         peg$c24 = peg$otherExpectation("{T} or {F} or {TRUE} or {FALSE}"),
-        peg$c25 = function(isTrue, feedback, globalFeedback) { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; },
+        peg$c25 = function(isTrue, feedback, globalFeedback) { return { type:"TF", isTrue: isTrue, formattedFeedback:feedback, formattedGlobalFeedback:globalFeedback}; },
         peg$c26 = function(isTrue) { return isTrue },
         peg$c27 = "TRUE",
         peg$c28 = peg$literalExpectation("TRUE", false),
@@ -200,7 +200,7 @@
         peg$c35 = peg$literalExpectation("F", false),
         peg$c36 = function() {return false},
         peg$c37 = peg$otherExpectation("{=correct choice ~incorrect choice ... }"),
-        peg$c38 = function(choices, globalFeedback) { return { type: "MC", choices:choices, globalFeedback:globalFeedback}; },
+        peg$c38 = function(choices, globalFeedback) { return { type: "MC", choices:choices, formattedGlobalFeedback:globalFeedback}; },
         peg$c39 = peg$otherExpectation("Choices"),
         peg$c40 = function(choices) { return choices; },
         peg$c41 = peg$otherExpectation("Choice"),
@@ -210,8 +210,8 @@
               var txt = choice[4];
               var choice = { isCorrect: (choice[0] == '='), 
                              weight:wt, 
-                             text: txt,
-                             feedback:feedback };
+                             formattedText: txt,
+                             formattedFeedback:feedback };
               return choice },
         peg$c45 = peg$otherExpectation("(weight)"),
         peg$c46 = "%",
@@ -232,7 +232,7 @@
                 expected(error)
               }
             },
-        peg$c52 = peg$otherExpectation("(feedback)"),
+        peg$c52 = peg$otherExpectation("(formatted feedback)"),
         peg$c53 = "#",
         peg$c54 = peg$literalExpectation("#", false),
         peg$c55 = "###",
@@ -240,15 +240,15 @@
         peg$c57 = function(feedback) { return feedback },
         peg$c58 = peg$otherExpectation("Essay question { ... }"),
         peg$c59 = "",
-        peg$c60 = function(globalFeedback) { return { type: "Essay", globalFeedback:globalFeedback}; },
+        peg$c60 = function(globalFeedback) { return { type: "Essay", formattedGlobalFeedback:globalFeedback}; },
         peg$c61 = peg$otherExpectation("Single short answer { ... }"),
         peg$c62 = function(answer, feedback, globalFeedback) { var choices = [];
-            choices.push({isCorrect:true, text:answer, feedback:feedback, weight:null});
-            return { type: "Short", choices:choices, globalFeedback:globalFeedback}; },
+            choices.push({isCorrect:true, text:answer, formattedFeedback:feedback, weight:null});
+            return { type: "Short", choices:choices, formattedGlobalFeedback:globalFeedback}; },
         peg$c63 = peg$otherExpectation("{#... }"),
         peg$c64 = function(numericalAnswers, globalFeedback) { return { type:"Numerical", 
                      choices:numericalAnswers, 
-                     globalFeedback:globalFeedback}; },
+                     formattedGlobalFeedback:globalFeedback}; },
         peg$c65 = peg$otherExpectation("Numerical Answers"),
         peg$c66 = function(choices) { return Array.isArray(choices) ? choices : [choices]; },
         peg$c67 = peg$otherExpectation("Multiple Numerical Choices"),
@@ -269,16 +269,16 @@
               var txt = choice[2];
               var choice = { isCorrect:(symbol == '='), 
                              weight:wt, 
-                             text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
-                             feedback: feedback }; 
+                             text: // [FIXME] - rename to value (it's not really text)
+                                 (txt !== null ? txt : '*'), // Moodle unit tests show this, not in documentation
+                             formattedFeedback: feedback };
               return choice },
         peg$c81 = peg$otherExpectation(":: Title ::"),
         peg$c82 = "::",
         peg$c83 = peg$literalExpectation("::", false),
         peg$c84 = function(title) { return escapedCharacterDecode(title.join('')) },
-        peg$c85 = peg$otherExpectation("Question stem"),
-        peg$c86 = function(stem) { //setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
-              return stem },
+        peg$c85 = peg$otherExpectation("Question formatted stem"),
+        peg$c86 = function(stem) { return stem },
         peg$c87 = peg$otherExpectation("(blank lines separator)"),
         peg$c88 = peg$otherExpectation("(blank lines)"),
         peg$c89 = peg$otherExpectation("blank line"),
@@ -587,6 +587,9 @@
                 s6 = peg$parseCategoryText();
                 if (s6 !== peg$FAILED) {
                   s7 = peg$parseQuestionSeparator();
+                  if (s7 === peg$FAILED) {
+                    s7 = null;
+                  }
                   if (s7 !== peg$FAILED) {
                     peg$savedPos = s0;
                     s1 = peg$c6(s6);
@@ -3329,50 +3332,39 @@
           // Convert the text of each choice to remove the format, and make it the same as PlainText (FIXME)
           for (let i = 0; i < answers.choices.length; i++) {
             let choice = answers.choices[i];
-            // console.log(`Short answer format conversion of ${choice.format} with text of '${choice.text.text}'`);
-            choice.text = (choice.text.format === defaultFormat ? "" : `[${choice.text.format}]`) + removeNewLinesDuplicateSpaces(choice.text.text.trim());
+            choice.text = (choice.formattedText.format === defaultFormat ? "" : `[${choice.formattedText.format}]`) + removeNewLinesDuplicateSpaces(choice.formattedText.text.trim());
+            delete choice.formattedText; // remove the property
             answers.choices[i] = choice;
           }
         }
 
-        // if (question.stem) {
-          // console.log("post processing stem");
-          question.stem = convertFormat(question.stem, 'moodle');
-        // }
-        let questionFormat = question.stem.format; // will be either the question's defined format, or 'moodle' by default 
+          question.formattedStem = convertFormat(question.formattedStem, 'moodle');
+        let questionFormat = question.formattedStem.format; // will be either the question's defined format, or 'moodle' by default 
 
-        // if (answers.globalFeedback) {
-        //   console.log("post processing globalFeedback");
-          question.globalFeedback = convertFormat(answers.globalFeedback, questionFormat);
-        // }
+        question.formattedGlobalFeedback = convertFormat(answers.formattedGlobalFeedback, questionFormat);
         switch(question.type) {
           case "TF":
             question.isTrue = answers.isTrue;
-            // if (answers.feedback[0]) {
-            //   console.log("post processing trueFeedback");
-              question.trueFeedback = convertFormat(answers.feedback[0], questionFormat);
-            // }
-            // if (answers.feedback[1]) {
-            //   console.log("post processing falseFeedback");
-              question.falseFeedback = convertFormat(answers.feedback[1], questionFormat);
-            // }
+              question.trueFormattedFeedback = convertFormat(answers.formattedFeedback[0], questionFormat);
+              question.falseFormattedFeedback = convertFormat(answers.formattedFeedback[1], questionFormat);
             break;
+          case "Numerical":        
           case "MC":
-          case "Numerical":
           case "Short":
-            // console.log(`converting formats for question type ${question.type}:`);
             if (!answers.choices) throw new Error (`question of type ${question.type} has answers with no choices.`);
             for (let i = 0; i < answers.choices.length; i++) {
-              // console.log(`choice text: ${JSON.stringify(answers.choices[i].text)}:`);
-              answers.choices[i].text = convertFormat(answers.choices[i].text, questionFormat);
-              answers.choices[i].feedback = convertFormat(answers.choices[i].feedback, questionFormat);
+              // numerical choices aren't formatted
+              if (question.type !== "Numerical") {
+                answers.choices[i].formattedText = convertFormat(answers.choices[i].formattedText, questionFormat);
+              }
+              answers.choices[i].formattedFeedback = convertFormat(answers.choices[i].formattedFeedback, questionFormat);
             }
             question.choices = answers.choices;
             break;
           case "Matching":
             if (!answers.matchPairs) throw new Error (`question of type ${question.type} has answers with no matchPairs.`);
             for (let i = 0; i < answers.matchPairs.length; i++) {
-              answers.matchPairs[i].subquestion = convertFormat(answers.matchPairs[i].subquestion, questionFormat);
+              answers.matchPairs[i].formattedSubquestion = convertFormat(answers.matchPairs[i].formattedSubquestion, questionFormat);
             }
             question.matchPairs = answers.matchPairs;
             break;

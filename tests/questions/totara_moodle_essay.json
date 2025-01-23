@@ -3,10 +3,10 @@
         "tags" : null,
         "type": "Essay",
     "title": "Q8",
-    "stem": {
+    "formattedStem": {
         "format": "moodle",
         "text": "How are you?"
     },
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null
+    "formattedGlobalFeedback": null
 }]

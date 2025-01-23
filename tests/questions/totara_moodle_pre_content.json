@@ -4,11 +4,11 @@
       "tags" : null,
      "type": "Essay",
        "title": "Q001",
-       "stem": {
+       "formattedStem": {
           "format": "html",
           "text": "<p>What would running the test method print?</p>\n<pre>\n    public void test() {\n        method1();\n        method2();\n        method3();\n    }\n</pre>"
        },
        "hasEmbeddedAnswers": false,
-       "globalFeedback": null
+       "formattedGlobalFeedback": null
     }
  ]

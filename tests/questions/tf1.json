@@ -3,10 +3,10 @@
         "tags" : null,
         "type": "TF",
     "title": null,
-    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "formattedStem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "isTrue": false,
-    "trueFeedback": null,
-    "falseFeedback": null
+    "trueFormattedFeedback": null,
+    "falseFormattedFeedback": null
 }]

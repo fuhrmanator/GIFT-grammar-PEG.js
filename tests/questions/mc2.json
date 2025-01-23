@@ -3,26 +3,26 @@
         "tags" : null,
         "type": "MC",
     "title": null,
-    "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
+    "formattedStem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
     "hasEmbeddedAnswers": true,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "choices": [{
             "isCorrect": false,
             "weight": null,
-            "text": {"format":"moodle", "text":"buried"},
-            "feedback": null
+            "formattedText": {"format":"moodle", "text":"buried"},
+            "formattedFeedback": null
         },
         {
             "isCorrect": true,
             "weight": null,
-            "text": {"format":"moodle", "text":"entombed"},
-            "feedback": null
+            "formattedText": {"format":"moodle", "text":"entombed"},
+            "formattedFeedback": null
         },
         {
             "isCorrect": false,
             "weight": null,
-            "text": {"format":"moodle", "text":"living"},
-            "feedback": null
+            "formattedText": {"format":"moodle", "text":"living"},
+            "formattedFeedback": null
         }
     ]
 }]

@@ -3,20 +3,20 @@
         "tags" : null,
         "type": "Short",
     "title": null,
-    "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+    "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "choices": [{
             "isCorrect": true,
             "weight": null,
             "text": "no one",
-            "feedback": null
+            "formattedFeedback": null
         },
         {
             "isCorrect": true,
             "weight": null,
             "text": "nobody",
-            "feedback": null
+            "formattedFeedback": null
         }
     ]
 },
@@ -25,14 +25,14 @@
     "tags" : null,
     "type": "Short",
     "title": null,
-    "stem": {"format":"moodle", "text":"How do you write the word for the number 1?"},
+    "formattedStem": {"format":"moodle", "text":"How do you write the word for the number 1?"},
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+    "formattedGlobalFeedback": null,
     "choices": [{
             "isCorrect": true,
             "weight": null,
             "text": "One",
-            "feedback": null
+            "formattedFeedback": null
         }
     ]
 }]

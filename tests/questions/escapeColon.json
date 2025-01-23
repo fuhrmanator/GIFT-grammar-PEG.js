@@ -3,33 +3,33 @@
     "tags" : null,
     "type": "MC",
     "title": null,
-    "stem": {"format":"moodle", "text":"Specify the seasons:"},
-    "globalFeedback": null,
+    "formattedStem": {"format":"moodle", "text":"Specify the seasons:"},
+    "formattedGlobalFeedback": null,
     "hasEmbeddedAnswers": false,
     "choices": [{
         "isCorrect": true,
         "weight": null,
-        "text": {"format":"moodle", "text":"spring"},
-        "feedback": null
+        "formattedText": {"format":"moodle", "text":"spring"},
+        "formattedFeedback": null
     }, {
         "isCorrect": true,
         "weight": null,
-        "text": {"format":"moodle", "text":"summer"},
-        "feedback": null
+        "formattedText": {"format":"moodle", "text":"summer"},
+        "formattedFeedback": null
     }, {
         "isCorrect": true,
         "weight": null,
-        "text": {"format":"moodle", "text":"winter"},
-        "feedback": null
+        "formattedText": {"format":"moodle", "text":"winter"},
+        "formattedFeedback": null
     }, {
         "isCorrect": true,
         "weight": null,
-        "text": {"format":"moodle", "text":"autumn"},
-        "feedback": null
+        "formattedText": {"format":"moodle", "text":"autumn"},
+        "formattedFeedback": null
     }, {
         "isCorrect": false,
         "weight": null,
-        "text": {"format":"moodle", "text":"easter"},
-        "feedback": null
+        "formattedText": {"format":"moodle", "text":"easter"},
+        "formattedFeedback": null
     }]
 }]
