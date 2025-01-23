@@ -1,4 +1,4 @@
-export type QuestionType = "TF" | "MC" | "Numerical" | "Short" | "Description" | "Category";
+export type QuestionType = "TF" | "MC" | "Numerical" | "Short" | "Description" | "Essay" | "Category" | "Matching";
 
 export interface TextFormat {
   text: string;
@@ -41,12 +41,25 @@ export interface DescriptionQuestion extends BaseQuestion {
   type: "Description";
 }
 
+export interface EssayQuestion extends BaseQuestion {
+  type: "Essay";
+}
+
+export interface MatchingQuestion extends BaseQuestion {
+  type: "Matching";
+  matchPairs: MatchingPair[];
+}
+
 export interface Category {
   type: "Category";
   title: string;
 }
 
-// Define the types for numerical answers
+export interface MatchingPair {
+  formattedSubquestion: TextFormat;
+  subanswer: string;
+}
+
 export interface SimpleNumericalAnswer {
   type: "simple";
   number: number;
@@ -80,7 +93,7 @@ export interface NumericalQuestion extends BaseQuestion {
 }
 
 // Union type for all question types
-export type Question = TrueFalseQuestion | MultipleChoiceQuestion | NumericalQuestion | ShortAnswerQuestion | DescriptionQuestion | Category;
+export type Question = TrueFalseQuestion | MultipleChoiceQuestion | NumericalQuestion | ShortAnswerQuestion | DescriptionQuestion | EssayQuestion | MatchingQuestion | Category;
 
 export interface TextChoice {
   isCorrect: boolean;
