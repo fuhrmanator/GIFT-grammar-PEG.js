@@ -1,33 +1,33 @@
 [{
-    "id": null,
-    "tags": null,
+
+
     "type": "Description",
-    "title": null,
-    "stem": {"format":"markdown", "text":"multiline1  \nmarkdown"},
+
+    "formattedStem": {"format":"markdown", "text":"multiline1  \nmarkdown"},
     "hasEmbeddedAnswers": false
 },
 {
-    "id": null,
-    "tags": null,
+
+
     "type": "Description",
-    "title": null,
-    "stem": {"format":"markdown", "text":"multiline2  \nmarkdown"},
+
+    "formattedStem": {"format":"markdown", "text":"multiline2  \nmarkdown"},
     "hasEmbeddedAnswers": false
 },
 {
-    "id": null,
-    "tags": null,
+
+
     "type": "Description",
-    "title": null,
-    "stem": {"format":"markdown", "text":"nested lists  \n- item 1\n    - nested item 1\n- item 2"},
+
+    "formattedStem": {"format":"markdown", "text":"nested lists  \n- item 1\n    - nested item 1\n- item 2"},
     "hasEmbeddedAnswers": false
 },
 {
-    "id": null,
-    "tags": null,
+
+
     "type": "Description",
-    "title": null,
-    "stem": {"format":"markdown", "text":"nested lists  \n- item 1\n    - nested item 1\n- item 2"},
+
+    "formattedStem": {"format":"markdown", "text":"nested lists  \n- item 1\n    - nested item 1\n- item 2"},
     "hasEmbeddedAnswers": false
 }
 ]

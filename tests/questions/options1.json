@@ -1,372 +1,354 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {"format":"moodle", "text":"What's 2 plus 2?"},
+
+        "formattedStem": {"format":"moodle", "text":"What's 2 plus 2?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
-        "choices": {
+
+        "choices": [{
             "type": "simple",
             "number": 4
-        }
-    },
-    {
-        "id" : null,
-        "tags" : null,
-        "type": "Short",
-        "title": "Kanji Origins",
-        "stem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
-        "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
-        "choices": [{
-            "isCorrect": true,
-            "weight": null,
-            "text": {"format":"moodle", "text":"China"},
-            "feedback": null
         }]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
+        "type": "Short",
+        "title": "Kanji Origins",
+        "formattedStem": {"format":"moodle", "text":"Japanese characters originally came from what country?"},
+        "hasEmbeddedAnswers": false,
+
+        "choices": [{
+            "isCorrect": true,
+
+            "text": "China"
+        }]
+    },
+    {
+
+
         "type": "MC",
         "title": "Thanksgiving Date",
-        "stem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
+        "formattedStem": {"format":"moodle", "text":"The American holiday of Thanksgiving is celebrated on the _____ Thursday of November."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"second"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"second"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"third"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"third"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"fourth"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"fourth"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"What's the answer to this multiple-choice question?"},
+
+        "formattedStem": {"format":"moodle", "text":"What's the answer to this multiple-choice question?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"wrong answer"},
-                "feedback": {"format":"moodle", "text":"feedback comment on the wrong answer"}
+
+                "formattedText": {"format":"moodle", "text":"wrong answer"},
+                "formattedFeedback": {"format":"moodle", "text":"formattedFeedback comment on the wrong answer"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"another wrong answer"},
-                "feedback": {"format":"moodle", "text":"feedback comment on this wrong answer"}
+
+                "formattedText": {"format":"moodle", "text":"another wrong answer"},
+                "formattedFeedback": {"format":"moodle", "text":"formattedFeedback comment on this wrong answer"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"right answer"},
-                "feedback": {"format":"moodle", "text":"Very good!"}
+
+                "formattedText": {"format":"moodle", "text":"right answer"},
+                "formattedFeedback": {"format":"moodle", "text":"Very good!"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Short",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+
+        "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"no one"},
-                "feedback": {"format":"moodle", "text":"excellent answer!"}
+
+                "text": "no one",
+                "formattedFeedback": {"format":"moodle", "text":"excellent answer!"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"nobody"},
-                "feedback": {"format":"moodle", "text":"excellent answer!"}
+
+                "text": "nobody",
+                "formattedFeedback": {"format":"moodle", "text":"excellent answer!"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Short",
-        "title": null,
-        "stem": {"format":"markdown", "text":"Who's buried in **Grant's tomb**?"},
+
+        "formattedStem": {"format":"markdown", "text":"Who's buried in **Grant's tomb**?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"markdown", "text":"no one"},
-                "feedback": {"format":"markdown", "text":"excellent answer!"}
+
+                "text": "no one",
+                "formattedFeedback": {"format":"markdown", "text":"excellent answer!"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"markdown", "text":"nobody"},
-                "feedback": {"format":"markdown", "text":"excellent answer!"}
+
+                "text": "nobody",
+                "formattedFeedback": {"format":"markdown", "text":"excellent answer!"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "TF",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+
+        "formattedStem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "isTrue": false,
-        "trueFeedback": {"format":"moodle", "text":"No one is buried in Grant's tomb."},
-        "falseFeedback": null
+        "trueFormattedFeedback": {"format":"moodle", "text":"No one is buried in Grant's tomb."}
+
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Difficult question."},
+
+        "formattedStem": {"format":"moodle", "text":"Difficult question."},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"wrong answer"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"wrong answer"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"half credit answer"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"half credit answer"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"full credit answer"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"full credit answer"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
         "title": "Jesus' hometown",
-        "stem": {"format":"moodle", "text":"Jesus Christ was from _____ ."},
+        "formattedStem": {"format":"moodle", "text":"Jesus Christ was from _____ ."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Jerusalem"},
-                "feedback": {"format":"moodle", "text":"This was an important city, but the wrong answer."}
+
+                "formattedText": {"format":"moodle", "text":"Jerusalem"},
+                "formattedFeedback": {"format":"moodle", "text":"This was an important city, but the wrong answer."}
             },
             {
                 "isCorrect": false,
                 "weight": 25,
-                "text": {"format":"moodle", "text":"Bethlehem"},
-                "feedback": {"format":"moodle", "text":"He was born here, but not raised here."}
+                "formattedText": {"format":"moodle", "text":"Bethlehem"},
+                "formattedFeedback": {"format":"moodle", "text":"He was born here, but not raised here."}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"Galilee"},
-                "feedback": {"format":"moodle", "text":"You need to be more specific."}
+                "formattedText": {"format":"moodle", "text":"Galilee"},
+                "formattedFeedback": {"format":"moodle", "text":"You need to be more specific."}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Nazareth"},
-                "feedback": {"format":"moodle", "text":"Yes! That's right!"}
+
+                "formattedText": {"format":"moodle", "text":"Nazareth"},
+                "formattedFeedback": {"format":"moodle", "text":"Yes! That's right!"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Short",
         "title": "Jesus' hometown",
-        "stem": {"format":"moodle", "text":"Jesus Christ was from"},
+        "formattedStem": {"format":"moodle", "text":"Jesus Christ was from"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Nazareth"},
-                "feedback": {"format":"moodle", "text":"Yes! That's right!"}
+
+                "text": "Nazareth",
+                "formattedFeedback": {"format":"moodle", "text":"Yes! That's right!"}
             },
             {
                 "isCorrect": true,
                 "weight": 75,
-                "text": {"format":"moodle", "text":"Nazereth"},
-                "feedback": {"format":"moodle", "text":"Right, but misspelled."}
+                "text": "Nazereth",
+                "formattedFeedback": {"format":"moodle", "text":"Right, but misspelled."}
             },
             {
                 "isCorrect": true,
                 "weight": 25,
-                "text": {"format":"moodle", "text":"Bethlehem"},
-                "feedback": {"format":"moodle", "text":"He was born here, but not raised here."}
+                "text": "Bethlehem",
+                "formattedFeedback": {"format":"moodle", "text":"He was born here, but not raised here."}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"What two people are entombed in Grant's tomb?"},
+
+        "formattedStem": {"format":"moodle", "text":"What two people are entombed in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"No one"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"No one"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"Grant"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Grant"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"Grant's wife"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Grant's wife"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Grant's father"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"Grant's father"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"What two people are entombed in Grant's tomb?"},
+
+        "formattedStem": {"format":"moodle", "text":"What two people are entombed in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
                 "weight": -50,
-                "text": {"format":"moodle", "text":"No one"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"No one"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"Grant"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Grant"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"Grant's wife"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Grant's wife"}
             },
             {
                 "isCorrect": false,
                 "weight": -50,
-                "text": {"format":"moodle", "text":"Grant's father"},
-                "feedback": null
+                "formattedText": {"format":"moodle", "text":"Grant's father"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Which answer equals 5?"},
+
+        "formattedStem": {"format":"moodle", "text":"Which answer equals 5?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"= 2 + 2"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"= 2 + 2"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"= 2 + 3"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"= 2 + 3"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"= 2 + 4"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"= 2 + 4"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
         "title": "GIFT Control Characters",
-        "stem": {"format":"moodle", "text":"Which of the following is NOT a control character for the GIFT import format?"},
+        "formattedStem": {"format":"moodle", "text":"Which of the following is NOT a control character for the GIFT import format?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"~"},
-                "feedback": {"format":"moodle", "text":"~ is a control character."}
+
+                "formattedText": {"format":"moodle", "text":"~"},
+                "formattedFeedback": {"format":"moodle", "text":"~ is a control character."}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"="},
-                "feedback": {"format":"moodle", "text":"= is a control character."}
+
+                "formattedText": {"format":"moodle", "text":"="},
+                "formattedFeedback": {"format":"moodle", "text":"= is a control character."}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"#"},
-                "feedback": {"format":"moodle", "text":"# is a control character."}
+
+                "formattedText": {"format":"moodle", "text":"#"},
+                "formattedFeedback": {"format":"moodle", "text":"# is a control character."}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"{"},
-                "feedback": {"format":"moodle", "text":"{ is a control character."}
+
+                "formattedText": {"format":"moodle", "text":"{"},
+                "formattedFeedback": {"format":"moodle", "text":"{ is a control character."}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"}"},
-                "feedback": {"format":"moodle", "text":"} is a control character."}
+
+                "formattedText": {"format":"moodle", "text":"}"},
+                "formattedFeedback": {"format":"moodle", "text":"} is a control character."}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"\\"},
-                "feedback": {"format":"moodle", "text":"Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters. So, to specify a literal backslash, you must escape it with a backslash (as shown in this example)."}
+
+                "formattedText": {"format":"moodle", "text":"\\"},
+                "formattedFeedback": {"format":"moodle", "text":"Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters. So, to specify a literal backslash, you must escape it with a backslash (as shown in this example)."}
             }
         ]
     }

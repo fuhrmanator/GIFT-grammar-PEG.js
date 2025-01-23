@@ -1,27 +1,24 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "Short",
        "title": "Shortanswer",
-       "stem": {
+       "formattedStem": {
           "format": "moodle",
           "text": "Which is the best animal?"
        },
        "hasEmbeddedAnswers": false,
-       "globalFeedback": {
+       "formattedGlobalFeedback": {
           "format": "html",
-          "text": "Here is some general feedback!"
+          "text": "Here is some general formattedFeedback!"
        },
        "choices": [
           {
              "isCorrect": true,
-             "weight": null,
-             "text": {
-                "format": "moodle",
-                "text": "Frog"
-             },
-             "feedback": {
+
+             "text": "Frog",
+             "formattedFeedback": {
                 "format": "moodle",
                 "text": "Good!"
              }
@@ -29,11 +26,8 @@
           {
              "isCorrect": true,
              "weight": 50,
-             "text": {
-                "format": "moodle",
-                "text": "Cat"
-             },
-             "feedback": {
+             "text": "Cat",
+             "formattedFeedback": {
                 "format": "moodle",
                 "text": "What is it with Moodlers and cats?"
              }
@@ -41,11 +35,8 @@
           {
              "isCorrect": true,
              "weight": 0,
-             "text": {
-                "format": "moodle",
-                "text": "*"
-             },
-             "feedback": {
+             "text": "*",
+             "formattedFeedback": {
                 "format": "moodle",
                 "text": "Completely wrong"
              }

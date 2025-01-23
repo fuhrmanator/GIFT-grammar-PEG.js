@@ -2,5 +2,14 @@
     {
        "type": "Category",
        "title": "$course$/top/Default for LING-373-2194-B"
-    }
+    },
+    {
+     "hasEmbeddedAnswers": false,
+     "isTrue": true,
+     "formattedStem": {
+       "format": "moodle",
+       "text": "a"
+     },
+     "type": "TF"
+   }    
  ]

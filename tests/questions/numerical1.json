@@ -1,190 +1,188 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {
+
+        "formattedStem": {
             "format": "moodle",
             "text": "When was Ulysses S. Grant born?"
         },
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
-        "choices": {
+
+        "choices": [{
             "type": "simple",
             "number": 1822
-        }
+        }]
     },
     {
-		"id": null,
-		"tags": null,
+
+
 		"type": "Numerical",
-		"title": null,
-		"stem": {
+
+		"formattedStem": {
 			"format": "moodle",
 			"text": "What is the value of -1?"
 		},
 		"hasEmbeddedAnswers": false,
-		"globalFeedback": null,
-		"choices": {
+
+		"choices": [{
 			"type": "simple",
 			"number": -1
-		}
+		}]
 	},
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {
+
+        "formattedStem": {
             "format": "moodle",
             "text": "What is the value of pi (to 3 decimal places)? _____ ."
         },
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
-        "choices": {
+
+        "choices": [{
             "type": "range",
             "number": 3.1415,
             "range": 0.0005
-        }
+        }]
     },
     {
-		"id": null,
-		"tags": null,
+
+
 		"type": "Numerical",
-		"title": null,
-		"stem": {
+
+		"formattedStem": {
 			"format": "moodle",
 			"text": "What is the value of pi times -1 (to 3 decimal places)? _____ ."
 		},
 		"hasEmbeddedAnswers": true,
-		"globalFeedback": null,
-		"choices": {
+
+		"choices": [{
 			"type": "range",
 			"number": -3.142,
 			"range": 0.001
-		}
+		}]
 	},
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {
+
+        "formattedStem": {
             "format": "moodle",
             "text": "What is the value of pi (to 3 decimal places)? _____ ."
         },
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
-        "choices": {
+
+        "choices": [{
             "type": "high-low",
             "numberHigh": 3.142,
             "numberLow": 3.141
-        }
+        }]
     },
     {
-		"id": null,
-		"tags": null,
+
+
 		"type": "Numerical",
-		"title": null,
-		"stem": {
+
+		"formattedStem": {
 			"format": "moodle",
 			"text": "What is the value of pi times -1 (to 3 decimal places)? _____ ."
 		},
 		"hasEmbeddedAnswers": true,
-		"globalFeedback": null,
-		"choices": {
+
+		"choices": [{
 			"type": "high-low",
 			"numberHigh": -3.141,
 			"numberLow": -3.142
-		}
+		}]
 	},
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {
+
+        "formattedStem": {
             "format": "moodle",
             "text": "Give me a number from 1 to 5. _____ ."
         },
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
-        "choices": {
+
+        "choices": [{
             "type": "high-low",
             "numberHigh": 5,
             "numberLow": 1
-        }
+        }]
     },
     {
-		"id": null,
-		"tags": null,
+
+
 		"type": "Numerical",
-		"title": null,
-		"stem": {
+
+		"formattedStem": {
 			"format": "moodle",
 			"text": "Pick a number from -5 to 5. _____ ."
 		},
 		"hasEmbeddedAnswers": true,
-		"globalFeedback": null,
-		"choices": {
+
+		"choices": [{
 			"type": "high-low",
 			"numberHigh": 5,
 			"numberLow": -5
-		}
+		}]
 	},
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {
+
+        "formattedStem": {
             "format": "moodle",
             "text": "When was Ulysses S. Grant born?"
         },
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {
+
+                "answer": {
                     "type": "range",
                     "number": 1822,
                     "range": 0
-                },
-                "feedback": null
+                }
             },
             {
                 "isCorrect": true,
                 "weight": 50,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 1822,
                     "range": 2
-                },
-                "feedback": null
+                }
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
         "title": "Combien de principes GRASP y a-t-il?",
-        "stem": {
+        "formattedStem": {
             "format": "html",
             "text": "<p>Combien de principes GRASP y a-t-il?</p>"
         },
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
                 "weight": 0,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 5,
                     "range": 0
                 },
-                "feedback": {
+                "formattedFeedback": {
                     "format": "html",
                     "text": "<p>Incorrect. Bien que le livre ne présente que 5 principes au début, au total, il y a neuf (9) principes GRASP.</p>"
                 }
@@ -192,12 +190,12 @@
             {
                 "isCorrect": true,
                 "weight": 100,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 9,
                     "range": 0
                 },
-                "feedback": {
+                "formattedFeedback": {
                     "format": "html",
                     "text": "<p>Correct. Il y a neuf (9) principes GRASP.</p>"
                 }
@@ -205,12 +203,12 @@
             {
                 "isCorrect": true,
                 "weight": 0,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 23,
                     "range": 0
                 },
-                "feedback": {
+                "formattedFeedback": {
                     "format": "html",
                     "text": "<p>Incorrect. Il y a neuf (9) principes GRASP. Il y a cependant <a title=\"Gang des quatre\" href=\"http://fr.wikipedia.org/wiki/Design_Patterns\">23 Patterns GoF (Gang des quatre)</a></p>"
                 }

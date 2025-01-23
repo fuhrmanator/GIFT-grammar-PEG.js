@@ -1,21 +1,21 @@
 [   {
-        "id": null,
-        "tags": null,
+
+
         "type": "Description",
         "title": "Description Title:",
-        "stem": {"format":"moodle", "text":"You can use your pencil and paper for these next questions."},
+        "formattedStem": {"format":"moodle", "text":"You can use your pencil and paper for these next questions."},
         "hasEmbeddedAnswers": false
     },
     {
-        "id": null,
-        "tags": null,
+
+
         "type": "TF",
-        "title": null,
-        "stem": {"format":"moodle", "text":"True or false?"},
+
+        "formattedStem": {"format":"moodle", "text":"True or false?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
-        "isTrue": true,
-        "trueFeedback": null,
-        "falseFeedback": null
+
+        "isTrue": true
+
+
     }
 ]

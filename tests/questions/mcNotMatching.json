@@ -1,73 +1,68 @@
 [{
-   "id" : null,
-   "tags" : null,
+
+
    "type": "MC",
-    "title": null,
-    "stem": {
+
+    "formattedStem": {
        "format": "moodle",
        "text": "How to make coffee?"
     },
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+
     "choices": [
        {
           "isCorrect": false,
-          "weight": null,
-          "text": {
+
+          "formattedText": {
              "format": "moodle",
              "text": "go to starbucks -> order a coffee"
-          },
-          "feedback": null
+          }
        },
        {
           "isCorrect": true,
-          "weight": null,
-          "text": {
+
+          "formattedText": {
              "format": "moodle",
              "text": "get coffee powder -> add water"
-          },
-          "feedback": null
+          }
        }
     ]
  },
  {
-   "id" : null,
-   "tags" : null,
+
+
    "type": "MC",
     "title": "iebT26nuevo_P012",
-    "stem": {
+    "formattedStem": {
        "format": "moodle",
        "text": "¿Cómo se cambia la orientación de la página en Word 2003 y 2007?:"
     },
     "hasEmbeddedAnswers": false,
-    "globalFeedback": null,
+
     "choices": [
        {
           "isCorrect": false,
-          "weight": null,
-          "text": {
+
+          "formattedText": {
              "format": "moodle",
              "text": "todas las versiones de Word cambian la orientación de página igual (archivo->diseño de página)"
-          },
-          "feedback": null
+          }
        },
        {
           "isCorrect": false,
-          "weight": null,
-          "text": {
+
+          "formattedText": {
              "format": "moodle",
              "text": "-archivo->configurar->orientación ó -archivo->configurar->diseño de página"
-          },
-          "feedback": null
+          }
        },
        {
           "isCorrect": true,
-          "weight": null,
-          "text": {
+
+          "formattedText": {
              "format": "moodle",
              "text": "-archivo-configurar página ó -diseño de página-orientación"
-          },
-          "feedback": null
+          }
        }
     ]
  }

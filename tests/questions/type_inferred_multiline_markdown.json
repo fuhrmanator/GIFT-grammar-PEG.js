@@ -1,35 +1,25 @@
 [
     {
       "type": "Short",
-      "title": null,
-      "stem": {
+
+      "formattedStem": {
         "format": "markdown",
-        "text": "stem line1  \nstem line2"
+        "text": "formattedStem line1  \nformattedStem line2"
       },
       "hasEmbeddedAnswers": false,
-      "globalFeedback": null,
+
       "choices": [
         {
           "isCorrect": true,
-          "weight": null,
-          "text": {
-            "format": "markdown",
-            "text": "answer1 line1  \nanswer1 line2"
-          },
-          "feedback": null
+
+          "text": "answer1 line1 answer1 line2"
         },
         {
           "isCorrect": true,
-          "weight": null,
-          "text": {
-            "format": "markdown",
-            "text": "answer2 line1  \nanswer2 line2"
-          },
-          "feedback": null
+
+          "text": "[html]answer2 line1 answer2 line2"
         }
-      ],
-      "id": null,
-      "tags": null
+      ]
     }
   ]
   

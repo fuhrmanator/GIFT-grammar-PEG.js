@@ -1,0 +1,15 @@
+// This is a comment before the question
+// Another comment describing the question
+// [tag:tag1]
+// [tag:tag2]
+::Question Title:: // This is a comment after the title
+// This comment describes the stem
+This statement is false. // This is an inline comment after the stem
+{ // This comment appears before the answer
+    // This comment describes the correct answer
+    F // This is a comment after the answer
+    // This is the last comment in the question
+}
+// comment at the end
+
+// another comment

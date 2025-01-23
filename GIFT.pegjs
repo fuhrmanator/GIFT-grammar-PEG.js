@@ -2,7 +2,7 @@
 {
   var questionId = null;
   var questionTags = null;
-  var defaultFormat = "moodle"; // default format - the GIFT specs say [moodle] is default, but not sure what that means for other applications
+  var defaultFormat = "defaultFormat"; // default format - the GIFT specs say [moodle] is default, we'll set it later
   var format = defaultFormat;
   const escapedCharacters = {
     "\\\\"  : "&&092;",
@@ -14,6 +14,29 @@
     "\\~"  : "&&126;",
     "\\n"  : "&&010"
   };
+  function removeNulls(obj) {
+    if (Array.isArray(obj)) {
+      return obj.map(item => removeNulls(item));
+    }
+    if (obj !== null && typeof obj === 'object') {
+      // console.log('Checking object:', obj);
+      return Object.fromEntries(
+        Object.entries(obj)
+          .filter(([key, value]) => {
+            if (value === null) {
+              // console.log('Removing null property:', key);
+              return false;
+            }
+            return true;
+          })
+          .map(([key, value]) => [
+            key, 
+            removeNulls(value)
+          ])
+      );
+    }
+    return obj;
+  }
   function escapedCharacterDecode(text) {
     // Replace escaped characters with their original values, except for the newline character which should return a real (not escaped newline)
     return text.replace(/&&092;/g, '\\')
@@ -25,32 +48,66 @@
                .replace(/&&126;/g, '~')
                .replace(/&&010/g, '\n');
   }
-  function processAnswers(question, answers) {
-    question.globalFeedback = answers.globalFeedback;
+  function postProcessQuestion(question, answers) {
+    // check for MC that's actually a short answer (all correct answers)
+    if (question.type == "MC" && areAllCorrect(answers.choices)) {
+      question.type = "Short";
+      // Convert the text of each choice to remove the format, and make it the same as PlainText (FIXME)
+      for (let i = 0; i < answers.choices.length; i++) {
+        let choice = answers.choices[i];
+        choice.text = (choice.formattedText.format === defaultFormat ? "" : `[${choice.formattedText.format}]`) + removeNewLinesDuplicateSpaces(choice.formattedText.text.trim());
+        delete choice.formattedText; // remove the property
+        answers.choices[i] = choice;
+      }
+    }
+
+    question.formattedStem = convertFormat(question.formattedStem, 'moodle');
+    let questionFormat = question.formattedStem.format; // will be either the question's defined format, or 'moodle' by default 
+
+    if (answers.formattedGlobalFeedback) question.formattedGlobalFeedback = convertFormat(answers.formattedGlobalFeedback, questionFormat);
     switch(question.type) {
       case "TF":
         question.isTrue = answers.isTrue;
-        question.trueFeedback = answers.feedback[0];
-        question.falseFeedback = answers.feedback[1];
+          if (answers.formattedFeedback[0]) question.trueFormattedFeedback = convertFormat(answers.formattedFeedback[0], questionFormat);
+          if (answers.formattedFeedback[1]) question.falseFormattedFeedback = convertFormat(answers.formattedFeedback[1], questionFormat);
         break;
+      case "Numerical":        
       case "MC":
-      case "Numerical":
       case "Short":
-        question.choices = answers.choices;
+        if (!answers.choices) throw new Error (`question of type ${question.type} has answers with no choices.`);
+        for (let i = 0; i < answers.choices.length; i++) {
+          // numerical choices aren't formatted
+          if (question.type !== "Numerical") {
+            answers.choices[i].formattedText = convertFormat(answers.choices[i].formattedText, questionFormat);
+          }
+          if (answers.choices[i].formattedFeedback) answers.choices[i].formattedFeedback = convertFormat(answers.choices[i].formattedFeedback, questionFormat);
+        }
+        if (answers.choices) question.choices = answers.choices;
         break;
       case "Matching":
+        if (!answers.matchPairs) throw new Error (`question of type ${question.type} has answers with no matchPairs.`);
+        for (let i = 0; i < answers.matchPairs.length; i++) {
+          answers.matchPairs[i].formattedSubquestion = convertFormat(answers.matchPairs[i].formattedSubquestion, questionFormat);
+        }
         question.matchPairs = answers.matchPairs;
         break;
     }
-    // check for MC that's actually a short answer (all correct answers)
-    if (question.type == "MC" && areAllCorrect(question.choices)) {
-      question.type = "Short";
+    if (questionId) question.id = questionId;
+    if (questionTags) question.tags = questionTags;
+    return removeNulls(question);
+  }
+
+  // the text formats should inherit the format of the question if they're not defined
+  function convertFormat(richText, questionFormat) {
+    if (!questionFormat) throw new Error (`questionFormat not defined in convertFormat.`);
+    // console.log(`convertFormat: ${JSON.stringify(richText)}`);
+    if (richText && richText.format === defaultFormat) {
+      richText.format = questionFormat;
     }
-    question.id = questionId;
-    question.tags = questionTags;
-    return question;
+    return richText;
   }
   function areAllCorrect(choices) {
+    if (!choices) throw new Error (`areAllCorrect has invalid choices.`);
     var allAreCorrect = true;
     for (var i = 0; i < choices.length; i++) {
       allAreCorrect &= choices[i].isCorrect;
@@ -90,7 +147,7 @@ GIFTQuestions
   = questions:(Category / Description / Question)+ _ __ { return questions; }
 
 Category "Category"
-  = ResetIdsTags __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
+  = ResetIdsTags __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator? {return {type:"Category", title:cat}}
 
 Description "Description"
   = ResetIdsTags __
@@ -98,10 +155,10 @@ Description "Description"
     title:QuestionTitle? _
     text:QuestionStem
     QuestionSeparator
-    { var question = {id: questionId, tags: questionTags, type:"Description", title:title, stem:text, hasEmbeddedAnswers:false};
+    { var question = {id: questionId, tags: questionTags, type:"Description", title:title, formattedStem:convertFormat(text, 'moodle'), hasEmbeddedAnswers:false};
       resetLastQuestionTextFormat(); 
       questionId = null; questionTags = null;
-      return question }
+      return removeNulls(question) }
 
 Question
   = ResetIdsTags __
@@ -122,15 +179,15 @@ Question
     var format = (stem1 && stem1.format) || (stem2 && stem2.format) || "moodle";
     var text = stem1Text + ( embedded ? "_____ " + stem2.text : "");
     
-    var question = {type:answers.type, title:title, stem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
-    question = processAnswers(question, answers);
+    var question = {type:answers.type, title:title, formattedStem: {format: format, text: text}, hasEmbeddedAnswers:embedded};
+    question = postProcessQuestion(question, answers);
     resetLastQuestionTextFormat();
     return question;
   }
 
 MatchingAnswers "{= match1 -> Match1\n...}"
   = matchPairs:Matches _ globalFeedback:GlobalFeedback? _
-  { return { type: "Matching", matchPairs:matchPairs, globalFeedback:globalFeedback }; }
+  { return { type: "Matching", matchPairs:matchPairs, formattedGlobalFeedback:globalFeedback }; }
 
 Matches "matches"
   = matchPairs:(Match)+  { return matchPairs }
@@ -138,7 +195,7 @@ Matches "matches"
 Match "match"
   = _ '=' _ left:MatchRichText? _ '->' _ right:PlainText _ 
     { var matchPair = { 
-        subquestion:{
+        formattedSubquestion:{
           format:(left !== null ? left.format : getLastQuestionTextFormat()), 
           text:(left !== null ? left.text : "")
         }, 
@@ -150,7 +207,7 @@ TrueFalseAnswer "{T} or {F} or {TRUE} or {FALSE}"
   = isTrue:TrueOrFalseType _ 
     feedback:(Feedback? Feedback?) _
     globalFeedback:GlobalFeedback?
-  { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; }
+  { return { type:"TF", isTrue: isTrue, formattedFeedback:feedback, formattedGlobalFeedback:globalFeedback}; }
   
 TrueOrFalseType 
   = isTrue:(TrueType / FalseType) { return isTrue }
@@ -165,7 +222,7 @@ FalseType
 MCAnswers "{=correct choice ~incorrect choice ... }"
   = choices:Choices _ 
     globalFeedback:GlobalFeedback? _
-  { return { type: "MC", choices:choices, globalFeedback:globalFeedback}; }
+  { return { type: "MC", choices:choices, formattedGlobalFeedback:globalFeedback}; }
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
@@ -176,8 +233,8 @@ Choice "Choice"
       var txt = choice[4];
       var choice = { isCorrect: (choice[0] == '='), 
                      weight:wt, 
-                     text: txt,
-                     feedback:feedback };
+                     formattedText: txt,
+                     formattedFeedback:feedback };
       return choice } 
 
 Weight "(weight)"
@@ -198,23 +255,23 @@ PercentValue "(percent)"
       }
     }
 
-Feedback "(feedback)" 
+Feedback "(formatted feedback)" 
   = '#' !'###' _ feedback:RichText? { return feedback }
 
 ////////////////////
 EssayAnswer "Essay question { ... }"
   = '' _
     globalFeedback:GlobalFeedback? _ 
-  { return { type: "Essay", globalFeedback:globalFeedback}; }
+  { return { type: "Essay", formattedGlobalFeedback:globalFeedback}; }
 
 ///////////////////
 SingleCorrectShortAnswer "Single short answer { ... }"
-  = answer:RichText _ 
+  = answer:PlainText _ 
     feedback:Feedback? _ 
     globalFeedback:GlobalFeedback? _
   { var choices = [];
-    choices.push({isCorrect:true, text:answer, feedback:feedback, weight:null});
-    return { type: "Short", choices:choices, globalFeedback:globalFeedback}; }
+    choices.push({isCorrect:true, text:answer, formattedFeedback:feedback, weight:null});
+    return { type: "Short", choices:choices, formattedGlobalFeedback:globalFeedback}; }
 
 ///////////////////
 NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number
@@ -223,24 +280,14 @@ NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number
     globalFeedback:GlobalFeedback? 
   { return { type:"Numerical", 
              choices:numericalAnswers, 
-             globalFeedback:globalFeedback}; }
+             formattedGlobalFeedback:globalFeedback}; }
 
 NumericalAnswers "Numerical Answers"
-  = MultipleNumericalChoices / SingleNumericalAnswer
+  = choices:(MultipleNumericalChoices / SingleNumericalAnswer)
+  { return Array.isArray(choices) ? choices : [choices]; }
 
 MultipleNumericalChoices "Multiple Numerical Choices"
   = choices:(NumericalChoice)+ { return choices; }
-
-NumericalChoice "Numerical Choice"
-  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
-    { var symbol = choice[0];
-      var wt = choice[1];
-      var txt = choice[2];
-      var choice = { isCorrect:(symbol == '='), 
-                     weight:wt, 
-                     text: (txt !== null ? txt : {format:getLastQuestionTextFormat(), text:'*'}), // Moodle unit tests show this, not in documentation
-                     feedback: feedback }; 
-      return choice } 
 
 SingleNumericalAnswer "Single numeric answer"
   = NumberWithRange / NumberHighLow / NumberAlone
@@ -257,14 +304,25 @@ NumberAlone "(number answer)"
   = number:Number
   { var numericAnswer = {type: 'simple', number: number}; return numericAnswer}  
 
+NumericalChoice "Numerical Choice"
+  = _ choice:([=~] Weight? SingleNumericalAnswer?) _ feedback:Feedback? _ 
+    { var symbol = choice[0];
+      var wt = choice[1];
+      var txt = choice[2];
+      var choice = { isCorrect:(symbol == '='), 
+                     weight:wt, 
+                     answer: 
+                         (txt !== null ? txt : '*'), // Moodle unit tests show this, not in documentation
+                     formattedFeedback: feedback };
+      return choice }
+
 //////////////
 QuestionTitle ":: Title ::"
   = '::' title:TitleText+ '::' { return escapedCharacterDecode(title.join('')) }
   
-QuestionStem "Question stem"
+QuestionStem "Question formatted stem"
   = stem:RichText 
-    { setLastQuestionTextFormat(stem.format); // save format for question, for default of other non-formatted text
-      return stem }
+    { return stem }
 
 QuestionSeparator "(blank lines separator)"
   = BlankLines  
@@ -315,7 +373,7 @@ MatchRichText "(formatted text excluding '->')"
   = format:Format? _ txt:MatchTextChar+ { return formattedText(format, txt) } 
 
 RichText "(formatted text)"
-  = format:Format? _ txt:TextChar+ { return formattedText(format, txt) } 
+  = format:Format? _ txt:TextChar+ { return formattedText(format, txt) }
 
 PlainText "(unformatted text)"
   = txt:TextChar+ { return removeNewLinesDuplicateSpaces(txt.join('').trim())} 
@@ -339,10 +397,10 @@ GlobalFeedback
     = '####' _ rt:RichText _ {return rt;}
 
 _ "(single line whitespace)"
-  = (Space / EndOfLine !BlankLine)*
+  = (Space / Comment / EndOfLine !BlankLine)*
 
 __ "(multiple line whitespace)"
-  = (TagComment / EndOfLine / Space )*
+  = (TagComment / Comment / EndOfLine / Space )*
 
 ResetIdsTags 
   = &' '*     // useless match to reset any previously parsed tags/ids

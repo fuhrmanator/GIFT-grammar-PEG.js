@@ -1,47 +1,47 @@
 [
 	{
-		"id" : null,
-		"tags" : null,
+
+
 		"type": "MC",
 		"title": "GIFT Control Characters",
-		"stem": {"format":"moodle", "text":"Which of the following is NOT a control character for the GIFT import format?"},
-		"globalFeedback": null,
+		"formattedStem": {"format":"moodle", "text":"Which of the following is NOT a control character for the GIFT import format?"},
+
 		"hasEmbeddedAnswers": false,
 		"choices": [{
 				"isCorrect": false,
-				"weight": null,
-				"text": {"format":"moodle", "text":"~"},
-				"feedback": {"format":"moodle", "text":"~ is a control character."}
+
+				"formattedText": {"format":"moodle", "text":"~"},
+				"formattedFeedback": {"format":"moodle", "text":"~ is a control character."}
 			}, {
 				"isCorrect": false,
-				"weight": null,
-				"text": {"format":"moodle", "text":"="},
-				"feedback": {"format":"moodle", "text":"= is a control character."}
+
+				"formattedText": {"format":"moodle", "text":"="},
+				"formattedFeedback": {"format":"moodle", "text":"= is a control character."}
 			}, {
 				"isCorrect": false,
-				"weight": null,
-				"text": {"format":"moodle", "text":"#"},
-				"feedback": {"format":"moodle", "text":"# is a control character."}
+
+				"formattedText": {"format":"moodle", "text":"#"},
+				"formattedFeedback": {"format":"moodle", "text":"# is a control character."}
 			}, {
 				"isCorrect": false,
-				"weight": null,
-				"text": {"format":"moodle", "text":"{"},
-				"feedback": {"format":"moodle", "text":"{ is a control character."}
+
+				"formattedText": {"format":"moodle", "text":"{"},
+				"formattedFeedback": {"format":"moodle", "text":"{ is a control character."}
 			}, {
 				"isCorrect": false,
-				"weight": null,
-				"text": {"format":"moodle", "text":"}"},
-				"feedback": {"format":"moodle", "text":"} is a control character."}
+
+				"formattedText": {"format":"moodle", "text":"}"},
+				"formattedFeedback": {"format":"moodle", "text":"} is a control character."}
 			}, {
 				"isCorrect": false,
-				"weight": null,
-				"text": {"format":"moodle", "text":":"},
-				"feedback": {"format":"moodle", "text":": is a control character."}
+
+				"formattedText": {"format":"moodle", "text":":"},
+				"formattedFeedback": {"format":"moodle", "text":": is a control character."}
 			}, {
 				"isCorrect": true,
-				"weight": null,
-				"text": {"format":"moodle", "text":"\\"},
-				"feedback": {"format":"moodle", "text":"Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters."}
+
+				"formattedText": {"format":"moodle", "text":"\\"},
+				"formattedFeedback": {"format":"moodle", "text":"Correct! \\ (backslash) is not a control character. BUT, it is used to escape the control characters."}
 			}
 		]
 	}

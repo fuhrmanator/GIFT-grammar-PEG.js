@@ -1,240 +1,232 @@
 [{
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+
+        "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Grant"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"Grant"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Jefferson"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"Jefferson"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"no one"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"no one"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
+
+        "formattedStem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"buried"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"buried"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"entombed"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"entombed"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"living"},
-                "feedback": null
+
+                "formattedText": {"format":"moodle", "text":"living"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "TF",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+
+        "formattedStem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
-        "isTrue": false,
-        "trueFeedback": null,
-        "falseFeedback": null
+
+        "isTrue": false
+
+
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Short",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+
+        "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"no one"},
-                "feedback": null
+
+                "text": "no one"
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"nobody"},
-                "feedback": null
+
+                "text": "nobody"
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
-        "title": null,
-        "stem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},
+
+        "formattedStem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
-        "choices": {
+
+        "choices": [{
             "type": "range",
             "number": 1822,
             "range": 5
-        }
+        }]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Matching",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Match the following countries with their corresponding capitals."},
+
+        "formattedStem": {"format":"moodle", "text":"Match the following countries with their corresponding capitals."},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "matchPairs": [{
-                "subquestion": {"format":"moodle", "text":"Canada"},
+                "formattedSubquestion": {"format":"moodle", "text":"Canada"},
                 "subanswer": "Ottawa"
             },
             {
-                "subquestion": {"format":"moodle", "text":"Italy"},
+                "formattedSubquestion": {"format":"moodle", "text":"Italy"},
                 "subanswer": "Rome"
             },
             {
-                "subquestion": {"format":"moodle", "text":"Japan"},
+                "formattedSubquestion": {"format":"moodle", "text":"Japan"},
                 "subanswer": "Tokyo"
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
         "title": "Grant's Tomb",
-        "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
+        "formattedStem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"buried"},
-                "feedback": {"format":"moodle", "text":"No one is buried there."}
+
+                "formattedText": {"format":"moodle", "text":"buried"},
+                "formattedFeedback": {"format":"moodle", "text":"No one is buried there."}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"entombed"},
-                "feedback": {"format":"moodle", "text":"Right answer!"}
+
+                "formattedText": {"format":"moodle", "text":"entombed"},
+                "formattedFeedback": {"format":"moodle", "text":"Right answer!"}
             },
             {
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"living"},
-                "feedback": {"format":"moodle", "text":"We hope not!"}
+
+                "formattedText": {"format":"moodle", "text":"living"},
+                "formattedFeedback": {"format":"moodle", "text":"We hope not!"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "MC",
-        "title": null,
-        "stem": {"format":"moodle", "text":"Difficult multiple choice question."},
+
+        "formattedStem": {"format":"moodle", "text":"Difficult multiple choice question."},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": false,
-                "weight": null,
-                "text": {"format":"moodle", "text":"wrong answer"},
-                "feedback": {"format":"moodle", "text":"comment on wrong answer"}
+
+                "formattedText": {"format":"moodle", "text":"wrong answer"},
+                "formattedFeedback": {"format":"moodle", "text":"comment on wrong answer"}
             },
             {
                 "isCorrect": false,
                 "weight": 50,
-                "text": {"format":"moodle", "text":"half credit answer"},
-                "feedback": {"format":"moodle", "text":"comment on answer"}
+                "formattedText": {"format":"moodle", "text":"half credit answer"},
+                "formattedFeedback": {"format":"moodle", "text":"comment on answer"}
             },
             {
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"full credit answer"},
-                "feedback": {"format":"moodle", "text":"well done!"}
+
+                "formattedText": {"format":"moodle", "text":"full credit answer"},
+                "formattedFeedback": {"format":"moodle", "text":"well done!"}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Short",
         "title": "Jesus' hometown (Short answer ex.)",
-        "stem": {"format":"moodle", "text":"Jesus Christ was from _____ ."},
+        "formattedStem": {"format":"moodle", "text":"Jesus Christ was from _____ ."},
         "hasEmbeddedAnswers": true,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {"format":"moodle", "text":"Nazareth"},
-                "feedback": {"format":"moodle", "text":"Yes! That's right!"}
+
+                "text": "Nazareth",
+                "formattedFeedback": {"format":"moodle", "text":"Yes! That's right!"}
             },
             {
                 "isCorrect": true,
                 "weight": 75,
-                "text": {"format":"moodle", "text":"Nazereth"},
-                "feedback": {"format":"moodle", "text":"Right, but misspelled."}
+                "text": "Nazereth",
+                "formattedFeedback": {"format":"moodle", "text":"Right, but misspelled."}
             },
             {
                 "isCorrect": true,
                 "weight": 25,
-                "text": {"format":"moodle", "text":"Bethlehem"},
-                "feedback": {"format":"moodle", "text":"He was born here, but not raised here."}
+                "text": "Bethlehem",
+                "formattedFeedback": {"format":"moodle", "text":"He was born here, but not raised here."}
             }
         ]
     },
     {
-        "id" : null,
-        "tags" : null,
+
+
         "type": "Numerical",
         "title": "Numerical example",
-        "stem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},
+        "formattedStem": {"format":"moodle", "text":"When was Ulysses S. Grant born?"},
         "hasEmbeddedAnswers": false,
-        "globalFeedback": null,
+
         "choices": [{
                 "isCorrect": true,
-                "weight": null,
-                "text": {
+
+                "answer": {
                     "type": "range",
                     "number": 1822,
                     "range": 0
                 },
-                "feedback": {"format":"moodle", "text":"Correct! 100% credit"}
+                "formattedFeedback": {"format":"moodle", "text":"Correct! 100% credit"}
             },
             {
                 "isCorrect": true,
                 "weight": 50,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 1822,
                     "range": 2
                 },
-                "feedback": {"format":"moodle", "text":"He was born in 1822. You get 50% credit for being close."}
+                "formattedFeedback": {"format":"moodle", "text":"He was born in 1822. You get 50% credit for being close."}
             }
         ]
     }

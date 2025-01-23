@@ -1,60 +1,55 @@
 [
     {
-      "id" : null,
-      "tags" : null,
+
+
      "type": "MC",
-       "title": null,
-       "stem": {
+
+       "formattedStem": {
           "format": "moodle",
           "text": "Select all of the options below which name a continent:"
        },
        "hasEmbeddedAnswers": false,
-       "globalFeedback": null,
+
        "choices": [
           {
              "isCorrect": false,
              "weight": 33.33333,
-             "text": {
+             "formattedText": {
                 "format": "moodle",
                 "text": "Africa"
-             },
-             "feedback": null
+             }
           },
           {
              "isCorrect": false,
              "weight": 33.33333,
-             "text": {
+             "formattedText": {
                 "format": "moodle",
                 "text": "Asia"
-             },
-             "feedback": null
+             }
           },
           {
              "isCorrect": false,
              "weight": -100,
-             "text": {
+             "formattedText": {
                 "format": "moodle",
                 "text": "China"
-             },
-             "feedback": null
+             }
           },
           {
              "isCorrect": false,
              "weight": 33.33333,
-             "text": {
+             "formattedText": {
                 "format": "moodle",
                 "text": "Antarctica"
-             },
-             "feedback": null
+             }
           },
           {
              "isCorrect": false,
              "weight": -100,
-             "text": {
+             "formattedText": {
                 "format": "moodle",
                 "text": "America"
-             },
-             "feedback": null
+             }
           }
        ]
     }

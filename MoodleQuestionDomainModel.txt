@@ -27,7 +27,7 @@ class "MultipleChoiceQuestion" as MCQ  extends AQ {
 class "MultipleChoiceAnswer" as MCA   {
  isCorrect : boolean
  answer : RichText
- feedback : Text
+ feedback : RichText
 }
 MCQ "1" -- "*" MCA : Has >
 
@@ -37,7 +37,9 @@ class "TrueFalseQuestion" as TFQ extends AQ {
 class "TrueFalseAnswer" as TFA {
  isTrue : boolean
  percentWeight : integer
- feedback : Text
+ trueFeedback RichText
+ falseFeedback RichText
+ feedback : RichText
 }
 
 note bottom
@@ -54,7 +56,7 @@ class "MatchingQuestion" as MQ extends AQ {
 isShuffled : boolean
 }
 class "MatchedPair" as SQ {
- question : Text
+ question : RichText
  answer : Text
 }
 MQ "1" -- "*" SQ : Has >
@@ -65,18 +67,38 @@ class "ShortAnswerQuestion" as SAQ extends AQ {
 class "ShortAnswer" as SA {
  text : Text 
  percentWeight : integer
- feedback : Text
+ feedback : RichText
 }
 
 SAQ "1" -- "*" SA : Has >
 
 class "Numerical" as NQ extends AQ {
 }
-class "NumericalAnswer" as NA {
- percentWeight : integer
- numericalAnswer : Text
- feedback : Text
+
+abstract class "NumericalAnswer" as NA {
 }
+
+class SimpleNumericalAnswer extends NA {
+  +number: number
+}
+
+class RangeNumericalAnswer extends NA {
+  +number: number
+  +range: number
+}
+
+class HighLowNumericalAnswer extends NA {
+  +numberHigh: number
+  +numberLow: number
+}
+
+class MultipleNumericalAnswer extends NA {
+  +isCorrect: boolean
+  +weight: number
+  +formattedFeedback: TextFormat
+}
+
+MultipleNumericalAnswer "1" -- "*" NA : Has >
 
 NQ "1" -- "*" NA : Has >
 

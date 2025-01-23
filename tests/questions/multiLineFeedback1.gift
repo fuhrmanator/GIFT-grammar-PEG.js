@@ -1,11 +1,11 @@
 // ===Feedback===
 
 What's the answer to this multiple-choice question?{
-~wrong answer#feedback comment on the wrong answer
-~another wrong answer#feedback comment on this wrong answer
+~wrong answer#formattedFeedback comment on the wrong answer
+~another wrong answer#formattedFeedback comment on this wrong answer
 on multiple lines
 =right answer#Very good!
-####Global feedback split
+####Global formattedFeedback split
 on multiple lines}
 
 ::06- création d'instance::[html]<p></p><p class\="QMultiChoice" style\="margin-left\:18.0pt;text-indent\:\n-18.0pt;tab-stops\:36.0pt"><span lang\="FR"><span style\="font\:7.0pt &quot;Times New Roman&quot;">&nbsp;</span></span><span lang\="FR">CU4-1 demarrerAbonnement(duree&nbsp;\:Integer)&nbsp;\:\nComment réalise t’on la post-condition&nbsp;\: une instance d’abonnement à été\ncréé&nbsp;?&nbsp; Qui crée l’abonnement&nbsp;?\nQui contient, agrège, aux données pour initialiser, enregistre ou utilise\nétroitement l’abonnement.&nbsp; Regarder les\nassociations dans les MDD. Les choix possibles sont&nbsp;\:</span></p><br><p></p>{
