@@ -134,7 +134,7 @@ GIFTQuestions
   = questions:(Category / Description / Question)+ _ __ { return questions; }
 
 Category "Category"
-  = ResetIdsTags __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator {return {type:"Category", title:cat}}
+  = ResetIdsTags __ '$' 'CATEGORY:' _ cat:CategoryText QuestionSeparator? {return {type:"Category", title:cat}}
 
 Description "Description"
   = ResetIdsTags __
