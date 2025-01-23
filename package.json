@@ -3,7 +3,7 @@
     "version": "1.0.2",
     "description": "Parser of GIFT question format based on PEG.js",
     "main": "pegjs-gift.js",
-    "types": "index.d.ts",
+    "types": "./types/index.d.ts",
     "dependencies": {
         "pegjs": "^0.10.x"
     },
@@ -20,8 +20,8 @@
     },
     "files": [
         "GIFT.pegjs",
-        "lib/",
-        "index.d.ts"
+        "lib",
+        "types"
     ],
     "scripts": {
         "build": "pegjs --format globals --export-var giftParser -o lib/GIFT-globals.js GIFT.pegjs && cp lib/GIFT-globals.js pegjs-gift-globals.js && pegjs -o lib/GIFT.js GIFT.pegjs && cp lib/GIFT.js pegjs-gift.js && bash makeHTML.sh && cp GIFT.pegjs docs/editor/lib/",
@@ -33,5 +33,5 @@
     "bugs": {
         "url": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js/issues"
     },
-    "homepage": "https://fuhrmanator.github.io/GIFT-grammar-PEG.js/"
+    "homepage": "https://github.com/fuhrmanator/GIFT-grammar-PEG.js#gift-grammar-pegjs"
 }
