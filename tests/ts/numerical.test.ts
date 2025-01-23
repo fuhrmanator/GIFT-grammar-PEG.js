@@ -104,16 +104,16 @@ describe('Numerical Question Tests', () => {
         expect(answer1.isCorrect).toBe(true);
         expect(answer1.weight).toBe(null);
         expect(answer1.formattedFeedback).toBe(null);
-        expect(answer1.text.type).toBe('simple');
-        const answer1Text = answer1.text as SimpleNumericalAnswer;
+        expect(answer1.answer.type).toBe('simple');
+        const answer1Text = answer1.answer as SimpleNumericalAnswer;
         expect(answer1Text.number).toBe(1822);
 
         const answer2 = choices[1];
         expect(answer2.isCorrect).toBe(true);
         expect(answer2.weight).toBe(50);
         expect(answer2.formattedFeedback).toBe(null);
-        expect(answer2.text.type).toBe('range');
-        const answer2Text = answer2.text as RangeNumericalAnswer;
+        expect(answer2.answer.type).toBe('range');
+        const answer2Text = answer2.answer as RangeNumericalAnswer;
         expect(answer2Text.number).toBe(1822);
         expect(answer2Text.range).toBe(2);
 
@@ -121,8 +121,8 @@ describe('Numerical Question Tests', () => {
         expect(answer3.isCorrect).toBe(true);
         expect(answer3.weight).toBe(50);
         expect(answer3.formattedFeedback).toBe(null);
-        expect(answer3.text.type).toBe('high-low');
-        const answer3Text = answer3.text as HighLowNumericalAnswer;
+        expect(answer3.answer.type).toBe('high-low');
+        const answer3Text = answer3.answer as HighLowNumericalAnswer;
         expect(answer3Text.numberLow).toBe(1820);
         expect(answer3Text.numberHigh).toBe(1824);
         

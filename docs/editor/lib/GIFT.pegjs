@@ -287,7 +287,7 @@ NumericalChoice "Numerical Choice"
       var txt = choice[2];
       var choice = { isCorrect:(symbol == '='), 
                      weight:wt, 
-                     text: // [FIXME] - rename to value (it's not really text)
+                     answer: 
                          (txt !== null ? txt : '*'), // Moodle unit tests show this, not in documentation
                      formattedFeedback: feedback };
       return choice }

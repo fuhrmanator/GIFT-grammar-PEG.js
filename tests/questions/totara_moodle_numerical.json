@@ -12,7 +12,7 @@
     "choices": [{
             "isCorrect": true,
             "weight": null,
-            "text": {
+            "answer": {
                 "type": "range",
                 "number": 3,
                 "range": 2
@@ -22,7 +22,7 @@
         {
             "isCorrect": false,
             "weight": null,
-            "text": "*",
+            "answer": "*",
             "formattedFeedback": {
                 "format": "moodle",
                 "text": "Completely wrong"

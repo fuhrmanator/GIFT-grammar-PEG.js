@@ -219,7 +219,7 @@
         "choices": [{
                 "isCorrect": true,
                 "weight": null,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 1822,
                     "range": 0
@@ -229,7 +229,7 @@
             {
                 "isCorrect": true,
                 "weight": 50,
-                "text": {
+                "answer": {
                     "type": "range",
                     "number": 1822,
                     "range": 2
