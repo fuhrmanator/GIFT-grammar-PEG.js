@@ -14,7 +14,7 @@ export function isHighLowNumericalAnswer(answer: NumericalAnswer): answer is Hig
 }
 
 export function isMultipleNumericalAnswer(answer: NumericalAnswer): answer is MultipleNumericalAnswer {
-  return 'isCorrect' in answer && 'text' in answer && 'feedback' in answer;
+  return 'isCorrect' in answer && 'text' in answer && 'formattedFeedback' in answer;
 }
 
 export function isPegjsParseError(error: any): error is PegjsParseError {

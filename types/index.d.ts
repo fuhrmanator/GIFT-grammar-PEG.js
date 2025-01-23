@@ -15,16 +15,16 @@ export interface BaseQuestion {
   tags?: string[] | null;
   type: QuestionType;
   title: string | null;
-  stem: TextFormat;
+  formattedStem: TextFormat;
   hasEmbeddedAnswers: boolean;
-  globalFeedback?: TextFormat | null;
+  formattedGlobalFeedback?: TextFormat | null;
 }
 
 export interface TrueFalseQuestion extends BaseQuestion {
   type: "TF";
   isTrue: boolean;
-  trueFeedback?: TextFormat | null;
-  falseFeedback?: TextFormat | null;
+  trueFormattedFeedback?: TextFormat | null;
+  falseFormattedFeedback?: TextFormat | null;
 }
 
 export interface MultipleChoiceQuestion extends BaseQuestion {
@@ -68,7 +68,7 @@ export interface MultipleNumericalAnswer {
   isCorrect: boolean;
   weight: number | null;
   text: SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer;
-  feedback: TextFormat | null;
+  formattedFeedback: TextFormat | null;
 }
 
 // Union type for numerical answers
@@ -85,13 +85,13 @@ export type Question = TrueFalseQuestion | MultipleChoiceQuestion | NumericalQue
 export interface TextChoice {
   isCorrect: boolean;
   weight: number | null;
-  text: TextFormat;
-  feedback: TextFormat | null;
+  formattedText: TextFormat;
+  formattedFeedback: TextFormat | null;
 }
 
 export interface UnformattedTextChoice {
   isCorrect: boolean;
   weight: number | null;
   text: string;
-  feedback: TextFormat | null;
+  formattedFeedback: TextFormat | null;
 }

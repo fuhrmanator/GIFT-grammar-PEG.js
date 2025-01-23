@@ -7,7 +7,7 @@ describe('Error in GIFT syntax', () => {
       The sun rises in the east. {T)
     `;
     try {
-        // This will thow an error because the input is not a valid GIFT question
+        // This will throw an error because the input is not a valid GIFT question
         const result = parse(input);
     } catch (error) {
         if (isPegjsParseError(error)) {

@@ -6,7 +6,7 @@ describe('True/False Question Tests', () => {
   it('should produce a valid Question object for a True/False question', () => {
     const input = `
       // [tag:Fred] [tag:Wilma]
-      ::Title::[markdown] The *sky* is *blue*. {T#[html]<p>feedback true</p>#feedback false####General feedback}
+      ::Title::[markdown] The *sky* is *blue*. {T#[html]<p>formattedFeedback true</p>#formattedFeedback false####General formattedFeedback}
     `;
     const result = parse(input);
 
@@ -18,17 +18,17 @@ describe('True/False Question Tests', () => {
     const tfQuestion = question as TrueFalseQuestion;
     expect(tfQuestion.title).toBeDefined();
     expect(tfQuestion.title).toEqual('Title');
-    expect(tfQuestion.stem).toBeDefined();
-    expect(tfQuestion.stem.format).toEqual('markdown');
-    expect(tfQuestion.stem.text).toEqual('The *sky* is *blue*.');
+    expect(tfQuestion.formattedStem).toBeDefined();
+    expect(tfQuestion.formattedStem.format).toEqual('markdown');
+    expect(tfQuestion.formattedStem.text).toEqual('The *sky* is *blue*.');
     expect(tfQuestion.isTrue).toBeDefined();
     expect(tfQuestion.isTrue).toEqual(true);
-    expect(tfQuestion.trueFeedback?.format).toBe('html');
-    expect(tfQuestion.trueFeedback?.text).toBe('<p>feedback true</p>');
-    expect(tfQuestion.falseFeedback?.format).toBe('markdown');
-    expect(tfQuestion.falseFeedback?.text).toBe('feedback false');
-    expect(tfQuestion.globalFeedback?.format).toBe('markdown');
-    expect(tfQuestion.globalFeedback?.text).toBe('General feedback');
+    expect(tfQuestion.trueFormattedFeedback?.format).toBe('html');
+    expect(tfQuestion.trueFormattedFeedback?.text).toBe('<p>formattedFeedback true</p>');
+    expect(tfQuestion.falseFormattedFeedback?.format).toBe('markdown');
+    expect(tfQuestion.falseFormattedFeedback?.text).toBe('formattedFeedback false');
+    expect(tfQuestion.formattedGlobalFeedback?.format).toBe('markdown');
+    expect(tfQuestion.formattedGlobalFeedback?.text).toBe('General formattedFeedback');
     expect(tfQuestion.tags?.length).toBe(2);
     expect(tfQuestion.tags).toContain('Fred');
     expect(tfQuestion.tags).toContain('Wilma');

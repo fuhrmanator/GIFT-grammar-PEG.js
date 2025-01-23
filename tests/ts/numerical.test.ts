@@ -17,7 +17,7 @@ describe('Numerical Question Tests', () => {
         expect(question).toHaveProperty('type', 'Numerical');
         const numericalQuestion = question as NumericalQuestion;
         expect(numericalQuestion.title).toBe('Ulysses birthdate');
-        expect(numericalQuestion.stem.text).toBe('When was Ulysses S. Grant born?');
+        expect(numericalQuestion.formattedStem.text).toBe('When was Ulysses S. Grant born?');
         expect(numericalQuestion.choices).toBeDefined();
         expect(numericalQuestion.choices).toHaveLength(1);
 
@@ -41,7 +41,7 @@ describe('Numerical Question Tests', () => {
         expect(question).toHaveProperty('type', 'Numerical');
         const numericalQuestion = question as NumericalQuestion;
         expect(numericalQuestion.title).toBe('Q3');
-        expect(numericalQuestion.stem.text).toBe('What is the value of pi (to 3 decimal places)?');
+        expect(numericalQuestion.formattedStem.text).toBe('What is the value of pi (to 3 decimal places)?');
         expect(numericalQuestion.choices).toBeDefined();
         expect(numericalQuestion.choices).toHaveLength(1);
         expect(isRangeNumericalAnswer(numericalQuestion.choices[0])).toBe(true);
@@ -66,7 +66,7 @@ describe('Numerical Question Tests', () => {
         expect(question).toHaveProperty('type', 'Numerical');
         const numericalQuestion = question as NumericalQuestion;
         expect(numericalQuestion.title).toBe('Q4');
-        expect(numericalQuestion.stem.text).toBe('What is the value of pi times -1 (to 3 decimal places)?');
+        expect(numericalQuestion.formattedStem.text).toBe('What is the value of pi times -1 (to 3 decimal places)?');
         expect(numericalQuestion.choices).toBeDefined();
         expect(numericalQuestion.choices).toHaveLength(1);
         expect(isHighLowNumericalAnswer(numericalQuestion.choices[0])).toBe(true);
@@ -91,17 +91,19 @@ describe('Numerical Question Tests', () => {
         expect(question).toHaveProperty('type', 'Numerical');
         const numericalQuestion = question as NumericalQuestion;
         expect(numericalQuestion.title).toBe('Q5');
-        expect(numericalQuestion.stem.text).toBe('When was Ulysses S. Grant born?');
+        expect(numericalQuestion.formattedStem.text).toBe('When was Ulysses S. Grant born?');
         expect(numericalQuestion.choices).toBeDefined();
         expect(numericalQuestion.choices).toHaveLength(3);
         expect(isMultipleNumericalAnswer(numericalQuestion.choices[0])).toBe(true);
 
         const choices = numericalQuestion.choices as MultipleNumericalAnswer[];
+        expect(choices).toBeDefined();
+        expect(choices).toHaveLength(3);
 
         const answer1 = choices[0];
         expect(answer1.isCorrect).toBe(true);
         expect(answer1.weight).toBe(null);
-        expect(answer1.feedback).toBe(null);
+        expect(answer1.formattedFeedback).toBe(null);
         expect(answer1.text.type).toBe('simple');
         const answer1Text = answer1.text as SimpleNumericalAnswer;
         expect(answer1Text.number).toBe(1822);
@@ -109,7 +111,7 @@ describe('Numerical Question Tests', () => {
         const answer2 = choices[1];
         expect(answer2.isCorrect).toBe(true);
         expect(answer2.weight).toBe(50);
-        expect(answer2.feedback).toBe(null);
+        expect(answer2.formattedFeedback).toBe(null);
         expect(answer2.text.type).toBe('range');
         const answer2Text = answer2.text as RangeNumericalAnswer;
         expect(answer2Text.number).toBe(1822);
@@ -118,7 +120,7 @@ describe('Numerical Question Tests', () => {
         const answer3 = choices[2];
         expect(answer3.isCorrect).toBe(true);
         expect(answer3.weight).toBe(50);
-        expect(answer3.feedback).toBe(null);
+        expect(answer3.formattedFeedback).toBe(null);
         expect(answer3.text.type).toBe('high-low');
         const answer3Text = answer3.text as HighLowNumericalAnswer;
         expect(answer3Text.numberLow).toBe(1820);
