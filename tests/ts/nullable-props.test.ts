@@ -1,4 +1,4 @@
-import { parse } from "GIFT";
+import { parse } from "gift-pegjs";
 import { MultipleChoiceQuestion } from "../../types";
 
 describe('Multiple Choice Question Tests', () => {

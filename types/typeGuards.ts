@@ -1,4 +1,4 @@
-import { PegjsParseError } from "GIFT";
+import type { PegjsParseError } from "gift-pegjs";
 import { NumericalAnswer, SimpleNumericalAnswer, RangeNumericalAnswer, HighLowNumericalAnswer, MultipleNumericalAnswer } from "./index";
 
 export function isSimpleNumericalAnswer(answer: NumericalAnswer): answer is SimpleNumericalAnswer {

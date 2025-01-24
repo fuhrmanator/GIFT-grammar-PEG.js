@@ -1,6 +1,5 @@
-import { parse } from "GIFT";
+import { parse } from "gift-pegjs";
 import { ShortAnswerQuestion } from "../../types";
-import exp from "constants";
 
 describe('Short Answer Question Tests', () => {
   it('should parse a basic short answer question', () => {

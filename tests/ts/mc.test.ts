@@ -1,4 +1,4 @@
-import { parse } from "GIFT"; // Adjust the import based on your actual parser export
+import { parse } from "gift-pegjs"; // Adjust the import based on your actual parser export
 import { MultipleChoiceQuestion } from "../../types";
 
 describe('Multiple Choice Question Tests', () => {

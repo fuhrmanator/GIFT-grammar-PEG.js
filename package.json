@@ -1,9 +1,9 @@
 {
     "name": "gift-pegjs",
-    "version": "1.0.2",
+    "version": "2.0.0-beta.0",
     "description": "Parser of GIFT question format based on PEG.js",
-    "main": "pegjs-gift.js",
-    "types": "./types/index.d.ts",
+    "main": "lib/GIFT.js",
+    "types": "./types/gift-pegjs/index.d.ts",
     "dependencies": {
         "pegjs": "^0.10.x"
     },
@@ -18,8 +18,13 @@
         "ts-jest": "^29.2.5",
         "typescript": "^5.7.3"
     },
+    "exports": {
+        ".": {
+          "types": "./types/gift-pegjs/index.d.ts",
+          "default": "./lib/GIFT.js"
+        }
+      },
     "files": [
-        "GIFT.pegjs",
         "lib",
         "types"
     ],

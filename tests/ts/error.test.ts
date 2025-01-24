@@ -1,4 +1,4 @@
-import { parse, PegjsParseError } from "GIFT";
+import { parse, PegjsParseError } from "gift-pegjs";
 import { isPegjsParseError } from "../../types/typeGuards";
 
 describe('Error in GIFT syntax', () => {

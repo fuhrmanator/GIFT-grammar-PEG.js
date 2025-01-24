@@ -1,4 +1,4 @@
-import { parse } from "GIFT";
+import { parse } from "gift-pegjs";
 import { NumericalQuestion, MultipleNumericalAnswer, RangeNumericalAnswer, HighLowNumericalAnswer, SimpleNumericalAnswer } from "../../types";
 import { isSimpleNumericalAnswer, isRangeNumericalAnswer, isHighLowNumericalAnswer, isMultipleNumericalAnswer } from "../../types/typeGuards";
 

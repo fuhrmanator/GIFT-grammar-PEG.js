@@ -1,4 +1,4 @@
-type BaseQuestion = {
+export type BaseQuestion = {
   id?: string;
   title?: string;
   tags?: string[];

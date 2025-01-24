@@ -1,4 +1,4 @@
-import { parse } from "GIFT";
+import { parse } from "gift-pegjs";
 import { Category } from "index";
 
 describe('Category Question Parser', () => {

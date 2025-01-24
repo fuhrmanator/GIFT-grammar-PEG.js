@@ -1,4 +1,4 @@
-import { parse } from "GIFT";
+import { parse } from "gift-pegjs";
 import { EssayQuestion } from "../../types";
 
 describe('Essay Question Tests', () => {
