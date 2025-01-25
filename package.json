@@ -1,6 +1,6 @@
 {
     "name": "gift-pegjs",
-    "version": "2.0.0-beta.0",
+    "version": "2.0.0-beta.1",
     "description": "Parser of GIFT question format based on PEG.js",
     "main": "lib/GIFT.js",
     "types": "./types/gift-pegjs.d.ts",
