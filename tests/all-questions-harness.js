@@ -6,7 +6,7 @@ const parse = require('../lib/GIFT').parse;
 const questionsFolder = './tests/questions/';
 const files = glob.sync(questionsFolder + '*.gift', { nonull: true });
 
-const parserGeneratedFromGrammar = peg.generate(fs.readFileSync('GIFT.pegjs', 'utf-8'));
+const parserGeneratedFromGrammar = peg.generate(fs.readFileSync('src/GIFT.pegjs', 'utf-8'));
 
 describe(`GIFT question types`, () => {
     files.forEach((file) => {

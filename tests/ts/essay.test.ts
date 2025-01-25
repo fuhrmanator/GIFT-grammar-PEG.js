@@ -1,5 +1,4 @@
-import { parse } from "gift-pegjs";
-import { EssayQuestion } from "../../types";
+import { parse, EssayQuestion } from "gift-pegjs";
 
 describe('Essay Question Tests', () => {
   it('should parse a basic essay question', () => {

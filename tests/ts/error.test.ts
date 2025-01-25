@@ -1,5 +1,5 @@
 import { parse, PegjsParseError } from "gift-pegjs";
-import { isPegjsParseError } from "../../types/typeGuards";
+import { isPegjsParseError } from "gift-pegjs/typeGuards";
 
 describe('Error in GIFT syntax', () => {
   it('should produce an error indicating a problem in a True False question', () => {

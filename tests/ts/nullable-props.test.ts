@@ -1,5 +1,4 @@
-import { parse } from "gift-pegjs";
-import { MultipleChoiceQuestion } from "../../types";
+import { parse, MultipleChoiceQuestion } from "gift-pegjs";
 
 describe('Multiple Choice Question Tests', () => {
   it('should handle a minimal MC question with no optional properties', () => {

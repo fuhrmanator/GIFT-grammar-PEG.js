@@ -19,7 +19,8 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^gift-pegjs$': '<rootDir>/lib/GIFT.js'
+    '^gift-pegjs$': '<rootDir>/lib/GIFT.js',
+    '^gift-pegjs/typeGuards$': '<rootDir>/lib/typeGuards.js'
   },
   transform: {
     '^.+\\.tsx?$': [ 'ts-jest', { tsconfig: 'tsconfig.json' } ]

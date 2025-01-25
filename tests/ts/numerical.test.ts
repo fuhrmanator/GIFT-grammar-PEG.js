@@ -1,6 +1,5 @@
-import { parse } from "gift-pegjs";
-import { NumericalQuestion, MultipleNumericalAnswer, RangeNumericalAnswer, HighLowNumericalAnswer, SimpleNumericalAnswer } from "../../types";
-import { isSimpleNumericalAnswer, isRangeNumericalAnswer, isHighLowNumericalAnswer, isMultipleNumericalAnswer } from "../../types/typeGuards";
+import { parse, NumericalQuestion, RangeNumericalAnswer, HighLowNumericalAnswer, SimpleNumericalAnswer, MultipleNumericalAnswer } from "gift-pegjs";
+import { isSimpleNumericalAnswer, isRangeNumericalAnswer, isHighLowNumericalAnswer, isMultipleNumericalAnswer } from "gift-pegjs/typeGuards";
 
 describe('Numerical Question Tests', () => {
     // ::Ulysses birthdate::When was Ulysses S. Grant born? {#1822}
@@ -22,10 +21,11 @@ describe('Numerical Question Tests', () => {
         expect(numericalQuestion.choices).toHaveLength(1);
 
         const choice = numericalQuestion.choices[0];
-        if (isSimpleNumericalAnswer(choice)) {
-            expect(choice.type).toBe('simple');
-            expect(choice.number).toBe(1822);
-        }
+        expect(isSimpleNumericalAnswer(choice)).toBe(true);
+        const c = choice as SimpleNumericalAnswer;
+        expect(c.type).toBe('simple');
+        expect(c.number).toBe(1822);
+
     });
     // ::Q3:: What is the value of pi (to 3 decimal places)? {#3.1415:0.0005}.
     it('should produce a valid Question object for a Numerical question with precision', () => {

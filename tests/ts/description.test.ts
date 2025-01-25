@@ -1,5 +1,4 @@
-import { Description } from "../../types";
-import { parse } from "gift-pegjs";
+import { Description, parse } from "gift-pegjs";
 
 describe('Description Tests', () => {
   it('should parse a basic description', () => {

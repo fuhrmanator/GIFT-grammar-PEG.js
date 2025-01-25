@@ -3,7 +3,7 @@
     "version": "2.0.0-beta.0",
     "description": "Parser of GIFT question format based on PEG.js",
     "main": "lib/GIFT.js",
-    "types": "./types/gift-pegjs/index.d.ts",
+    "types": "./types/gift-pegjs.d.ts",
     "dependencies": {
         "pegjs": "^0.10.x"
     },
@@ -20,16 +20,21 @@
     },
     "exports": {
         ".": {
-          "types": "./types/gift-pegjs/index.d.ts",
-          "default": "./lib/GIFT.js"
+            "types": "./types/gift-pegjs.d.ts",
+            "default": "./lib/GIFT.js"
+        },
+        "./typeGuards": {
+            "types": "./types/typeGuards.d.ts",
+            "default": "./lib/typeGuards.js"
         }
-      },
+    },
     "files": [
         "lib",
-        "types"
+        "types",
+        "src/typeGuards.ts"
     ],
     "scripts": {
-        "build": "pegjs --format globals --export-var giftParser -o lib/GIFT-globals.js GIFT.pegjs && cp lib/GIFT-globals.js pegjs-gift-globals.js && pegjs -o lib/GIFT.js GIFT.pegjs && cp lib/GIFT.js pegjs-gift.js && bash makeHTML.sh && cp GIFT.pegjs docs/editor/lib/",
+        "build": "tsc && pegjs --format globals --export-var giftParser -o lib/GIFT-globals.js src/GIFT.pegjs && cp lib/GIFT-globals.js src/pegjs-gift-globals.js && pegjs -o lib/GIFT.js src/GIFT.pegjs && cp lib/GIFT.js src/pegjs-gift.js && bash makeHTML.sh && cp src/GIFT.pegjs docs/editor/lib/",
         "test": "jest --colors"
     },
     "repository": "github:fuhrmanator/GIFT-grammar-PEG.js",

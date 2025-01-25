@@ -1,5 +1,4 @@
-import { parse } from "gift-pegjs"; // Adjust the import based on your actual parser export
-import { MultipleChoiceQuestion } from "../../types";
+import { parse, MultipleChoiceQuestion } from "gift-pegjs"; // Adjust the import based on your actual parser export
 
 describe('Multiple Choice Question Tests', () => {
   it('should produce a valid Question object for a Multiple Choice question', () => {

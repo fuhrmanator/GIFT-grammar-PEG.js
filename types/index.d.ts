@@ -31,11 +31,6 @@ export interface MultipleChoiceQuestion extends BaseQuestion {
   choices: TextChoice[];
 }
 
-export interface NumericalQuestion extends BaseQuestion {
-  type: "Numerical";
-  choices: NumericalAnswer[];
-}
-
 export interface ShortAnswerQuestion extends BaseQuestion {
   type: "Short";
   choices: UnformattedTextChoice[];
@@ -64,6 +59,22 @@ export interface MatchingPair {
   subanswer: string;
 }
 
+// Numerical
+
+export interface NumericalQuestion extends BaseQuestion {
+  type: "Numerical";
+  choices: NumericalAnswer[];
+}
+
+export type NumericalAnswer = SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer | MultipleNumericalAnswer;
+
+export interface MultipleNumericalAnswer {
+  isCorrect: boolean;
+  weight?: number;
+  answer: SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer;
+  formattedFeedback?: TextFormat;
+}
+
 export interface SimpleNumericalAnswer {
   type: "simple";
   number: number;
@@ -80,16 +91,6 @@ export interface HighLowNumericalAnswer {
   numberHigh: number;
   numberLow: number;
 }
-
-export interface MultipleNumericalAnswer {
-  isCorrect: boolean;
-  weight?: number;
-  answer: SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer;
-  formattedFeedback?: TextFormat;
-}
-
-// Union type for numerical answers
-export type NumericalAnswer = SimpleNumericalAnswer | RangeNumericalAnswer | HighLowNumericalAnswer | MultipleNumericalAnswer;
 
 export type ParsedGIFTQuestion = Question | Description | Category;
 
