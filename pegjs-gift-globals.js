@@ -186,7 +186,18 @@
                 subanswer:right}; 
                 return matchPair },
         peg$c24 = peg$otherExpectation("{T} or {F} or {TRUE} or {FALSE}"),
-        peg$c25 = function(isTrue, feedback, globalFeedback) { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; },
+        peg$c25 = function(isTrue, feedback, globalFeedback) { return { 
+              type:"TF", 
+              isTrue: isTrue, 
+              feedback:feedback, 
+              globalFeedback:globalFeedback,
+              calculateScore: function(userAnswer) {
+                return (userAnswer === this.isTrue) ? 100 : 0;
+              },
+              isCorrect: function(userAnswer) {
+                return userAnswer === this.isTrue;
+              }
+            }; },
         peg$c26 = function(isTrue) { return isTrue },
         peg$c27 = "TRUE",
         peg$c28 = peg$literalExpectation("TRUE", false),
@@ -199,7 +210,33 @@
         peg$c35 = peg$literalExpectation("F", false),
         peg$c36 = function() {return false},
         peg$c37 = peg$otherExpectation("{=correct choice ~incorrect choice ... }"),
-        peg$c38 = function(choices, globalFeedback) { return { type: "MC", choices:choices, globalFeedback:globalFeedback}; },
+        peg$c38 = function(choices, globalFeedback) { return { 
+              type:  areAllCorrect(choices) ? "Short" : "MC", 
+              choices:choices, 
+              globalFeedback:globalFeedback,
+              calculateScore: function(selectedChoices) {
+                // Calcule la note d'une question à choix multiples en additionnant les poids
+                // (fractions comme %50%, %-25%, etc. parsées par la règle PercentValue) de tous
+                // les choix sélectionnés. Supporte les fractions négatives pour les pénalités.
+                // La note finale est limitée entre -100 et 100%.
+                if (!Array.isArray(selectedChoices)) return 0;
+                const total = selectedChoices.reduce((sum, selectedChoice) => {
+                  // Cherche le choix dans le tableau des choix
+                  const choice = this.choices.find(c => 
+                    (c.text && selectedChoice.text && c.text.text === selectedChoice.text.text) ||
+                    c === selectedChoice
+                  );
+                  if (choice) {
+                    return sum + (choice.weight !== null ? choice.weight : (choice.isCorrect ? 100 : 0));
+                  }
+                  return sum;
+                }, 0);
+                // Limite la note à l'intervalle autorisé : entre -100 et 100%.
+                // Assure que les notes restent dans l'intervalle de notation acceptable même avec des
+                // combinaisons extrêmes de pénalités et de récompenses.
+                return Math.min(100, Math.max(-100, total));
+              }
+            }; },
         peg$c39 = peg$otherExpectation("Choices"),
         peg$c40 = function(choices) { return choices; },
         peg$c41 = peg$otherExpectation("Choice"),
@@ -243,7 +280,12 @@
         peg$c61 = peg$otherExpectation("Single short answer { ... }"),
         peg$c62 = function(answer, feedback, globalFeedback) { var choices = [];
             choices.push({isCorrect:true, text:answer, feedback:feedback, weight:null});
-            return { type: "Short", choices:choices, globalFeedback:globalFeedback}; },
+            return { 
+              type: "Short", 
+              choices:choices, 
+              globalFeedback:globalFeedback,
+              
+          }; },
         peg$c63 = peg$otherExpectation("{#... }"),
         peg$c64 = function(numericalAnswers, globalFeedback) { return { type:"Numerical", 
                      choices:numericalAnswers, 
@@ -736,7 +778,7 @@
                         if (s10 === peg$FAILED) {
                           s10 = peg$parseTrueFalseAnswer();
                           if (s10 === peg$FAILED) {
-                            s10 = peg$parseMCAnswers();
+                            s10 = peg$parseMultipleChoiceOrShortAnswerChoices();
                             if (s10 === peg$FAILED) {
                               s10 = peg$parseNumericalAnswerType();
                               if (s10 === peg$FAILED) {
@@ -1142,7 +1184,7 @@
       return s0;
     }
 
-    function peg$parseMCAnswers() {
+    function peg$parseMultipleChoiceOrShortAnswerChoices() {
       var s0, s1, s2, s3, s4;
 
       peg$silentFails++;
@@ -3331,12 +3373,16 @@
             question.matchPairs = answers.matchPairs;
             break;
         }
-        // check for MC that's actually a short answer (all correct answers)
-        if (question.type == "MC" && areAllCorrect(question.choices)) {
-          question.type = "Short";
-        }
         question.id = questionId;
         question.tags = questionTags;
+        // Copy calculateScore method if it exists
+        if (answers.calculateScore) {
+          question.calculateScore = answers.calculateScore;
+        }
+        // Copy isCorrect method if it exists
+        if (answers.isCorrect) {
+          question.isCorrect = answers.isCorrect;
+        }
         return question;
       }
       function areAllCorrect(choices) {

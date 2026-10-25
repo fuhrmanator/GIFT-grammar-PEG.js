@@ -42,12 +42,16 @@
         question.matchPairs = answers.matchPairs;
         break;
     }
-    // check for MC that's actually a short answer (all correct answers)
-    if (question.type == "MC" && areAllCorrect(question.choices)) {
-      question.type = "Short";
-    }
     question.id = questionId;
     question.tags = questionTags;
+    // Copy calculateScore method if it exists
+    if (answers.calculateScore) {
+      question.calculateScore = answers.calculateScore;
+    }
+    // Copy isCorrect method if it exists
+    if (answers.isCorrect) {
+      question.isCorrect = answers.isCorrect;
+    }
     return question;
   }
   function areAllCorrect(choices) {
@@ -109,7 +113,7 @@ Question
     title:QuestionTitle? _
     stem1:QuestionStem? _ 
     '{' _
-    answers:(MatchingAnswers / TrueFalseAnswer / MCAnswers / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
+    answers:(MatchingAnswers / TrueFalseAnswer / MultipleChoiceOrShortAnswerChoices / NumericalAnswerType / SingleCorrectShortAnswer / EssayAnswer ) _
     '}' _
     stem2:(
       Comment / 
@@ -150,7 +154,18 @@ TrueFalseAnswer "{T} or {F} or {TRUE} or {FALSE}"
   = isTrue:TrueOrFalseType _ 
     feedback:(Feedback? Feedback?) _
     globalFeedback:GlobalFeedback?
-  { return { type:"TF", isTrue: isTrue, feedback:feedback, globalFeedback:globalFeedback}; }
+  { return { 
+      type:"TF", 
+      isTrue: isTrue, 
+      feedback:feedback, 
+      globalFeedback:globalFeedback,
+      calculateScore: function(userAnswer) {
+        return (userAnswer === this.isTrue) ? 100 : 0;
+      },
+      isCorrect: function(userAnswer) {
+        return userAnswer === this.isTrue;
+      }
+    }; }
   
 TrueOrFalseType 
   = isTrue:(TrueType / FalseType) { return isTrue }
@@ -162,10 +177,36 @@ FalseType
   = ('FALSE' / 'F') {return false}
 
 ////////////////////
-MCAnswers "{=correct choice ~incorrect choice ... }"
+MultipleChoiceOrShortAnswerChoices "{=correct choice ~incorrect choice ... }"
   = choices:Choices _ 
     globalFeedback:GlobalFeedback? _
-  { return { type: "MC", choices:choices, globalFeedback:globalFeedback}; }
+  { return { 
+      type:  areAllCorrect(choices) ? "Short" : "MC", 
+      choices:choices, 
+      globalFeedback:globalFeedback,
+      calculateScore: function(selectedChoices) {
+        // Calcule la note d'une question à choix multiples en additionnant les poids
+        // (fractions comme %50%, %-25%, etc. parsées par la règle PercentValue) de tous
+        // les choix sélectionnés. Supporte les fractions négatives pour les pénalités.
+        // La note finale est limitée entre -100 et 100%.
+        if (!Array.isArray(selectedChoices)) return 0;
+        const total = selectedChoices.reduce((sum, selectedChoice) => {
+          // Cherche le choix dans le tableau des choix
+          const choice = this.choices.find(c => 
+            (c.text && selectedChoice.text && c.text.text === selectedChoice.text.text) ||
+            c === selectedChoice
+          );
+          if (choice) {
+            return sum + (choice.weight !== null ? choice.weight : (choice.isCorrect ? 100 : 0));
+          }
+          return sum;
+        }, 0);
+        // Limite la note à l'intervalle autorisé : entre -100 et 100%.
+        // Assure que les notes restent dans l'intervalle de notation acceptable même avec des
+        // combinaisons extrêmes de pénalités et de récompenses.
+        return Math.min(100, Math.max(-100, total));
+      }
+    }; }
 
 Choices "Choices"
   = choices:(Choice)+ { return choices; }
@@ -214,7 +255,12 @@ SingleCorrectShortAnswer "Single short answer { ... }"
     globalFeedback:GlobalFeedback? _
   { var choices = [];
     choices.push({isCorrect:true, text:answer, feedback:feedback, weight:null});
-    return { type: "Short", choices:choices, globalFeedback:globalFeedback}; }
+    return { 
+      type: "Short", 
+      choices:choices, 
+      globalFeedback:globalFeedback,
+      
+  }; }
 
 ///////////////////
 NumericalAnswerType "{#... }" // Number ':' Range / Number '..' Number / Number

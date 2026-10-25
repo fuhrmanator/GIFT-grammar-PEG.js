@@ -1,6 +1,15 @@
 /* PEG API Types */
 export declare function parse(input: string, options?: Options): GIFTQuestion[];
 
+export interface TrueFalseResult {
+  isCorrect: boolean;
+  correctAnswer: boolean;
+  feedback: string | null;
+  globalFeedback: string | null;
+}
+
+export declare function checkTrueFalseAnswer(parsedQuestion: TrueFalse, studentAnswer: boolean): TrueFalseResult;
+
 export declare class SyntaxError extends Error {
   location: LocationRange;
   expected: Expectation[];
@@ -132,11 +141,13 @@ export interface Category {
 export interface MultipleChoice extends Question {
   type: Extract<QuestionType, "MC">;
   choices: TextChoice[];
+  calculateScore(selectedChoices: TextChoice[]): number;
 }
 
 export interface ShortAnswer extends Question {
   type: Extract<QuestionType, "Short">;
   choices: TextChoice[];
+  calculateScore(selectedChoices: TextChoice[]): number;
 }
 
 export interface Numerical extends Question {
@@ -153,6 +164,8 @@ export interface TrueFalse extends Question {
   isTrue: boolean;
   trueFeedback: TextFormat | null;
   falseFeedback: TextFormat | null;
+  calculateScore(userAnswer: boolean): number;
+  isCorrect(userAnswer: boolean): boolean;
 }
 
 export interface Matching extends Question {
