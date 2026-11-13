@@ -9,21 +9,11 @@ module.exports = {
   testEnvironment: "node",
 
   // The glob patterns Jest uses to detect test files
-  testMatch: [ "**/tests/**/*.js", "**/tests/**/*.ts" ],
+  testMatch: ["**/tests/**/*.js"],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: [ "/node_modules/" ],
+  testPathIgnorePatterns: ["/node_modules/"],
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  transformIgnorePatterns: [ "/node_modules/" ],
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  moduleNameMapper: {
-    '^gift-pegjs$': '<rootDir>/lib/GIFT.js',
-    '^gift-pegjs/typeGuards$': '<rootDir>/lib/typeGuards.js'
-  },
-  transform: {
-    '^.+\\.tsx?$': [ 'ts-jest', { tsconfig: 'tsconfig.json' } ]
-  },
-  setupFilesAfterEnv: [ './jest.setup.js' ],
+  transformIgnorePatterns: ["/node_modules/"],
 };

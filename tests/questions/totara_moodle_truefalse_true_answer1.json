@@ -1,17 +1,17 @@
 [
    {
-
-
+      "id": null,
+      "tags": null,
       "type": "TF",
       "title": "2-08 TSL",
-      "formattedStem": {
+      "stem": {
          "format": "moodle",
          "text": "TSL is blablabla."
       },
       "hasEmbeddedAnswers": false,
-
-      "isTrue": true
-
-
+      "globalFeedback": null,
+      "isTrue": true,
+      "trueFeedback": null,
+      "falseFeedback": null
    }
 ]

@@ -2,7 +2,8 @@
     "id" : "393",
     "tags" : ["fred", "barney-wilma"],
     "type": "Essay",
-
-    "formattedStem": {"format":"moodle", "text":"Essay?"},
-    "hasEmbeddedAnswers": false
+    "title": null,
+    "stem": {"format":"moodle", "text":"Essay?"},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null
 }]

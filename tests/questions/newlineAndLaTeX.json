@@ -1,10 +1,12 @@
 [{
     "type": "Essay",
-
-    "formattedStem": {
+    "title": null,
+    "stem": {
       "format": "html",
       "text": "Blah\nblah $ 1 \\neq 0 $"
     },
-    "hasEmbeddedAnswers": false
-
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "id": null,
+    "tags": null
 }]

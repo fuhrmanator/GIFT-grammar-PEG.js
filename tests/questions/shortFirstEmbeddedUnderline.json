@@ -1,39 +1,47 @@
 [
     {
-
-
+      "id" : null,
+      "tags" : null,
      "type": "Short",
-
-       "formattedStem": {
+       "title": null,
+       "stem": {
           "format": "moodle",
           "text": "_____ is the largest continent."
        },
        "hasEmbeddedAnswers": false,
-
+       "globalFeedback": null,
        "choices": [
           {
              "isCorrect": true,
              "weight": 100,
-             "text": "Asia"
+             "text": {
+                "format": "moodle",
+                "text": "Asia"
+             },
+             "feedback": null
           }
        ]
     },
     {
-
-
+      "id" : null,
+      "tags" : null,
      "type": "Short",
        "title": "Continents",
-       "formattedStem": {
+       "stem": {
           "format": "moodle",
           "text": "_____ is the largest continent."
        },
        "hasEmbeddedAnswers": false,
-
+       "globalFeedback": null,
        "choices": [
           {
              "isCorrect": true,
              "weight": 100,
-             "text": "Asia"
+             "text": {
+                "format": "moodle",
+                "text": "Asia"
+             },
+             "feedback": null
           }
        ]
     }

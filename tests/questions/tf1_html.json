@@ -1,12 +1,12 @@
 [{
-
-
+        "id" : null,
+        "tags" : null,
         "type": "TF",
-
-    "formattedStem": {"format":"html", "text":"<p>Grant is buried in Grant's tomb.</p>"},
+    "title": null,
+    "stem": {"format":"html", "text":"<p>Grant is buried in Grant's tomb.</p>"},
     "hasEmbeddedAnswers": false,
-
-    "isTrue": false
-
-
+    "globalFeedback": null,
+    "isTrue": false,
+    "trueFeedback": null,
+    "falseFeedback": null
 }]

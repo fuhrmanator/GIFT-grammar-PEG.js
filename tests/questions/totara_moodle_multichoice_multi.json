@@ -1,24 +1,24 @@
 [
     {
-
-
+      "id" : null,
+      "tags" : null,
      "type": "MC",
        "title": "colours",
-       "formattedStem": {
+       "stem": {
           "format": "moodle",
           "text": "What's between orange and green in the spectrum?"
        },
        "hasEmbeddedAnswers": false,
-
+       "globalFeedback": null,
        "choices": [
           {
              "isCorrect": false,
              "weight": 50,
-             "formattedText": {
+             "text": {
                 "format": "moodle",
                 "text": "yellow"
              },
-             "formattedFeedback": {
+             "feedback": {
                 "format": "moodle",
                 "text": "right; good!"
              }
@@ -26,11 +26,11 @@
           {
              "isCorrect": false,
              "weight": -100,
-             "formattedText": {
+             "text": {
                 "format": "moodle",
                 "text": "red"
              },
-             "formattedFeedback": {
+             "feedback": {
                 "format": "html",
                 "text": "wrong"
              }
@@ -38,11 +38,11 @@
           {
              "isCorrect": false,
              "weight": 50,
-             "formattedText": {
+             "text": {
                 "format": "moodle",
                 "text": "off-beige"
              },
-             "formattedFeedback": {
+             "feedback": {
                 "format": "moodle",
                 "text": "right; good!"
              }
@@ -50,11 +50,11 @@
           {
              "isCorrect": false,
              "weight": -100,
-             "formattedText": {
+             "text": {
                 "format": "plain",
                 "text": "blue"
              },
-             "formattedFeedback": {
+             "feedback": {
                 "format": "moodle",
                 "text": "wrong"
              }
