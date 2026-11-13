@@ -1,66 +1,36 @@
-[
-    {
+[{
+        "id" : null,
+        "tags" : null,
         "type": "TF",
-        "formattedStem": {
-            "format": "moodle",
-            "text": "Grant is buried in Grant's tomb."
-        },
-        "hasEmbeddedAnswers": false,
-        "isTrue": false,
-        "trueFormattedFeedback": {
-            "format": "moodle",
-            "text": "formattedFeedback for true"
-        },
-        "falseFormattedFeedback": {
-            "format": "moodle",
-            "text": "formattedFeedback for false"
-        }
-    },
-    {
+    "title": null,
+    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "isTrue": false,
+    "trueFeedback": {"format":"moodle", "text":"feedback for true"},
+    "falseFeedback": {"format":"moodle", "text":"feedback for false"}
+},
+{
+        "id" : null,
+        "tags" : null,
         "type": "TF",
-        "formattedStem": {
-            "format": "moodle",
-            "text": "Grant is buried in Grant's tomb."
-        },
-        "hasEmbeddedAnswers": false,
-        "isTrue": true,
-        "trueFormattedFeedback": {
-            "format": "moodle",
-            "text": "formattedFeedback for true"
-        }
-    },
-    {
+    "title": null,
+    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "isTrue": true,
+    "trueFeedback": {"format":"moodle", "text":"feedback for true"},
+    "falseFeedback": null
+},
+{
+        "id" : null,
+        "tags" : null,
         "type": "TF",
-        "formattedStem": {
-            "format": "moodle",
-            "text": "Grant is buried in Grant's tomb."
-        },
-        "hasEmbeddedAnswers": false,
-        "isTrue": true,
-        "falseFormattedFeedback": {
-            "format": "moodle",
-            "text": "formattedFeedback for false"
-        }
-    },
-    {
-        "type": "TF",
-        "formattedStem": {
-            "format": "moodle",
-            "text": "Grant is buried in Grant's tomb."
-        },
-        "isTrue": true,
-        "trueFormattedFeedback": {
-            "format": "html",
-            "text": "true feedback"
-        },
-        "falseFormattedFeedback": {
-            "format": "moodle",
-            "text": "false feedback"
-        },
-        "formattedGlobalFeedback": {
-            "format": "markdown",
-            "text": "General formatted feedback"
-        },
-        "hasEmbeddedAnswers": false
-    }
-]
+    "title": null,
+    "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+    "hasEmbeddedAnswers": false,
+    "globalFeedback": null,
+    "isTrue": true,
+    "trueFeedback": null,
+    "falseFeedback": {"format":"moodle", "text":"feedback for false"}
+}]

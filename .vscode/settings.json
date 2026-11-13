@@ -1,5 +1,4 @@
 {
     "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
-    "files.insertFinalNewline": true,
-    "jest.runMode": "on-save"
+    "files.insertFinalNewline": true
 }

@@ -1,36 +1,36 @@
 [
      {
-
-
+         "id" : null,
+         "tags" : null,
         "type": "MC",
-
-        "formattedStem": {
+        "title": null,
+        "stem": {
            "format": "html",
            "text": "<p>The sun rises in which direction?</p>"
         },
         "hasEmbeddedAnswers": false,
-
+        "globalFeedback": null,
         "choices": [
            {
               "isCorrect": true,
-
-              "formattedText": {
+              "weight": null,
+              "text": {
                  "format": "html",
                  "text": "<p>The east.</p>"
               },
-              "formattedFeedback": {
+              "feedback": {
                  "format": "html",
                  "text": "<b>Awesome!</b>"
               }
            },
            {
               "isCorrect": false,
-
-              "formattedText": {
+              "weight": null,
+              "text": {
                  "format": "html",
                  "text": "<p>The west.</p>"
               },
-              "formattedFeedback": {
+              "feedback": {
                  "format": "html",
                  "text": "What planet did <em>you</em> grow up on?"
               }

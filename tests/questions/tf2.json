@@ -1,25 +1,25 @@
 [{
-
-
+        "id" : null,
+        "tags" : null,
         "type": "TF",
-
-        "formattedStem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
+        "title": null,
+        "stem": {"format":"moodle", "text":"Grant is buried in Grant's tomb."},
         "hasEmbeddedAnswers": false,
-
-        "isTrue": false
-
-
+        "globalFeedback": null,
+        "isTrue": false,
+        "trueFeedback": null,
+        "falseFeedback": null
     },
     {
-
-
+        "id" : null,
+        "tags" : null,
         "type": "TF",
-
-        "formattedStem": {"format":"moodle", "text":"The sun rises in the east."},
+        "title": null,
+        "stem": {"format":"moodle", "text":"The sun rises in the east."},
         "hasEmbeddedAnswers": false,
-
-        "isTrue": true
-
-
+        "globalFeedback": null,
+        "isTrue": true,
+        "trueFeedback": null,
+        "falseFeedback": null
     }
 ]

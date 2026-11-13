@@ -1,21 +1,21 @@
 [
    {
-
-
+      "id": null,
+      "tags": null,
       "type": "TF",
       "title": "Q1",
-      "formattedStem": {
+      "stem": {
          "format": "moodle",
          "text": "42 is the Absolute Answer to everything."
       },
       "hasEmbeddedAnswers": false,
-
+      "globalFeedback": null,
       "isTrue": false,
-      "trueFormattedFeedback": {
+      "trueFeedback": {
          "format": "moodle",
          "text": "42 is the Ultimate Answer."
       },
-      "falseFormattedFeedback": {
+      "falseFeedback": {
          "format": "moodle",
          "text": "You gave the right answer."
       }

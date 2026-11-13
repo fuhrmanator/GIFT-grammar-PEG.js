@@ -1,40 +1,44 @@
 [{
-
-
+        "id" : null,
+        "tags" : null,
         "type": "Short",
-
-        "formattedStem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
+        "title": null,
+        "stem": {"format":"moodle", "text":"Who's buried in Grant's tomb?"},
         "hasEmbeddedAnswers": false,
-
+        "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
-
-                "text": "no one"
+                "weight": null,
+                "text": {"format":"moodle", "text":"no one"},
+                "feedback": null
             },
             {
                 "isCorrect": true,
-
-                "text": "nobody"
+                "weight": null,
+                "text": {"format":"moodle", "text":"nobody"},
+                "feedback": null
             }
         ]
     },
     {
-
-
+        "id" : null,
+        "tags" : null,
         "type": "Short",
-
-        "formattedStem": {"format":"moodle", "text":"Two plus two equals _____ ."},
+        "title": null,
+        "stem": {"format":"moodle", "text":"Two plus two equals _____ ."},
         "hasEmbeddedAnswers": true,
-
+        "globalFeedback": null,
         "choices": [{
                 "isCorrect": true,
-
-                "text": "four"
+                "weight": null,
+                "text": {"format":"moodle", "text":"four"},
+                "feedback": null
             },
             {
                 "isCorrect": true,
-
-                "text": "4"
+                "weight": null,
+                "text": {"format":"moodle", "text":"4"},
+                "feedback": null
             }
         ]
     }

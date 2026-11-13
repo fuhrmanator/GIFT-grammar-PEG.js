@@ -1,25 +1,28 @@
 [{
-
-
+        "id" : null,
+        "tags" : null,
         "type": "MC",
-
-    "formattedStem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
+    "title": null,
+    "stem": {"format":"moodle", "text":"Grant is _____ in Grant's tomb."},
     "hasEmbeddedAnswers": true,
-
+    "globalFeedback": null,
     "choices": [{
             "isCorrect": false,
-
-            "formattedText": {"format":"moodle", "text":"buried"}
+            "weight": null,
+            "text": {"format":"moodle", "text":"buried"},
+            "feedback": null
         },
         {
             "isCorrect": true,
-
-            "formattedText": {"format":"moodle", "text":"entombed"}
+            "weight": null,
+            "text": {"format":"moodle", "text":"entombed"},
+            "feedback": null
         },
         {
             "isCorrect": false,
-
-            "formattedText": {"format":"moodle", "text":"living"}
+            "weight": null,
+            "text": {"format":"moodle", "text":"living"},
+            "feedback": null
         }
     ]
 }]

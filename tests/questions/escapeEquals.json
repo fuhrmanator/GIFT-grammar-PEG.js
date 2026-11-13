@@ -1,23 +1,26 @@
 [{
-
-
+		"id" : null,
+		"tags" : null,
 		"type": "MC",
-
-		"formattedStem": {"format":"moodle", "text":"Which answer equals 5?"},
-
+		"title": null,
+		"stem": {"format":"moodle", "text":"Which answer equals 5?"},
+		"globalFeedback": null,
 		"hasEmbeddedAnswers": false,
 		"choices": [{
 				"isCorrect": false,
-
-				"formattedText": {"format":"moodle", "text":"= 2 + 2"}
+				"weight": null,
+				"text": {"format":"moodle", "text":"= 2 + 2"},
+				"feedback": null
 			}, {
 				"isCorrect": true,
-
-				"formattedText": {"format":"moodle", "text":"= 2 + 3"}
+				"weight": null,
+				"text": {"format":"moodle", "text":"= 2 + 3"},
+				"feedback": null
 			}, {
 				"isCorrect": false,
-
-				"formattedText": {"format":"moodle", "text":"= 2 + 4"}
+				"weight": null,
+				"text": {"format":"moodle", "text":"= 2 + 4"},
+				"feedback": null
 			}
 		]
 	}
